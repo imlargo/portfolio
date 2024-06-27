@@ -1,18 +1,18 @@
 <script>
-	import '$styles/app.css';
 	import Nav from '$src/lib/components/UI/Nav/Nav.svelte';
 	import Footer from '$components/UI/Footer.svelte';
 </script>
 
-<section class="mx-auto w-full md:max-w-screen-sm lg:max-w-screen-lg">
-	<Nav />
+<svelte:head>
+	<title>About</title>
+</svelte:head>
 
-	<main class="py-20">
-		<slot />
-	</main>
-
-	<Footer />
+<section>
+	<h1>Blog</h1>
+    <h1>Actualmente este sitio se encuentra en construccion :P</h1>
 </section>
 
 <style lang="scss">
 </style>
+
+
