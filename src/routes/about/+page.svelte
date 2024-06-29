@@ -45,7 +45,7 @@
 		</section>
 
 		<section class="col-span-1">
-			<div class="flex justify-end">
+			<div class="">
 				<img
 					src="https://media.licdn.com/dms/image/D4E03AQH8qCs5Z5PqaA/profile-displayphoto-shrink_800_800/0/1697915419824?e=1724889600&v=beta&t=11qxae0A7GBis-cdKjuA-WWnfweJ59mh2Up1kNg6PAs"
 					alt="imlargo"
@@ -53,6 +53,29 @@
 				/>
 			</div>
 
+			<div class="flex flex-col gap-3 mt-4">
+				<a href="https://github.com/imlargo" class="flex gap-3">
+					<i class="bi bi-github"></i>
+					<span>Seguir en GitHub</span>
+				</a>
+
+				<a href="https://www.instagram.com/imlargo" class="flex gap-3">
+					<i class="bi bi-instagram"></i>
+					<span>Seguir en Instagram</span>
+				</a>
+
+				<a href="https://www.linkedin.com/in/imlargo" class="flex gap-3">
+					<i class="bi bi-linkedin"></i>
+					<span>Seguir en Linkedin</span>
+				</a>
+
+				<hr class="my-3" />
+
+				<a href="mailto:spencer@planetaria.tech" target="_blank">
+					<i class="bi bi-envelope"></i>
+					<span>jclargob@gmail.com</span>
+				</a>
+			</div>
 		</section>
 	</main>
 </section>
