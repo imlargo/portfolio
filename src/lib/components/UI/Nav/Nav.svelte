@@ -7,7 +7,7 @@
 
 <nav class="flex py-4 justify-between items-center">
 	<div class="flex basis-1/3 align-center">
-		<span use:textEffectAction data-value="imlargo" class="font-mono text-3xl">imlargo</span>
+		<a use:textEffectAction data-value="imlargo" class="font-mono text-3xl select-none" href="/">imlargo</a>
 	</div>
 
 	<div class="flex basis-1/3 justify-center items-center gap-10">

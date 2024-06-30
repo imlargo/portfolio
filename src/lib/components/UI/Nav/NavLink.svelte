@@ -2,7 +2,7 @@
 	const { children, href, currentPath } = $props();
 </script>
 
-<a class:nav-link-active={href === currentPath} data-sveltekit-reload href={href}>
+<a class:nav-link-active={href === currentPath} class="select-none" data-sveltekit-reload href={href}>
 	{@render children()}
 </a>
 

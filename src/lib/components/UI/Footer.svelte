@@ -6,7 +6,8 @@
 	</section>
 
 	<section class="grid grid-cols-2">
-		<div class="flex flex-col gap-5 mt-4">
+
+		<div class="flex flex-col gap-4">
 			<span class="font-semibold">Paginas</span>
 
 			<a href="/" class="flex gap-3">
@@ -22,8 +23,8 @@
 			</a>
 		</div>
 
-		<div class="flex flex-col gap-5 mt-4">
-			<span class="font-semibold">Sigueme</span>
+		<div class="flex flex-col gap-4">
+			<span class="font-semibold">Redes</span>
 
 			<a href="https://github.com/imlargo" class="flex gap-3">
 				<i class="bi bi-github"></i>

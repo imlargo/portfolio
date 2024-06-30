@@ -84,7 +84,7 @@
 			repo="https://github.com/imlargo/pegaso"
 			title="Pegaso"
 		>
-			<span class="font-base-600">
+			<span>
 				Una aplicación diseñada para la creación de horarios y enfocada en brindar información
 				esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.
 			</span>
@@ -95,7 +95,7 @@
 			repo="https://github.com/imlargo/pegaso"
 			title="MinasBot"
 		>
-			<span class="font-base-600">
+			<span>
 				ChatBot de WhatsApp desarrollado en Node.js con el objetivo de automatizar respuestas a
 				preguntas frecuentes, distribuir información y gestionar procesos administrativos.
 			</span>
@@ -106,7 +106,7 @@
 			repo="https://github.com/imlargo/pegaso"
 			title="ODPI Observatorio."
 		>
-			<span class="font-base-600">
+			<span>
 				Contribuí voluntariamente al desarrollo de un sistema de información web que visibiliza el
 				estado de los hechos de violencia contra los pueblos indígenas de Colombia.
 			</span>
@@ -117,9 +117,9 @@
 			repo="https://github.com/imlargo/pegaso"
 			title="Plataforma de enseñanza"
 		>
-			<span class="font-base-600">
+			<span>
 				En mi tiempo libre me dedico a trabajar en una plataforma educativa diseñada para enseñar a
-				conceptos de geometría vectorial a través de animaciones creadas con Python y Manim.
+				conceptos de geometría vectorial a través de animaciones.
 			</span>
 		</ProyectCard>
 	</div>
@@ -186,19 +186,5 @@
 		}
 	}
 
-	.subrayado {
-		position: relative;
-
-		&::after {
-			content: '';
-			position: absolute;
-			width: 100%;
-			bottom: 0rem;
-			left: 0;
-			height: 1.5rem;
-			z-index: -1;
-
-			background-color: #edc7ff;
-		}
-	}
+	
 </style>

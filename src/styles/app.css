@@ -32,3 +32,19 @@ body {
 .font-base-600 {
     @apply space-y-7 text-base text-slate-600 leading-relaxed;
 }
+
+.subrayado {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        bottom: 0rem;
+        left: 0;
+        height: 1.5rem;
+        z-index: -1;
+
+        background-color: #edc7ff;
+    }
+}
