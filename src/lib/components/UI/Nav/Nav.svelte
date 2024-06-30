@@ -15,7 +15,7 @@
 		<NavLink currentPath={$page.url.pathname} href="/blog">Blog</NavLink>
 	</div>
 
-	<div class="flex basis-1/3 justify-end items-center gap-5">
+	<div class="flex basis-1/3 justify-end items-center gap-7">
 		<NavSocial icon="bi bi-github" href="https://github.com/imlargo" />
 		<NavSocial icon="bi bi-instagram" href="https://www.instagram.com/imlargo" />
 		<NavSocial icon="bi bi-linkedin" href="https://www.linkedin.com/in/imlargo" />

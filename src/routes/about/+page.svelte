@@ -6,10 +6,10 @@
 </svelte:head>
 
 <section>
-	<main class="grid grid-cols-2">
-		<section class="col-span-1">
-			<h1 class="text-5xl font-bold tracking-tight text-zinc-800">Hi, imlargo.</h1>
-			<div class="mt-6 space-y-7 text-base text-zinc-600 leading-relaxed">
+	<main class="grid grid-cols-5">
+		<section class="col-span-3">
+			<h1 class="text-7xl font-bold tracking-tight">Acerca de mi</h1>
+			<div class="mt-6 space-y-7 text-base text-pretty text-zinc-600 leading-relaxed w-10/12">
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
 					ut labore et dolore magna aliqua. Scelerisque purus semper eget duis at. At varius vel
@@ -44,7 +44,7 @@
 			</div>
 		</section>
 
-		<section class="col-span-1">
+		<section class="col-span-2">
 			<div class="">
 				<img
 					src="https://media.licdn.com/dms/image/D4E03AQH8qCs5Z5PqaA/profile-displayphoto-shrink_800_800/0/1697915419824?e=1724889600&v=beta&t=11qxae0A7GBis-cdKjuA-WWnfweJ59mh2Up1kNg6PAs"

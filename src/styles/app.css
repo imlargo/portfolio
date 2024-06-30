@@ -20,3 +20,15 @@ body {
 .font-mono {
     font-family: "JetBrains Mono", monospace!important;
 }
+
+.font-base {
+    @apply space-y-7 text-base leading-relaxed;
+}
+
+.font-base-800 {
+    @apply space-y-7 text-base text-slate-800 leading-relaxed;
+}
+
+.font-base-600 {
+    @apply space-y-7 text-base text-slate-600 leading-relaxed;
+}
