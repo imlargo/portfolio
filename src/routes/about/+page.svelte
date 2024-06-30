@@ -10,37 +10,23 @@
 		<section class="col-span-3">
 			<h1 class="text-7xl font-bold tracking-tight">Acerca de mi</h1>
 			<div class="mt-6 space-y-7 text-base text-pretty text-zinc-600 leading-relaxed w-10/12">
+				
+				
+
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Scelerisque purus semper eget duis at. At varius vel
-					pharetra vel turpis nunc eget. Amet facilisis magna etiam tempor orci eu lobortis
-					elementum. Gravida rutrum quisque non tellus orci ac auctor augue mauris. Euismod in
-					pellentesque massa placerat duis ultricies. Vitae auctor eu augue ut lectus. Ligula
-					ullamcorper malesuada proin libero. Lectus vestibulum mattis ullamcorper velit sed
-					ullamcorper morbi. Pellentesque elit eget gravida cum sociis natoque.
+					¡Hola! Soy Juan Carlos Largo, aunque quiza me conozcas como <span class="font-mono">@imlargo</span>. Soy un desarrollador de software, pero antes que nada, soy una persona con intereses y experiencias que van más allá de la programacion. Bienvenido a mi espacio personal!, donde comparto más sobre mi.
 				</p>
 				<p>
-					Adipiscing vitae proin sagittis nisl rhoncus. Et leo duis ut diam quam. Eget nunc lobortis
-					mattis aliquam faucibus purus. Malesuada fames ac turpis egestas integer. Amet venenatis
-					urna cursus eget nunc scelerisque viverra mauris in. Justo donec enim diam vulputate ut
-					pharetra sit amet. Eget sit amet tellus cras adipiscing. Dictum non consectetur a erat nam
-					at lectus. Praesent elementum facilisis leo vel fringilla est. Pretium nibh ipsum
-					consequat nisl. Donec ac odio tempor orci dapibus ultrices in iaculis. Aenean pharetra
-					magna ac placerat vestibulum lectus mauris. Ac turpis egestas integer eget aliquet nibh
-					praesent tristique magna. Cursus turpis massa tincidunt dui ut ornare. Porta lorem mollis
-					aliquam ut porttitor leo a. Ut morbi tincidunt augue interdum. Aliquam vestibulum morbi
-					blandit cursus.
+					Además del desarrollo de software, tengo una variedad de intereses que me apasionan. Intento siempre encontrar tiempo para nadar, lo cual me mantiene motivado y energizado. Me encanta escuchar música, comer pizza, ver atardeceres y salir a caminar para relajarme y distraerme. Estas actividades me ayudan a mantener el equilibrio y a inspirarme para mis proyectos profesionales mientras disfruto aprendiendo cosas nuevas.
 				</p>
 				<p>
-					Lectus urna duis convallis convallis tellus id interdum velit laoreet. Lacus luctus
-					accumsan tortor posuere ac ut consequat semper. Sed faucibus turpis in eu mi bibendum
-					neque. Rhoncus dolor purus non enim praesent elementum facilisis. Mauris rhoncus aenean
-					vel elit scelerisque. Commodo quis imperdiet massa tincidunt. Semper quis lectus nulla at
-					volutpat diam. Ipsum dolor sit amet consectetur adipiscing elit. Nibh nisl condimentum id
-					venenatis a condimentum. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat
-					pretium. Tempor nec feugiat nisl pretium fusce id velit. Amet volutpat consequat mauris
-					nunc congue. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+					Siempre he pensado que saber de programación es cómo hacer magia en el mundo moderno, y es por eso que me encanta usar esta “magia” para crear soluciones que sean útiles y, sobre todo, que aporten un verdadero valor. En los próximos años, espero seguir aprendiendo, creciendo tanto personal como profesionalmente y sobre todo creando.
 				</p>
+
+				<p>
+					Y finalmente gracias por tomarte el tiempo de leer un poco sobre mí. Si quieres saber más o simplemente charlar, no dudes en contactarme. ¡Estoy siempre abierto a nuevas conexiones y oportunidades!
+				</p>
+				
 			</div>
 		</section>
 
