@@ -9,11 +9,11 @@
 	<title>About</title>
 </svelte:head>
 
-<section class="mb-20 py-20">
-	<span class="font-mono text-slate-800">Software Developer, UI/UX Designer</span>
-	<h1 class="text-7xl font-bold mt-4 mb-5">Hi, <span class="subrayado">imlargo</span>!</h1>
+<section class="mb-32 py-20">
+	<span class="font-mono text-slate-800">Software Developer, UI/UX Designer.</span>
+	<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
 
-	<p class="mt-4 font-base-600 text-pretty w-2/3">
+	<p class="mt-6 font-base-600 text-pretty w-2/3">
 		Experiencia en frontend, backend, web scraping y automatización. Enfocado en el desarrollo web.
 		Entre mis logros destaca la creación de proyectos personales que han tenido un impacto positivo
 		significativo en la comunidad universitaria.
@@ -21,13 +21,13 @@
 
 	<div class="flex items-center gap-7 mt-4">
 		<a
-			class="items-center rounded-full bg-purple-50 px-4 py-2 text-xs font-medium text-purple-600 ring-1 ring-inset ring-purple-700/10"
+			class="items-center rounded-full bg-purple-50 px-4 py-1.5 text-xs font-medium text-purple-600 ring-1 ring-inset ring-purple-700/10"
 			href="/"
 		>
 			<span>Descargar CV</span>
 		</a>
 
-		<div class="inline-block self-stretch w-px min-h-[1em] bg-neutral-200"></div>
+		<div class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-200"></div>
 
 		<a href="https://github.com/imlargo">
 			<i class="bi bi-github"></i>

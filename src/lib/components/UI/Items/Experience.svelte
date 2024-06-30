@@ -1,7 +1,5 @@
 <script>
-
 	const { cargo, fecha, children } = $props();
-
 </script>
 
 

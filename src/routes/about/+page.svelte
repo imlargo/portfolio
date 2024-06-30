@@ -10,10 +10,8 @@
 		<section class="col-span-3">
 			<h1 class="text-7xl font-bold tracking-tight">Acerca de mi</h1>
 			<div class="mt-6 space-y-7 text-base text-pretty text-zinc-600 leading-relaxed w-10/12">
-				
-				
-
 				<p>
+					
 					¡Hola! Soy Juan Carlos Largo, aunque quiza me conozcas como <span class="font-mono">@imlargo</span>. Soy un desarrollador de software, pero antes que nada, soy una persona con intereses y experiencias que van más allá de la programacion. Bienvenido a mi espacio personal!, donde comparto más sobre mi.
 				</p>
 				<p>

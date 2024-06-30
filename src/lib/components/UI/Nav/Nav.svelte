@@ -2,11 +2,12 @@
 	import { page } from '$app/stores';
 	import NavLink from '$components/UI/Nav/NavLink.svelte';
 	import NavSocial from '$components/UI/Nav/NavSocial.svelte';
+	import { textEffectAction } from '$src/lib/actions/textAction';
 </script>
 
 <nav class="flex py-4 justify-between items-center">
 	<div class="flex basis-1/3 align-center">
-		<span class="font-mono text-3xl">imlargo</span>
+		<span use:textEffectAction data-value="imlargo" class="font-mono text-3xl">imlargo</span>
 	</div>
 
 	<div class="flex basis-1/3 justify-center items-center gap-10">

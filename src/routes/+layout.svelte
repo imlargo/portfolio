@@ -10,7 +10,7 @@
 <section class="mx-auto w-full md:max-w-screen-sm lg:max-w-screen-lg">
 	<Nav />
 
-	<main class="py-20">
+	<main class="py-32">
 		<slot />
 	</main>
 
