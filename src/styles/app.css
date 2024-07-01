@@ -17,6 +17,10 @@ body {
     font-optical-sizing: auto;
 }
 
+.text-display {
+    @apply space-y-7 text-base text-pretty text-slate-600 leading-relaxed;
+}
+
 .font-mono {
     font-family: "JetBrains Mono", monospace!important;
 }

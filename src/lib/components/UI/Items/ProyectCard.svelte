@@ -1,17 +1,20 @@
 <script>
-	
-	
-	const { title, link, repo, children } = $props();
+	const { title, link, repo, stack, children } = $props();
+	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
 
-<div class="container px-7 py-7 rounded border">
+<div class="container project-card px-7 py-7 rounded-lg">
 
-	<i class="bi bi-star"></i>
+	<h5 class="font-semibold text-lg mb-2">{title}</h5>
 
-	<h5 class="font-semibold text-lg mb-2 mt-4">{title}</h5>
-
-	<div class="text-sm text-pretty text-slate-600 mb-5">
+	<div class="text-base text-pretty text-slate-600 my-4">
 		{@render children()}
+	</div>
+
+	<div class="my-4 flex gap-2">
+		{#each stack.split(",") as item}
+			<Skill icon="{item.trim()}" />
+		{/each}
 	</div>
 
 	<div class="flex justify-between">
@@ -27,3 +30,19 @@
 		{/if}
 	</div>
 </div>
+
+<style lang="scss">
+	.project-card {
+		
+		border: 1px #ffffff00 solid;
+		transition: all 0.5s ease;
+
+		border: 1px #ecd0ffcb solid;
+
+		
+		background: rgba(255, 255, 255, 0.904)
+        radial-gradient(rgba(245, 203, 255, 0.712) 10%, transparent 1%);
+    
+      background-size: 11px 11px;
+	}
+</style>

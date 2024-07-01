@@ -10,10 +10,10 @@
 </svelte:head>
 
 <section class="mb-32 py-20">
-	<span class="font-mono text-slate-800">Software Developer, UI/UX Designer.</span>
+	<span class="font-mono tracking-tight text-slate-800">Software Developer, UI/UX Designer.</span>
 	<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
 
-	<p class="mt-6 font-base-600 text-pretty w-2/3">
+	<p class="mt-6 text-display w-2/3">
 		Experiencia en frontend, backend, web scraping y automatización. Enfocado en el desarrollo web.
 		Entre mis logros destaca la creación de proyectos personales que han tenido un impacto positivo
 		significativo en la comunidad universitaria.
@@ -44,13 +44,19 @@
 </section>
 
 <section id="experiencia py-20 my-20">
-	<h3 class="text-3xl font-semibold mb-2">Experiencia</h3>
-	<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
+	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Experiencia</h3>
+
+	<p class="text-display">
+		Take a look below at some of my featured work for clients from the past few years.
+	</p>
+
+	<ul class="experience-list gap-12 py-2 before:absolute after:absolute mt-5">
 		<ExperienceCard
 			cargo="Universidad Nacional de Colombia, Estudiante Auxiliar."
 			fecha="Enero de 2024 - Actualidad. (Medellín, Colombia)"
+			stack="Javascript, HTML, CSS, Bootstrap, Firebase"
 		>
-			<span class="font-base-800">
+			<span>
 				Diseñar y desarrollar una aplicación web para la Vicedecanatura de la Facultad de Minas, con
 				el objetivo de optimizar el registro y la gestión de prácticas de campo en toda la facultad.
 				Algunas de las funcionalidades incluyen inicio de sesión, gestión de usuarios, bases de
@@ -61,8 +67,9 @@
 		<ExperienceCard
 			cargo="Universidad Nacional de Colombia, Estudiante Auxiliar."
 			fecha="Noviembre de 2023 - Diciembre 2023. (Medellín, Colombia)"
+			stack="Javascript, Python, Apps Script"
 		>
-			<span class="font-base-800">
+			<span>
 				Identificación y resolución de problemas a través de soluciones con Apps Script y Python
 				para la automatización de tareas repetitivas, enfocadas en incrementar la eficiencia
 				operativa y reducir el trabajo manual.
@@ -72,9 +79,9 @@
 </section>
 
 <section class="py-20" id="proyectos">
-	<h3 class="text-3xl font-semibold mb-2">Proyectos</h3>
+	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Proyectos</h3>
 
-	<p class="font-base-800 w-2/3 text-pretty">
+	<p class="text-display w-2/3">
 		Algunos de los proyectos personales en los que he estoy o he estado trabajando.
 	</p>
 
@@ -83,6 +90,7 @@
 			link="https://pegaso.imlargo.dev"
 			repo="https://github.com/imlargo/pegaso"
 			title="Pegaso"
+			stack="Svelte, Tailwind, MongoDB, NodeJs, Javascript"
 		>
 			<span>
 				Una aplicación diseñada para la creación de horarios y enfocada en brindar información
@@ -94,6 +102,7 @@
 			link="https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles"
 			repo="https://github.com/imlargo/pegaso"
 			title="MinasBot"
+			stack="NodeJs, Javascript"
 		>
 			<span>
 				ChatBot de WhatsApp desarrollado en Node.js con el objetivo de automatizar respuestas a
@@ -105,6 +114,7 @@
 			link="https://odpiobservatorio.vercel.app"
 			repo="https://github.com/imlargo/pegaso"
 			title="ODPI Observatorio."
+			stack="HTML, CSS, Javascript, Firebase, Leaflet"
 		>
 			<span>
 				Contribuí voluntariamente al desarrollo de un sistema de información web que visibiliza el
@@ -116,6 +126,7 @@
 			link="https://vectorial.imlargo.dev"
 			repo="https://github.com/imlargo/pegaso"
 			title="Plataforma de enseñanza"
+			stack="Astro, Tailwind, Python, Markdown"
 		>
 			<span>
 				En mi tiempo libre me dedico a trabajar en una plataforma educativa diseñada para enseñar a
@@ -126,32 +137,12 @@
 </section>
 
 <section class="py-20" id="habilidades">
-	<h3 class="text-3xl font-semibold mb-2">Habilidades y tecnologias</h3>
-
-	<div class="grid gap-4 grid-cols-2 lg:grid-cols-3 mt-5">
-		<Skill icon="js">JavaScript</Skill>
-		<Skill icon="py">Python</Skill>
-		<Skill icon="java">Java</Skill>
-		<Skill icon="go">Golang</Skill>
-		<Skill icon="mongodb">MongoDB</Skill>
-		<Skill icon="nodejs">NodeJs</Skill>
-		<Skill icon="firebase">Firebase</Skill>
-		<Skill icon="svelte">Svelte</Skill>
-		<Skill icon="astro">Astro</Skill>
-		<Skill icon="html">HTML</Skill>
-		<Skill icon="css">CSS</Skill>
-		<Skill icon="sass">SCSS</Skill>
-		<Skill icon="tailwind">Tailwind</Skill>
-		<Skill icon="bootstrap">Bootstrap</Skill>
-		<Skill icon="git">Git</Skill>
-		<Skill icon="github">GitHub</Skill>
-		<Skill icon="githubactions">GitHub Actions</Skill>
-		<Skill icon="figma">Figma</Skill>
-	</div>
+	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Habilidades y tecnologias</h3>
+	<img src="https://skillicons.dev/icons?i=js,py,go,java,svelte,astro,html,css,sass,bootstrap,tailwind,nodejs,firebase,mongodb,figma,latex,githubactions&theme=dark" />
 </section>
 
 <section class="py-20" id="educacion">
-	<h3 class="text-3xl font-semibold mb-2">Formacion</h3>
+	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Formacion</h3>
 	<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
 		<EducationItem />
 
@@ -167,7 +158,7 @@
 
 		&::before {
 			position: absolute;
-			top: 0px;
+			top: 1.5rem;
 			height: 100%;
 			transform: translateX(-50%);
 
