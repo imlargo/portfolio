@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>imlargo</title>
 </svelte:head>
 
 <section class="mb-32 py-20">

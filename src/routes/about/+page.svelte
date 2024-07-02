@@ -2,7 +2,7 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>imlargo - About</title>
 </svelte:head>
 
 <section>
