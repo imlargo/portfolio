@@ -14,59 +14,58 @@
     }
 
     .javascript {
-        --tw-ring-color: #f7df1e;
+        --tw-ring-color: #f0db4f;
     }
     .python {
-        --tw-ring-color: #3056ff;
+        --tw-ring-color: #366f9f;
     }
     .java {
-        --tw-ring-color: #ff3b3b;
+        --tw-ring-color: #f58219;
     }
     .golang {
-        --tw-ring-color: #31d6ff;
+        --tw-ring-color: #00b4e0;
     }
     .mongodb {
-        --tw-ring-color: #8bff68;
+        --tw-ring-color: #10aa50;
     }
     .nodejs {
-        --tw-ring-color: #fff352;
+        --tw-ring-color: #81cd39;
     }
     .firebase {
-        --tw-ring-color: #fcff54;
+        --tw-ring-color: #ffcc30;
     }
     .svelte {
-        --tw-ring-color: #ff8522;
+        --tw-ring-color: #ff3e00;
     }
     .astro {
-        --tw-ring-color: #914dff;
+        --tw-ring-color: #ff5904;
     }
     .html {
-        --tw-ring-color: #ff3c3c;
+        --tw-ring-color: #e14e1d;
     }
     .css {
-        --tw-ring-color: #1c86ff;
+        --tw-ring-color: #0277bd;
     }
     .scss {
-        --tw-ring-color: #ff63f2;
+        --tw-ring-color: #cd6799;
     }
     .tailwind {
-        --tw-ring-color: #65adff;
+        --tw-ring-color: #29b8be;
     }
     .bootstrap {
-        --tw-ring-color: #9829ff;
+        --tw-ring-color: #7511f7;
     }
     .git {
-        --tw-ring-color: #000000;
+        --tw-ring-color: #f03c2e;
     }
     .github {
-        --tw-ring-color: #000000;
+        --tw-ring-color: #242938;
     }
     .githubactions {
-        --tw-ring-color: #000000;
+        --tw-ring-color: #2084f5;
     }
     .figma {
         --tw-ring-color: #000000;
     }
-
     
 </style>
