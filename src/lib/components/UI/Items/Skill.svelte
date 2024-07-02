@@ -1,27 +1,5 @@
 <script>
     const { icon } = $props();
-
-    const icons = {
-        "javascript": "#fff",
-        "python": "#fff",
-        "java": "#fff",
-        "golang": "#fff",
-        "mongodb": "#fff",
-        "nodejs": "#fff",
-        "firebase": "#fff",
-        "svelte": "#fff",
-        "astro": "#fff",
-        "html": "#fff",
-        "css": "#fff",
-        "scss": "#fff",
-        "tailwind": "#fff",
-        "bootstrap": "#fff",
-        "git": "#fff",
-        "github": "#fff",
-        "githubactions": "#fff",
-        "figma": "#fff",
-    };
-
 </script>
 
 <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium gap-1 text-gray-600 ring-1 ring-inset ring-gray-500/10">
@@ -36,7 +14,7 @@
     }
 
     .javascript {
-        --tw-ring-color: #fff23f;
+        --tw-ring-color: #f7df1e;
     }
     .python {
         --tw-ring-color: #3056ff;
