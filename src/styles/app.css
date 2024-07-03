@@ -1,3 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11" !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
+}
+
+.text-display {
+    @apply text-base text-pretty text-slate-600 leading-relaxed;
+}
+
+.font-mono {
+    font-family: "JetBrains Mono", monospace!important;
+}
+
+.font-base {
+    @apply space-y-7 text-base leading-relaxed;
+}
+
+.font-base-800 {
+    @apply space-y-7 text-base text-slate-800 leading-relaxed;
+}
+
+.font-base-600 {
+    @apply space-y-7 text-base text-slate-600 leading-relaxed;
+}
+
+.subrayado {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        bottom: 0rem;
+        left: 0;
+        height: 1.5rem;
+        z-index: -1;
+
+        background-color: #edc7ff;
+    }
+}
