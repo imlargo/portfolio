@@ -5,20 +5,20 @@
 
 <div class="container project-card px-7 py-7 rounded-lg">
 
-	<h5 class="font-semibold text-lg mb-2">{title}</h5>
+	<h5 class="font-semibold text-lg">{title}</h5>
 
-	<div class="text-base text-pretty text-slate-600 my-4">
+	<p class="text-base text-pretty text-slate-600 mt-2 mb-5">
 		{@render children()}
-	</div>
+	</p>
 
-	<div class="my-4 flex gap-2">
+	<div class="flex gap-2 flex-wrap">
 		{#each stack.split(",") as item}
 			<Skill icon="{item.trim()}" />
 		{/each}
 	</div>
 
-	<div class="flex justify-between">
-		<a class="truncate text-slate-500 w-5/6" href={link} target="_blank">
+	<div class="flex justify-between mt-5">
+		<a class="truncate text-slate-600 w-5/6" href={link} target="_blank">
 			<i class="bi bi-link-45deg"></i>
 			<span>{link.replace('https://', '')}</span>
 		</a>
@@ -33,7 +33,6 @@
 
 <style lang="scss">
 	.project-card {
-		
 		border: 1px #ffffff00 solid;
 		transition: all 0.5s ease;
 
