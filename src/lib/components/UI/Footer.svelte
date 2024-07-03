@@ -8,42 +8,38 @@
 	<section class="grid grid-cols-2">
 
 		<div class="flex flex-col gap-4">
-			<span class="font-semibold">Paginas</span>
+			<span class="font-medium">Paginas</span>
 
-			<a href="/" class="flex gap-3">
+			<a href="/" class="flex gap-3 text-gray-600">
 				<span>Home</span>
 			</a>
 
-			<a href="/about" class="flex gap-3">
+			<a href="/about" class="flex gap-3 text-gray-600">
 				<span>About</span>
-			</a>
-
-			<a href="/blog" class="flex gap-3">
-				<span>Blog</span>
 			</a>
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<span class="font-semibold">Redes</span>
+			<span class="font-medium">Redes</span>
 
-			<a href="https://github.com/imlargo" class="flex gap-3">
+			<a href="https://github.com/imlargo" class="flex gap-3 ">
 				<i class="bi bi-github"></i>
-				<span>GitHub</span>
+				<span class="text-gray-600">GitHub</span>
 			</a>
 
-			<a href="https://www.instagram.com/imlargo" class="flex gap-3">
+			<a href="https://www.instagram.com/imlargo" class="flex gap-3 ">
 				<i class="bi bi-instagram"></i>
-				<span>Instagram</span>
+				<span class="text-gray-600">Instagram</span>
 			</a>
 
-			<a href="https://www.linkedin.com/in/imlargo" class="flex gap-3">
+			<a href="https://www.linkedin.com/in/imlargo" class="flex gap-3 ">
 				<i class="bi bi-linkedin"></i>
-				<span>LinkedIn</span>
+				<span class="text-gray-600">LinkedIn</span>
 			</a>
 
-			<a href="mailto:spencer@planetaria.tech" class="flex gap-3">
+			<a href="mailto:spencer@planetaria.tech" class="flex gap-3 ">
 				<i class="bi bi-envelope"></i>
-				<span>Email</span>
+				<span  class="text-gray-600">Email</span>
 			</a>
 		</div>
 	</section>

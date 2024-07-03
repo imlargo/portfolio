@@ -126,7 +126,7 @@
 	</ul>
 </section>
 
-<section class="py-20" id="proyectos">
+<section class="pt-32" id="proyectos">
 	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Proyectos</h3>
 
 	<p class="text-display w-2/3">
@@ -176,6 +176,7 @@
 	</div>
 </section>
 
+<!--
 <section class="py-20" id="habilidades">
 	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Habilidades y tecnologias</h3>
 	<img
@@ -191,6 +192,7 @@
 		<EducationItem />
 	</ul>
 </section>
+-->
 
 <style lang="scss">
 	.experience-list {
