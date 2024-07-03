@@ -3,6 +3,24 @@
 	import Nav from '$src/lib/components/UI/Nav/Nav.svelte';
 	import Footer from '$components/UI/Footer.svelte';
 	import Seo from '$src/lib/components/Seo.svelte';
+
+	import { onNavigate } from '$app/navigation'
+	
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) {
+			console.log("ups");
+			return;
+		}
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve()
+				await navigation.complete
+			});
+		});
+	});
 </script>
 
 <Seo />
