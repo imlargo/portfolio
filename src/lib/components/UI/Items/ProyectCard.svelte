@@ -43,6 +43,6 @@
 		background: rgba(255, 255, 255, 0.904)
         radial-gradient(rgba(245, 203, 255, 0.712) 10%, transparent 1%);
     
-      background-size: 11px 11px;
+      background-size: 7px 7px;
 	}
 </style>
