@@ -21,7 +21,7 @@
         border-radius: 50%;
 		background: linear-gradient(to right, rgb(172, 142, 255), rgb(239, 117, 255));
 		opacity: 0.3;
-		animation: rotate 10s infinite linear;
+		animation: rotate 5s infinite linear;
 
 		filter: blur(70px);
 

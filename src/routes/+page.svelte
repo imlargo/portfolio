@@ -12,7 +12,7 @@
 
 <section class="grid grid-cols-3 mb-32 py-20">
 	<div class="col-span-2">
-		<span class="font-mono tracking-tight text-slate-600">Software Developer, UI/UX Designer.</span>
+		<span class="font-mono tracking-tight text-zinc-400">Software Developer, UI/UX Designer.</span>
 		<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
 
 		<p class="mt-7 text-display">
@@ -22,8 +22,9 @@
 		</p>
 
 		<div class="flex items-center gap-7 mt-7">
+			
 			<a
-				class="items-center rounded-full bg-purple-50 px-4 py-1.5 text-xs font-medium text-purple-600 ring-1 ring-inset ring-purple-700/10"
+				class="items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black ring-1 ring-inset ring-purple-700/10"
 				href="/"
 			>
 				<span>Ver Curriculum</span>
@@ -51,7 +52,7 @@
 </section>
 
 <section id="experiencia" class="">
-	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Experiencia</h3>
+	<h3 class="text-4xl tracking-tight font-bold mb-5">Experiencia</h3>
 
 	<p class="text-display">
 		Take a look below at some of my featured work for clients from the past few years.
@@ -59,9 +60,10 @@
 
 	<ul class="experience-list gap-12 py-2 before:absolute after:absolute mt-5">
 		<ExperienceCard
-			cargo="Universidad Nacional de Colombia, Estudiante Auxiliar."
+			cargo="Estudiante Auxiliar"
 			fecha="Enero de 2024 - Actualidad. (Medellín, Colombia)"
 			stack="Javascript, HTML, CSS, Bootstrap, Firebase"
+			lugar="Universidad Nacional de Colombia"
 		>
 			<h5 class="font-medium mb-1">Responsabilidades</h5>
 
@@ -98,9 +100,10 @@
 		</ExperienceCard>
 
 		<ExperienceCard
-			cargo="Universidad Nacional de Colombia, Estudiante Auxiliar."
+			cargo="Estudiante Auxiliar"
 			fecha="Noviembre de 2023 - Diciembre 2023. (Medellín, Colombia)"
 			stack="Javascript, Python, Apps Script"
+			lugar="Universidad Nacional de Colombia"
 		>
 		<h5 class="font-medium mb-1">Responsabilidades</h5>
 
@@ -127,7 +130,7 @@
 </section>
 
 <section class="pt-32" id="proyectos">
-	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Proyectos</h3>
+	<h3 class="text-4xl tracking-tight font-bold mb-5">Proyectos</h3>
 
 	<p class="text-display w-2/3">
 		Algunos de los proyectos personales en los que he estoy o he estado trabajando.
@@ -158,7 +161,7 @@
 			link="https://odpiobservatorio.vercel.app"
 			repo="https://github.com/imlargo/pegaso"
 			title="ODPI Observatorio."
-			stack="HTML, CSS, Javascript, Firebase, Leaflet"
+			stack="Javascript, HTML, CSS, Firebase, Leaflet"
 		>
 			Contribuí voluntariamente al desarrollo de un sistema de información web que visibiliza el
 			estado de los hechos de violencia contra los pueblos indígenas de Colombia.
@@ -207,7 +210,7 @@
 			transform: translateX(-50%);
 
 			border-width: 1px;
-			border-color: rgba(246, 212, 255, 0.5);
+			border-color: #2b2b2b;
 			border-style: dashed;
 		}
 
@@ -217,7 +220,7 @@
 			bottom: 1.5rem;
 			transform: translateX(-50%);
 			border-width: 1px;
-			border-color: #f6d4ff;
+			border-color: #2b2b2b;
 		}
 	}
 </style>
