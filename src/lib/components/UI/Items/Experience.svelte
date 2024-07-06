@@ -1,18 +1,21 @@
 <script>
-	const { cargo, fecha, stack, children } = $props();
+	const { cargo, fecha, lugar, stack, children } = $props();
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
 
 
 <li class="relative pl-7 before:absolute">
-	<div class="flex flex-col flex-1 gap-2">
-		<h5 class="font-semibold">{cargo}</h5>
-		<span class="text-sm text-gray-500 font-mono">{fecha}</span>
-		<div class="mt-1 mb-4 text-pretty text-base text-slate-800">
+	<div class="flex flex-col flex-1 pb-4">
+		<span class="text-sm text-zinc-500 font-mono">{fecha}</span>
+
+		<h5 class="font-medium text-zinc-200 mt-3">{cargo}</h5>
+		<span class="text-sm text-zinc-500">{lugar}</span>
+
+		<div class="mt-3 mb-4 text-pretty text-base text-zinc-400">
 			{@render children()}
 		</div>
 		
-		<div class="flex gap-2">
+		<div class="flex gap-2 mt-3">
 			{#each stack.split(",") as item}
 				<Skill icon="{item.trim()}" />
 			{/each}
@@ -31,9 +34,9 @@
 			width: 0.5rem;
 			transform: translateX(-50%);
 			border-radius: 9999px;
-			background-color: rgb(192, 55, 255);
-			box-shadow: var(--tw-ring-inset) 0 0 0 calc(0.2rem + var(--tw-ring-offset-width))
-				rgb(255 255 255);
+			background-color: #2b2b2b;
+			box-shadow: var(--tw-ring-inset) 0 0 0 calc(0.3rem + var(--tw-ring-offset-width))
+				#171719;
 		}
 	}
 </style>

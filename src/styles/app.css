@@ -15,10 +15,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-optical-sizing: auto;
+    background-color: #171719;
+    color: #fff;
 }
 
 .text-display {
-    @apply text-base text-pretty text-slate-600 leading-relaxed;
+    @apply text-base text-pretty text-zinc-400 leading-relaxed;
 }
 
 .font-mono {
@@ -30,11 +32,11 @@ body {
 }
 
 .font-base-800 {
-    @apply space-y-7 text-base text-slate-800 leading-relaxed;
+    @apply space-y-7 text-base text-zinc-400 leading-relaxed;
 }
 
 .font-base-600 {
-    @apply space-y-7 text-base text-slate-600 leading-relaxed;
+    @apply space-y-7 text-base text-zinc-400 leading-relaxed;
 }
 
 .subrayado {
@@ -49,6 +51,6 @@ body {
         height: 1.5rem;
         z-index: -1;
 
-        background-color: #edc7ff;
+        background-color: #9630e9;
     }
 }

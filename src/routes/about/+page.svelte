@@ -9,7 +9,7 @@
 	<main class="grid grid-cols-5">
 		<section class="col-span-3">
 			<h1 class="text-7xl font-bold tracking-tight subrayado max-w-max">Acerca de mi</h1>
-			<div class="mt-6 space-y-7 text-base text-pretty text-zinc-600 leading-relaxed w-10/12">
+			<div class="mt-6 space-y-7 text-base text-pretty text-zinc-400 leading-relaxed w-10/12">
 				<p>
 					¡Hola! Soy Juan Carlos Largo, aunque quiza me conozcas como <span class="font-mono"
 						>@imlargo</span
@@ -49,26 +49,26 @@
 			</div>
 
 			<div class="flex flex-col gap-4 mt-8">
-				<a class="flex gap-3 max-w-fit" target="_blank" href="https://github.com/imlargo">
+				<a class="flex gap-3 max-w-fit text-zinc-400" target="_blank" href="https://github.com/imlargo">
 					<i class="bi bi-github"></i>
-					<span class="text-slate-600">Seguir en GitHub</span>
+					<span class="">Seguir en GitHub</span>
 				</a>
 
-				<a class="flex gap-3 max-w-fit" target="_blank" href="https://www.instagram.com/imlargo">
+				<a class="flex gap-3 max-w-fit text-zinc-400" target="_blank" href="https://www.instagram.com/imlargo">
 					<i class="bi bi-instagram"></i>
-					<span class="text-slate-600">Seguir en Instagram</span>
+					<span class="">Seguir en Instagram</span>
 				</a>
 
-				<a class="flex gap-3 max-w-fit" target="_blank" href="https://www.linkedin.com/in/imlargo">
+				<a class="flex gap-3 max-w-fit text-zinc-400" target="_blank" href="https://www.linkedin.com/in/imlargo">
 					<i class="bi bi-linkedin"></i>
-					<span class="text-slate-600">Seguir en Linkedin</span>
+					<span class="">Seguir en Linkedin</span>
 				</a>
 
 				<hr class="my-2" />
 
-				<a class="flex gap-3 max-w-fit" target="_blank" href="mailto:jclargob@gmail.com">
+				<a class="flex gap-3 max-w-fit text-zinc-400" target="_blank" href="mailto:jclargob@gmail.com">
 					<i class="bi bi-envelope"></i>
-					<span class="text-slate-600">jclargob@gmail.com</span>
+					<span class="">jclargob@gmail.com</span>
 				</a>
 			</div>
 		</section>

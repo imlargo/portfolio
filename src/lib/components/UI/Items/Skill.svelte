@@ -2,12 +2,16 @@
     const { icon } = $props();
 </script>
 
-<span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium gap-1 text-gray-600 ring-1 ring-inset ring-gray-500/10">
+<span class="skill inline-flex items-center rounded-md  px-2 py-1 text-xs gap-1 text-zinc-400 ring-1 ring-inset ring-gray-100/20">
     <span class="icon {icon.toLowerCase()} rounded-full ring-1 h-1.5 w-1.5"></span>
     <span>{icon}</span>
 </span>	
 
 <style lang="scss">
+
+    .skill {
+        background-color: rgba(255, 255, 255, 0.02);
+    }
 
     .icon {
         --tw-ring-color: #4b4b4b;
