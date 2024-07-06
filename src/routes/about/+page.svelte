@@ -1,5 +1,6 @@
 <script>
 	import Container from '$src/lib/components/UI/Container.svelte';
+	import Cta from '$src/lib/components/UI/Cta.svelte';
 </script>
 
 <svelte:head>
@@ -91,6 +92,10 @@
 				</div>
 			</section>
 		</main>
+
+		<section class="mt-5">
+			<Cta />
+		</section>
 	</Container>
 </section>
 

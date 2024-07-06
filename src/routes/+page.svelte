@@ -2,9 +2,11 @@
 	import ProyectCard from '$src/lib/components/UI/Items/ProyectCard.svelte';
 	import ExperienceCard from '$src/lib/components/UI/Items/Experience.svelte';
 	import EducationItem from '$src/lib/components/UI/Items/Education.svelte';
-	import Skill from '$src/lib/components/UI/Items/Skill.svelte';
 	import Blob from '$src/lib/components/UI/Blob.svelte';
 	import Container from '$src/lib/components/UI/Container.svelte';
+	import SkillCarrousel from '$src/lib/components/UI/SkillCarrousel.svelte';
+	import Cta from '$src/lib/components/UI/Cta.svelte';
+
 </script>
 
 <svelte:head>
@@ -39,16 +41,17 @@
 	<Container>
 		<section class="grid grid-cols-3">
 			<div class="col-span-2">
-				<span class="font-mono tracking-tight text-zinc-400">Software Developer, UI/UX Designer.</span
+				<span class="font-mono tracking-tight text-zinc-400"
+					>Software Developer, UI/UX Designer.</span
 				>
 				<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
-	
+
 				<p class="mt-7 text-base text-pretty text-zinc-100 leading-relaxed">
 					Experiencia en frontend, backend, web scraping y automatización. Enfocado en el desarrollo
-					web. Entre mis logros destaca la creación de proyectos personales que han tenido un impacto
-					positivo significativo en la comunidad universitaria.
+					web. Entre mis logros destaca la creación de proyectos personales que han tenido un
+					impacto positivo significativo en la comunidad universitaria.
 				</p>
-	
+
 				<div class="flex items-center gap-7 mt-7">
 					<a
 						class="items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black ring-1 ring-inset ring-purple-700/10"
@@ -56,31 +59,31 @@
 					>
 						<span>Ver Curriculum</span>
 					</a>
-	
-					<div class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-200"></div>
-	
+
+					<div
+						class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-200"
+					></div>
+
 					<a href="https://github.com/imlargo">
 						<i class="bi bi-github"></i>
 					</a>
-	
+
 					<a href="https://www.instagram.com/imlargo">
 						<i class="bi bi-instagram"></i>
 					</a>
-	
+
 					<a href="https://www.linkedin.com/in/imlargo">
 						<i class="bi bi-linkedin"></i>
 					</a>
 				</div>
 			</div>
-	
+
 			<div class="col-span-1">
 				<Blob />
 			</div>
 		</section>
 	</Container>
 </div>
-
-
 
 <Container>
 	<section id="experiencia" class="">
@@ -216,6 +219,20 @@
 	</section>
 </Container>
 
+<Container>
+	<div class="pb-32">
+		<h3 class="text-4xl tracking-tight font-bold mb-5">Habilidades y tecnologias</h3>
+
+		<SkillCarrousel />
+	</div>
+</Container>
+
+<Container>
+	<section class="mb-32">
+		<Cta />
+	</section>
+</Container>
+
 <!--
 <section class="py-20" id="habilidades">
 	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Habilidades y tecnologias</h3>
@@ -235,6 +252,7 @@
 -->
 
 <style lang="scss">
+
 	.experience-list {
 		display: flex;
 		position: relative;
