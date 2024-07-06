@@ -13,7 +13,7 @@
 	<Nav />
 </Container>
 
-<section class="background-dots py-32">
+<section class="background-dots mask-radial py-32">
 	<Container>
 		<main class="grid grid-cols-5">
 			<section class="col-span-3">

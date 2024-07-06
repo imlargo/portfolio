@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	const { title, link, repo, stack, children } = $props();
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
@@ -32,18 +32,61 @@
 </div>
 
 <style lang="scss">
+
 	.project-card {
+
+		overflow: hidden;
+		position: relative;
 		transition: all 0.3s ease;
 		border: 1px rgba(121, 121, 121, 0.2) solid;
 		background: rgb(255, 255, 255, 0.01)
 			radial-gradient(rgb(255, 255, 255, 0.03) 10%, transparent 1%);
 		background-size: 7px 7px;
 
+		--top: -25%;
+		--right: -20%;
+
 		&:hover {
 			border: 1px rgba(121, 121, 121, 0.5) solid;
-			background: rgb(255, 255, 255, 0.05)
+			background: rgb(255, 255, 255, 0.03)
 				radial-gradient(rgb(255, 255, 255, 0.03) 10%, transparent 1%);
 			background-size: 7px 7px;
 		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: var(--top);
+			right: var(--right);
+			aspect-ratio: 1/1;
+			height: 100%;
+			width: auto;
+			z-index: -7;
+			border-radius: 999%;
+			filter: blur(45px);
+
+			background: rgba(179, 86, 255, 0.1);
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: var(--top);
+			right: var(--right);
+			aspect-ratio: 1/1;
+			height: 100%;
+			width: auto;
+			border-radius: 999%;
+    		
+    		background-image: url("$lib/assets/noise.webp");
+			background-size: 30%;
+			mix-blend-mode: overlay;
+    		opacity: 0.6;
+    		z-index: -1;
+
+			mask-image: radial-gradient(#fff, transparent 75%);
+		}
+
+		
 	}
 </style>

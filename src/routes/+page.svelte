@@ -9,7 +9,6 @@
 	import Container from '$src/lib/components/UI/Container.svelte';
 	import SkillCarrousel from '$src/lib/components/UI/SkillCarrousel.svelte';
 	import Cta from '$src/lib/components/UI/Cta.svelte';
-	
 
 	import { onMount } from 'svelte';
 
@@ -36,14 +35,11 @@
 
 		move();
 	});
-
 </script>
 
 <svelte:head>
 	<title>imlargo</title>
 </svelte:head>
-
-
 
 <header class="relative">
 	<div class="glass">
@@ -84,13 +80,13 @@
 						>Software Developer, UI/UX Designer.</span
 					>
 					<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
-	
+
 					<p class="mt-7 text-base text-pretty text-zinc-100 leading-relaxed">
-						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el desarrollo
-						web. Entre mis logros destaca la creación de proyectos personales que han tenido un
-						impacto positivo significativo en la comunidad universitaria.
+						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el
+						desarrollo web. Entre mis logros destaca la creación de proyectos personales que han
+						tenido un impacto positivo significativo en la comunidad universitaria.
 					</p>
-	
+
 					<div class="flex items-center gap-7 mt-7">
 						<a
 							class="items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black ring-1 ring-inset ring-purple-700/10"
@@ -98,25 +94,25 @@
 						>
 							<span>Ver Curriculum</span>
 						</a>
-	
+
 						<div
 							class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-200"
 						></div>
-	
+
 						<a href="https://github.com/imlargo">
 							<i class="bi bi-github"></i>
 						</a>
-	
+
 						<a href="https://www.instagram.com/imlargo">
 							<i class="bi bi-instagram"></i>
 						</a>
-	
+
 						<a href="https://www.linkedin.com/in/imlargo">
 							<i class="bi bi-linkedin"></i>
 						</a>
 					</div>
 				</div>
-	
+
 				<div class="col-span-1">
 					<Blob />
 				</div>
@@ -125,144 +121,143 @@
 	</div>
 </header>
 
+<div class="background-dots mask-radial">
+	<Container>
+		<section id="experiencia">
+			<h3 class="text-4xl tracking-tight font-bold mb-5">Experiencia</h3>
 
+			<p class="text-display">
+				Take a look below at some of my featured work for clients from the past few years.
+			</p>
 
+			<ul class="experience-list gap-12 py-2 before:absolute after:absolute mt-5">
+				<ExperienceCard
+					cargo="Estudiante Auxiliar"
+					fecha="Enero de 2024 - Actualidad. (Medellín, Colombia)"
+					stack="Javascript, HTML, CSS, Bootstrap, Firebase"
+					lugar="Universidad Nacional de Colombia"
+				>
+					<h5 class="font-medium mb-1">Responsabilidades</h5>
 
+					<ul class="list-disc ps-4">
+						<li>
+							Diseñar y desarrollar una aplicación web para la Vicedecanatura de la Facultad de
+							Minas, con el objetivo de optimizar el registro y la gestión de prácticas de campo en
+							toda la facultad. Algunas de las funcionalidades incluyen inicio de sesión, gestión de
+							usuarios, bases de datos NoSQL, generación de reportes, automatización de informes y
+							envío de correos.
+						</li>
+						<li>
+							Colaborar estrechamente con diferentes áreas de la Vicedecanatura para comprender sus
+							requerimientos específicos y diseñar soluciones adaptadas a sus necesidades mediante
+							la implementación de funcionalidades en la aplicación.
+						</li>
+					</ul>
 
+					<h5 class="font-medium mb-1 mt-3">Logros</h5>
 
-<Container>
-	<section id="experiencia" class="">
-		<h3 class="text-4xl tracking-tight font-bold mb-5">Experiencia</h3>
+					<ul class="list-disc ps-4">
+						<li>
+							Estandarización de datos de prácticas de campo, permitiendo un análisis eficiente y
+							contribuyendo a decisiones informadas, evitando gastos innecesarios y permitiendo
+							identificar posibles mejoras en el ahorro de recursos financieros.
+						</li>
+						<li>
+							Reducción significativa del tiempo empleado en los procesos asociados al registro y
+							gestión de prácticas de campo, disminuyendo días de trabajo y mejorando la
+							coordinación entre diferentes áreas, además de una mejora notable de la experiencia
+							general de los usuarios.
+						</li>
+					</ul>
+				</ExperienceCard>
 
-		<p class="text-display">
-			Take a look below at some of my featured work for clients from the past few years.
-		</p>
+				<ExperienceCard
+					cargo="Estudiante Auxiliar"
+					fecha="Noviembre de 2023 - Diciembre 2023. (Medellín, Colombia)"
+					stack="Javascript, Python, Apps Script"
+					lugar="Universidad Nacional de Colombia"
+				>
+					<h5 class="font-medium mb-1">Responsabilidades</h5>
 
-		<ul class="experience-list gap-12 py-2 before:absolute after:absolute mt-5">
-			<ExperienceCard
-				cargo="Estudiante Auxiliar"
-				fecha="Enero de 2024 - Actualidad. (Medellín, Colombia)"
-				stack="Javascript, HTML, CSS, Bootstrap, Firebase"
-				lugar="Universidad Nacional de Colombia"
-			>
-				<h5 class="font-medium mb-1">Responsabilidades</h5>
+					<ul class="list-disc ps-4">
+						<li>
+							Identificación y resolución de problemas a través de soluciones con Apps Script y
+							Python para la automatización de tareas repetitivas, enfocadas en incrementar la
+							eficiencia operativa y reducir el trabajo manual.
+						</li>
+					</ul>
 
-				<ul class="list-disc ps-4">
-					<li>
-						Diseñar y desarrollar una aplicación web para la Vicedecanatura de la Facultad de Minas,
-						con el objetivo de optimizar el registro y la gestión de prácticas de campo en toda la
-						facultad. Algunas de las funcionalidades incluyen inicio de sesión, gestión de usuarios,
-						bases de datos NoSQL, generación de reportes, automatización de informes y envío de
-						correos.
-					</li>
-					<li>
-						Colaborar estrechamente con diferentes áreas de la Vicedecanatura para comprender sus
-						requerimientos específicos y diseñar soluciones adaptadas a sus necesidades mediante la
-						implementación de funcionalidades en la aplicación.
-					</li>
-				</ul>
+					<h5 class="font-medium mb-1 mt-3">Logros</h5>
 
-				<h5 class="font-medium mb-1 mt-3">Logros</h5>
+					<ul class="list-disc ps-4">
+						<li>
+							Reducción significativa de la carga de trabajo manual en procesos administrativos
+							internos gracias a la automatización de tareas rutinarias.
+						</li>
+						<li>
+							Integración exitosa de diversas herramientas digitales, logrando una mejora en la
+							productividad del equipo y optimizando los flujos de trabajo.
+						</li>
+					</ul>
+				</ExperienceCard>
+			</ul>
+		</section>
+	</Container>
+</div>
 
-				<ul class="list-disc ps-4">
-					<li>
-						Estandarización de datos de prácticas de campo, permitiendo un análisis eficiente y
-						contribuyendo a decisiones informadas, evitando gastos innecesarios y permitiendo
-						identificar posibles mejoras en el ahorro de recursos financieros.
-					</li>
-					<li>
-						Reducción significativa del tiempo empleado en los procesos asociados al registro y
-						gestión de prácticas de campo, disminuyendo días de trabajo y mejorando la coordinación
-						entre diferentes áreas, además de una mejora notable de la experiencia general de los
-						usuarios.
-					</li>
-				</ul>
-			</ExperienceCard>
+<div class="background-dots mask-radial">
+	<Container>
+		<section class="py-32" id="proyectos">
+			<h3 class="text-4xl tracking-tight font-bold mb-5">Proyectos</h3>
 
-			<ExperienceCard
-				cargo="Estudiante Auxiliar"
-				fecha="Noviembre de 2023 - Diciembre 2023. (Medellín, Colombia)"
-				stack="Javascript, Python, Apps Script"
-				lugar="Universidad Nacional de Colombia"
-			>
-				<h5 class="font-medium mb-1">Responsabilidades</h5>
+			<p class="text-display w-2/3">
+				Algunos de los proyectos personales en los que he estoy o he estado trabajando.
+			</p>
 
-				<ul class="list-disc ps-4">
-					<li>
-						Identificación y resolución de problemas a través de soluciones con Apps Script y Python
-						para la automatización de tareas repetitivas, enfocadas en incrementar la eficiencia
-						operativa y reducir el trabajo manual.
-					</li>
-				</ul>
+			<div class="grid gap-4 grid-cols-1 lg:grid-cols-2 mt-5">
+				<ProyectCard
+					link="https://pegaso.imlargo.dev"
+					repo="https://github.com/imlargo/pegaso"
+					title="Pegaso"
+					stack="Svelte, Tailwind, MongoDB, NodeJs, Javascript"
+				>
+					Una aplicación diseñada para la creación de horarios y enfocada en brindar información
+					esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.
+				</ProyectCard>
 
-				<h5 class="font-medium mb-1 mt-3">Logros</h5>
+				<ProyectCard
+					link="https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles"
+					repo="https://github.com/imlargo/pegaso"
+					title="MinasBot"
+					stack="NodeJs, Javascript"
+				>
+					ChatBot de WhatsApp desarrollado en Node.js con el objetivo de automatizar respuestas a
+					preguntas frecuentes, distribuir información y gestionar procesos administrativos.
+				</ProyectCard>
 
-				<ul class="list-disc ps-4">
-					<li>
-						Reducción significativa de la carga de trabajo manual en procesos administrativos
-						internos gracias a la automatización de tareas rutinarias.
-					</li>
-					<li>
-						Integración exitosa de diversas herramientas digitales, logrando una mejora en la
-						productividad del equipo y optimizando los flujos de trabajo.
-					</li>
-				</ul>
-			</ExperienceCard>
-		</ul>
-	</section>
-</Container>
+				<ProyectCard
+					link="https://odpiobservatorio.vercel.app"
+					repo="https://github.com/imlargo/pegaso"
+					title="ODPI Observatorio."
+					stack="Javascript, HTML, CSS, Firebase, Leaflet"
+				>
+					Contribuí voluntariamente al desarrollo de un sistema de información web que visibiliza el
+					estado de los hechos de violencia contra los pueblos indígenas de Colombia.
+				</ProyectCard>
 
-<Container>
-	<section class="py-32" id="proyectos">
-		<h3 class="text-4xl tracking-tight font-bold mb-5">Proyectos</h3>
-
-		<p class="text-display w-2/3">
-			Algunos de los proyectos personales en los que he estoy o he estado trabajando.
-		</p>
-
-		<div class="grid gap-4 grid-cols-1 lg:grid-cols-2 mt-5">
-			<ProyectCard
-				link="https://pegaso.imlargo.dev"
-				repo="https://github.com/imlargo/pegaso"
-				title="Pegaso"
-				stack="Svelte, Tailwind, MongoDB, NodeJs, Javascript"
-			>
-				Una aplicación diseñada para la creación de horarios y enfocada en brindar información
-				esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.
-			</ProyectCard>
-
-			<ProyectCard
-				link="https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles"
-				repo="https://github.com/imlargo/pegaso"
-				title="MinasBot"
-				stack="NodeJs, Javascript"
-			>
-				ChatBot de WhatsApp desarrollado en Node.js con el objetivo de automatizar respuestas a
-				preguntas frecuentes, distribuir información y gestionar procesos administrativos.
-			</ProyectCard>
-
-			<ProyectCard
-				link="https://odpiobservatorio.vercel.app"
-				repo="https://github.com/imlargo/pegaso"
-				title="ODPI Observatorio."
-				stack="Javascript, HTML, CSS, Firebase, Leaflet"
-			>
-				Contribuí voluntariamente al desarrollo de un sistema de información web que visibiliza el
-				estado de los hechos de violencia contra los pueblos indígenas de Colombia.
-			</ProyectCard>
-
-			<ProyectCard
-				link="https://vectorial.imlargo.dev"
-				repo="https://github.com/imlargo/pegaso"
-				title="Plataforma de enseñanza"
-				stack="Astro, Tailwind, Python, Markdown"
-			>
-				En mi tiempo libre me dedico a trabajar en una plataforma educativa diseñada para enseñar a
-				conceptos de geometría vectorial a través de animaciones.
-			</ProyectCard>
-		</div>
-	</section>
-</Container>
+				<ProyectCard
+					link="https://vectorial.imlargo.dev"
+					repo="https://github.com/imlargo/pegaso"
+					title="Plataforma de enseñanza"
+					stack="Astro, Tailwind, Python, Markdown"
+				>
+					En mi tiempo libre me dedico a trabajar en una plataforma educativa diseñada para enseñar
+					a conceptos de geometría vectorial a través de animaciones.
+				</ProyectCard>
+			</div>
+		</section>
+	</Container>
+</div>
 
 <Container>
 	<div class="pb-32">
@@ -301,7 +296,6 @@
 -->
 
 <style lang="scss">
-
 	.experience-list {
 		display: flex;
 		position: relative;
@@ -330,7 +324,7 @@
 
 	.glass {
 		/* From https://css.glass */
-	
+
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
 	}
