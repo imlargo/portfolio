@@ -80,6 +80,9 @@ body {
     background: #17171900 radial-gradient(var(--color) 10%, transparent 1%);
     background-size: var(--size) var(--size);
 
+}
+
+.mask {
     /* mask it */
     mask-image: linear-gradient(rgb(0, 0, 0) 50%, transparent);
 }

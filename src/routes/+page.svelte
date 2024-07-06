@@ -11,7 +11,7 @@
 	<title>imlargo</title>
 </svelte:head>
 
-<div class="background-dots p-52">
+<div class="background-dots mask p-52">
 	<div class="gradient-bg">
 		<svg xmlns="http://www.w3.org/2000/svg">
 			<defs>
