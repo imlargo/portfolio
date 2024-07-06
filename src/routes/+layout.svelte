@@ -3,37 +3,64 @@
 	import Nav from '$src/lib/components/UI/Nav/Nav.svelte';
 	import Footer from '$components/UI/Footer.svelte';
 	import Seo from '$src/lib/components/Seo.svelte';
+	import Container from '$src/lib/components/UI/Container.svelte';
+	import { onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
 
-	import { onNavigate } from '$app/navigation'
-	
 	onNavigate((navigation) => {
 		// @ts-ignore
 		if (!document.startViewTransition) {
-			console.log("ups");
+			console.log('ups');
 			return;
 		}
 
 		return new Promise((resolve) => {
 			// @ts-ignore
 			document.startViewTransition(async () => {
-				resolve()
-				await navigation.complete
+				resolve();
+				await navigation.complete;
 			});
 		});
+	});
+
+	onMount(() => {
+		const interBubble = document.querySelector('.interactive');
+		let curX = 0;
+		let curY = 0;
+		let tgX = 0;
+		let tgY = 0;
+
+		function move() {
+			curX += (tgX - curX) / 20;
+			curY += (tgY - curY) / 20;
+			interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+			requestAnimationFrame(() => {
+				move();
+			});
+		}
+
+		window.addEventListener('mousemove', (event) => {
+			tgX = event.clientX;
+			tgY = event.clientY;
+		});
+
+		move();
 	});
 </script>
 
 <Seo />
 
-<section class="mx-auto w-full md:max-w-screen-sm lg:max-w-screen-lg">
+<Container>
 	<Nav />
+</Container>
 
-	<main class="py-32">
-		<slot />
-	</main>
+<main>
+	<slot />
+</main>
 
+<Container>
 	<Footer />
-</section>
+</Container>
 
 <style lang="scss">
 </style>
