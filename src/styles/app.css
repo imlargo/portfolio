@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
+@import "blob.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +17,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-optical-sizing: auto;
-    background-color: #171719;
+
+    background: #171719;
     color: #fff;
 }
 
@@ -24,7 +27,7 @@ body {
 }
 
 .font-mono {
-    font-family: "JetBrains Mono", monospace!important;
+    font-family: "JetBrains Mono", monospace !important;
 }
 
 .font-base {
@@ -53,4 +56,30 @@ body {
 
         background-color: #9630e9;
     }
+}
+
+.background-grid {
+    --gap: 2.5rem;
+    --line: 1px;
+    --color: rgba(255, 255, 255, 0.2);
+
+    background-image: linear-gradient(-90deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)),
+        linear-gradient(0deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap));
+    background-size: var(--gap) var(--gap);
+}
+
+.background-dots {
+    --size: 11px;
+    --color: rgba(255, 255, 255, 0.2);
+    background: #17171900 radial-gradient(var(--color) 10%, transparent 1%);
+    background-size: var(--size) var(--size);
+
+    /* mask it */
+    mask-image: linear-gradient(rgb(0, 0, 0) 50%, transparent);
 }
