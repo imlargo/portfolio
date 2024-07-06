@@ -1,4 +1,6 @@
 <script>
+	import Nav from '$components/UI/Nav/Nav.svelte';
+	import Footer from '$components/UI/Footer.svelte';
 	import Container from '$src/lib/components/UI/Container.svelte';
 	import Cta from '$src/lib/components/UI/Cta.svelte';
 </script>
@@ -6,6 +8,10 @@
 <svelte:head>
 	<title>imlargo - About</title>
 </svelte:head>
+
+<Container>
+	<Nav />
+</Container>
 
 <section class="background-dots py-32">
 	<Container>
@@ -98,6 +104,10 @@
 		</section>
 	</Container>
 </section>
+
+<Container>
+	<Footer />
+</Container>
 
 <style lang="scss">
 </style>

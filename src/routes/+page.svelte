@@ -1,4 +1,7 @@
 <script>
+	import Nav from '$components/UI/Nav/Nav.svelte';
+	import Footer from '$components/UI/Footer.svelte';
+
 	import ProyectCard from '$src/lib/components/UI/Items/ProyectCard.svelte';
 	import ExperienceCard from '$src/lib/components/UI/Items/Experience.svelte';
 	import EducationItem from '$src/lib/components/UI/Items/Education.svelte';
@@ -6,6 +9,33 @@
 	import Container from '$src/lib/components/UI/Container.svelte';
 	import SkillCarrousel from '$src/lib/components/UI/SkillCarrousel.svelte';
 	import Cta from '$src/lib/components/UI/Cta.svelte';
+	
+
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		const interBubble = document.querySelector('.interactive');
+		let curX = 0;
+		let curY = 0;
+		let tgX = 0;
+		let tgY = 0;
+
+		function move() {
+			curX += (tgX - curX) / 20;
+			curY += (tgY - curY) / 20;
+			interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+			requestAnimationFrame(() => {
+				move();
+			});
+		}
+
+		window.addEventListener('mousemove', (event) => {
+			tgX = event.clientX;
+			tgY = event.clientY;
+		});
+
+		move();
+	});
 
 </script>
 
@@ -13,77 +43,92 @@
 	<title>imlargo</title>
 </svelte:head>
 
-<div class="background-dots mask p-52">
-	<div class="gradient-bg">
-		<svg xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				<filter id="goo">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-					<feColorMatrix
-						in="blur"
-						mode="matrix"
-						values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
-						result="goo"
-					/>
-					<feBlend in="SourceGraphic" in2="goo" />
-				</filter>
-			</defs>
-		</svg>
-		<div class="gradients-container">
-			<div class="g1"></div>
-			<div class="g2"></div>
-			<div class="g3"></div>
-			<div class="g4"></div>
-			<div class="g5"></div>
-			<div class="interactive"></div>
-		</div>
+
+
+<header class="relative">
+	<div class="glass">
+		<Container>
+			<Nav />
+		</Container>
 	</div>
-	<Container>
-		<section class="grid grid-cols-3">
-			<div class="col-span-2">
-				<span class="font-mono tracking-tight text-zinc-400"
-					>Software Developer, UI/UX Designer.</span
-				>
-				<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
 
-				<p class="mt-7 text-base text-pretty text-zinc-100 leading-relaxed">
-					Experiencia en frontend, backend, web scraping y automatización. Enfocado en el desarrollo
-					web. Entre mis logros destaca la creación de proyectos personales que han tenido un
-					impacto positivo significativo en la comunidad universitaria.
-				</p>
-
-				<div class="flex items-center gap-7 mt-7">
-					<a
-						class="items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black ring-1 ring-inset ring-purple-700/10"
-						href="/"
+	<div class="background-dots p-52">
+		<div class="gradient-bg mask">
+			<svg xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+						<feColorMatrix
+							in="blur"
+							mode="matrix"
+							values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+							result="goo"
+						/>
+						<feBlend in="SourceGraphic" in2="goo" />
+					</filter>
+				</defs>
+			</svg>
+			<div class="gradients-container">
+				<div class="g1"></div>
+				<div class="g2"></div>
+				<div class="g3"></div>
+				<div class="g4"></div>
+				<div class="g5"></div>
+				<div class="interactive"></div>
+			</div>
+		</div>
+		<Container>
+			<section class="grid grid-cols-3">
+				<div class="col-span-2">
+					<span class="font-mono tracking-tight text-zinc-400"
+						>Software Developer, UI/UX Designer.</span
 					>
-						<span>Ver Curriculum</span>
-					</a>
-
-					<div
-						class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-200"
-					></div>
-
-					<a href="https://github.com/imlargo">
-						<i class="bi bi-github"></i>
-					</a>
-
-					<a href="https://www.instagram.com/imlargo">
-						<i class="bi bi-instagram"></i>
-					</a>
-
-					<a href="https://www.linkedin.com/in/imlargo">
-						<i class="bi bi-linkedin"></i>
-					</a>
+					<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
+	
+					<p class="mt-7 text-base text-pretty text-zinc-100 leading-relaxed">
+						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el desarrollo
+						web. Entre mis logros destaca la creación de proyectos personales que han tenido un
+						impacto positivo significativo en la comunidad universitaria.
+					</p>
+	
+					<div class="flex items-center gap-7 mt-7">
+						<a
+							class="items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black ring-1 ring-inset ring-purple-700/10"
+							href="/"
+						>
+							<span>Ver Curriculum</span>
+						</a>
+	
+						<div
+							class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-200"
+						></div>
+	
+						<a href="https://github.com/imlargo">
+							<i class="bi bi-github"></i>
+						</a>
+	
+						<a href="https://www.instagram.com/imlargo">
+							<i class="bi bi-instagram"></i>
+						</a>
+	
+						<a href="https://www.linkedin.com/in/imlargo">
+							<i class="bi bi-linkedin"></i>
+						</a>
+					</div>
 				</div>
-			</div>
+	
+				<div class="col-span-1">
+					<Blob />
+				</div>
+			</section>
+		</Container>
+	</div>
+</header>
 
-			<div class="col-span-1">
-				<Blob />
-			</div>
-		</section>
-	</Container>
-</div>
+
+
+
+
 
 <Container>
 	<section id="experiencia" class="">
@@ -233,6 +278,10 @@
 	</section>
 </Container>
 
+<Container>
+	<Footer />
+</Container>
+
 <!--
 <section class="py-20" id="habilidades">
 	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Habilidades y tecnologias</h3>
@@ -277,5 +326,12 @@
 			border-width: 1px;
 			border-color: #2b2b2b;
 		}
+	}
+
+	.glass {
+		/* From https://css.glass */
+	
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
 	}
 </style>
