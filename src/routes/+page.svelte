@@ -9,7 +9,6 @@
 	import SkillCarrousel from '$src/lib/components/UI/SkillCarrousel.svelte';
 	import Cta from '$src/lib/components/UI/Cta.svelte';
 
-
 	function interactiveBlob(interBubble: HTMLElement) {
 		let curX = 0;
 		let curY = 0;
@@ -73,12 +72,12 @@
 		<Container>
 			<section class="grid grid-cols-3">
 				<div class="col-span-2">
-					<span class="font-mono tracking-tight text-zinc-400"
+					<span class="font-mono tracking-tight text-zinc-300"
 						>Software Developer, UI/UX Designer.</span
 					>
-					<h1 class="text-7xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
+					<h1 class="text-8xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
 
-					<p class="mt-7 text-base text-pretty text-zinc-100 leading-relaxed">
+					<p class="mt-7 text-base text-pretty text-zinc-200 leading-relaxed">
 						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el
 						desarrollo web. Entre mis logros destaca la creación de proyectos personales que han
 						tenido un impacto positivo significativo en la comunidad universitaria.
@@ -86,32 +85,29 @@
 
 					<div class="flex items-center gap-7 mt-7">
 						<a
-							class="items-center rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black ring-1 ring-inset ring-purple-700/10"
-							href="/"
+							class="items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-black ring-1 ring-inset ring-purple-700/10"
+							href="Currículum - Juan Carlos Largo.pdf"
+							target="_blank"
 						>
 							<span>Ver Curriculum</span>
 						</a>
 
 						<div
-							class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-200"
+							class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-400"
 						></div>
 
-						<a href="https://github.com/imlargo">
+						<a class="text-lg" target="_blank" href="https://github.com/imlargo">
 							<i class="bi bi-github"></i>
 						</a>
 
-						<a href="https://www.instagram.com/imlargo">
+						<a class="text-lg" target="_blank" href="https://www.instagram.com/imlargo">
 							<i class="bi bi-instagram"></i>
 						</a>
 
-						<a href="https://www.linkedin.com/in/imlargo">
+						<a class="text-lg" target="_blank" href="https://www.linkedin.com/in/imlargo">
 							<i class="bi bi-linkedin"></i>
 						</a>
 					</div>
-				</div>
-
-				<div class="col-span-1">
-					<Blob />
 				</div>
 			</section>
 		</Container>

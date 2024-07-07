@@ -10,7 +10,7 @@
     --color-interactive: 140, 100, 255;
     --circle-size: 80%;
     --blending: hard-light;
-    --blob-opacity: 0.5;
+    --blob-opacity: 0.3;
 }
 
 @keyframes moveInCircle {

@@ -63,12 +63,12 @@ body {
         content: '';
         position: absolute;
         width: 100%;
-        bottom: 0rem;
+        bottom: -0.25rem;
         left: 0;
-        height: 1.5rem;
+        height: 2.5rem;
         z-index: -1;
 
-        background-color: #9630e9;
+        background-color: #9630e91f;
     }
 }
 
