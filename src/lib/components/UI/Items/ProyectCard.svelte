@@ -3,7 +3,7 @@
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
 
-<div class="container project-card px-8 py-8 rounded-xl">
+<div class="container project-card px-8 py-8 rounded-xl cursor-pointer">
 
 	<h5 class="font-semibold text-lg">{title}</h5>
 
@@ -86,7 +86,5 @@
 
 			mask-image: radial-gradient(#fff, transparent 75%);
 		}
-
-		
 	}
 </style>

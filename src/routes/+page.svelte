@@ -1,19 +1,16 @@
-<script>
+<script lang="ts">
 	import Nav from '$components/UI/Nav/Nav.svelte';
 	import Footer from '$components/UI/Footer.svelte';
 
 	import ProyectCard from '$src/lib/components/UI/Items/ProyectCard.svelte';
 	import ExperienceCard from '$src/lib/components/UI/Items/Experience.svelte';
-	import EducationItem from '$src/lib/components/UI/Items/Education.svelte';
 	import Blob from '$src/lib/components/UI/Blob.svelte';
 	import Container from '$src/lib/components/UI/Container.svelte';
 	import SkillCarrousel from '$src/lib/components/UI/SkillCarrousel.svelte';
 	import Cta from '$src/lib/components/UI/Cta.svelte';
 
-	import { onMount } from 'svelte';
 
-	onMount(() => {
-		const interBubble = document.querySelector('.interactive');
+	function interactiveBlob(interBubble: HTMLElement) {
 		let curX = 0;
 		let curY = 0;
 		let tgX = 0;
@@ -34,7 +31,7 @@
 		});
 
 		move();
-	});
+	}
 </script>
 
 <svelte:head>
@@ -70,7 +67,7 @@
 				<div class="g3"></div>
 				<div class="g4"></div>
 				<div class="g5"></div>
-				<div class="interactive"></div>
+				<div use:interactiveBlob class="interactive"></div>
 			</div>
 		</div>
 		<Container>
