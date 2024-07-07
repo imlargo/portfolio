@@ -71,7 +71,7 @@
 		</div>
 		<Container>
 			<section class="grid grid-cols-3">
-				<div class="col-span-2">
+				<div class="col-span-2 ">
 					<span class="font-mono font-light tracking-tight text-zinc-300">Software Developer, UI/UX Designer.</span>
 					<div class="inline-block">
 						<h1 class="text-8xl font-bold mt-4 pb-2 typing text-white">Hi, i'm largo.</h1>

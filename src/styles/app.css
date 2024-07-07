@@ -64,7 +64,7 @@ body {
     overflow: hidden;
     height: max-content;
 
-    animation: typing 0.8s steps(14), blink .4s step-end infinite alternate;
+    animation: typing 0.8s steps(14), blink .5s step-end infinite alternate;
 }
 
 
