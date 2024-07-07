@@ -13,14 +13,14 @@
 	<Nav />
 </Container>
 
-<section class="background-dots py-32">
+<section class="background-dots mask-radial py-32">
 	<Container>
 		<main class="grid grid-cols-5">
 			<section class="col-span-3">
-				<h1 class="text-7xl font-bold tracking-tight subrayado max-w-max">Acerca de mi</h1>
+				<h1 class="text-7xl font-bold tracking-tight max-w-max">Acerca de mi</h1>
 				<div class="mt-6 space-y-7 text-base text-pretty text-zinc-400 leading-relaxed w-10/12">
 					<p>
-						¡Hola! Soy Juan Carlos Largo, aunque quiza me conozcas como <span class="font-mono"
+						¡Hola! me llamo Juan Carlos Largo, aunque quiza me conozcas como <span class="font-mono"
 							>@imlargo</span
 						>. Soy un desarrollador de software, pero antes que nada, soy una persona con intereses
 						y experiencias que van más allá de la programacion. Bienvenido a mi espacio personal!,
@@ -99,7 +99,7 @@
 			</section>
 		</main>
 
-		<section class="mt-5">
+		<section class="mt-32">
 			<Cta />
 		</section>
 	</Container>

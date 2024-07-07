@@ -2,15 +2,15 @@
 :root {
     --color-bg1: rgba(108, 0, 162, 0.6);
     --color-bg2: rgb(0, 17, 82, 0.6);
-    --color1: 126, 53, 238;
-    --color2: 221, 74, 255;
-    --color3: 92, 53, 238;
-    --color4: 200, 50, 198;
-    --color5: 185, 85, 255;
-    --color-interactive: 140, 100, 255;
+    --color1: 174, 0, 255; /* Fuccia / Morado */
+    --color2: 130, 50, 255; /* Violeta */
+    --color3: 255, 92, 213; /* Rosado */
+    --color4: 0, 201, 255; /* Cielo */
+    --color5: 185, 85, 255; /* Purpura */
+    --color-interactive: 140, 100, 255; /* Violeta claro */
     --circle-size: 80%;
     --blending: hard-light;
-    --blob-opacity: 0.5;
+    --blob-opacity: 0.3;
 }
 
 @keyframes moveInCircle {

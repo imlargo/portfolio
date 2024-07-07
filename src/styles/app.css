@@ -22,6 +22,20 @@ body {
     color: #fff;
 }
 
+:root {
+    --view-transition-duration: 0.2s;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-group(root),
+::view-transition-new(root) {
+    animation-duration: var(--view-transition-duration);
+}
+
 .text-display {
     @apply text-base text-pretty text-zinc-400 leading-relaxed;
 }
@@ -42,19 +56,27 @@ body {
     @apply space-y-7 text-base text-zinc-400 leading-relaxed;
 }
 
-.subrayado {
-    position: relative;
+.typing {
+    border-right: rgb(255, 255, 255) 0.2rem solid;
 
-    &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        bottom: 0rem;
-        left: 0;
-        height: 1.5rem;
-        z-index: -1;
+    width: 100%;
+    text-wrap: nowrap;
+    overflow: hidden;
+    height: max-content;
 
-        background-color: #9630e9;
+    animation: typing 0.8s steps(14), blink .5s step-end infinite alternate;
+}
+
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
     }
 }
 
@@ -62,20 +84,33 @@ body {
     --gap: 2.5rem;
     --line: 1px;
     --color: rgba(255, 255, 255, 0.2);
+    position: relative;
 
-    background-image: linear-gradient(-90deg,
-            transparent calc(var(--gap) - var(--line)),
-            var(--color) calc(var(--gap) - var(--line) + 1px),
-            var(--color) var(--gap)),
-        linear-gradient(0deg,
-            transparent calc(var(--gap) - var(--line)),
-            var(--color) calc(var(--gap) - var(--line) + 1px),
-            var(--color) var(--gap));
-    background-size: var(--gap) var(--gap);
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(-90deg,
+                transparent calc(var(--gap) - var(--line)),
+                var(--color) calc(var(--gap) - var(--line) + 1px),
+                var(--color) var(--gap)),
+            linear-gradient(0deg,
+                transparent calc(var(--gap) - var(--line)),
+                var(--color) calc(var(--gap) - var(--line) + 1px),
+                var(--color) var(--gap));
+        background-size: var(--gap) var(--gap);
+
+        mask-image: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 100%);
+    }
 }
 
 .background-dots {
-    
+
+    position: relative;
+
     &::before {
         content: '';
         position: absolute;
@@ -85,18 +120,22 @@ body {
         height: 100%;
         --size: 11px;
         --color: rgba(255, 255, 255, 0.2);
-        
+
         z-index: -2;
-    
+
         background: #17171900 radial-gradient(var(--color) 10%, transparent 1%);
         background-size: var(--size) var(--size);
-        mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-        
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
     }
+}
 
+.mask-radial {
+    &::before {
+        mask-image: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 100%);
+    }
 }
 
 .mask {
     /* mask it */
-    mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
 }
