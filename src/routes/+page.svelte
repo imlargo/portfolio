@@ -72,18 +72,16 @@
 		<Container>
 			<section class="grid grid-cols-3">
 				<div class="col-span-2">
-					<span class="font-mono tracking-tight text-zinc-300"
-						>Software Developer, UI/UX Designer.</span
-					>
-					<h1 class="text-8xl font-bold mt-2">Hi, <span class="subrayado">imlargo</span>!</h1>
+					<span class="font-mono tracking-tight text-zinc-300">Software Developer, UI/UX Designer.</span>
+					<h1 class="text-8xl font-bold mt-4">Hi, <span class="subrayado">imlargo</span>!</h1>
 
-					<p class="mt-7 text-base text-pretty text-zinc-200 leading-relaxed">
+					<p class="mt-4 text-base text-pretty text-zinc-200 leading-relaxed">
 						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el
 						desarrollo web. Entre mis logros destaca la creación de proyectos personales que han
 						tenido un impacto positivo significativo en la comunidad universitaria.
 					</p>
 
-					<div class="flex items-center gap-7 mt-7">
+					<div class="flex items-center gap-7 mt-9">
 						<a
 							class="items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-black ring-1 ring-inset ring-purple-700/10"
 							href="Currículum - Juan Carlos Largo.pdf"
