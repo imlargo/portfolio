@@ -72,10 +72,12 @@
 		<Container>
 			<section class="grid grid-cols-3">
 				<div class="col-span-2">
-					<span class="font-mono tracking-tight text-zinc-300">Software Developer, UI/UX Designer.</span>
-					<h1 class="text-8xl font-bold mt-4">Hi, <span class="subrayado">imlargo</span>!</h1>
+					<span class="font-mono font-light tracking-tight text-zinc-300">Software Developer, UI/UX Designer.</span>
+					<div class="inline-block">
+						<h1 class="text-8xl font-bold mt-4 pb-2 typing text-white">Hi, i'm largo.</h1>
+					</div>
 
-					<p class="mt-4 text-base text-pretty text-zinc-200 leading-relaxed">
+					<p class="text-base text-pretty text-zinc-200 leading-relaxed">
 						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el
 						desarrollo web. Entre mis logros destaca la creación de proyectos personales que han
 						tenido un impacto positivo significativo en la comunidad universitaria.

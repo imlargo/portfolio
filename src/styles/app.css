@@ -56,19 +56,27 @@ body {
     @apply space-y-7 text-base text-zinc-400 leading-relaxed;
 }
 
-.subrayado {
-    position: relative;
+.typing {
+    border-right: rgb(255, 255, 255) 0.2rem solid;
 
-    &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        bottom: -0.25rem;
-        left: 0;
-        height: 2.5rem;
-        z-index: -1;
+    width: 100%;
+    text-wrap: nowrap;
+    overflow: hidden;
+    height: max-content;
 
-        background-color: #9630e91f;
+    animation: typing 0.8s steps(14), blink .4s step-end infinite alternate;
+}
+
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
     }
 }
 
