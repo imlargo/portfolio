@@ -1,4 +1,4 @@
-# Mi Portafolio de Desarrollador
+# Portafolio
 
 > Nota: Aun se encuentra en construccion
 
@@ -7,10 +7,6 @@ Repositorio de mi pagina web personal, donde hablo un poco de mi y de mi experie
 ## Tech Stack
 
 <img src="https://skillicons.dev/icons?i=svelte,ts,js,html,css,sass,tailwind&theme=dark" />
-
-## Autores
-
-- [@imlargo](https://www.github.com/imlargo)
 
 ## Contribuciones
 
