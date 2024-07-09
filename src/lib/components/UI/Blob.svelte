@@ -17,8 +17,8 @@
 
 	#blob {
 		width: 100%;
-        height: 100%;
-        border-radius: 50%;
+		height: 100%;
+		border-radius: 50%;
 		background: linear-gradient(to right, rgb(172, 142, 255), rgb(239, 117, 255));
 		opacity: 0.3;
 		animation: rotate 5s infinite linear;

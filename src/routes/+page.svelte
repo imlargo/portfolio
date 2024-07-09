@@ -1,10 +1,8 @@
 <script lang="ts">
 	import Nav from '$components/UI/Nav/Nav.svelte';
 	import Footer from '$components/UI/Footer.svelte';
-
 	import ProyectCard from '$src/lib/components/UI/Items/ProyectCard.svelte';
 	import ExperienceCard from '$src/lib/components/UI/Items/Experience.svelte';
-	import Blob from '$src/lib/components/UI/Blob.svelte';
 	import Container from '$src/lib/components/UI/Container.svelte';
 	import SkillCarrousel from '$src/lib/components/UI/SkillCarrousel.svelte';
 	import Cta from '$src/lib/components/UI/Cta.svelte';
@@ -148,13 +146,16 @@
 					stack="Javascript, Python, Apps Script"
 					lugar="Universidad Nacional de Colombia"
 				>
-				Identificación y resolución de problemas mediante Apps Script y Python para automatizar tareas repetitivas, incrementando la eficiencia operativa y reduciendo el trabajo manual. La automatización de procesos administrativos internos resultó en una significativa reducción de la carga de trabajo manual y mejora de la productividad del equipo y optimizando los flujos de trabajo.
+					Identificación y resolución de problemas mediante Apps Script y Python para automatizar
+					tareas repetitivas, incrementando la eficiencia operativa y reduciendo el trabajo manual.
+					La automatización de procesos administrativos internos resultó en una significativa
+					reducción de la carga de trabajo manual y mejora de la productividad del equipo y
+					optimizando los flujos de trabajo.
 				</ExperienceCard>
 			</ul>
 		</section>
 	</Container>
 </div>
-
 
 <div class="background-dots mask-radial">
 	<Container>

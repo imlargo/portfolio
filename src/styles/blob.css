@@ -1,170 +1,199 @@
-
 :root {
-    --color-bg1: rgba(108, 0, 162, 0.6);
-    --color-bg2: rgb(0, 17, 82, 0.6);
-    --color1: 174, 0, 255; /* Fuccia / Morado */
-    --color2: 130, 50, 255; /* Violeta */
-    --color3: 255, 92, 213; /* Rosado */
-    --color4: 0, 201, 255; /* Cielo */
-    --color5: 185, 85, 255; /* Purpura */
-    --color-interactive: 140, 100, 255; /* Violeta claro */
-    --circle-size: 80%;
-    --blending: hard-light;
-    --blob-opacity: 0.3;
+	--color-bg1: rgba(108, 0, 162, 0.6);
+	--color-bg2: rgb(0, 17, 82, 0.6);
+	--color1: 174, 0, 255; /* Fuccia / Morado */
+	--color2: 130, 50, 255; /* Violeta */
+	--color3: 255, 92, 213; /* Rosado */
+	--color4: 0, 201, 255; /* Cielo */
+	--color5: 185, 85, 255; /* Purpura */
+	--color-interactive: 140, 100, 255; /* Violeta claro */
+	--circle-size: 80%;
+	--blending: hard-light;
+	--blob-opacity: 0.3;
 }
 
 @keyframes moveInCircle {
-    0% {
-        transform: rotate(0deg);
-    }
+	0% {
+		transform: rotate(0deg);
+	}
 
-    50% {
-        transform: rotate(180deg);
-    }
+	50% {
+		transform: rotate(180deg);
+	}
 
-    100% {
-        transform: rotate(360deg);
-    }
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes moveVertical {
-    0% {
-        transform: translateY(-50%);
-    }
+	0% {
+		transform: translateY(-50%);
+	}
 
-    50% {
-        transform: translateY(50%);
-    }
+	50% {
+		transform: translateY(50%);
+	}
 
-    100% {
-        transform: translateY(-50%);
-    }
+	100% {
+		transform: translateY(-50%);
+	}
 }
 
 @keyframes moveHorizontal {
-    0% {
-        transform: translateX(-50%) translateY(-10%);
-    }
+	0% {
+		transform: translateX(-50%) translateY(-10%);
+	}
 
-    50% {
-        transform: translateX(50%) translateY(10%);
-    }
+	50% {
+		transform: translateX(50%) translateY(10%);
+	}
 
-    100% {
-        transform: translateX(-50%) translateY(-10%);
-    }
+	100% {
+		transform: translateX(-50%) translateY(-10%);
+	}
 }
 
 .gradient-bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -999;
-    
-    overflow: hidden;
-    top: 0;
-    left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -999;
 
-    svg {
-        display: none;
-    }
+	overflow: hidden;
+	top: 0;
+	left: 0;
 
-    .gradients-container {
-        filter: url(#goo) blur(40px);
-        width: 100%;
-        height: 100%;
-    }
+	svg {
+		display: none;
+	}
 
-    .g1 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color1), var(--blob-opacity)) 0, rgba(var(--color1), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
+	.gradients-container {
+		filter: url(#goo) blur(40px);
+		width: 100%;
+		height: 100%;
+	}
 
-        width: var(--circle-size);
-        height: var(--circle-size);
-        top: calc(50% - var(--circle-size) / 2);
-        left: calc(50% - var(--circle-size) / 2);
+	.g1 {
+		position: absolute;
+		background: radial-gradient(
+				circle at center,
+				rgba(var(--color1), var(--blob-opacity)) 0,
+				rgba(var(--color1), 0) 50%
+			)
+			no-repeat;
+		mix-blend-mode: var(--blending);
 
-        transform-origin: center center;
-        animation: moveVertical 30s ease infinite;
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(50% - var(--circle-size) / 2);
+		left: calc(50% - var(--circle-size) / 2);
 
-        opacity: 1;
-    }
+		transform-origin: center center;
+		animation: moveVertical 30s ease infinite;
 
-    .g2 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color2), var(--blob-opacity)) 0, rgba(var(--color2), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
+		opacity: 1;
+	}
 
-        width: var(--circle-size);
-        height: var(--circle-size);
-        top: calc(50% - var(--circle-size) / 2);
-        left: calc(50% - var(--circle-size) / 2);
+	.g2 {
+		position: absolute;
+		background: radial-gradient(
+				circle at center,
+				rgba(var(--color2), var(--blob-opacity)) 0,
+				rgba(var(--color2), 0) 50%
+			)
+			no-repeat;
+		mix-blend-mode: var(--blending);
 
-        transform-origin: calc(50% - 400px);
-        animation: moveInCircle 20s reverse infinite;
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(50% - var(--circle-size) / 2);
+		left: calc(50% - var(--circle-size) / 2);
 
-        opacity: 1;
-    }
+		transform-origin: calc(50% - 400px);
+		animation: moveInCircle 20s reverse infinite;
 
-    .g3 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color3), var(--blob-opacity)) 0, rgba(var(--color3), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
+		opacity: 1;
+	}
 
-        width: var(--circle-size);
-        height: var(--circle-size);
-        top: calc(50% - var(--circle-size) / 2 + 200px);
-        left: calc(50% - var(--circle-size) / 2 - 500px);
+	.g3 {
+		position: absolute;
+		background: radial-gradient(
+				circle at center,
+				rgba(var(--color3), var(--blob-opacity)) 0,
+				rgba(var(--color3), 0) 50%
+			)
+			no-repeat;
+		mix-blend-mode: var(--blending);
 
-        transform-origin: calc(50% + 400px);
-        animation: moveInCircle 40s linear infinite;
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(50% - var(--circle-size) / 2 + 200px);
+		left: calc(50% - var(--circle-size) / 2 - 500px);
 
-        opacity: 1;
-    }
+		transform-origin: calc(50% + 400px);
+		animation: moveInCircle 40s linear infinite;
 
-    .g4 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color4), var(--blob-opacity)) 0, rgba(var(--color4), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
+		opacity: 1;
+	}
 
-        width: var(--circle-size);
-        height: var(--circle-size);
-        top: calc(50% - var(--circle-size) / 2);
-        left: calc(50% - var(--circle-size) / 2);
+	.g4 {
+		position: absolute;
+		background: radial-gradient(
+				circle at center,
+				rgba(var(--color4), var(--blob-opacity)) 0,
+				rgba(var(--color4), 0) 50%
+			)
+			no-repeat;
+		mix-blend-mode: var(--blending);
 
-        transform-origin: calc(50% - 200px);
-        animation: moveHorizontal 40s ease infinite;
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(50% - var(--circle-size) / 2);
+		left: calc(50% - var(--circle-size) / 2);
 
-        opacity: 0.7;
-    }
+		transform-origin: calc(50% - 200px);
+		animation: moveHorizontal 40s ease infinite;
 
-    .g5 {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color5), var(--blob-opacity)) 0, rgba(var(--color5), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
+		opacity: 0.7;
+	}
 
-        width: calc(var(--circle-size) * 2);
-        height: calc(var(--circle-size) * 2);
-        top: calc(50% - var(--circle-size));
-        left: calc(50% - var(--circle-size));
+	.g5 {
+		position: absolute;
+		background: radial-gradient(
+				circle at center,
+				rgba(var(--color5), var(--blob-opacity)) 0,
+				rgba(var(--color5), 0) 50%
+			)
+			no-repeat;
+		mix-blend-mode: var(--blending);
 
-        transform-origin: calc(50% - 800px) calc(50% + 200px);
-        animation: moveInCircle 20s ease infinite;
+		width: calc(var(--circle-size) * 2);
+		height: calc(var(--circle-size) * 2);
+		top: calc(50% - var(--circle-size));
+		left: calc(50% - var(--circle-size));
 
-        opacity: 1;
-    }
+		transform-origin: calc(50% - 800px) calc(50% + 200px);
+		animation: moveInCircle 20s ease infinite;
 
-    .interactive {
-        position: absolute;
-        background: radial-gradient(circle at center, rgba(var(--color-interactive), var(--blob-opacity)) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
-        mix-blend-mode: var(--blending);
+		opacity: 1;
+	}
 
-        width: 100%;
-        height: 100%;
-        top: -50%;
-        left: -50%;
+	.interactive {
+		position: absolute;
+		background: radial-gradient(
+				circle at center,
+				rgba(var(--color-interactive), var(--blob-opacity)) 0,
+				rgba(var(--color-interactive), 0) 50%
+			)
+			no-repeat;
+		mix-blend-mode: var(--blending);
 
-        opacity: 0.7;
-    }
+		width: 100%;
+		height: 100%;
+		top: -50%;
+		left: -50%;
+
+		opacity: 0.7;
+	}
 }

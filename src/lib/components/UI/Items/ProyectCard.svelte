@@ -4,7 +4,6 @@
 </script>
 
 <div class="container project-card px-8 py-8 rounded-xl">
-
 	<h5 class="font-semibold text-lg">{title}</h5>
 
 	<p class="text-base text-pretty text-zinc-400 mt-2">
@@ -18,9 +17,12 @@
 	</div>
 
 	<div class="flex justify-between items-center">
-		<a class="flex items-center gap-1 truncate text-zinc-400 w-9/12 " href={link} target="_blank">
+		<a class="flex items-center gap-1 truncate text-zinc-400 w-9/12" href={link} target="_blank">
 			<i class="bi bi-link-45deg"></i>
-			<span class="hover:underline hover:decoration-dotted hover:underline-offset-4 hover:decoration-zinc-400">{link.replace('https://', '')}</span>
+			<span
+				class="hover:underline hover:decoration-dotted hover:underline-offset-4 hover:decoration-zinc-400"
+				>{link.replace('https://', '')}</span
+			>
 		</a>
 
 		{#if repo}
@@ -32,9 +34,7 @@
 </div>
 
 <style lang="scss">
-
 	.project-card {
-
 		overflow: hidden;
 		position: relative;
 		transition: all 0.3s ease;
@@ -84,12 +84,12 @@
 			height: 100%;
 			width: auto;
 			border-radius: 999%;
-    		
-    		background-image: url("$lib/assets/noise.webp");
+
+			background-image: url('$lib/assets/noise.webp');
 			background-size: 30%;
 			mix-blend-mode: overlay;
-    		opacity: 0.6;
-    		z-index: -1;
+			opacity: 0.6;
+			z-index: -1;
 
 			mask-image: radial-gradient(#fff, transparent 75%);
 		}
