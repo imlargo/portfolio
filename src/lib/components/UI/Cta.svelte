@@ -1,22 +1,58 @@
-<div class="bg-white ring-1 ring-inset ring-gray-700/30 px-8 lg:px-16 py-16 md:py-24 rounded-2xl relative overflow-hidden">
-	<div class="absolute inset-0"></div>
-	<div class="relative flex flex-col gap-10 md:flex-row items-center justify-between">
-		<div class="flex flex-col">
+<section class="bg-white px-16 py-16 rounded-xl">
+	<div class="flex justify-between">
+		<div>
 			<h2 class="font-semibold tracking-tight text-black text-4xl leading-tight">
-				Tienes una idea en mente? Contactame!.
+				Tienes una idea en mente?<br />
 			</h2>
-            <p class="mt-7 md:text-lg leading-relaxed  text-black max-w-xl">
-                Estoy abierto a escuchar sobre nuevas oportunidades. ¡No dudes en contactarme si tienes alguna pregunta o simplemente quieres saludar!
-            </p>
+			<p class="mt-7 md:text-lg leading-relaxed text-black max-w-2xl">
+				Estoy abierto a escuchar sobre nuevas oportunidades. ¡No dudes en ponerte en contacto
+				conmigo si tienes alguna pregunta o si quieres saludarme! Estoy seguro de que puedo ayudarte
+				en lo que necesites.
+			</p>
 		</div>
-		<div class="md:mt-0 w-full md:w-auto flex-shrink-0">
+
+		<div class="flex justify-end items-center">
 			<a
-				class="inline-flex items-center gap-1 group/button rounded-full hover:scale-105 focus:outline-none transition ring-offset-gray-900 bg-gray-50 text-gray-950 shadow-xl shadow-black/20 hover:bg-gray-300 focus:ring-1 ring-gray-300 focus:ring-offset-2 text-base font-medium px-5 py-2.5 w-full md:w-auto justify-center"
-				href="/"
+				class="inline-flex items-center gap-1 rounded-full ring-offset-gray-900 bg-gray-50 text-gray-950 shadow-xl shadow-black/20 ring-gray-300 text-base font-medium px-5 py-2.5 w-full justify-center"
+				href="mailto:jclargob@gmail.com"
 			>
 				<span>Contactame</span>
 				<i class="bi bi-arrow-right"></i>
 			</a>
 		</div>
 	</div>
-</div>
+</section>
+
+<style lang="scss">
+	a {
+		z-index: 1;
+		position: relative;
+		-webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+		box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+		transition: all 250ms;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 0;
+			border-radius: 999px;
+			background-color: #212121;
+			z-index: -1;
+			-webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+			box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+			transition: all 250ms;
+		}
+
+		&:hover {
+			color: #e8e8e8;
+
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+</style>
