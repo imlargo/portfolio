@@ -40,7 +40,7 @@
 		transition: all 0.3s ease;
 		border: 1px rgba(121, 121, 121, 0.2) solid;
 
-		--dots: radial-gradient(rgb(255, 255, 255, 0.03) 10%, transparent 1%);
+		--dots: radial-gradient(rgb(255, 255, 255, 0.04) 10%, transparent 1%);
 		--dots-size: 7px;
 
 		--top: -25%;

@@ -117,13 +117,13 @@
 <div class="background-dots mask-radial">
 	<Container>
 		<section id="experiencia">
-			<h3 class="text-4xl tracking-tight font-bold mb-5">Experiencia</h3>
+			<h3 class="text-4xl tracking-tight font-bold">Experiencia</h3>
 
-			<p class="text-display">
-				Take a look below at some of my featured work for clients from the past few years.
+			<p class="text-display w-9/12 mt-5 mb-7">
+				Desarrollo aplicaciones web innovadoras y soluciones de software personalizadas. Creando experiencias atractivas, enfocándome en la escalabilidad, el rendimiento, la calidad y pensando siempre desde la perspectiva del usuario final.
 			</p>
 
-			<ul class="experience-list gap-12 py-2 before:absolute after:absolute mt-5">
+			<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
 				<ExperienceCard
 					cargo="Estudiante Auxiliar"
 					fecha="Enero de 2024 - Actualidad. (Medellín, Colombia)"
@@ -201,13 +201,14 @@
 <div class="background-dots mask-radial">
 	<Container>
 		<section class="py-32" id="proyectos">
-			<h3 class="text-4xl tracking-tight font-bold mb-5">Proyectos</h3>
+			<h3 class="text-4xl tracking-tight font-bold">Proyectos</h3>
 
-			<p class="text-display w-2/3">
-				Algunos de los proyectos personales en los que he estoy o he estado trabajando.
+			<p class="text-display w-9/12 mt-5 mb-7">
+				Me apasiona construir soluciones que resuelvan problemas y generen valor.
+				Te invito a conocer algunos de mis proyectos personales en los que estoy o he estado trabajando, los cuales llevan mi dedicación, cariño y esfuerzo.
 			</p>
 
-			<div class="grid gap-4 grid-cols-1 lg:grid-cols-2 mt-5">
+			<div class="grid gap-4 grid-cols-1 lg:grid-cols-2">
 				<ProyectCard
 					link="https://pegaso.imlargo.dev"
 					repo="https://github.com/imlargo/pegaso"
