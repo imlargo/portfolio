@@ -3,7 +3,7 @@
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
 
-<div class="container project-card px-8 py-8 rounded-xl cursor-pointer">
+<div class="container project-card px-8 py-8 rounded-xl">
 
 	<h5 class="font-semibold text-lg">{title}</h5>
 
