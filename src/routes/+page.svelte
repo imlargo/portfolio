@@ -289,20 +289,49 @@
 -->
 
 <style lang="scss">
+
+
+	@keyframes beam {
+		from {
+			height: 0%;
+		}
+
+		to {
+			height: 100%;
+		}
+
+		0% {
+			height: 0%;
+		}
+
+		85% {
+			height: 100%;
+		}
+
+		100% {
+			height: 100%;
+		}
+	}
+
 	.experience-list {
 		display: flex;
 		position: relative;
 		flex-direction: column;
+		--mask-percentaje: 90%;
 
 		&::before {
 			position: absolute;
 			top: 1.5rem;
 			height: 100%;
 			transform: translateX(-50%);
+			width: 1px;
 
-			border-width: 1px;
-			border-color: #2b2b2b;
-			border-style: dashed;
+			z-index: 1;
+			background: linear-gradient(180deg, rgba(243,126,255,1) 0%, rgba(161,37,255,1) 100%);
+			mask-image: linear-gradient(180deg, rgba(0,0,0,1) var(--mask-percentaje), rgba(161,37,255,0) 100%);
+
+			animation: beam ease both;
+			animation-timeline: scroll();
 		}
 
 		&::after {
@@ -312,6 +341,7 @@
 			transform: translateX(-50%);
 			border-width: 1px;
 			border-color: #2b2b2b;
+			mask-image: linear-gradient(180deg, rgba(0,0,0,1) var(--mask-percentaje), rgba(161,37,255,0) 100%);
 		}
 	}
 
