@@ -85,10 +85,11 @@
 
 					<div class="flex items-center gap-7 mt-9">
 						<a
-							class="items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-black ring-1 ring-inset ring-purple-700/10"
+							class="inline-flex gap-1.5 items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-black"
 							href="Currículum - Juan Carlos Largo.pdf"
 							target="_blank"
 						>
+							<i class="bi bi-code-slash"></i>	
 							<span>Ver Curriculum</span>
 						</a>
 
