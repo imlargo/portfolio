@@ -5,17 +5,17 @@
 
 
 <li class="relative pl-7 before:absolute">
-	<div class="flex flex-col flex-1 pb-4">
+	<div class="flex flex-col flex-1">
 		<span class="text-sm text-zinc-500 font-mono">{fecha}</span>
 
 		<h5 class="font-medium text-zinc-200 mt-3">{cargo}</h5>
 		<span class="text-sm text-zinc-500">{lugar}</span>
 
-		<div class="mt-3 mb-4 text-pretty text-base text-zinc-400">
+		<div class="my-4 text-pretty text-base text-zinc-400">
 			{@render children()}
 		</div>
 		
-		<div class="flex gap-2 mt-3">
+		<div class="flex gap-2">
 			{#each stack.split(",") as item}
 				<Skill icon="{item.trim()}" />
 			{/each}

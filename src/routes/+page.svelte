@@ -71,8 +71,10 @@
 		</div>
 		<Container>
 			<section class="grid grid-cols-3">
-				<div class="col-span-2 ">
-					<span class="font-mono font-light tracking-tight text-zinc-300">Software Developer, UI/UX Designer.</span>
+				<div class="col-span-2">
+					<span class="font-mono font-light tracking-tight text-zinc-300"
+						>Software Developer, UI/UX Designer.</span
+					>
 					<div class="inline-block">
 						<h1 class="text-8xl font-bold mt-4 pb-2 typing text-white">Hi, i'm largo.</h1>
 					</div>
@@ -89,7 +91,7 @@
 							href="Currículum - Juan Carlos Largo.pdf"
 							target="_blank"
 						>
-							<i class="bi bi-code-slash"></i>	
+							<i class="bi bi-code-slash"></i>
 							<span>Ver Curriculum</span>
 						</a>
 
@@ -118,95 +120,51 @@
 <div class="background-dots mask-radial">
 	<Container>
 		<section id="experiencia">
-			<h3 class="text-4xl tracking-tight font-bold">Experiencia</h3>
+			<h3 class="text-4xl tracking-tight font-medium">Experiencia</h3>
 
 			<p class="text-display w-9/12 mt-5 mb-7">
-				Desarrollo aplicaciones web innovadoras y soluciones de software personalizadas. Creando experiencias atractivas, enfocándome en la escalabilidad, el rendimiento, la calidad y pensando siempre desde la perspectiva del usuario final.
+				Desarrollo aplicaciones web innovadoras y soluciones de software personalizadas. Creando
+				experiencias atractivas, enfocándome en la escalabilidad, el rendimiento, la calidad y
+				pensando siempre desde la perspectiva del usuario final.
 			</p>
 
 			<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
 				<ExperienceCard
 					cargo="Estudiante Auxiliar"
-					fecha="Enero de 2024 - Actualidad. (Medellín, Colombia)"
-					stack="Javascript, HTML, CSS, Bootstrap, Firebase"
+					fecha="Enero de 2024 - Actualidad"
+					stack="Javascript, HTML, CSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
 					lugar="Universidad Nacional de Colombia"
 				>
-					<h5 class="font-medium mb-1">Responsabilidades</h5>
-
-					<ul class="list-disc ps-4">
-						<li>
-							Diseñar y desarrollar una aplicación web para la Vicedecanatura de la Facultad de
-							Minas, con el objetivo de optimizar el registro y la gestión de prácticas de campo en
-							toda la facultad. Algunas de las funcionalidades incluyen inicio de sesión, gestión de
-							usuarios, bases de datos NoSQL, generación de reportes, automatización de informes y
-							envío de correos.
-						</li>
-						<li>
-							Colaborar estrechamente con diferentes áreas de la Vicedecanatura para comprender sus
-							requerimientos específicos y diseñar soluciones adaptadas a sus necesidades mediante
-							la implementación de funcionalidades en la aplicación.
-						</li>
-					</ul>
-
-					<h5 class="font-medium mb-1 mt-3">Logros</h5>
-
-					<ul class="list-disc ps-4">
-						<li>
-							Estandarización de datos de prácticas de campo, permitiendo un análisis eficiente y
-							contribuyendo a decisiones informadas, evitando gastos innecesarios y permitiendo
-							identificar posibles mejoras en el ahorro de recursos financieros.
-						</li>
-						<li>
-							Reducción significativa del tiempo empleado en los procesos asociados al registro y
-							gestión de prácticas de campo, disminuyendo días de trabajo y mejorando la
-							coordinación entre diferentes áreas, además de una mejora notable de la experiencia
-							general de los usuarios.
-						</li>
-					</ul>
+					Desarrollo de aplicación web con el objetivo de optimizar el registro y gestión de
+					prácticas de campo. Colaboración con diversas áreas para adaptar soluciones a sus
+					necesidades. Entre los logros destacan la estandarización de datos, reducción
+					significativa del tiempo en procesos y mejora de la coordinación y experiencia de los
+					usuarios.
 				</ExperienceCard>
 
 				<ExperienceCard
 					cargo="Estudiante Auxiliar"
-					fecha="Noviembre de 2023 - Diciembre 2023. (Medellín, Colombia)"
+					fecha="Noviembre de 2023 - Diciembre 2023"
 					stack="Javascript, Python, Apps Script"
 					lugar="Universidad Nacional de Colombia"
 				>
-					<h5 class="font-medium mb-1">Responsabilidades</h5>
-
-					<ul class="list-disc ps-4">
-						<li>
-							Identificación y resolución de problemas a través de soluciones con Apps Script y
-							Python para la automatización de tareas repetitivas, enfocadas en incrementar la
-							eficiencia operativa y reducir el trabajo manual.
-						</li>
-					</ul>
-
-					<h5 class="font-medium mb-1 mt-3">Logros</h5>
-
-					<ul class="list-disc ps-4">
-						<li>
-							Reducción significativa de la carga de trabajo manual en procesos administrativos
-							internos gracias a la automatización de tareas rutinarias.
-						</li>
-						<li>
-							Integración exitosa de diversas herramientas digitales, logrando una mejora en la
-							productividad del equipo y optimizando los flujos de trabajo.
-						</li>
-					</ul>
+				Identificación y resolución de problemas mediante Apps Script y Python para automatizar tareas repetitivas, incrementando la eficiencia operativa y reduciendo el trabajo manual. La automatización de procesos administrativos internos resultó en una significativa reducción de la carga de trabajo manual y mejora de la productividad del equipo y optimizando los flujos de trabajo.
 				</ExperienceCard>
 			</ul>
 		</section>
 	</Container>
 </div>
 
+
 <div class="background-dots mask-radial">
 	<Container>
 		<section class="py-32" id="proyectos">
-			<h3 class="text-4xl tracking-tight font-bold">Proyectos</h3>
+			<h3 class="text-4xl tracking-tight font-medium">Proyectos</h3>
 
 			<p class="text-display w-9/12 mt-5 mb-7">
-				Me apasiona construir soluciones que resuelvan problemas y generen valor.
-				Te invito a conocer algunos de mis proyectos personales en los que estoy o he estado trabajando, los cuales llevan mi dedicación, cariño y esfuerzo.
+				Me apasiona construir soluciones que resuelvan problemas y generen valor. Te invito a
+				conocer algunos de mis proyectos personales en los que estoy o he estado trabajando, los
+				cuales llevan mi dedicación, cariño y esfuerzo.
 			</p>
 
 			<div class="grid gap-4 grid-cols-1 lg:grid-cols-2">
@@ -256,7 +214,7 @@
 
 <Container>
 	<div class="pb-32">
-		<h3 class="text-4xl tracking-tight font-bold mb-5">Habilidades y tecnologias</h3>
+		<h3 class="text-4xl tracking-tight font-medium mb-5">Habilidades y tecnologias</h3>
 
 		<SkillCarrousel />
 	</div>
@@ -291,8 +249,6 @@
 -->
 
 <style lang="scss">
-
-
 	@keyframes beam {
 		from {
 			height: 0%;
@@ -329,8 +285,12 @@
 			width: 1px;
 
 			z-index: 1;
-			background: linear-gradient(180deg, rgba(243,126,255,1) 0%, rgba(161,37,255,1) 100%);
-			mask-image: linear-gradient(180deg, rgba(0,0,0,1) var(--mask-percentaje), rgba(161,37,255,0) 100%);
+			background: linear-gradient(180deg, rgba(243, 126, 255, 1) 0%, rgba(161, 37, 255, 1) 100%);
+			mask-image: linear-gradient(
+				180deg,
+				rgba(0, 0, 0, 1) var(--mask-percentaje),
+				rgba(161, 37, 255, 0) 100%
+			);
 
 			animation: beam ease both;
 			animation-timeline: scroll();
@@ -343,7 +303,11 @@
 			transform: translateX(-50%);
 			border-width: 1px;
 			border-color: #2b2b2b;
-			mask-image: linear-gradient(180deg, rgba(0,0,0,1) var(--mask-percentaje), rgba(161,37,255,0) 100%);
+			mask-image: linear-gradient(
+				180deg,
+				rgba(0, 0, 0, 1) var(--mask-percentaje),
+				rgba(161, 37, 255, 0) 100%
+			);
 		}
 	}
 
