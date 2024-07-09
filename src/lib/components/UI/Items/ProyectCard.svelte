@@ -40,7 +40,7 @@
 		transition: all 0.3s ease;
 		border: 1px rgba(121, 121, 121, 0.2) solid;
 
-		--dots: radial-gradient(rgb(255, 255, 255, 0.03) 10%, transparent 1%)
+		--dots: radial-gradient(rgb(255, 255, 255, 0.03) 10%, transparent 1%);
 		--dots-size: 7px;
 
 		--top: -25%;
@@ -51,7 +51,7 @@
 
 		&:hover {
 			border: 1px rgba(121, 121, 121, 0.5) solid;
-			background: rgb(255, 255, 255, 0.03) var(--dots);
+			background: rgb(255, 255, 255, 0.02) var(--dots);
 			background-size: var(--dots-size) var(--dots-size);
 
 			&::before {
