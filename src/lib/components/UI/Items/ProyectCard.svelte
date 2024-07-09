@@ -55,7 +55,7 @@
 			background-size: var(--dots-size) var(--dots-size);
 
 			&::before {
-				background: rgba(179, 86, 255, 0.2);
+				background: rgba(179, 86, 255, 0.3);
 			}
 		}
 
@@ -71,7 +71,7 @@
 			border-radius: 999%;
 			filter: blur(45px);
 
-			background: rgba(179, 86, 255, 0.1);
+			background: rgba(179, 86, 255, 0.2);
 			transition: all 0.3s ease;
 		}
 
