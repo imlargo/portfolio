@@ -30,8 +30,11 @@
 		position: relative;
 		-webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 		box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-		transition: all 250ms;
+		transition: all 200ms;
 		overflow: hidden;
+		color: #e8e8e8;
+		
+
 
 		&::before {
 			content: '';
@@ -39,7 +42,8 @@
 			top: 0;
 			left: 0;
 			height: 100%;
-			width: 0;
+			width: 100%;
+
 			border-radius: 999px;
 			background-color: #212121;
 			z-index: -1;
@@ -50,10 +54,15 @@
 
 		&:hover {
 			color: #e8e8e8;
-
 			&::before {
 				width: 100%;
 			}
+		}
+
+		&:active {
+			color: #e8e8e8;
+			transform: scale(0.8);
+			
 		}
 	}
 </style>
