@@ -17,13 +17,17 @@
 	</div>
 
 	<div class="flex justify-between items-center">
-		<a class="flex items-center gap-1 truncate text-zinc-400 w-9/12" href={link} target="_blank">
-			<i class="bi bi-link-45deg"></i>
-			<span
-				class="hover:underline hover:decoration-dotted hover:underline-offset-4 hover:decoration-zinc-400"
-				>{link.replace('https://', '')}</span
-			>
-		</a>
+		{#if link}
+			<a class="flex items-center gap-1 truncate text-zinc-400 w-9/12" href={link} target="_blank">
+				<i class="bi bi-link-45deg"></i>
+				<span
+					class="hover:underline hover:decoration-dotted hover:underline-offset-4 hover:decoration-zinc-400"
+					>{link.replace('https://', '')}</span
+				>
+			</a>
+		{:else}
+			<span></span>
+		{/if}
 
 		{#if repo}
 			<a href={repo} target="_blank" class="text-lg">

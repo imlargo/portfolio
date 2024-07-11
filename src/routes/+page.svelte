@@ -128,7 +128,7 @@
 
 			<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
 				<ExperienceCard
-					cargo="Estudiante Auxiliar"
+					cargo="Desarrollador de software"
 					fecha="Enero de 2024 - Actualidad"
 					stack="Javascript, HTML, CSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
 					lugar="Universidad Nacional de Colombia"
@@ -141,7 +141,7 @@
 				</ExperienceCard>
 
 				<ExperienceCard
-					cargo="Estudiante Auxiliar"
+					cargo="Desarrollador de software"
 					fecha="Noviembre de 2023 - Diciembre 2023"
 					stack="Javascript, Python, Apps Script"
 					lugar="Universidad Nacional de Colombia"
@@ -171,7 +171,6 @@
 			<div class="grid gap-4 grid-cols-1 lg:grid-cols-2">
 				<ProyectCard
 					link="https://pegaso.imlargo.dev"
-					repo="https://github.com/imlargo/pegaso"
 					title="Pegaso"
 					stack="Svelte, Tailwind, MongoDB, NodeJs, Javascript"
 				>
@@ -181,7 +180,6 @@
 
 				<ProyectCard
 					link="https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles"
-					repo="https://github.com/imlargo/pegaso"
 					title="MinasBot"
 					stack="NodeJs, Javascript"
 				>
@@ -191,17 +189,16 @@
 
 				<ProyectCard
 					link="https://odpiobservatorio.vercel.app"
-					repo="https://github.com/imlargo/pegaso"
+					repo="https://github.com/odpiobservatorio/odpiobservatorio.github.io"
 					title="ODPI Observatorio."
 					stack="Javascript, HTML, CSS, Firebase, Leaflet"
 				>
-					Contribuí voluntariamente al desarrollo de un sistema de información web que visibiliza el
+					Contribuí al desarrollo del backend para un sistema de información web que visibiliza el
 					estado de los hechos de violencia contra los pueblos indígenas de Colombia.
 				</ProyectCard>
 
 				<ProyectCard
-					link="https://vectorial.imlargo.dev"
-					repo="https://github.com/imlargo/pegaso"
+					repo="https://github.com/imlargo/proyecto-vectorial"
 					title="Plataforma de enseñanza"
 					stack="Astro, Tailwind, Python, Markdown"
 				>
