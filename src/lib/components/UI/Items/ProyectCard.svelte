@@ -3,37 +3,42 @@
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
 
-<div class="container project-card px-8 py-8 rounded-xl">
-	<h5 class="font-semibold text-lg">{title}</h5>
+<div class="container project-card flex flex-col justify-between px-8 py-8 rounded-xl">
 
-	<p class="text-base text-pretty text-zinc-400 mt-2">
-		{@render children()}
-	</p>
+	<div>
+		<h5 class="font-semibold text-lg">{title}</h5>
 
-	<div class="flex gap-2 flex-wrap my-7">
-		{#each stack.split(',') as item}
-			<Skill icon={item.trim()} />
-		{/each}
+		<p class="text-base text-pretty text-zinc-400 mt-2">
+			{@render children()}
+		</p>
 	</div>
 
-	<div class="flex justify-between items-center">
-		{#if link}
-			<a class="flex items-center gap-1 truncate text-zinc-400 w-9/12" href={link} target="_blank">
-				<i class="bi bi-link-45deg"></i>
-				<span
-					class="hover:underline hover:decoration-dotted hover:underline-offset-4 hover:decoration-zinc-400"
-					>{link.replace('https://', '')}</span
-				>
-			</a>
-		{:else}
-			<span></span>
-		{/if}
-
-		{#if repo}
-			<a href={repo} target="_blank" class="text-lg">
-				<i class="bi bi-github"></i>
-			</a>
-		{/if}
+	<div>
+		<div class="flex gap-2 flex-wrap my-7">
+			{#each stack.split(',') as item}
+				<Skill icon={item.trim()} />
+			{/each}
+		</div>
+	
+		<div class="flex justify-between items-center">
+			{#if link}
+				<a class="flex items-center gap-1 truncate text-zinc-400 w-9/12" href={link} target="_blank">
+					<i class="bi bi-link-45deg"></i>
+					<span
+						class="hover:underline hover:decoration-dotted hover:underline-offset-4 hover:decoration-zinc-400"
+						>{link.replace('https://', '')}</span
+					>
+				</a>
+			{:else}
+				<span></span>
+			{/if}
+	
+			{#if repo}
+				<a href={repo} target="_blank" class="text-lg">
+					<i class="bi bi-github"></i>
+				</a>
+			{/if}
+		</div>
 	</div>
 </div>
 

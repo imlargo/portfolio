@@ -33,8 +33,6 @@
 		transition: all 200ms;
 		overflow: hidden;
 		color: #e8e8e8;
-		
-
 
 		&::before {
 			content: '';
@@ -62,7 +60,6 @@
 		&:active {
 			color: #e8e8e8;
 			transform: scale(0.8);
-			
 		}
 	}
 </style>

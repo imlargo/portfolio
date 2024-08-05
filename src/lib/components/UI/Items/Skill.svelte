@@ -18,6 +18,10 @@
 		--tw-ring-color: #4b4b4b;
 	}
 
+	.typescript {
+		--tw-ring-color: #3178c6;
+	}
+
 	.javascript {
 		--tw-ring-color: #f0db4f;
 	}

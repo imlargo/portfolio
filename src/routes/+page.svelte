@@ -130,7 +130,7 @@
 				<ExperienceCard
 					cargo="Desarrollador de software"
 					fecha="Enero de 2024 - Actualidad"
-					stack="Javascript, HTML, CSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
+					stack="Typescript, Svelte, Tailwind, Javascript, HTML, CSS, SCSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
 					lugar="Universidad Nacional de Colombia"
 				>
 					Desarrollo de aplicación web con el objetivo de optimizar el registro y gestión de
