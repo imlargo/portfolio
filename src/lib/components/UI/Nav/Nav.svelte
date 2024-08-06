@@ -16,7 +16,7 @@
 	</div>
 
 	<div class="flex basis-1/3 justify-center items-center gap-10">
-		<NavLink currentPath={$page.url.pathname} href="/">Home</NavLink>
+		<NavLink currentPath={$page.url.pathname} href="/">Inicio</NavLink>
 		<NavLink currentPath={$page.url.pathname} href="/about">About</NavLink>
 	</div>
 

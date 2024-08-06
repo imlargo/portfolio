@@ -1,5 +1,12 @@
 <script lang="ts">
-	const { title, link, repo, stack, children } = $props();
+	type Props = {
+		title: string;
+		link?: string;
+		repo?: string;
+		stack: string;
+		children: any;
+	}
+	const { title, link, repo, stack, children }: Props = $props();
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
 

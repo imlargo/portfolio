@@ -71,7 +71,7 @@
 			<section class="grid grid-cols-3">
 				<div class="col-span-2">
 					<span class="font-mono font-light tracking-tight text-zinc-300"
-						>Software Developer, UI/UX Designer.</span
+						>Fullstack Developer, UI/UX Designer.</span
 					>
 					<div class="inline-block">
 						<h1 class="text-8xl font-bold mt-4 pb-2 typing text-white">Hi, i'm largo.</h1>
@@ -171,11 +171,21 @@
 			<div class="grid gap-4 grid-cols-1 lg:grid-cols-2">
 				<ProyectCard
 					link="https://pegaso.imlargo.dev"
+					repo="https://github.com/imlargo/pegaso"
 					title="Pegaso"
 					stack="Svelte, Tailwind, MongoDB, NodeJs, Javascript"
 				>
 					Una aplicación diseñada para la creación de horarios y enfocada en brindar información
 					esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.
+				</ProyectCard>
+
+				<ProyectCard
+					link="https://copywhisper.imlargo.dev"
+					repo="https://github.com/imlargo/CopyWhisper"
+					title="CopyWhisper"
+					stack="Svelte, Typescript, Tailwind, SCSS"
+				>
+				Aplicación web impulsada por IA para analizar, calificar y optimizar el copywriting tu página web, proporcionando análisis profundos y detallados con recomendaciones adaptadas a tus necesidades específicas.
 				</ProyectCard>
 
 				<ProyectCard

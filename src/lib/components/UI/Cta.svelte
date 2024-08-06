@@ -15,7 +15,7 @@
 			<a
 				class="inline-flex items-center gap-1 rounded-full ring-offset-gray-900 bg-gray-50 text-gray-950 shadow-xl shadow-black/20 ring-gray-300 text-base font-medium px-5 py-2.5 w-full justify-center"
 				target="_blank"
-				href="https://wa.me/573136566689"
+				href="mailto:jclargob@gmail.com"
 			>
 				<span>Contactame</span>
 				<i class="bi bi-arrow-right"></i>

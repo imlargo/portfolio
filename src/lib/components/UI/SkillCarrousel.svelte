@@ -1,6 +1,6 @@
 <script>
 	const string =
-		'Svelte, Javascript, Python, Java, Golang, MongoDb, NodeJs, Firebase, Astro, HTML, CSS, SCSS, Tailwind, Bootstrap, Git, GitHub, Github Actions, Figma, API REST, Apps Script';
+		'Typescript, Svelte, Javascript, Python, Java, Golang, MongoDb, NodeJs, Firebase, Astro, HTML, CSS, SCSS, Tailwind, Bootstrap, Git, GitHub, Github Actions, Figma, API REST, Apps Script';
 	const skills = string.split(',').map((item) => item.trim());
 
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
