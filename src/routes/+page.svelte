@@ -173,7 +173,7 @@
 					link="https://pegaso.imlargo.dev"
 					repo="https://github.com/imlargo/pegaso"
 					title="Pegaso"
-					stack="Svelte, Tailwind, MongoDB, NodeJs, Javascript"
+					stack="Svelte, Go, TypeScript, MongoDB, Tailwind"
 				>
 					Una aplicación diseñada para la creación de horarios y enfocada en brindar información
 					esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.

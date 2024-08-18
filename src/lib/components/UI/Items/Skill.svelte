@@ -34,6 +34,9 @@
 	.golang {
 		--tw-ring-color: #00b4e0;
 	}
+	.go {
+		--tw-ring-color: #00b4e0;
+	}
 	.mongodb {
 		--tw-ring-color: #10aa50;
 	}
