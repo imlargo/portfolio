@@ -133,8 +133,7 @@
 					stack="Typescript, Svelte, Tailwind, Javascript, HTML, CSS, SCSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
 					lugar="Universidad Nacional de Colombia"
 				>
-					Desarrollo de aplicación web con el objetivo de optimizar el registro y gestión de
-					prácticas de campo. Colaboración con diversas áreas para adaptar soluciones a sus
+					Colaboración con diversas áreas para adaptar soluciones a sus
 					necesidades. Entre los logros destacan la estandarización de datos, reducción
 					significativa del tiempo en procesos y mejora de la coordinación y experiencia de los
 					usuarios.
