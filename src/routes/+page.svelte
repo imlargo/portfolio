@@ -128,7 +128,7 @@
 
 			<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
 				<ExperienceCard
-					cargo="Desarrollador de software"
+					cargo="Estudiante Auxiliar / Desarrollador de software"
 					fecha="Enero de 2024 - Actualidad"
 					stack="Typescript, Svelte, Tailwind, Javascript, HTML, CSS, SCSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
 					lugar="Universidad Nacional de Colombia"
@@ -140,7 +140,7 @@
 				</ExperienceCard>
 
 				<ExperienceCard
-					cargo="Desarrollador de software"
+					cargo="Estudiante Auxiliar / Desarrollador de software"
 					fecha="Noviembre de 2023 - Diciembre 2023"
 					stack="Javascript, Python, Apps Script"
 					lugar="Universidad Nacional de Colombia"
