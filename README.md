@@ -12,4 +12,4 @@ Repositorio de mi pagina web personal, donde hablo un poco de mi y de mi experie
 
 ¡Las contribuciones siempre son bienvenidas!
 
-Si encuentras algun error en el contenido puedes crear un Pull Request y corregirlo :D. O por el contrario si tienes algún comentario, duda o retroalimentacion, no dudes en contactarme a mi correo jclargob@gmail.com
+Si encuentras algun error en el contenido puedes crear un Pull Request y corregirlo :D. O por el contrario si tienes algún comentario, duda o retroalimentacion, no dudes en contactarme a mi correo: jclargob@gmail.com
