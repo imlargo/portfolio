@@ -4,10 +4,10 @@
 </script>
 
 <li class="relative pl-7 before:absolute">
-	<div class="flex flex-col flex-1">
-		<span class="text-sm text-zinc-500 font-mono">{fecha}</span>
+	<div class="flex flex-1 flex-col">
+		<span class="font-mono text-sm text-zinc-500">{fecha}</span>
 
-		<h5 class="font-medium text-zinc-200 mt-3">{cargo}</h5>
+		<h5 class="mt-3 font-medium text-zinc-200">{cargo}</h5>
 		<span class="text-sm text-zinc-500">{lugar}</span>
 
 		<div class="my-4 text-pretty text-base text-zinc-400">

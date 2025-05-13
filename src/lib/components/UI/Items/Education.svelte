@@ -1,9 +1,9 @@
 <li class="relative pl-7 before:absolute">
-	<div class="flex flex-col flex-1 gap-2">
-		<h3 class="font-semibold mb-1">
+	<div class="flex flex-1 flex-col gap-2">
+		<h3 class="mb-1 font-semibold">
 			Ingeniería de Sistemas e Informática, Universidad Nacional de Colombia.
 		</h3>
-		<span class="font-light text-sm font-mono">Noviembre de 2023 - Diciembre de 2023</span>
+		<span class="font-mono text-sm font-light">Noviembre de 2023 - Diciembre de 2023</span>
 	</div>
 </li>
 

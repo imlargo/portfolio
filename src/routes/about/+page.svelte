@@ -17,8 +17,8 @@
 	<Container>
 		<main class="grid grid-cols-5">
 			<section class="col-span-3">
-				<h1 class="text-7xl font-bold tracking-tight max-w-max">Acerca de mi</h1>
-				<div class="mt-6 space-y-7 text-base text-pretty text-zinc-400 leading-relaxed w-10/12">
+				<h1 class="max-w-max text-7xl font-bold tracking-tight">Acerca de mi</h1>
+				<div class="mt-6 w-10/12 space-y-7 text-pretty text-base leading-relaxed text-zinc-400">
 					<p>
 						¡Hola! me llamo Juan Carlos Largo, aunque quiza me conozcas como <span class="font-mono"
 							>@imlargo</span
@@ -57,9 +57,9 @@
 					/>
 				</div>
 
-				<div class="flex flex-col gap-4 mt-8">
+				<div class="mt-8 flex flex-col gap-4">
 					<a
-						class="flex gap-3 max-w-fit text-zinc-400"
+						class="flex max-w-fit gap-3 text-zinc-400"
 						target="_blank"
 						href="https://github.com/imlargo"
 					>
@@ -68,7 +68,7 @@
 					</a>
 
 					<a
-						class="flex gap-3 max-w-fit text-zinc-400"
+						class="flex max-w-fit gap-3 text-zinc-400"
 						target="_blank"
 						href="https://www.instagram.com/imlargo"
 					>
@@ -77,7 +77,7 @@
 					</a>
 
 					<a
-						class="flex gap-3 max-w-fit text-zinc-400"
+						class="flex max-w-fit gap-3 text-zinc-400"
 						target="_blank"
 						href="https://www.linkedin.com/in/imlargo"
 					>
@@ -88,7 +88,7 @@
 					<hr class="my-2" />
 
 					<a
-						class="flex gap-3 max-w-fit text-zinc-400"
+						class="flex max-w-fit gap-3 text-zinc-400"
 						target="_blank"
 						href="mailto:jclargob@gmail.com"
 					>

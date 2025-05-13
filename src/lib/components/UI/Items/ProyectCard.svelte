@@ -5,41 +5,44 @@
 		repo?: string;
 		stack: string;
 		children: any;
-	}
+	};
 	const { title, link, repo, stack, children }: Props = $props();
 	import Skill from '$lib/components/UI/Items/Skill.svelte';
 </script>
 
-<div class="container project-card flex flex-col justify-between px-8 py-8 rounded-xl">
-
+<div class="project-card container flex flex-col justify-between rounded-xl px-8 py-8">
 	<div>
-		<h5 class="font-semibold text-lg">{title}</h5>
+		<h5 class="text-lg font-semibold">{title}</h5>
 
-		<p class="text-base text-pretty text-zinc-400 mt-2">
+		<p class="mt-2 text-pretty text-base text-zinc-400">
 			{@render children()}
 		</p>
 	</div>
 
 	<div>
-		<div class="flex gap-2 flex-wrap my-7">
+		<div class="my-7 flex flex-wrap gap-2">
 			{#each stack.split(',') as item}
 				<Skill icon={item.trim()} />
 			{/each}
 		</div>
-	
-		<div class="flex justify-between items-center">
+
+		<div class="flex items-center justify-between">
 			{#if link}
-				<a class="flex items-center gap-1 truncate text-zinc-400 w-9/12" href={link} target="_blank">
+				<a
+					class="flex w-9/12 items-center gap-1 truncate text-zinc-400"
+					href={link}
+					target="_blank"
+				>
 					<i class="bi bi-link-45deg"></i>
 					<span
-						class="hover:underline hover:decoration-dotted hover:underline-offset-4 hover:decoration-zinc-400"
+						class="hover:underline hover:decoration-zinc-400 hover:decoration-dotted hover:underline-offset-4"
 						>{link.replace('https://', '')}</span
 					>
 				</a>
 			{:else}
 				<span></span>
 			{/if}
-	
+
 			{#if repo}
 				<a href={repo} target="_blank" class="text-lg">
 					<i class="bi bi-github"></i>

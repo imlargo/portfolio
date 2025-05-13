@@ -1,19 +1,19 @@
 <hr />
 
 <footer class="grid grid-cols-3 py-10 text-sm">
-	<section class="grid items-center col-span-2">
-		<span class="text-4xl font-mono text-zinc-400">imlargo</span>
+	<section class="col-span-2 grid items-center">
+		<span class="font-mono text-4xl text-zinc-400">imlargo</span>
 	</section>
 
 	<section class="grid grid-cols-2">
 		<div class="flex flex-col gap-2">
 			<span class="font-medium">Paginas</span>
 
-			<a href="/" class="py-1 flex gap-3 text-zinc-400 hover:text-zinc-300 transition-all">
+			<a href="/" class="flex gap-3 py-1 text-zinc-400 transition-all hover:text-zinc-300">
 				<span>Home</span>
 			</a>
 
-			<a href="/about" class="py-1 flex gap-3 text-zinc-400 hover:text-zinc-300 transition-all">
+			<a href="/about" class="flex gap-3 py-1 text-zinc-400 transition-all hover:text-zinc-300">
 				<span>About</span>
 			</a>
 		</div>
@@ -24,7 +24,7 @@
 			<a
 				target="_blank"
 				href="https://github.com/imlargo"
-				class="py-1 flex gap-3 text-zinc-400 hover:text-zinc-300 transition-all"
+				class="flex gap-3 py-1 text-zinc-400 transition-all hover:text-zinc-300"
 			>
 				<span class="">GitHub</span>
 			</a>
@@ -32,7 +32,7 @@
 			<a
 				target="_blank"
 				href="https://www.instagram.com/imlargo"
-				class="py-1 flex gap-3 text-zinc-400 hover:text-zinc-300 transition-all"
+				class="flex gap-3 py-1 text-zinc-400 transition-all hover:text-zinc-300"
 			>
 				<span class="">Instagram</span>
 			</a>
@@ -40,7 +40,7 @@
 			<a
 				target="_blank"
 				href="https://www.linkedin.com/in/imlargo"
-				class="py-1 flex gap-3 text-zinc-400 hover:text-zinc-300 transition-all"
+				class="flex gap-3 py-1 text-zinc-400 transition-all hover:text-zinc-300"
 			>
 				<span class="">LinkedIn</span>
 			</a>
@@ -48,7 +48,7 @@
 			<a
 				target="_blank"
 				href="mailto:jclargob@gmail.com"
-				class="py-1 flex gap-3 text-zinc-400 hover:text-zinc-300 transition-all"
+				class="flex gap-3 py-1 text-zinc-400 transition-all hover:text-zinc-300"
 			>
 				<span class="">Email</span>
 			</a>

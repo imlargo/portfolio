@@ -3,9 +3,9 @@
 </script>
 
 <span
-	class="skill inline-flex items-center rounded-md px-2 py-1 text-xs gap-1 text-zinc-400 ring-1 ring-inset ring-gray-100/20"
+	class="skill inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-zinc-400 ring-1 ring-inset ring-gray-100/20"
 >
-	<span class="icon {icon.toLowerCase()} rounded-full ring-1 h-1.5 w-1.5"></span>
+	<span class="icon {icon.toLowerCase()} h-1.5 w-1.5 rounded-full ring-1"></span>
 	<span>{icon}</span>
 </span>
 

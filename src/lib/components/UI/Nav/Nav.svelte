@@ -5,22 +5,22 @@
 	import { textEffectAction } from '$src/lib/actions/textAction';
 </script>
 
-<nav class="flex py-4 justify-between items-center">
-	<div class="flex basis-1/3 align-center">
+<nav class="flex items-center justify-between py-4">
+	<div class="align-center flex basis-1/3">
 		<a
 			use:textEffectAction
 			data-value="imlargo"
-			class="font-mono text-3xl select-none font-light"
+			class="select-none font-mono text-3xl font-light"
 			href="/">imlargo</a
 		>
 	</div>
 
-	<div class="flex basis-1/3 justify-center items-center gap-10">
+	<div class="flex basis-1/3 items-center justify-center gap-10">
 		<NavLink currentPath={$page.url.pathname} href="/">Inicio</NavLink>
 		<NavLink currentPath={$page.url.pathname} href="/about">About</NavLink>
 	</div>
 
-	<div class="flex basis-1/3 justify-end items-center gap-7">
+	<div class="flex basis-1/3 items-center justify-end gap-7">
 		<NavSocial icon="bi bi-github" href="https://github.com/imlargo" />
 		<NavSocial icon="bi bi-instagram" href="https://www.instagram.com/imlargo" />
 		<NavSocial icon="bi bi-linkedin" href="https://www.linkedin.com/in/imlargo" />

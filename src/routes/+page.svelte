@@ -74,18 +74,18 @@
 						>Fullstack Developer, UI/UX Designer.</span
 					>
 					<div class="inline-block">
-						<h1 class="text-8xl font-bold mt-4 pb-2 typing text-white">Hi, i'm largo.</h1>
+						<h1 class="typing mt-4 pb-2 text-8xl font-bold text-white">Hi, i'm largo.</h1>
 					</div>
 
-					<p class="text-base text-pretty text-zinc-200 leading-relaxed">
+					<p class="text-pretty text-base leading-relaxed text-zinc-200">
 						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el
 						desarrollo web. Entre mis logros destaca la creación de proyectos personales que han
 						tenido un impacto positivo significativo en la comunidad universitaria.
 					</p>
 
-					<div class="flex items-center gap-7 mt-9">
+					<div class="mt-9 flex items-center gap-7">
 						<a
-							class="inline-flex gap-1.5 items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-black"
+							class="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-black"
 							href="Currículum - Juan Carlos Largo.pdf"
 							target="_blank"
 						>
@@ -94,7 +94,7 @@
 						</a>
 
 						<div
-							class="inline-block self-stretch w-px min-h-[1em] h-3/4 my-auto bg-neutral-400"
+							class="my-auto inline-block h-3/4 min-h-[1em] w-px self-stretch bg-neutral-400"
 						></div>
 
 						<a class="text-lg" target="_blank" href="https://github.com/imlargo">
@@ -118,9 +118,9 @@
 <div class="background-dots mask-radial">
 	<Container>
 		<section id="experiencia">
-			<h3 class="text-4xl tracking-tight font-medium">Experiencia</h3>
+			<h3 class="text-4xl font-medium tracking-tight">Experiencia</h3>
 
-			<p class="text-display w-9/12 mt-5 mb-7">
+			<p class="text-display mb-7 mt-5 w-9/12">
 				Desarrollo aplicaciones web innovadoras y soluciones de software personalizadas. Creando
 				experiencias atractivas, enfocándome en la escalabilidad, el rendimiento, la calidad y
 				pensando siempre desde la perspectiva del usuario final.
@@ -133,10 +133,9 @@
 					stack="Typescript, Svelte, Tailwind, Javascript, HTML, CSS, SCSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
 					lugar="Universidad Nacional de Colombia"
 				>
-					Colaboración con diversas áreas para adaptar soluciones a sus
-					necesidades. Entre los logros destacan la estandarización de datos, reducción
-					significativa del tiempo en procesos y mejora de la coordinación y experiencia de los
-					usuarios.
+					Colaboración con diversas áreas para adaptar soluciones a sus necesidades. Entre los
+					logros destacan la estandarización de datos, reducción significativa del tiempo en
+					procesos y mejora de la coordinación y experiencia de los usuarios.
 				</ExperienceCard>
 
 				<ExperienceCard
@@ -159,15 +158,15 @@
 <div class="background-dots mask-radial">
 	<Container>
 		<section class="py-32" id="proyectos">
-			<h3 class="text-4xl tracking-tight font-medium">Proyectos</h3>
+			<h3 class="text-4xl font-medium tracking-tight">Proyectos</h3>
 
-			<p class="text-display w-9/12 mt-5 mb-7">
+			<p class="text-display mb-7 mt-5 w-9/12">
 				Me apasiona construir soluciones que resuelvan problemas y generen valor. Te invito a
 				conocer algunos de mis proyectos personales en los que estoy o he estado trabajando, los
 				cuales llevan mi dedicación, cariño y esfuerzo.
 			</p>
 
-			<div class="grid gap-4 grid-cols-1 lg:grid-cols-2">
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 				<ProyectCard
 					link="https://pegaso.imlargo.dev"
 					repo="https://github.com/imlargo/pegaso"
@@ -184,7 +183,9 @@
 					title="CopyWhisper"
 					stack="Svelte, Typescript, Tailwind, SCSS"
 				>
-				Aplicación web impulsada por IA para analizar, calificar y optimizar el copywriting tu página web, proporcionando análisis profundos y detallados con recomendaciones adaptadas a tus necesidades específicas.
+					Aplicación web impulsada por IA para analizar, calificar y optimizar el copywriting tu
+					página web, proporcionando análisis profundos y detallados con recomendaciones adaptadas a
+					tus necesidades específicas.
 				</ProyectCard>
 
 				<ProyectCard
@@ -221,7 +222,7 @@
 
 <Container>
 	<div class="pb-32">
-		<h3 class="text-4xl tracking-tight font-medium mb-5">Habilidades y tecnologias</h3>
+		<h3 class="mb-5 text-4xl font-medium tracking-tight">Habilidades y tecnologias</h3>
 
 		<SkillCarrousel />
 	</div>

@@ -1,19 +1,19 @@
-<section class="bg-white px-16 py-16 rounded-xl">
+<section class="rounded-xl bg-white px-16 py-16">
 	<div class="flex justify-between">
 		<div>
-			<h2 class="font-semibold tracking-tight text-black text-4xl leading-tight">
+			<h2 class="text-4xl font-semibold leading-tight tracking-tight text-black">
 				Tienes una idea en mente?<br />
 			</h2>
-			<p class="mt-7 md:text-lg leading-relaxed text-black max-w-2xl">
+			<p class="mt-7 max-w-2xl leading-relaxed text-black md:text-lg">
 				Estoy abierto a escuchar sobre nuevas oportunidades. ¡No dudes en ponerte en contacto
 				conmigo si tienes alguna pregunta o si quieres saludarme! Estoy seguro de que puedo ayudarte
 				en lo que necesites.
 			</p>
 		</div>
 
-		<div class="flex justify-end items-center">
+		<div class="flex items-center justify-end">
 			<a
-				class="inline-flex items-center gap-1 rounded-full ring-offset-gray-900 bg-gray-50 text-gray-950 shadow-xl shadow-black/20 ring-gray-300 text-base font-medium px-5 py-2.5 w-full justify-center"
+				class="inline-flex w-full items-center justify-center gap-1 rounded-full bg-gray-50 px-5 py-2.5 text-base font-medium text-gray-950 shadow-xl shadow-black/20 ring-gray-300 ring-offset-gray-900"
 				target="_blank"
 				href="mailto:jclargob@gmail.com"
 			>
