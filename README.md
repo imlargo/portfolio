@@ -1,15 +1,38 @@
-# Portafolio
+# sv
 
-> Nota: Aun se encuentra en construccion
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-Repositorio de mi pagina web personal, donde hablo un poco de mi y de mi experiencia y proyectos como desarrolador. Creado con svelte y tailwind.
+## Creating a project
 
-## Tech Stack
+If you're seeing this, you've probably already done this step. Congrats!
 
-<img src="https://skillicons.dev/icons?i=svelte,ts,js,html,css,sass,tailwind&theme=dark" />
+```sh
+# create a new project in the current directory
+npx sv create
 
-## Contribuciones
+# create a new project in my-app
+npx sv create my-app
+```
 
-¡Las contribuciones siempre son bienvenidas!
+## Developing
 
-Si encuentras algun error en el contenido puedes crear un Pull Request y corregirlo :D. O por el contrario si tienes algún comentario, duda o retroalimentacion, no dudes en contactarme a mi correo: jclargob@gmail.com
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```sh
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```sh
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

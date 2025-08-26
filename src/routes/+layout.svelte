@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import '$styles/app.css';
-	import Seo from '$src/lib/components/Seo.svelte';
-	import { analytics } from '$src/lib/client/firebase';
+	import favicon from '$lib/assets/favicon.png';
+
 	let { children } = $props();
 </script>
 
-<Seo />
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
 
-{@render children()}
+{@render children?.()}
