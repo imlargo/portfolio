@@ -9,7 +9,7 @@
 </script>
 
 <Badge variant="outline" class="flex items-center justify-center gap-x-2 py-1">
-	<span class="flex size-3 rounded-full border-2" style:border-color="{getColor(tech)}!important"
+	<span class="flex size-3 rounded-full border" style:border-color="{getColor(tech)}!important"
 	></span>
 	<span class="text-center font-semibold">{getLabel(tech)}</span>
 </Badge>

@@ -1,13 +1,13 @@
 export enum Technology {
 	Svelte,
-	Tailwind,
+	Typescript,
+    Tailwind,
 	Javascript,
 	Bootstrap,
 	Firebase,
 	NodeJs,
 	AppsScript,
 	Python,
-	Typescript,
 	Java,
 	Golang,
 	Go,
@@ -46,6 +46,8 @@ export function getLabel(technology: Technology): string {
 			return 'Google Apps Script';
 		case Technology.Python:
 			return 'Python';
+        case Technology.Typescript:
+            return 'TypeScript';
 		default:
 			return 'Unknown';
 	}
