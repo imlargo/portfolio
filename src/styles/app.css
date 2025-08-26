@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zen+Kaku+Gothic+New&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
@@ -117,6 +118,7 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
+		font-family: "Zen Kaku Gothic New", sans-serif!important;
 		@apply bg-background text-foreground;
 	}
 }
