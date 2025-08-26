@@ -18,11 +18,11 @@
 		<span class="text-muted-foreground text-sm font-medium">{experience.company}</span>
 	</div>
 
-	<p class="max-w-prose">
+	<p class="max-w-2xl text-muted-foreground">
 		{experience.description}
 	</p>
 
-	<div class="flex max-w-xl flex-wrap gap-2">
+	<div class="flex max-w-2xl flex-wrap gap-2">
 		{#each experience.stack as tech}
 			<SkillBadge {tech} />
 		{/each}
