@@ -1,5 +1,16 @@
 export enum Technology {
-    Svelte
+    Typescript, 
+    Svelte, 
+    Tailwind, 
+    Javascript, 
+    HTML, 
+    CSS, 
+    SCSS, 
+    Bootstrap, 
+    Firebase, 
+    NodeJs, 
+    AppsScript, 
+    Python,
 }
 
 export function getLabel(technology: Technology): string {
