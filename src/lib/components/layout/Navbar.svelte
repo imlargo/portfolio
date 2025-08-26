@@ -10,7 +10,7 @@
 
 	const links: Link[] = [
 		{ href: '/', label: 'Home' },
-		{ href: '/about', label: 'About' },
+		{ href: '/about', label: 'About' }
 	];
 </script>
 

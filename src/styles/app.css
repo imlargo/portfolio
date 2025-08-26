@@ -118,7 +118,7 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		font-family: "Zen Kaku Gothic New", sans-serif!important;
+		font-family: 'Zen Kaku Gothic New', sans-serif !important;
 		@apply bg-background text-foreground;
 	}
 }
