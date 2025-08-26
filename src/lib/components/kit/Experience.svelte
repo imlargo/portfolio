@@ -11,14 +11,14 @@
 </script>
 
 <div class="flex flex-col gap-y-4">
-	<span class="text-muted-foreground font-mono font-light text-sm">{experience.date}</span>
+	<span class="text-muted-foreground font-mono text-sm font-light">{experience.date}</span>
 
 	<div class="flex flex-col gap-y-1">
 		<span class="font-semibold">{experience.role}</span>
 		<span class="text-muted-foreground text-sm font-medium">{experience.company}</span>
 	</div>
 
-	<p class="max-w-2xl text-muted-foreground">
+	<p class="text-muted-foreground max-w-2xl">
 		{experience.description}
 	</p>
 

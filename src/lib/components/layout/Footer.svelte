@@ -51,9 +51,7 @@
 				<div class="footer-gradient h-[1px] w-full border-none"></div>
 			</div>
 
-			<footer
-				class="bg-secondary/25 flex w-full flex-col gap-y-6 px-horizontal py-12"
-			>
+			<footer class="bg-secondary/25 px-horizontal flex w-full flex-col gap-y-6 py-12">
 				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
 						<h2 class="font-mono text-4xl font-bold">imlargo</h2>
