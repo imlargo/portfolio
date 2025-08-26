@@ -52,7 +52,7 @@
 			</div>
 
 			<footer
-				class="bg-secondary/25 flex w-full flex-col gap-y-6 px-6 py-12 lg:px-12 xl:px-24 2xl:px-72"
+				class="bg-secondary/25 flex w-full flex-col gap-y-6 px-horizontal py-12"
 			>
 				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">

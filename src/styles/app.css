@@ -117,6 +117,7 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+
 	body {
 		font-family: 'Zen Kaku Gothic New', sans-serif !important;
 		@apply bg-background text-foreground;
@@ -127,4 +128,8 @@
 	font-family: 'JetBrains Mono', monospace !important;
 	font-optical-sizing: auto;
 	font-style: normal;
+}
+
+.px-horizontal {
+	@apply px-6 md:px-8 lg:px-124;
 }
