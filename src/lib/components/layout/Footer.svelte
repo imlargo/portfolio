@@ -27,7 +27,7 @@
 <div class="pt-18 overflow-hidden md:pt-28 lg:pt-56">
 	<div class="bg-background relative">
 		<div
-			class="md:-top-35 absolute -top-20 -z-20 flex w-full items-center justify-center lg:-top-60"
+			class="md:-top-35 absolute -top-20 -z-20 flex w-full items-center justify-center lg:-top-70"
 		>
 			<h1
 				class="text-secondary/50 line-clamp-none align-bottom text-[8rem] font-extrabold leading-none tracking-wider md:text-[14rem] lg:text-[24rem]"
