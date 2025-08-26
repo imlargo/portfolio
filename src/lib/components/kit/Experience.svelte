@@ -10,7 +10,7 @@
 	const { experience }: Props = $props();
 </script>
 
-<div class="flex flex-col gap-y-4 border-y py-4">
+<div class="flex flex-col gap-y-4">
 	<span class="text-muted-foreground font-mono font-light text-sm">{experience.date}</span>
 
 	<div class="flex flex-col gap-y-1">

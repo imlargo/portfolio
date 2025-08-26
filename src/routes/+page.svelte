@@ -9,7 +9,9 @@
 <section class="flex flex-col gap-y-6">
 	<h1 class="text-4xl font-semibold">Experiencia</h1>
 
-	{#each experience as exp}
-		<Experience experience={exp} />
-	{/each}
+	<div class="relative flex flex-col gap-y-24">
+		{#each experience as exp}
+			<Experience experience={exp} />
+		{/each}
+	</div>
 </section>
