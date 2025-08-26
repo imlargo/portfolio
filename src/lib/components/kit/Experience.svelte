@@ -11,9 +11,9 @@
 </script>
 
 <div class="flex flex-col gap-y-4 border-y py-4">
-	<span class="text-muted-foreground font-mono text-sm">{experience.date}</span>
+	<span class="text-muted-foreground font-mono font-light text-sm">{experience.date}</span>
 
-	<div class="flex flex-col gap-y-2">
+	<div class="flex flex-col gap-y-1">
 		<span class="font-semibold">{experience.role}</span>
 		<span class="text-muted-foreground text-sm font-medium">{experience.company}</span>
 	</div>
