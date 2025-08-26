@@ -16,7 +16,7 @@
 				{ label: 'Home', href: '/' },
 				{ label: 'About', href: '/about' },
 				{ label: 'Blog', href: '/blog' },
-				{ label: 'Contact', href: '/contact' },
+				{ label: 'Contact', href: '/contact' }
 			]
 		},
 		{
@@ -24,9 +24,9 @@
 			links: [
 				{ label: 'Instagram', href: '/' },
 				{ label: 'GitHub', href: '/blog' },
-				{ label: 'LinkedIn', href: '/contact' },
+				{ label: 'LinkedIn', href: '/contact' }
 			]
-		},
+		}
 	]);
 </script>
 
@@ -37,7 +37,7 @@
 <div class="pt-18 overflow-hidden md:pt-28 lg:pt-56">
 	<div class="bg-background relative">
 		<div
-			class="font-mono md:-top-35 absolute -top-20 -z-20 flex w-full items-center justify-center lg:-top-70"
+			class="md:-top-35 lg:-top-70 absolute -top-20 -z-20 flex w-full items-center justify-center font-mono"
 		>
 			<h1
 				class="text-secondary/50 line-clamp-none align-bottom text-[8rem] font-extrabold leading-none tracking-wider md:text-[14rem] lg:text-[24rem]"
@@ -56,7 +56,7 @@
 			>
 				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
-						<h2 class="text-4xl font-bold font-mono">imlargo</h2>
+						<h2 class="font-mono text-4xl font-bold">imlargo</h2>
 						<p class="text-muted-foreground">Software engineer.</p>
 					</div>
 

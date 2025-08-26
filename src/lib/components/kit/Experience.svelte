@@ -11,18 +11,18 @@
 </script>
 
 <div class="flex flex-col gap-y-4 border-y py-4">
-	<span class="font-mono text-muted-foreground text-sm">{experience.date}</span>
+	<span class="text-muted-foreground font-mono text-sm">{experience.date}</span>
 
 	<div class="flex flex-col gap-y-2">
 		<span class="font-semibold">{experience.role}</span>
-		<span class="font-medium text-sm text-muted-foreground">{experience.company}</span>
+		<span class="text-muted-foreground text-sm font-medium">{experience.company}</span>
 	</div>
 
 	<p class="max-w-prose">
 		{experience.description}
 	</p>
 
-	<div class="flex flex-wrap gap-2 max-w-xl">
+	<div class="flex max-w-xl flex-wrap gap-2">
 		{#each experience.stack as tech}
 			<SkillBadge {tech} />
 		{/each}
