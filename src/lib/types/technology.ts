@@ -19,7 +19,10 @@ export enum Technology {
 	Git,
 	Github,
 	Githubactions,
-	Figma
+	Figma,
+	MongoDB,
+	Leaflet,
+	Markdown,
 }
 
 export function getLabel(technology: Technology): string {
@@ -48,6 +51,12 @@ export function getLabel(technology: Technology): string {
 			return 'Python';
 		case Technology.Typescript:
 			return 'TypeScript';
+		case Technology.MongoDB:
+			return 'MongoDB';
+		case Technology.Leaflet:
+			return 'Leaflet';
+		case Technology.Markdown:
+			return 'Markdown';
 		default:
 			return 'Unknown';
 	}
@@ -95,6 +104,12 @@ export function getColor(technology: Technology) {
 			return '#2084f5';
 		case Technology.Figma:
 			return '#000000';
+		case Technology.MongoDB:
+			return '#10aa50';
+		case Technology.Leaflet:
+			return '#4caf50';
+		case Technology.Markdown:
+			return '#6f42c1';
 		default:
 			return '#4b4b4b';
 	}

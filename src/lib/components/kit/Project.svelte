@@ -1,0 +1,50 @@
+<script lang="ts">
+	import type { Project } from "$lib/constants/content";
+	import SkillBadge from "./SkillBadge.svelte";
+	import { Button } from '$lib/components/ui/button/index.js';
+	import { Link, Github } from '@lucide/svelte';
+
+	type Props = {
+		project: Project;
+	};
+	const { project }: Props = $props();
+</script>
+
+<div class="border flex flex-col gap-y-8 justify-between rounded-lg p-6">
+	<div class="flex flex-col gap-y-2">
+		<h5 class="font-semibold">{project.title}</h5>
+		<p class="text-pretty text-muted-foreground">
+			{project.description}
+		</p>
+	</div>
+
+	<div class="flex flex-col gap-y-4">
+		<div class="flex flex-wrap gap-2">
+			{#each project.technologies as item}
+				<SkillBadge tech={item} />
+			{/each}
+		</div>
+
+		<div class="flex items-center justify-between overflow-hidden w-full">
+			{#if project.url}
+				<Button
+					class="flex max-w-max px-0 justify-center items-center gap-2 truncate text-zinc-400"
+                    variant="link"
+					href={project.url}
+					target="_blank"
+				>
+					<Link class="size-4" />
+					<span>{project.url.replace('https://', '')}</span>
+				</Button>
+			{:else}
+				<span></span>
+			{/if}
+
+			{#if project.github}
+				<Button href={project.github} target="_blank" variant="outline" size="icon">
+					<Github class="size-4" />
+				</Button>
+			{/if}
+		</div>
+	</div>
+</div>
