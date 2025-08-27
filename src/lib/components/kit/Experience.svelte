@@ -10,7 +10,7 @@
 	const { experience }: Props = $props();
 </script>
 
-<div class="flex flex-col gap-y-4">
+<div class="flex flex-col gap-y-4 relative">
 	<span class="text-muted-foreground font-mono text-sm font-light">{experience.date}</span>
 
 	<div class="flex flex-col gap-y-1">
@@ -26,5 +26,10 @@
 		{#each experience.stack as tech}
 			<SkillBadge {tech} />
 		{/each}
+	</div>
+
+
+	<div class="absolute rounded-full size-2.5 bg-muted top-1 -left-[2.25rem] z-10 ring-4 ring-background">
+
 	</div>
 </div>
