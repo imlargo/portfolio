@@ -10,7 +10,7 @@
 	<h1 class="text-4xl font-semibold">Experiencia</h1>
 
 	<div class="relative">
-		<div class="flex flex-col gap-y-8 pl-8">
+		<div class="flex flex-col gap-y-18 pl-8">
 			{#each experience as exp}
 			<Experience experience={exp} />
 		{/each}
