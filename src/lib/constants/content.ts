@@ -10,7 +10,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
 	{
-		role: 'Estudiante Auxiliar / Desarrollador de software',
+		role: 'Estudiante Auxiliar, Desarrollador de software',
 		date: 'Enero de 2024 - Actualidad',
 		stack: [
 			Technology.Typescript,
@@ -30,7 +30,7 @@ export const experience: Experience[] = [
 			'Colaboración con diversas áreas para adaptar soluciones a sus necesidades. Entre los logros destacan la estandarización de datos, reducción significativa del tiempo en procesos y mejora de la coordinación y experiencia de los usuarios.'
 	},
 	{
-		role: 'Estudiante Auxiliar / Desarrollador de software',
+		role: 'Estudiante Auxiliar',
 		date: 'Noviembre de 2023 - Diciembre 2023',
 		stack: [
 			Technology.Typescript,
