@@ -33,7 +33,7 @@
 		</div>
 		<div class="flex justify-end gap-x-4">
 			<div class="flex items-center justify-center gap-x-2">
-				<Button href="https://app.hellobutter.io/signup">Contact</Button>
+				<Button class="rounded-full" href="https://app.hellobutter.io/signup">Contact</Button>
 			</div>
 
 			<MobileMenu />
