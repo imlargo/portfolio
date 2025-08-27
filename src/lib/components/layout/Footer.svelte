@@ -1,4 +1,6 @@
 <script lang="ts">
+	import BackgroundDots from '../kit/BackgroundDots.svelte';
+
 	interface Link {
 		label: string;
 		href: string;
@@ -36,6 +38,7 @@
 
 <div class="pt-18 overflow-hidden md:pt-28 lg:pt-56">
 	<div class="bg-background relative">
+		<BackgroundDots class="opacity-20" />
 		<div
 			class="md:-top-35 lg:-top-70 absolute -top-20 -z-20 flex w-full items-center justify-center font-mono"
 		>
