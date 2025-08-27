@@ -15,11 +15,11 @@
 		</p>
 
 		<div class="flex gap-x-4 pt-6">
-			<Button class="max-w-max rounded-full">
+			<Button class="max-w-max rounded-full flex items-center justify-center gap-x-2">
 				<span>Resume</span>
 				<ArrowUpRight class="size-4" />
 			</Button>
-			<Button variant="link" class="max-w-max rounded-full">
+			<Button variant="link" class="max-w-max rounded-full flex items-center justify-center gap-x-2">
 				<span>Read more</span>
 				<ArrowRight class="size-4" />
 			</Button>
