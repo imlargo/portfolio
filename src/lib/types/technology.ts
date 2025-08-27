@@ -60,15 +60,15 @@ export function getLabel(technology: Technology): string {
 		case Technology.Java:
 			return 'Java';
 		case Technology.Astro:
-			return "Astro";
+			return 'Astro';
 		case Technology.Git:
-			return "Git";
+			return 'Git';
 		case Technology.Github:
-			return "GitHub";
+			return 'GitHub';
 		case Technology.Githubactions:
-			return "GitHub Actions";
+			return 'GitHub Actions';
 		case Technology.Figma:
-			return "Figma";
+			return 'Figma';
 		default:
 			return 'Unknown';
 	}
