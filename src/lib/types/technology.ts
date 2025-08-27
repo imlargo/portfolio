@@ -9,7 +9,6 @@ export enum Technology {
 	AppsScript,
 	Python,
 	Java,
-	Golang,
 	Go,
 	Mongodb,
 	Astro,
@@ -57,6 +56,8 @@ export function getLabel(technology: Technology): string {
 			return 'Leaflet';
 		case Technology.Markdown:
 			return 'Markdown';
+		case Technology.Go:
+			return 'Go';
 		default:
 			return 'Unknown';
 	}
@@ -72,8 +73,6 @@ export function getColor(technology: Technology) {
 			return '#366f9f';
 		case Technology.Java:
 			return '#f58219';
-		case Technology.Golang:
-			return '#00b4e0';
 		case Technology.Go:
 			return '#00b4e0';
 		case Technology.Mongodb:
