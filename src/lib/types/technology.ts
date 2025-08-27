@@ -28,7 +28,7 @@ export function getLabel(technology: Technology): string {
 		case Technology.Svelte:
 			return 'Svelte';
 		case Technology.Tailwind:
-			return 'Tailwind CSS';
+			return 'Tailwind';
 		case Technology.Javascript:
 			return 'JavaScript';
 		case Technology.Html:
@@ -57,6 +57,18 @@ export function getLabel(technology: Technology): string {
 			return 'Markdown';
 		case Technology.Go:
 			return 'Go';
+		case Technology.Java:
+			return 'Java';
+		case Technology.Astro:
+			return "Astro";
+		case Technology.Git:
+			return "Git";
+		case Technology.Github:
+			return "GitHub";
+		case Technology.Githubactions:
+			return "GitHub Actions";
+		case Technology.Figma:
+			return "Figma";
 		default:
 			return 'Unknown';
 	}
