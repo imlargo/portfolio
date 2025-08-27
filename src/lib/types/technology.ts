@@ -22,7 +22,7 @@ export enum Technology {
 	Figma,
 	MongoDB,
 	Leaflet,
-	Markdown,
+	Markdown
 }
 
 export function getLabel(technology: Technology): string {

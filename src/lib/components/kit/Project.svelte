@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Project } from "$lib/constants/content";
-	import SkillBadge from "./SkillBadge.svelte";
+	import type { Project } from '$lib/constants/content';
+	import SkillBadge from './SkillBadge.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Link, Github } from '@lucide/svelte';
 
@@ -10,10 +10,10 @@
 	const { project }: Props = $props();
 </script>
 
-<div class="border flex flex-col gap-y-8 justify-between rounded-lg p-6">
+<div class="flex flex-col justify-between gap-y-8 rounded-lg border p-6">
 	<div class="flex flex-col gap-y-2">
 		<h5 class="font-semibold">{project.title}</h5>
-		<p class="text-pretty text-muted-foreground">
+		<p class="text-muted-foreground text-pretty">
 			{project.description}
 		</p>
 	</div>
@@ -25,11 +25,11 @@
 			{/each}
 		</div>
 
-		<div class="flex items-center justify-between overflow-hidden w-full">
+		<div class="flex w-full items-center justify-between overflow-hidden">
 			{#if project.url}
 				<Button
-					class="flex max-w-max px-0 justify-center items-center gap-2 truncate text-zinc-400"
-                    variant="link"
+					class="flex max-w-max items-center justify-center gap-2 truncate px-0 text-zinc-400"
+					variant="link"
 					href={project.url}
 					target="_blank"
 				>

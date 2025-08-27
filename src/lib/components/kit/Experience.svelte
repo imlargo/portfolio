@@ -10,7 +10,7 @@
 	const { experience }: Props = $props();
 </script>
 
-<div class="flex flex-col gap-y-4 relative">
+<div class="relative flex flex-col gap-y-4">
 	<span class="text-muted-foreground font-mono text-sm font-light">{experience.date}</span>
 
 	<div class="flex flex-col gap-y-1">
@@ -28,8 +28,7 @@
 		{/each}
 	</div>
 
-
-	<div class="absolute rounded-full size-2.5 bg-muted top-1 -left-[2.25rem] z-10 ring-4 ring-background">
-
-	</div>
+	<div
+		class="bg-muted ring-background absolute -left-[2.25rem] top-1 z-10 size-2.5 rounded-full ring-4"
+	></div>
 </div>

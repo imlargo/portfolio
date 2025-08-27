@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { ArrowUpRight, ArrowRight } from '@lucide/svelte';
-
 </script>
 
 <div class="py-44">
@@ -15,11 +14,14 @@
 		</p>
 
 		<div class="flex gap-x-4 pt-6">
-			<Button class="max-w-max rounded-full flex items-center justify-center gap-x-2">
+			<Button class="flex max-w-max items-center justify-center gap-x-2 rounded-full">
 				<span>Resume</span>
 				<ArrowUpRight class="size-4" />
 			</Button>
-			<Button variant="link" class="max-w-max rounded-full flex items-center justify-center gap-x-2">
+			<Button
+				variant="link"
+				class="flex max-w-max items-center justify-center gap-x-2 rounded-full"
+			>
 				<span>Read more</span>
 				<ArrowRight class="size-4" />
 			</Button>
