@@ -10,7 +10,6 @@ export enum Technology {
 	Python,
 	Java,
 	Go,
-	Mongodb,
 	Astro,
 	Html,
 	Css,
@@ -75,8 +74,6 @@ export function getColor(technology: Technology) {
 			return '#f58219';
 		case Technology.Go:
 			return '#00b4e0';
-		case Technology.Mongodb:
-			return '#10aa50';
 		case Technology.NodeJs:
 			return '#81cd39';
 		case Technology.Firebase:
