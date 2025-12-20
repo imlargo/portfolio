@@ -14,7 +14,7 @@
 	const links: Link[] = [
 		{ href: '/', label: 'Home' },
 		{ href: '/about', label: 'About' },
-		{ href: '/blog', label: 'Blog' },
+		{ href: '/blog', label: 'Blog' }
 	];
 
 	type ListItemProps = HTMLAttributes<HTMLAnchorElement> & {
@@ -35,12 +35,12 @@
 		</div>
 		<div class="hidden justify-center gap-x-0 md:flex">
 			{#each links as link}
-					<Button
-						variant="link"
-						href={link.href}
-						class="text-muted-foreground {page.url.pathname === link.href ? 'text-primary' : ''}"
-						>{link.label}</Button
-					>
+				<Button
+					variant="link"
+					href={link.href}
+					class="text-muted-foreground {page.url.pathname === link.href ? 'text-primary' : ''}"
+					>{link.label}</Button
+				>
 			{/each}
 		</div>
 		<div class="flex justify-end gap-x-4">

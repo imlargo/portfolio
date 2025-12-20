@@ -4,22 +4,29 @@
 	import { Toaster } from '$lib/components/ui/sonner/index.js';
 	import { ModeWatcher } from 'mode-watcher';
 	import NavigationBar from '$lib/components/layout/NavigationBar.svelte';
+	import Footer from '$lib/components/layout/Footer.svelte';
 
 	let { children } = $props();
 </script>
+
+<Toaster />
+
+<ModeWatcher defaultTheme="dark" defaultMode={'dark'} track={false} />
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="flex w-full flex-col px-4 md:px-12 md:pb-12 xl:px-24">
-	<NavigationBar />
+<div class="relative z-50 flex w-full flex-col items-center bg-background px-6 md:px-8 lg:px-12">
+	<div class="w-full max-w-screen-xl">
+		<NavigationBar />
+	</div>
 </div>
 
-<div class="flex w-full flex-col gap-y-6 px-4 pt-12 pb-24 md:px-12 md:pb-12 xl:px-24">
-	{@render children?.()}
+<div class="flex w-full flex-col items-center px-6 md:px-8 lg:px-12">
+	<div class="flex w-full max-w-screen-xl flex-col gap-y-24 py-2">
+		{@render children()}
+	</div>
 </div>
 
-<Toaster />
-
-<ModeWatcher defaultTheme="dark" defaultMode={'dark'} track={false} />
+<Footer />
