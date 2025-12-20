@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-cloudflare';
+import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -13,9 +13,13 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
 		alias: {
-			$src: 'src',
-			$components: 'src/lib/components',
-			$styles: 'src/styles'
+			$lib: './src/lib',
+			$styles: './src/styles',
+			$components: './src/lib/components',
+			$types: './src/lib/types',
+			$client: './src/lib/client',
+			$server: './src/lib/server',
+			$ui: './src/lib/components/ui'
 		}
 	}
 };

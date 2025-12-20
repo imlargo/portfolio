@@ -1,10 +1,15 @@
-<script>
-	import '$styles/app.css';
-	import Seo from '$src/lib/components/Seo.svelte';
-	import { analytics } from '$src/lib/client/firebase';
+<script lang="ts">
+	import './layout.css';
+	import favicon from '$lib/assets/favicon.svg';
+	import { Toaster } from '$lib/components/ui/sonner/index.js';
+
 	let { children } = $props();
 </script>
 
-<Seo />
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
 
-{@render children()}
+<Toaster />
+
+{@render children?.()}
