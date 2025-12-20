@@ -1,8 +1,10 @@
 <script lang="ts">
 	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
+	import Experience from '$lib/components/landing/Experience.svelte';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
+	import { experience } from '$lib/content/content';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -66,17 +68,30 @@
 
 <hr />
 
-<div class="flex flex-col gap-6">
-	<div class="flex flex-col gap-y-4">
+<div class="grid grid-cols-2 gap-6 relative overflow-visible">
+	<div class="flex flex-col gap-y-4 sticky top-0">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
 
 		<p class="max-w-prose text-xl text-muted-foreground">
-			He diseñado, puesto en producción y operado arquitecturas de alto rendimiento en múltiples sectores.
+			He diseñado, puesto en producción y operado arquitecturas de alto rendimiento en múltiples
+			sectores.
 		</p>
 	</div>
 
-	<div class="flex flex-col gap-y-8">
-		
+	<div class="relative">
+		<div class="flex flex-col gap-y-18 pl-8">
+			{#each experience as exp}
+				<Experience experience={exp} />
+			{/each}
+		</div>
+
+		<div class="line absolute top-2 left-0 h-full w-0.5 rounded-full bg-muted"></div>
 	</div>
 </div>
+
+<style>
+	.line {
+		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 75%, rgba(255, 255, 255, 0) 100%);
+	}
+</style>
