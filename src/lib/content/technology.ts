@@ -26,7 +26,8 @@ export enum Technology {
     Postgres,
     Redis,
     Docker,
-    Aws
+    Aws,
+    CiCd
 }
 
 export function getLabel(technology: Technology): string {
@@ -87,6 +88,8 @@ export function getLabel(technology: Technology): string {
             return 'Docker';
         case Technology.Aws:
             return 'AWS';
+        case Technology.CiCd:
+            return 'CI/CD';
 		default:
 			return 'Unknown';
 	}

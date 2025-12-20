@@ -1,10 +1,13 @@
 <script lang="ts">
 	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
 	import Experience from '$lib/components/landing/Experience.svelte';
+	import Project from '$lib/components/landing/Project.svelte';
+	import SkillBadge from '$lib/components/landing/SkillBadge.svelte';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
-	import { experience } from '$lib/content/content';
+	import { experience, projects } from '$lib/content/content';
+	import { Technology } from '$lib/content/technology';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -68,15 +71,19 @@
 
 <hr />
 
-<div class="grid grid-cols-2 gap-6 relative">
-	<div class="flex flex-col gap-y-4 sticky top-10 self-start">
+<div class="relative grid grid-cols-2 gap-12">
+	<div class="sticky top-10 flex flex-col gap-y-4 self-start">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
 
 		<p class="max-w-prose text-xl text-muted-foreground">
-			He diseñado, puesto en producción y operado arquitecturas de alto rendimiento en múltiples
-			sectores.
+			Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado
+			arquitecturas de alto rendimiento en multiples sectores.
 		</p>
+
+		<div class="mt-8 flex items-center gap-x-2">
+			<Button>Contacto</Button>
+		</div>
 	</div>
 
 	<div class="relative">
@@ -87,6 +94,75 @@
 		</div>
 
 		<div class="line absolute top-2 left-0 h-full w-0.5 rounded-full bg-muted"></div>
+	</div>
+</div>
+
+<hr />
+
+<div class="relative flex flex-col gap-12">
+	<div class="flex flex-col gap-y-4">
+		<span class="max-w-prose text-xl text-muted-foreground">3.</span>
+		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Proyectos</h2>
+
+		<p class="max-w-prose text-xl text-muted-foreground">
+			Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y
+			estrategia, con fuerte ownership, capacidad para gestionar integraciones complejas, resolver
+			incidentes en producción y traducir problemas técnicos complejos en soluciones claras y de
+			alto impacto
+		</p>
+	</div>
+
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		{#each projects as project}
+			<Project {project} />
+		{/each}
+	</div>
+</div>
+
+<div class="relative flex flex-col gap-12">
+	<div class="flex flex-col gap-y-4">
+		<span class="max-w-prose text-xl text-muted-foreground">4.</span>
+		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Habilidades y Tecnologias</h2>
+
+		<p class="max-w-prose text-xl text-muted-foreground">
+			Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con
+			Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de
+			performance, integración de APIs y gestión de infraestructura en la nube.
+		</p>
+	</div>
+
+	<div class="flex flex-col gap-y-4">
+		<div class="flex flex-col gap-y-4">
+			<h3 class="text-2xl font-semibold">Frontend</h3>
+			<div class="flex flex-wrap gap-2">
+				<SkillBadge tech={Technology.Svelte} />
+				<SkillBadge tech={Technology.Typescript} />
+				<SkillBadge tech={Technology.Tailwind} />
+				<SkillBadge tech={Technology.Astro} />
+				<SkillBadge tech={Technology.React} />
+				<SkillBadge tech={Technology.Html} />
+				<SkillBadge tech={Technology.Css} />
+			</div>
+
+			<h3 class="text-2xl font-semibold">Backend</h3>
+			<div class="flex flex-wrap gap-2">
+				<SkillBadge tech={Technology.Go} />
+				<SkillBadge tech={Technology.NodeJs} />
+				<SkillBadge tech={Technology.Python} />
+				<SkillBadge tech={Technology.Postgres} />
+				<SkillBadge tech={Technology.Redis} />
+			</div>
+
+			<h3 class="text-2xl font-semibold">DevOps</h3>
+			<div class="flex flex-wrap gap-2">
+				<SkillBadge tech={Technology.Docker} />
+				<SkillBadge tech={Technology.CiCd} />
+				<SkillBadge tech={Technology.Aws} />
+				<SkillBadge tech={Technology.Git} />
+				<SkillBadge tech={Technology.Github} />
+				<SkillBadge tech={Technology.Githubactions} />
+			</div>
+		</div>
 	</div>
 </div>
 
