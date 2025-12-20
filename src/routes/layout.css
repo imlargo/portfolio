@@ -122,7 +122,10 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+
 	body {
+		font-optical-sizing: auto;
+		font-style: normal;
 		@apply bg-background text-foreground;
 	}
 }
