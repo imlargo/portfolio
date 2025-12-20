@@ -68,8 +68,8 @@
 
 <hr />
 
-<div class="grid grid-cols-2 gap-6 relative overflow-visible">
-	<div class="flex flex-col gap-y-4 sticky top-0">
+<div class="grid grid-cols-2 gap-6 relative">
+	<div class="flex flex-col gap-y-4 sticky top-10 self-start">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
 
