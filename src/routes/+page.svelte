@@ -14,7 +14,7 @@
 	<div class="flex flex-col gap-y-4">
 		<AnimatedBadge text="Available for freelance">
 			<span
-				class="size-1.5 shrink-0 rounded-full bg-lime-500 leading-0 ring-2 ring-lime-800 outline-2 outline-offset-2 outline-lime-900/50"
+				class="size-1.5 shrink-0 rounded-full bg-purple-500 leading-0 ring-2 ring-purple-800 outline-2 outline-offset-2 outline-purple-900/50"
 			></span>
 		</AnimatedBadge>
 
@@ -61,5 +61,22 @@
 				/>
 			</svg>
 		</Button>
+	</div>
+</div>
+
+<hr />
+
+<div class="flex flex-col gap-6">
+	<div class="flex flex-col gap-y-4">
+		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
+		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
+
+		<p class="max-w-prose text-xl text-muted-foreground">
+			He diseñado, puesto en producción y operado arquitecturas de alto rendimiento en múltiples sectores.
+		</p>
+	</div>
+
+	<div class="flex flex-col gap-y-8">
+		
 	</div>
 </div>
