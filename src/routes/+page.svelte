@@ -72,8 +72,8 @@
 
 <hr />
 
-<div class="relative grid grid-cols-2 gap-12">
-	<div class="sticky top-10 flex flex-col gap-y-4 self-start">
+<div class="relative grid grid-cols-1 lg:grid-cols-2 gap-12">
+	<div class="lg:sticky lg:top-10 flex flex-col gap-y-4 self-start">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
 
