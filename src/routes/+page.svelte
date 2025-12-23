@@ -70,11 +70,10 @@
 	</div>
 </div>
 
-<hr />
 
-<div class="relative grid grid-cols-1 gap-12 lg:grid-cols-2">
+<div class="relative grid grid-cols-1 gap-12 lg:grid-cols-2 py-24">
 	<div class="flex flex-col gap-y-4 self-start lg:sticky lg:top-10">
-		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
+		<span class="max-w-prose text-xl text-muted-foreground">1.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
 
 		<p class="max-w-prose text-xl text-muted-foreground">
@@ -100,11 +99,9 @@
 	</div>
 </div>
 
-<hr />
-
 <div class="relative flex flex-col gap-12">
 	<div class="flex flex-col gap-y-4">
-		<span class="max-w-prose text-xl text-muted-foreground">3.</span>
+		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Proyectos</h2>
 
 		<p class="max-w-prose text-xl text-muted-foreground">
@@ -124,7 +121,7 @@
 
 <div class="relative flex flex-col gap-12">
 	<div class="flex flex-col gap-y-4">
-		<span class="max-w-prose text-xl text-muted-foreground">4.</span>
+		<span class="max-w-prose text-xl text-muted-foreground">3.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Habilidades y Tecnologias</h2>
 
 		<p class="max-w-prose text-xl text-muted-foreground">
