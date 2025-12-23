@@ -115,6 +115,15 @@ class PixelCanvas extends HTMLElement {
         }
     }
 
+    get noanimate() {
+        const value = this.dataset.noanimate;
+        if (value === "1") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     get speed() {
         const value = this.dataset.speed || 35;
         const min = 0;
@@ -182,21 +191,29 @@ class PixelCanvas extends HTMLElement {
     }
 
     onmouseenter() {
-        this.handleAnimation("appear");
+        if (!this.noanimate) {
+            this.handleAnimation("appear");
+        }
     }
 
     onmouseleave() {
-        this.handleAnimation("disappear");
+        if (!this.noanimate) {
+            this.handleAnimation("disappear");
+        }
     }
 
     onfocusin(e) {
         if (e.currentTarget.contains(e.relatedTarget)) return;
-        this.handleAnimation("appear");
+        if (!this.noanimate) {
+            this.handleAnimation("appear");
+        }
     }
 
     onfocusout(e) {
         if (e.currentTarget.contains(e.relatedTarget)) return;
-        this.handleAnimation("disappear");
+        if (!this.noanimate) {
+            this.handleAnimation("disappear");
+        }
     }
 
     handleAnimation(name) {
@@ -215,6 +232,11 @@ class PixelCanvas extends HTMLElement {
         this.canvas.style.width = `${width}px`;
         this.canvas.style.height = `${height}px`;
         this.createPixels();
+
+
+        if (this.noanimate) {
+            this.handleAnimation("appear");
+        }
     }
 
     getDistanceToCanvasCenter(x, y) {
