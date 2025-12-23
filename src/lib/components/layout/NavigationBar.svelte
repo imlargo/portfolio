@@ -30,7 +30,7 @@
 	<nav class="grid w-full grid-cols-2 md:grid-cols-3">
 		<div class="flex items-center">
 			<a href="/" class="flex items-center justify-center gap-3">
-				<span class="text-xl font-bold">imlargo</span></a
+				<span class="text-xl font-semibold font-mono">imlargo</span></a
 			>
 		</div>
 		<div class="hidden justify-center gap-x-0 md:flex">

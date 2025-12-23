@@ -54,7 +54,7 @@
 			>
 				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
-						<h2 class="text-4xl font-bold">imlargo</h2>
+						<h2 class="text-4xl font-bold font-mono">imlargo</h2>
 						<p class="text-muted-foreground">Ingeniero de Software Full Stack.</p>
 					</div>
 
@@ -73,7 +73,7 @@
 				</div>
 
 				<div class="mt-8 flex items-center justify-between">
-					<span class="hidden text-sm text-muted-foreground md:inline-flex"
+					<span class="hidden text-sm text-muted-foreground md:inline-flex font-mono"
 						>© 2025 imlargo. All rights reserved</span
 					>
 
