@@ -11,14 +11,16 @@
 </script>
 
 <div class="relative flex flex-col gap-y-4">
-	<span class="text-muted-foreground font-mono text-sm leading-none font-medium">{experience.date}</span>
+	<span class="font-mono text-sm leading-none font-medium text-muted-foreground"
+		>{experience.date}</span
+	>
 
 	<div class="flex flex-col gap-y-1">
 		<span class="text-lg font-semibold">{experience.role}</span>
-		<span class="text-muted-foreground font-medium">{experience.company}</span>
+		<span class="font-medium text-muted-foreground">{experience.company}</span>
 	</div>
 
-	<p class="text-muted-foreground max-w-2xl">
+	<p class="max-w-2xl text-muted-foreground">
 		{experience.description}
 	</p>
 
@@ -29,6 +31,6 @@
 	</div>
 
 	<div
-		class="bg-muted ring-background absolute -left-[2.25rem] top-1 z-10 size-2.5 rounded-full ring-4"
+		class="absolute top-1 -left-[2.25rem] z-10 size-2.5 rounded-full bg-muted ring-4 ring-background"
 	></div>
 </div>

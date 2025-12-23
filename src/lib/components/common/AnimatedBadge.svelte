@@ -13,7 +13,7 @@
 
 <div
 	class={cn(
-		'shadow-muted/60 relative flex max-w-max items-center justify-center gap-2 overflow-hidden rounded-full p-[1px] text-xs font-medium shadow-xl focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50',
+		'relative flex max-w-max items-center justify-center gap-2 overflow-hidden rounded-full p-[1px] text-xs font-medium shadow-xl shadow-muted/60 focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 focus:outline-none',
 		className
 	)}
 >
@@ -22,13 +22,13 @@
 	></span>
 
 	<div
-		class="bg-background flex h-full w-full items-center justify-center rounded-full text-center backdrop-blur-3xl"
+		class="flex h-full w-full items-center justify-center rounded-full bg-background text-center backdrop-blur-3xl"
 	>
 		<div
-			class="bg-secondary/50 flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-1.5"
+			class="flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-secondary/50 px-3 py-1.5"
 		>
 			{@render children?.()}
-			<span class="text-muted-foreground shine-text bg-clip-text">{text}</span>
+			<span class="shine-text bg-clip-text text-muted-foreground">{text}</span>
 		</div>
 	</div>
 </div>

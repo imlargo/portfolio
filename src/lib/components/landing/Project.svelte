@@ -10,10 +10,10 @@
 	const { project }: Props = $props();
 </script>
 
-<div class="bg-card/50 flex flex-col justify-between gap-y-8 rounded-lg border p-6">
+<div class="flex flex-col justify-between gap-y-8 rounded-lg border bg-card/50 p-6">
 	<div class="flex flex-col gap-y-2">
 		<h5 class="font-semibold">{project.title}</h5>
-		<p class="text-muted-foreground text-pretty">
+		<p class="text-pretty text-muted-foreground">
 			{project.description}
 		</p>
 	</div>

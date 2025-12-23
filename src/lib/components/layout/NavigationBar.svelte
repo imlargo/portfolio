@@ -15,7 +15,7 @@
 		{ href: '/', label: 'Home' },
 		{ href: '/work', label: 'Work' },
 		{ href: '/blog', label: 'Blog' },
-		{ href: '/about', label: 'About' },
+		{ href: '/about', label: 'About' }
 	];
 
 	type ListItemProps = HTMLAttributes<HTMLAnchorElement> & {
@@ -31,7 +31,7 @@
 	<nav class="grid w-full grid-cols-2 md:grid-cols-3">
 		<div class="flex items-center">
 			<a href="/" class="flex items-center justify-center gap-3">
-				<span class="text-xl font-semibold font-mono">imlargo</span></a
+				<span class="font-mono text-xl font-semibold">imlargo</span></a
 			>
 		</div>
 		<div class="hidden justify-center gap-x-0 md:flex">

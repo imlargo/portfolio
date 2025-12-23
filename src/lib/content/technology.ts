@@ -21,13 +21,13 @@ export enum Technology {
 	MongoDB,
 	Leaflet,
 	Markdown,
-    React,
-    Vue,
-    Postgres,
-    Redis,
-    Docker,
-    Aws,
-    CiCd
+	React,
+	Vue,
+	Postgres,
+	Redis,
+	Docker,
+	Aws,
+	CiCd
 }
 
 export function getLabel(technology: Technology): string {
@@ -76,20 +76,20 @@ export function getLabel(technology: Technology): string {
 			return 'GitHub Actions';
 		case Technology.Figma:
 			return 'Figma';
-        case Technology.React:
-            return 'React';
-        case Technology.Vue:
-            return 'Vue.js';
-        case Technology.Postgres:
-            return 'PostgreSQL';
-        case Technology.Redis:
-            return 'Redis';
-        case Technology.Docker:
-            return 'Docker';
-        case Technology.Aws:
-            return 'AWS';
-        case Technology.CiCd:
-            return 'CI/CD';
+		case Technology.React:
+			return 'React';
+		case Technology.Vue:
+			return 'Vue.js';
+		case Technology.Postgres:
+			return 'PostgreSQL';
+		case Technology.Redis:
+			return 'Redis';
+		case Technology.Docker:
+			return 'Docker';
+		case Technology.Aws:
+			return 'AWS';
+		case Technology.CiCd:
+			return 'CI/CD';
 		default:
 			return 'Unknown';
 	}
@@ -139,18 +139,18 @@ export function getColor(technology: Technology) {
 			return '#4caf50';
 		case Technology.Markdown:
 			return '#6f42c1';
-        case Technology.React:
-            return '#61dafb';
-        case Technology.Vue:
-            return '#42b883';
-        case Technology.Postgres:
-            return '#336791';
-        case Technology.Redis:
-            return '#dc382d';
-        case Technology.Docker:
-            return '#2496ed';
-        case Technology.Aws:
-            return '#ff9900';
+		case Technology.React:
+			return '#61dafb';
+		case Technology.Vue:
+			return '#42b883';
+		case Technology.Postgres:
+			return '#336791';
+		case Technology.Redis:
+			return '#dc382d';
+		case Technology.Docker:
+			return '#2496ed';
+		case Technology.Aws:
+			return '#ff9900';
 		default:
 			return '#4b4b4b';
 	}
