@@ -14,7 +14,7 @@
 </script>
 
 <div class="flex flex-col gap-y-12 py-10">
-	<img src="/assets/pfp.jpg" alt="" class="size-24 rounded-full" />
+	<img src="/assets/pfp.jpg" alt="" class="size-24 rounded-full object-cover" />
 
 	<div class="flex flex-col gap-y-4">
 		<AnimatedBadge text="Available for freelance">
