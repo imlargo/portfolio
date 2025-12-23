@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
+	import Cta from '$lib/components/common/Cta.svelte';
 	import Experience from '$lib/components/landing/Experience.svelte';
 	import Project from '$lib/components/landing/Project.svelte';
 	import SkillBadge from '$lib/components/landing/SkillBadge.svelte';
@@ -165,6 +166,10 @@
 		</div>
 	</div>
 </div>
+
+<hr>
+
+<Cta />
 
 <style>
 	.line {
