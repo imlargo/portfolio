@@ -88,13 +88,13 @@
 	</div>
 
 	<div class="relative">
-		<div class="flex flex-col gap-y-18 pl-8">
+		<div class="flex flex-col gap-y-18 relative">
 			{#each experience as exp}
 				<Experience experience={exp} />
 			{/each}
-		</div>
 
-		<div class="line absolute top-2 left-0 h-full w-0.5 rounded-full bg-muted"></div>
+			<div class="line absolute top-2 left-1 h-full w-0.5 rounded-full bg-muted timeline before:w-1 before:bg-purple-500/20"></div>
+		</div>
 	</div>
 </div>
 
@@ -173,4 +173,38 @@
 	.line {
 		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 75%, rgba(255, 255, 255, 0) 100%);
 	}
+
+	@keyframes beam {
+		from {
+			height: 0%;
+		}
+
+		to {
+			height: 100%;
+		}
+
+		0% {
+			height: 0%;
+		}
+
+		85% {
+			height: 100%;
+		}
+
+		100% {
+			height: 100%;
+		}
+	}
+
+	.timeline {
+		&::before {
+			position: absolute;
+			height: 100%;
+			animation: beam ease both;
+			animation-timeline: scroll();
+			transition: all 0.3s ease;
+			mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 95%, rgba(255, 255, 255, 0) 100%);
+		}
+	}
+
 </style>
