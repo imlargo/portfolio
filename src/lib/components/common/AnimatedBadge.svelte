@@ -5,7 +5,7 @@
 	type Props = {
 		class?: string;
 		text?: string;
-		children: Snippet;
+		children?: Snippet;
 	};
 
 	const { children, class: className = '', text = '' }: Props = $props();
@@ -27,7 +27,7 @@
 		<div
 			class="bg-secondary/50 flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-1.5"
 		>
-			{@render children()}
+			{@render children?.()}
 			<span class="text-muted-foreground shine-text bg-clip-text">{text}</span>
 		</div>
 	</div>
