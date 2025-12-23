@@ -15,6 +15,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<script type="module" src="/webcomponent/pixel-canvas/pixel-canvas.js"></script>
 </svelte:head>
 
 <div class="relative z-50 flex w-full flex-col items-center bg-background px-6 md:px-8 lg:px-12">
