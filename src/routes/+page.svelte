@@ -88,12 +88,14 @@
 	</div>
 
 	<div class="relative">
-		<div class="flex flex-col gap-y-18 relative">
+		<div class="relative flex flex-col gap-y-18">
 			{#each experience as exp}
 				<Experience experience={exp} />
 			{/each}
 
-			<div class="line absolute top-2 left-1 h-full w-0.5 rounded-full bg-muted timeline before:w-1 before:bg-purple-500/20"></div>
+			<div
+				class="line timeline absolute top-2 left-1 h-full w-0.5 rounded-full bg-muted before:w-1 before:bg-purple-500/20"
+			></div>
 		</div>
 	</div>
 </div>
@@ -206,5 +208,4 @@
 			mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 95%, rgba(255, 255, 255, 0) 100%);
 		}
 	}
-
 </style>

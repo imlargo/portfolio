@@ -10,7 +10,7 @@
 	const { project }: Props = $props();
 </script>
 
-<div class="flex flex-col justify-between gap-y-8 rounded-lg border bg-card/50 p-6">
+<div class="flex flex-col justify-between gap-y-8 rounded-lg border bg-card/50 p-6 project">
 	<div class="flex flex-col gap-y-2">
 		<h5 class="font-semibold">{project.title}</h5>
 		<p class="text-pretty text-muted-foreground">
@@ -48,3 +48,56 @@
 		</div>
 	</div>
 </div>
+
+
+<style>
+	.project {
+		overflow: hidden;
+		position: relative;
+		transition: all 0.3s ease;
+
+		--top: -25%;
+		--right: -20%;
+
+		&:hover {
+			&::before {
+				background: rgba(179, 86, 255, 0.3);
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: var(--top);
+			right: var(--right);
+			aspect-ratio: 1/1;
+			height: 100%;
+			width: auto;
+			z-index: -7;
+			border-radius: 999%;
+			filter: blur(45px);
+
+			background: rgba(179, 86, 255, 0.2);
+			transition: all 0.3s ease;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: var(--top);
+			right: var(--right);
+			aspect-ratio: 1/1;
+			height: 100%;
+			width: auto;
+			border-radius: 999%;
+
+			background-image: url('/assets/noise.webp');
+			background-size: 30%;
+			mix-blend-mode: overlay;
+			opacity: 0.6;
+			z-index: -1;
+
+			mask-image: radial-gradient(#fff, transparent 75%);
+		}
+	}
+</style>
