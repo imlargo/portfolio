@@ -70,8 +70,7 @@
 	</div>
 </div>
 
-
-<div class="relative grid grid-cols-1 gap-12 lg:grid-cols-2 py-24">
+<div class="relative grid grid-cols-1 gap-12 py-24 lg:grid-cols-2">
 	<div class="flex flex-col gap-y-4 self-start lg:sticky lg:top-10">
 		<span class="max-w-prose text-xl text-muted-foreground">1.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
