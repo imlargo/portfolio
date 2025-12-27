@@ -125,15 +125,18 @@
 		</p>
 	</div>
 
-	<div class="flex flex-col">
-		{#each projects as project}
-			<div class="py-8">
+	<div class="flex flex-col ">
+		<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
+		<div class="grid grid-cols-2 gap-x-8 gap-y-12">
+			{#each projects as project}
 				<FeaturedProject {project} />
-			</div>
-		{/each}
+			{/each}
+		</div>
 	</div>
 
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		<span class="col-span-2 w-full pb-4 text-muted-foreground">Experimentos</span>
+
 		{#each projects as project}
 			<Project {project} />
 		{/each}
