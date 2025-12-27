@@ -16,5 +16,4 @@
 		'dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]',
 		className
 	)}
->
-</div>
+></div>

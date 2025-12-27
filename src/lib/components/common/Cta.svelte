@@ -5,6 +5,7 @@
 <div
 	class="relative flex w-full flex-col items-center justify-center rounded-lg py-12 md:py-24 lg:py-32"
 >
+	<!--
 	<div class="pixel-canvas absolute h-full w-full rounded-xl opacity-50">
 		<pixel-canvas
 			data-gap="15"
@@ -13,6 +14,7 @@
 			data-colors="#9810fa, #ad46ff, #dab2ff"
 		></pixel-canvas>
 	</div>
+	-->
 
 	<div class="flex max-w-lg flex-col items-center justify-center gap-7">
 		<div class="flex flex-col gap-5">
