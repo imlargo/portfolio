@@ -95,6 +95,10 @@ class PixelCanvas extends HTMLElement {
       block-size: 100%;
       overflow: hidden;
     }
+    canvas {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
   `;
 
     get colors() {
@@ -117,11 +121,7 @@ class PixelCanvas extends HTMLElement {
 
     get noanimate() {
         const value = this.dataset.noanimate;
-        if (value === "1") {
-            return true;
-        } else {
-            return false;
-        }
+        return value === "1";
     }
 
     get speed() {
@@ -155,7 +155,10 @@ class PixelCanvas extends HTMLElement {
         this.shadowroot.adoptedStyleSheets = [sheet];
         this.shadowroot.append(canvas);
         this.canvas = this.shadowroot.querySelector("canvas");
-        this.ctx = this.canvas.getContext("2d");
+        this.ctx = this.canvas.getContext("2d", { 
+            alpha: true,
+            desynchronized: true // Mejora el rendimiento
+        });
         this.timeInterval = 1000 / 60;
         this.timePrevious = performance.now();
         this.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
