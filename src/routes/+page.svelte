@@ -84,10 +84,6 @@
 </div>
 
 <div class="relative grid w-full max-w-screen-xl grid-cols-1 gap-12 py-24 lg:grid-cols-2">
-	<DotBackground
-		class="[mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
-	/>
-
 	<div class="flex flex-col gap-y-4 self-start lg:sticky lg:top-10">
 		<span class="max-w-prose text-xl text-muted-foreground">1.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
@@ -116,9 +112,6 @@
 </div>
 
 <div class="relative flex w-full max-w-screen-xl flex-col gap-12">
-	<DotBackground
-		class="[mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
-	/>
 
 	<div class="flex flex-col gap-y-4">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
