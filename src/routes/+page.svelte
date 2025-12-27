@@ -14,6 +14,7 @@
 
 	import { getLabel } from '$lib/content/technology';
 	import { Download } from '@lucide/svelte';
+	import FeaturedProject from '$lib/components/landing/FeaturedProject.svelte';
 
 	let { data }: PageProps = $props();
 </script>
@@ -122,6 +123,14 @@
 			incidentes en producción y traducir problemas técnicos complejos en soluciones claras y de
 			alto impacto
 		</p>
+	</div>
+
+	<div class="flex flex-col">
+		{#each projects as project}
+			<div class="py-8">
+				<FeaturedProject {project} />
+			</div>
+		{/each}
 	</div>
 
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
