@@ -20,7 +20,7 @@
 		<pixel-canvas
 			data-gap="10"
 			data-noanimate="1"
-			data-speed="20"
+			data-speed="25"
 			data-colors="#9810fa, #ad46ff, #dab2ff"
 		></pixel-canvas>
 	</div>
