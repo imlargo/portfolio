@@ -15,7 +15,7 @@
 </script>
 
 <div class="flex flex-col gap-y-12 py-10">
-	<img src="/assets/pfp.jpg" alt="" class="size-24 rounded-full object-cover" />
+	<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
 
 	<div class="flex flex-col gap-y-4">
 		<AnimatedBadge text="Available for freelance">
@@ -36,9 +36,9 @@
 		<Button variant="secondary">Curriculum</Button>
 		<Button>Contactame</Button>
 
-		<div class="mx-4 h-5 w-0.5 bg-muted"></div>
+		<div class="mx-2 h-5 w-0.5 bg-muted"></div>
 
-		<Button variant="ghost">
+		<Button variant="secondary" size="icon">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="16"
@@ -53,7 +53,7 @@
 			</svg>
 		</Button>
 
-		<Button variant="ghost">
+		<Button variant="secondary" size="icon">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="16"
