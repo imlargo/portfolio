@@ -6,7 +6,7 @@ const LOWERCASE_CHARSET = 'abcdefghijklmnopqrstuvwxyz';
 
 function DispatchHyperTextEffect(element: HTMLElement) {
 	let interval: any = null;
-	const letters = DEFAULT_CHARSET;
+	const letters = LOWERCASE_CHARSET;
 
 	let iteration = 0;
 	clearInterval(interval);

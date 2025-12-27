@@ -131,7 +131,7 @@
 
 	<div class="flex flex-col gap-y-4">
 		<div class="flex flex-col gap-y-4">
-			<h3 class="text-muted-foreground text-xl">Frontend</h3>
+			<h3 class="text-xl text-muted-foreground">Frontend</h3>
 			<div class="flex flex-wrap gap-2">
 				<SkillBadge tech={Technology.Svelte} />
 				<SkillBadge tech={Technology.Typescript} />
@@ -142,7 +142,7 @@
 				<SkillBadge tech={Technology.Css} />
 			</div>
 
-			<h3 class="text-muted-foreground text-xl">Backend</h3>
+			<h3 class="text-xl text-muted-foreground">Backend</h3>
 			<div class="flex flex-wrap gap-2">
 				<SkillBadge tech={Technology.Go} />
 				<SkillBadge tech={Technology.NodeJs} />
@@ -151,7 +151,7 @@
 				<SkillBadge tech={Technology.Redis} />
 			</div>
 
-			<h3 class="text-muted-foreground text-xl">DevOps</h3>
+			<h3 class="text-xl text-muted-foreground">DevOps</h3>
 			<div class="flex flex-wrap gap-2">
 				<SkillBadge tech={Technology.Docker} />
 				<SkillBadge tech={Technology.CiCd} />

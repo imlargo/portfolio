@@ -5,6 +5,7 @@
 	import { cn } from '$lib/utils';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import * as Popover from '$lib/components/ui/popover/index.js';
+	import { useHyperText } from '$lib/attachments/text-encrypt';
 
 	type Link = {
 		href: string;
@@ -31,7 +32,9 @@
 	<nav class="grid w-full grid-cols-2 md:grid-cols-3">
 		<div class="flex items-center">
 			<a href="/" class="flex items-center justify-center gap-3">
-				<span class="font-mono text-xl font-semibold">imlargo</span></a
+				<span class="font-mono text-xl font-semibold" data-value="imlargo" {@attach useHyperText}
+					>imlargo</span
+				></a
 			>
 		</div>
 		<div class="hidden justify-center gap-x-0 md:flex">
