@@ -33,7 +33,6 @@
 	</div>
 
 	<div class="flex items-center gap-x-2">
-		<Button variant="secondary">Curriculum</Button>
 		<Button>Contactame</Button>
 
 		<div class="mx-2 h-5 w-0.5 bg-muted"></div>
