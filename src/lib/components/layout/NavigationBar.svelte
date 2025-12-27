@@ -67,21 +67,18 @@
 				>
 					<div class="flex flex-col gap-y-8">
 						<div class="flex flex-col gap-y-5">
-							<span class="text-sm font-medium text-muted-foreground">Product</span>
+							<span class="text-sm font-medium text-muted-foreground">Navegacion</span>
 							<div class="flex flex-col gap-y-3 text-2xl font-medium">
-								<a href="/" data-sveltekit-reload>Home</a>
-								<a href="/solutions" data-sveltekit-reload>Solutions</a>
-								<a href="/pricing" data-sveltekit-reload>Pricing</a>
+								{#each links as link}
+									<a href={link.href} data-sveltekit-reload>{link.label}</a>
+								{/each}
 							</div>
 						</div>
 						<div class="flex flex-col gap-y-5">
-							<span class="text-sm font-medium text-muted-foreground">Industries</span>
+							<span class="text-sm font-medium text-muted-foreground">Redes</span>
 							<div class="flex flex-col gap-y-3 text-2xl font-medium">
-								<a href="/agencies" data-sveltekit-reload>Agencies</a>
-								<a href="/creators" data-sveltekit-reload>Creators</a>
-								<a href="/ecommerce" data-sveltekit-reload>Ecommerce</a>
-								<a href="/clippers" data-sveltekit-reload>Clippers</a>
-								<a href="/info-products" data-sveltekit-reload>Info-Product</a>
+								<a href="#" data-sveltekit-reload>GitHub</a>
+								<a href="#" data-sveltekit-reload>LinkedIn</a>
 							</div>
 						</div>
 					</div>

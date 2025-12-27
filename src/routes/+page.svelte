@@ -16,7 +16,9 @@
 </script>
 
 <div class="relative flex w-full items-center justify-center">
-	<div class="pixel-canvas absolute h-full w-full opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]">
+	<div
+		class="pixel-canvas absolute h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
+	>
 		<pixel-canvas
 			data-gap="10"
 			data-noanimate="1"
@@ -25,7 +27,7 @@
 		></pixel-canvas>
 	</div>
 
-	<div class="flex w-full max-w-screen-xl flex-col gap-y-12 py-24 z-10">
+	<div class="z-10 flex w-full max-w-screen-xl flex-col gap-y-12 py-24">
 		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
 
 		<div class="flex flex-col gap-y-4">
@@ -81,9 +83,11 @@
 	</div>
 </div>
 
-<div class="relative grid grid-cols-1 gap-12 py-24 lg:grid-cols-2 w-full max-w-screen-xl">
-	<DotBackground class="opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-	
+<div class="relative grid w-full max-w-screen-xl grid-cols-1 gap-12 py-24 lg:grid-cols-2">
+	<DotBackground
+		class="[mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
+	/>
+
 	<div class="flex flex-col gap-y-4 self-start lg:sticky lg:top-10">
 		<span class="max-w-prose text-xl text-muted-foreground">1.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
@@ -111,9 +115,11 @@
 	</div>
 </div>
 
-<div class="relative flex flex-col gap-12 w-full max-w-screen-xl">
-	<DotBackground class="opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-	
+<div class="relative flex w-full max-w-screen-xl flex-col gap-12">
+	<DotBackground
+		class="[mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
+	/>
+
 	<div class="flex flex-col gap-y-4">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Proyectos</h2>
@@ -133,7 +139,7 @@
 	</div>
 </div>
 
-<div class="relative flex flex-col gap-12 w-full max-w-screen-xl">
+<div class="relative flex w-full max-w-screen-xl flex-col gap-12">
 	<div class="flex flex-col gap-y-4">
 		<span class="max-w-prose text-xl text-muted-foreground">3.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Habilidades y Tecnologias</h2>

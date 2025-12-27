@@ -25,9 +25,7 @@
 </div>
 
 <div class="flex w-full flex-col items-center gap-y-24 py-2">
-	
-		{@render children()}
-	
+	{@render children()}
 </div>
 
 <Footer />
