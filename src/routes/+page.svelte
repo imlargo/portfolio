@@ -20,9 +20,9 @@
 		class="pixel-canvas absolute h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
 	>
 		<pixel-canvas
-			data-gap="10"
+			data-gap="12"
 			data-noanimate="1"
-			data-speed="25"
+			data-speed="15"
 			data-colors="#9810fa, #ad46ff, #dab2ff"
 		></pixel-canvas>
 	</div>
