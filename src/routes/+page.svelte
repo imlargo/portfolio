@@ -112,7 +112,6 @@
 </div>
 
 <div class="relative flex w-full max-w-screen-xl flex-col gap-12">
-
 	<div class="flex flex-col gap-y-4">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Proyectos</h2>

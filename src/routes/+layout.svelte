@@ -18,13 +18,13 @@
 	<script type="module" src="/webcomponent/pixel-canvas/pixel-canvas.js"></script>
 </svelte:head>
 
-<div class="relative z-50 flex w-full flex-col items-center bg-background px-layout">
+<div class="px-layout relative z-50 flex w-full flex-col items-center bg-background">
 	<div class="w-full max-w-screen-xl">
 		<NavigationBar />
 	</div>
 </div>
 
-<div class="flex w-full flex-col items-center gap-y-24 py-2 px-layout">
+<div class="px-layout flex w-full flex-col items-center gap-y-24 py-2">
 	{@render children()}
 </div>
 
