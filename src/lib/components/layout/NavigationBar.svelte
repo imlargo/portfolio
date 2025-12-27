@@ -6,6 +6,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import * as Popover from '$lib/components/ui/popover/index.js';
 	import { useHyperText } from '$lib/attachments/text-encrypt';
+	import { ArrowUpRight } from '@lucide/svelte';
 
 	type Link = {
 		href: string;
@@ -77,8 +78,14 @@
 						<div class="flex flex-col gap-y-5">
 							<span class="text-sm font-medium text-muted-foreground">Redes</span>
 							<div class="flex flex-col gap-y-3 text-2xl font-medium">
-								<a href="#" data-sveltekit-reload>GitHub</a>
-								<a href="#" data-sveltekit-reload>LinkedIn</a>
+								<a href="https://github.com/imlargo" target="_blank" data-sveltekit-reload class="flex items-center gap-x-2">
+									<span>GitHub</span>
+									<ArrowUpRight />
+								</a>
+								<a href="https://github.com/imlargo" target="_blank" data-sveltekit-reload class="flex items-center gap-x-2">
+									<span>LinkedIn</span>
+									<ArrowUpRight />
+								</a>
 							</div>
 						</div>
 					</div>

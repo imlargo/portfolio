@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { useHyperText } from '$lib/attachments/text-encrypt';
+	import { ArrowUpRight } from '@lucide/svelte';
 
 	interface Link {
 		label: string;
 		href: string;
+		external?: boolean;
 	}
 
 	interface LinkGroup {
@@ -24,15 +26,20 @@
 		{
 			title: 'Resources',
 			links: [
-				{ label: 'GitHub', href: '/' },
-				{ label: 'Linkedin', href: '/' }
+				{ label: 'GitHub', href: 'https://github.com/imlargo'  , external: true },
+				{ label: 'Linkedin', href: 'https://github.com/imlargo' , external: true  }
 			]
 		}
 	]);
 </script>
 
-{#snippet LinkItem(label: string, href: string)}
-	<a class="w-full text-muted-foreground hover:text-primary" {href}>{label}</a>
+{#snippet LinkItem(label: string, href: string, external: boolean = false)}
+	<a class="w-full flex gap-x-2 items-center text-muted-foreground hover:text-primary" {href} target={external ? '_blank' : '_self'} rel={external ? 'noopener noreferrer' : undefined}>
+		<span>{label}</span>
+		{#if external || href.startsWith('http')}
+			<ArrowUpRight class="size-4" />
+		{/if}
+	</a>
 {/snippet}
 
 <div class="overflow-hidden pt-18 md:pt-28 lg:pt-56">
@@ -69,7 +76,7 @@
 								<h3 class="font-semibold">{group.title}</h3>
 								<div class="flex flex-col gap-y-1.5">
 									{#each group.links as link}
-										{@render LinkItem(link.label, link.href)}
+										{@render LinkItem(link.label, link.href, link.external)}
 									{/each}
 								</div>
 							</div>
