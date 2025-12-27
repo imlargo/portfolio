@@ -12,6 +12,9 @@
 	import { Technology } from '$lib/content/technology';
 	import type { PageProps } from './$types';
 
+	import { getLabel } from '$lib/content/technology';
+	import { Download } from '@lucide/svelte';
+
 	let { data }: PageProps = $props();
 </script>
 
@@ -85,31 +88,26 @@
 	</div>
 </div>
 
-<div class="relative grid w-full max-w-screen-xl grid-cols-1 gap-12 py-24 lg:grid-cols-2">
-	<div class="flex flex-col gap-y-4 self-start lg:sticky lg:top-10">
-		<span class="max-w-prose text-xl text-muted-foreground">1.</span>
-		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
-
-		<p class="max-w-prose text-xl text-muted-foreground">
-			Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado
-			arquitecturas de alto rendimiento en multiples sectores.
-		</p>
-
-		<div class="mt-8 flex items-center gap-x-2">
-			<Button>Contacto</Button>
+<div class="relative flex w-full max-w-screen-xl flex-col gap-12">
+	<div class="flex flex-col gap-x-4 gap-y-4 lg:flex-row lg:items-end lg:justify-between">
+		<div class="flex flex-col gap-y-4 self-start">
+			<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
+			<p class="max-w-prose text-xl text-muted-foreground">
+				Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado
+				arquitecturas de alto rendimiento en multiples sectores.
+			</p>
 		</div>
+
+		<Button class="max-w-max">
+			<span>Curriculum</span>
+			<Download class="size-4" />
+		</Button>
 	</div>
 
-	<div class="relative">
-		<div class="relative flex flex-col gap-y-18">
-			{#each experience as exp}
-				<Experience experience={exp} />
-			{/each}
-
-			<div
-				class="line timeline absolute top-2 left-1 h-full w-0.5 rounded-full bg-muted before:w-1 before:bg-purple-500/20"
-			></div>
-		</div>
+	<div class="relative flex flex-col divide-y border-b">
+		{#each experience as exp}
+			<Experience experience={exp} />
+		{/each}
 	</div>
 </div>
 
