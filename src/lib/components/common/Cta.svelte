@@ -7,9 +7,9 @@
 >
 	<div class="pixel-canvas absolute h-full w-full rounded-xl opacity-50">
 		<pixel-canvas
-			data-gap="10"
+			data-gap="15"
 			data-noanimate="1"
-			data-speed="20"
+			data-speed="15"
 			data-colors="#9810fa, #ad46ff, #dab2ff"
 		></pixel-canvas>
 	</div>
