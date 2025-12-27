@@ -16,8 +16,14 @@
 </script>
 
 <div class="relative flex w-full items-center justify-center">
-	
-	<DotBackground class="opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+	<div class="pixel-canvas absolute h-full w-full opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]">
+		<pixel-canvas
+			data-gap="10"
+			data-noanimate="1"
+			data-speed="20"
+			data-colors="#9810fa, #ad46ff, #dab2ff"
+		></pixel-canvas>
+	</div>
 
 	<div class="flex w-full max-w-screen-xl flex-col gap-y-12 py-24 z-10">
 		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
@@ -76,6 +82,8 @@
 </div>
 
 <div class="relative grid grid-cols-1 gap-12 py-24 lg:grid-cols-2 w-full max-w-screen-xl">
+	<DotBackground class="opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+	
 	<div class="flex flex-col gap-y-4 self-start lg:sticky lg:top-10">
 		<span class="max-w-prose text-xl text-muted-foreground">1.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
@@ -104,6 +112,8 @@
 </div>
 
 <div class="relative flex flex-col gap-12 w-full max-w-screen-xl">
+	<DotBackground class="opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+	
 	<div class="flex flex-col gap-y-4">
 		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Proyectos</h2>
