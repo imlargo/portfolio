@@ -78,11 +78,21 @@
 						<div class="flex flex-col gap-y-5">
 							<span class="text-sm font-medium text-muted-foreground">Redes</span>
 							<div class="flex flex-col gap-y-3 text-2xl font-medium">
-								<a href="https://github.com/imlargo" target="_blank" data-sveltekit-reload class="flex items-center gap-x-2">
+								<a
+									href="https://github.com/imlargo"
+									target="_blank"
+									data-sveltekit-reload
+									class="flex items-center gap-x-2"
+								>
 									<span>GitHub</span>
 									<ArrowUpRight />
 								</a>
-								<a href="https://github.com/imlargo" target="_blank" data-sveltekit-reload class="flex items-center gap-x-2">
+								<a
+									href="https://github.com/imlargo"
+									target="_blank"
+									data-sveltekit-reload
+									class="flex items-center gap-x-2"
+								>
 									<span>LinkedIn</span>
 									<ArrowUpRight />
 								</a>

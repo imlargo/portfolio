@@ -26,15 +26,20 @@
 		{
 			title: 'Resources',
 			links: [
-				{ label: 'GitHub', href: 'https://github.com/imlargo'  , external: true },
-				{ label: 'Linkedin', href: 'https://github.com/imlargo' , external: true  }
+				{ label: 'GitHub', href: 'https://github.com/imlargo', external: true },
+				{ label: 'Linkedin', href: 'https://github.com/imlargo', external: true }
 			]
 		}
 	]);
 </script>
 
 {#snippet LinkItem(label: string, href: string, external: boolean = false)}
-	<a class="w-full flex gap-x-2 items-center text-muted-foreground hover:text-primary" {href} target={external ? '_blank' : '_self'} rel={external ? 'noopener noreferrer' : undefined}>
+	<a
+		class="flex w-full items-center gap-x-2 text-muted-foreground hover:text-primary"
+		{href}
+		target={external ? '_blank' : '_self'}
+		rel={external ? 'noopener noreferrer' : undefined}
+	>
 		<span>{label}</span>
 		{#if external || href.startsWith('http')}
 			<ArrowUpRight class="size-4" />

@@ -11,8 +11,7 @@
 </script>
 
 <div class="flex flex-col gap-y-4">
-
-	<img src="/images/pegaso.png" alt="" class="w-full aspect-video rounded-lg object-cover">
+	<img src="/images/pegaso.png" alt="" class="aspect-video w-full rounded-lg object-cover" />
 
 	<div class="flex flex-col gap-y-2">
 		<h5 class="font-semibold">{project.title}</h5>

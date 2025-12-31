@@ -11,7 +11,9 @@
 </script>
 
 <div class="items-top flex flex-col gap-y-4 py-8 lg:grid lg:grid-cols-3">
-	<span class="font-mono text-sm leading-none font-medium text-muted-foreground">{experience.date}</span>
+	<span class="font-mono text-sm leading-none font-medium text-muted-foreground"
+		>{experience.date}</span
+	>
 
 	<div class="flex w-full flex-col gap-y-4">
 		<div class="flex flex-col gap-y-1">

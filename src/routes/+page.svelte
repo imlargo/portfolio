@@ -125,7 +125,7 @@
 		</p>
 	</div>
 
-	<div class="flex flex-col ">
+	<div class="flex flex-col">
 		<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
 		<div class="grid grid-cols-2 gap-x-8 gap-y-12">
 			{#each projects as project}
