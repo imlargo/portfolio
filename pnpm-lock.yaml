@@ -7,6 +7,16 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@threlte/core':
+        specifier: ^8.3.1
+        version: 8.3.1(svelte@5.46.1)(three@0.182.0)
+      ogl:
+        specifier: ^1.0.11
+        version: 1.0.11
+      three:
+        specifier: ^0.182.0
+        version: 0.182.0
     devDependencies:
       '@eslint/compat':
         specifier: ^1.4.1
@@ -660,6 +670,12 @@ packages:
     resolution: {integrity: sha512-jVA+/UpKL1vRLg6Hkao5jldawNmRo7mQYrZtNHMIVpLfLhDml5nMRUo/8MwoX2vNXvnaXNNMedrMfMugAVX1nA==}
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
+
+  '@threlte/core@8.3.1':
+    resolution: {integrity: sha512-qKjjNCQ+40hyeBcfOMh/8ef5x/j5PG5Wmo/L9Ye0aDCcdD6fCewWxfp7tV/J3CxPzX1dEp1JGK7sjyc7ntZSrg==}
+    peerDependencies:
+      svelte: '>=5'
+      three: '>=0.160'
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -1361,6 +1377,9 @@ packages:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  mitt@3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
+
   mode-watcher@1.1.0:
     resolution: {integrity: sha512-mUT9RRGPDYenk59qJauN1rhsIMKBmWA3xMF+uRwE8MW/tjhaDSCCARqkSuDTq8vr4/2KcAxIGVjACxTjdk5C3g==}
     peerDependencies:
@@ -1387,6 +1406,9 @@ packages:
 
   obug@2.1.1:
     resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
+
+  ogl@1.0.11:
+    resolution: {integrity: sha512-kUpC154AFfxi16pmZUK4jk3J+8zxwTWGPo03EoYA8QPbzikHoaC82n6pNTbd+oEaJonaE8aPWBlX7ad9zrqLsA==}
 
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
@@ -1709,6 +1731,9 @@ packages:
   tapable@2.3.0:
     resolution: {integrity: sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==}
     engines: {node: '>=6'}
+
+  three@0.182.0:
+    resolution: {integrity: sha512-GbHabT+Irv+ihI1/f5kIIsZ+Ef9Sl5A1Y7imvS5RQjWgtTPfPnZ43JmlYI7NtCRDK9zir20lQpfg8/9Yd02OvQ==}
 
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
@@ -2315,6 +2340,12 @@ snapshots:
       '@tailwindcss/oxide': 4.1.18
       tailwindcss: 4.1.18
       vite: 7.3.0(@types/node@20.19.27)(jiti@2.6.1)(lightningcss@1.30.2)
+
+  '@threlte/core@8.3.1(svelte@5.46.1)(three@0.182.0)':
+    dependencies:
+      mitt: 3.0.1
+      svelte: 5.46.1
+      three: 0.182.0
 
   '@types/chai@5.2.3':
     dependencies:
@@ -3063,6 +3094,8 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.2
 
+  mitt@3.0.1: {}
+
   mode-watcher@1.1.0(svelte@5.46.1):
     dependencies:
       runed: 0.25.0(svelte@5.46.1)
@@ -3080,6 +3113,8 @@ snapshots:
   natural-compare@1.4.0: {}
 
   obug@2.1.1: {}
+
+  ogl@1.0.11: {}
 
   optionator@0.9.4:
     dependencies:
@@ -3354,6 +3389,8 @@ snapshots:
   tailwindcss@4.1.18: {}
 
   tapable@2.3.0: {}
+
+  three@0.182.0: {}
 
   tinybench@2.9.0: {}
 
