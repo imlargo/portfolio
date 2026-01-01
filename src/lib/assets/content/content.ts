@@ -1,8 +1,7 @@
 import { Technology } from '$lib/assets/content/technology';
 import type { Content, Experience, Project } from './types';
 
-
-export const projects: Project[] = [
+const projects: Project[] = [
 	{
 		url: 'https://pegaso.imlargo.dev',
 		github: 'https://github.com/imlargo/pegaso',
@@ -152,7 +151,7 @@ export const content: Content = {
 	skills: {
 		title: "Habilidades y Tecnologias",
 		description: "Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de performance, integración de APIs y gestión de infraestructura en la nube.",
-		technologies: {
+		skills: {
 			"Frontend": [
 				Technology.Svelte, Technology.Typescript, Technology.Tailwind, Technology.Astro, Technology.React, Technology.Html, Technology.Css
 			],
@@ -163,6 +162,12 @@ export const content: Content = {
 				Technology.Docker, Technology.CiCd, Technology.Aws, Technology.Git, Technology.Github, Technology.Githubactions
 			],
 		}
+	},
+
+	socials: {
+		github: "https://github.com/imlargo",
+		linkedin: "https://www.linkedin.com/in/imlargo/",
+		instagram: "https://instagram.com/imlargo",
 	}
 }
 

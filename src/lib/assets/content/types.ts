@@ -44,6 +44,13 @@ export type Content = {
     skills: {
         title: string;
         description: string;
-        technologies: Record<string, Technology[]>;
+        skills: Record<string, Technology[]>;
+    }
+
+    socials?: {
+        github?: string;
+        linkedin?: string;
+        instagram?: string;
+        twitter?: string;
     }
 }

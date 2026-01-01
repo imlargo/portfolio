@@ -8,7 +8,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
-	import { experience, projects } from '$lib/assets/content/content';
+	import { content } from '$lib/assets/content/content';
 	import { Technology } from '$lib/assets/content/technology';
 	import type { PageProps } from './$types';
 
@@ -37,17 +37,18 @@
 		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
 
 		<div class="flex flex-col gap-y-4">
-			<AnimatedBadge text="Available for freelance">
+			<AnimatedBadge text={content.hero.badge}>
 				<span
 					class="size-1.5 shrink-0 rounded-full bg-purple-500 leading-0 ring-2 ring-purple-800 outline-2 outline-offset-2 outline-purple-900/50"
 				></span>
 			</AnimatedBadge>
 
-			<h1 class="scroll-m-20 text-5xl font-extrabold tracking-tight text-balance">Hi, i'm largo</h1>
+			<h1 class="scroll-m-20 text-5xl font-extrabold tracking-tight text-balance">
+				{content.hero.title}
+			</h1>
 
 			<p class="max-w-prose text-xl text-muted-foreground">
-				Ingeniero de Software Full Stack (Mid-Level) con experiencia solida desarollando y liderando
-				el ciclo completo de desarrollo de productos de software escalables.
+				{content.hero.description}
 			</p>
 		</div>
 
@@ -92,10 +93,9 @@
 <div class="relative flex w-full max-w-screen-xl flex-col gap-12">
 	<div class="flex flex-col gap-x-4 gap-y-4 lg:flex-row lg:items-end lg:justify-between">
 		<div class="flex flex-col gap-y-4 self-start">
-			<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Mi experiencia</h2>
+			<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.experience.title}</h2>
 			<p class="max-w-prose text-xl text-muted-foreground">
-				Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado
-				arquitecturas de alto rendimiento en multiples sectores.
+				{content.experience.description}
 			</p>
 		</div>
 
@@ -106,30 +106,25 @@
 	</div>
 
 	<div class="relative flex flex-col divide-y border-b">
-		{#each experience as exp}
-			<Experience experience={exp} />
+		{#each content.experience.items as experience}
+			<Experience {experience} />
 		{/each}
 	</div>
 </div>
 
 <div class="relative flex w-full max-w-screen-xl flex-col gap-12">
 	<div class="flex flex-col gap-y-4">
-		<span class="max-w-prose text-xl text-muted-foreground">2.</span>
-		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Proyectos</h2>
+		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.work.title}</h2>
 
 		<p class="max-w-prose text-xl text-muted-foreground">
-			Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y
-			estrategia, con fuerte ownership, capacidad para gestionar integraciones complejas, resolver
-			incidentes en producción y traducir problemas técnicos complejos en soluciones claras y de
-			alto impacto
+			{content.work.description}
 		</p>
 	</div>
-
 
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 		<span class="col-span-2 w-full pb-4 text-muted-foreground">Experimentos</span>
 
-		{#each projects as project}
+		{#each content.work.projects as project}
 			<Project {project} />
 		{/each}
 	</div>
@@ -137,57 +132,32 @@
 	<div class="flex flex-col">
 		<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
 		<div class="grid grid-cols-2 gap-x-8 gap-y-12">
-			{#each projects as project}
+			{#each content.work.work as project}
 				<FeaturedProject {project} />
 			{/each}
 		</div>
 	</div>
-
 </div>
 
 <div class="relative flex w-full max-w-screen-xl flex-col gap-12">
 	<div class="flex flex-col gap-y-4">
-		<span class="max-w-prose text-xl text-muted-foreground">3.</span>
-		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">Habilidades y Tecnologias</h2>
+		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.skills.title}</h2>
 
 		<p class="max-w-prose text-xl text-muted-foreground">
-			Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con
-			Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de
-			performance, integración de APIs y gestión de infraestructura en la nube.
+			{content.skills.description}
 		</p>
 	</div>
 
 	<div class="flex flex-col gap-y-4">
 		<div class="flex flex-col gap-y-4">
-			<h3 class="text-muted-foreground">Frontend</h3>
-			<div class="flex flex-wrap gap-2">
-				<SkillBadge tech={Technology.Svelte} />
-				<SkillBadge tech={Technology.Typescript} />
-				<SkillBadge tech={Technology.Tailwind} />
-				<SkillBadge tech={Technology.Astro} />
-				<SkillBadge tech={Technology.React} />
-				<SkillBadge tech={Technology.Html} />
-				<SkillBadge tech={Technology.Css} />
-			</div>
-
-			<h3 class="text-muted-foreground">Backend</h3>
-			<div class="flex flex-wrap gap-2">
-				<SkillBadge tech={Technology.Go} />
-				<SkillBadge tech={Technology.NodeJs} />
-				<SkillBadge tech={Technology.Python} />
-				<SkillBadge tech={Technology.Postgres} />
-				<SkillBadge tech={Technology.Redis} />
-			</div>
-
-			<h3 class="text-muted-foreground">DevOps</h3>
-			<div class="flex flex-wrap gap-2">
-				<SkillBadge tech={Technology.Docker} />
-				<SkillBadge tech={Technology.CiCd} />
-				<SkillBadge tech={Technology.Aws} />
-				<SkillBadge tech={Technology.Git} />
-				<SkillBadge tech={Technology.Github} />
-				<SkillBadge tech={Technology.Githubactions} />
-			</div>
+			{#each Object.entries(content.skills.skills) as [category, skills]}
+				<h3 class="text-muted-foreground">{category}</h3>
+				<div class="flex flex-wrap gap-2">
+					{#each skills as skill}
+						<SkillBadge tech={skill} />
+					{/each}
+				</div>
+			{/each}
 		</div>
 	</div>
 </div>
