@@ -9,7 +9,7 @@
 	let { data }: PageProps = $props();
 </script>
 
-<div class="grid grid-cols-2 gap-x-24 max-w-wx">
+<div class="max-w-wx grid grid-cols-2 gap-x-24">
 	<div class="flex flex-col gap-y-4">
 		<h2 class="scroll-m-20 pb-2 font-mono text-3xl font-semibold tracking-tight first:mt-0">
 			Acerca de mi

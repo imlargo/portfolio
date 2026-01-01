@@ -6,6 +6,7 @@
 	import Project from '$lib/components/landing/Project.svelte';
 	import SkillBadge from '$lib/components/landing/SkillBadge.svelte';
 	import { Badge } from '$lib/components/ui/badge';
+	import * as Section from '$lib/components/kit/section';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
 	import { content } from '$lib/assets/content/content';
@@ -69,14 +70,12 @@
 	</div>
 </div>
 
-<div class="max-w-wx relative flex w-full flex-col gap-12">
-	<div class="flex flex-col gap-x-4 gap-y-4 lg:flex-row lg:items-end lg:justify-between">
-		<div class="flex flex-col gap-y-4 self-start">
-			<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.experience.title}</h2>
-			<p class="max-w-prose text-xl text-muted-foreground">
-				{content.experience.description}
-			</p>
-		</div>
+<Section.Root class="max-w-wx">
+	<div class="flex items-end justify-between gap-x-2 gap-y-4">
+		<Section.Header>
+			<Section.Title>{content.experience.title}</Section.Title>
+			<Section.Description>{content.experience.description}</Section.Description>
+		</Section.Header>
 
 		<Button class="max-w-max">
 			<span>Curriculum</span>
@@ -84,21 +83,18 @@
 		</Button>
 	</div>
 
-	<div class="relative flex flex-col divide-y border-b">
+	<div class="flex flex-col divide-y border-b">
 		{#each content.experience.items as experience}
 			<Experience {experience} />
 		{/each}
 	</div>
-</div>
+</Section.Root>
 
-<div class="max-w-wx relative flex w-full flex-col gap-12">
-	<div class="flex flex-col gap-y-4">
-		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.work.title}</h2>
-
-		<p class="max-w-prose text-xl text-muted-foreground">
-			{content.work.description}
-		</p>
-	</div>
+<Section.Root class="max-w-wx">
+	<Section.Header>
+		<Section.Title>{content.work.title}</Section.Title>
+		<Section.Description>{content.work.description}</Section.Description>
+	</Section.Header>
 
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 		<span class="col-span-2 w-full pb-4 text-muted-foreground">Experimentos</span>
@@ -118,16 +114,13 @@
 			</div>
 		</div>
 	{/if}
-</div>
+</Section.Root>
 
-<div class="max-w-wx relative flex w-full flex-col gap-12">
-	<div class="flex flex-col gap-y-4">
-		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.skills.title}</h2>
-
-		<p class="max-w-prose text-xl text-muted-foreground">
-			{content.skills.description}
-		</p>
-	</div>
+<Section.Root class="max-w-wx">
+	<Section.Header>
+		<Section.Title>{content.skills.title}</Section.Title>
+		<Section.Description>{content.skills.description}</Section.Description>
+	</Section.Header>
 
 	<div class="flex flex-col gap-y-4">
 		<div class="flex flex-col gap-y-4">
@@ -141,7 +134,7 @@
 			{/each}
 		</div>
 	</div>
-</div>
+</Section.Root>
 
 <Cta />
 

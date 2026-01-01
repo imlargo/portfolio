@@ -142,3 +142,39 @@
 .max-w-wx {
 	@apply max-w-screen-xl;
 }
+
+.ty-h1 {
+	@apply scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance;
+}
+
+.ty-h2 {
+	@apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+}
+
+.ty-h3 {
+	@apply scroll-m-20 text-2xl font-semibold tracking-tight;
+}
+
+.ty-h4 {
+	@apply scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+.ty-inlinecode {
+	@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+}
+
+.ty-lead {
+	@apply text-xl text-muted-foreground;
+}
+
+.ty-large {
+	@apply text-lg font-semibold;
+}
+
+.ty-small {
+	@apply text-sm leading-none font-medium;
+}
+
+.ty-muted {
+	@apply text-sm text-muted-foreground;
+}
