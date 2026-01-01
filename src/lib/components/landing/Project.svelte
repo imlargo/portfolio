@@ -28,7 +28,7 @@
 		<div class="flex w-full items-center justify-between overflow-hidden">
 			{#if project.url}
 				<Button
-					class="flex items-center justify-start gap-2 px-0 text-zinc-400 has-[>svg]:px-0 max-w-xs"
+					class="flex max-w-xs items-center justify-start gap-2 px-0 text-zinc-400 has-[>svg]:px-0"
 					variant="link"
 					href={project.url}
 					target="_blank"

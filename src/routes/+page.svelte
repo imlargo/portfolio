@@ -71,7 +71,7 @@
 </div>
 
 <Section.Root class="max-w-wx">
-	<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-x-2 gap-y-4">
+	<div class="flex flex-col justify-between gap-x-2 gap-y-4 lg:flex-row lg:items-end">
 		<Section.Header>
 			<Section.Title>{content.experience.title}</Section.Title>
 			<Section.Description>{content.experience.description}</Section.Description>
@@ -97,7 +97,7 @@
 	</Section.Header>
 
 	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-		<span class="lg:col-span-2 w-full pb-4 text-muted-foreground">Experimentos</span>
+		<span class="w-full pb-4 text-muted-foreground lg:col-span-2">Experimentos</span>
 
 		{#each content.work.projects as project}
 			<Project {project} />
