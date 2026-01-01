@@ -28,13 +28,13 @@
 		<div class="flex w-full items-center justify-between overflow-hidden">
 			{#if project.url}
 				<Button
-					class="flex max-w-max items-center justify-center gap-2 truncate px-0 text-zinc-400 has-[>svg]:px-0"
+					class="flex items-center justify-start gap-2 px-0 text-zinc-400 has-[>svg]:px-0 max-w-xs"
 					variant="link"
 					href={project.url}
 					target="_blank"
 				>
 					<Link class="size-4" />
-					<span>{project.url.replace('https://', '')}</span>
+					<span class="truncate">{project.url.replace('https://', '')}</span>
 				</Button>
 			{:else}
 				<span></span>
