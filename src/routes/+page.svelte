@@ -33,7 +33,7 @@
 	</div>
 	-->
 
-	<div class="z-10 flex w-full max-w-screen-xl flex-col gap-y-12 py-24">
+	<div class="z-10 flex w-full max-w-wx flex-col gap-y-12 py-24">
 		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
 
 		<div class="flex flex-col gap-y-4">
@@ -90,7 +90,7 @@
 	</div>
 </div>
 
-<div class="relative flex w-full max-w-screen-xl flex-col gap-12">
+<div class="relative flex w-full max-w-wx flex-col gap-12">
 	<div class="flex flex-col gap-x-4 gap-y-4 lg:flex-row lg:items-end lg:justify-between">
 		<div class="flex flex-col gap-y-4 self-start">
 			<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.experience.title}</h2>
@@ -112,7 +112,7 @@
 	</div>
 </div>
 
-<div class="relative flex w-full max-w-screen-xl flex-col gap-12">
+<div class="relative flex w-full max-w-wx flex-col gap-12">
 	<div class="flex flex-col gap-y-4">
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.work.title}</h2>
 
@@ -141,7 +141,7 @@
 	{/if}
 </div>
 
-<div class="relative flex w-full max-w-screen-xl flex-col gap-12">
+<div class="relative flex w-full max-w-wx flex-col gap-12">
 	<div class="flex flex-col gap-y-4">
 		<h2 class="scroll-m-20 text-3xl font-semibold tracking-tight">{content.skills.title}</h2>
 
