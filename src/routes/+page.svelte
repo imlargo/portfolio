@@ -129,14 +129,16 @@
 		{/each}
 	</div>
 
-	<div class="flex flex-col">
-		<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
-		<div class="grid grid-cols-2 gap-x-8 gap-y-12">
-			{#each content.work.work as project}
-				<FeaturedProject {project} />
-			{/each}
+	{#if content.work.work.length > 0}
+		<div class="flex flex-col">
+			<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
+			<div class="grid grid-cols-2 gap-x-8 gap-y-12">
+				{#each content.work.work as project}
+					<FeaturedProject {project} />
+				{/each}
+			</div>
 		</div>
-	</div>
+	{/if}
 </div>
 
 <div class="relative flex w-full max-w-screen-xl flex-col gap-12">
