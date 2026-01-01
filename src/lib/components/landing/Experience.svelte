@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Experience } from '$lib/content/content';
-	import { getLabel } from '$lib/content/technology';
+	import type { Experience } from '$lib/assets/content/types';
+	import { getLabel } from '$lib/assets/content/technology';
 	import SkillBadge from './SkillBadge.svelte';
 
 	type Props = {

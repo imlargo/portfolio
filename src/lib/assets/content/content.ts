@@ -1,21 +1,5 @@
-import { Technology } from '$lib/content/technology';
-
-export type Experience = {
-	role: string;
-	date: string;
-	stack: Technology[];
-	company: string;
-	description: string;
-};
-
-export type Project = {
-	image?: string;
-	title: string;
-	description: string;
-	technologies: Technology[];
-	url?: string;
-	github?: string;
-};
+import { Technology } from '$lib/assets/content/technology';
+import type { Experience, Project } from './types';
 
 export const projects: Project[] = [
 	{

@@ -8,11 +8,11 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
-	import { experience, projects } from '$lib/content/content';
-	import { Technology } from '$lib/content/technology';
+	import { experience, projects } from '$lib/assets/content/content';
+	import { Technology } from '$lib/assets/content/technology';
 	import type { PageProps } from './$types';
 
-	import { getLabel } from '$lib/content/technology';
+	import { getLabel } from '$lib/assets/content/technology';
 	import { Download } from '@lucide/svelte';
 	import FeaturedProject from '$lib/components/landing/FeaturedProject.svelte';
 
@@ -133,7 +133,7 @@
 			<Project {project} />
 		{/each}
 	</div>
-	
+
 	<div class="flex flex-col">
 		<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
 		<div class="grid grid-cols-2 gap-x-8 gap-y-12">

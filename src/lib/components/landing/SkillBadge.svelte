@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getColor, getLabel, Technology } from '$lib/content/technology';
+	import { getColor, getLabel, Technology } from '$lib/assets/content/technology';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	type Props = {
 		tech: Technology;

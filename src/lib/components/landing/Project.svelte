@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Project } from '$lib/content/content';
+	import type { Project } from '$lib/assets/content/types';
 	import SkillBadge from './SkillBadge.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Link, Github } from '@lucide/svelte';
