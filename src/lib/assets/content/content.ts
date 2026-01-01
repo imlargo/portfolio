@@ -187,5 +187,11 @@ export const content: Content = {
 		github: 'https://github.com/imlargo',
 		linkedin: 'https://www.linkedin.com/in/imlargo/',
 		instagram: 'https://instagram.com/imlargo'
+	},
+
+	footer: {
+		title: "imlargo",
+		subtitle: 'Ingeniero de Software Full Stack',
+		credits: 'Designed & Built by Imlargo'
 	}
 };

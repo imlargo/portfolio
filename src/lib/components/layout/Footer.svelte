@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { content } from '$lib/assets/content/content';
 	import { useHyperText } from '$lib/attachments/text-encrypt';
 	import { ArrowUpRight } from '@lucide/svelte';
 
@@ -55,7 +56,7 @@
 			<h1
 				class="line-clamp-none align-bottom text-[8rem] leading-none font-extrabold tracking-wider text-secondary/50 md:text-[14rem] lg:text-[24rem]"
 			>
-				imlargo
+				{content.name}
 			</h1>
 		</div>
 
@@ -70,9 +71,9 @@
 				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
 						<h2 class="font-mono text-4xl font-bold" data-value="imlargo" {@attach useHyperText}>
-							imlargo
+							{content.footer.title}
 						</h2>
-						<p class="text-muted-foreground">Ingeniero de Software Full Stack.</p>
+						<p class="text-muted-foreground">{content.footer.subtitle}</p>
 					</div>
 
 					<div class="flex flex-col gap-x-24 gap-y-12 md:flex-row md:justify-end">
@@ -91,7 +92,7 @@
 
 				<div class="mt-8 flex items-center justify-between">
 					<span class="hidden font-mono text-sm text-muted-foreground md:inline-flex"
-						>© 2025 imlargo. All rights reserved</span
+						>{content.footer.credits}</span
 					>
 
 					<!--

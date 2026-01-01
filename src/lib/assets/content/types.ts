@@ -53,4 +53,10 @@ export type Content = {
 		instagram?: string;
 		twitter?: string;
 	};
+
+	footer: {
+		title: string;
+		subtitle: string;
+		credits: string;
+	}
 };
