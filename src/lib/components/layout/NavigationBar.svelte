@@ -34,8 +34,10 @@
 	<nav class="grid w-full grid-cols-2 md:grid-cols-3">
 		<div class="flex items-center">
 			<a href="/" class="flex items-center justify-center gap-3">
-				<span class="font-mono text-xl font-semibold" data-value={content.name} {@attach useHyperText}
-					>{content.name}</span
+				<span
+					class="font-mono text-xl font-semibold"
+					data-value={content.name}
+					{@attach useHyperText}>{content.name}</span
 				></a
 			>
 		</div>

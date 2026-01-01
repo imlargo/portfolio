@@ -190,7 +190,7 @@ export const content: Content = {
 	},
 
 	footer: {
-		title: "imlargo",
+		title: 'imlargo',
 		subtitle: 'Ingeniero de Software Full Stack',
 		credits: 'Designed & Built by Imlargo'
 	}

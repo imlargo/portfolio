@@ -58,5 +58,5 @@ export type Content = {
 		title: string;
 		subtitle: string;
 		credits: string;
-	}
+	};
 };
