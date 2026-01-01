@@ -22,7 +22,6 @@
 </script>
 
 <div class="relative flex w-full items-center justify-center">
-	<!--
 	<div
 		class="pixel-canvas absolute h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
 	>
@@ -33,7 +32,6 @@
 			data-colors="#9810fa, #ad46ff, #dab2ff"
 		></pixel-canvas>
 	</div>
-	-->
 
 	<div class="max-w-wx z-10 flex w-full flex-col gap-y-12 py-24">
 		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
