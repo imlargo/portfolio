@@ -7,6 +7,7 @@
 	import * as Popover from '$lib/components/ui/popover/index.js';
 	import { useHyperText } from '$lib/attachments/text-encrypt';
 	import { ArrowUpRight } from '@lucide/svelte';
+	import { content } from '$lib/assets/content/content';
 
 	type Link = {
 		href: string;
@@ -33,8 +34,8 @@
 	<nav class="grid w-full grid-cols-2 md:grid-cols-3">
 		<div class="flex items-center">
 			<a href="/" class="flex items-center justify-center gap-3">
-				<span class="font-mono text-xl font-semibold" data-value="imlargo" {@attach useHyperText}
-					>imlargo</span
+				<span class="font-mono text-xl font-semibold" data-value={content.name} {@attach useHyperText}
+					>{content.name}</span
 				></a
 			>
 		</div>

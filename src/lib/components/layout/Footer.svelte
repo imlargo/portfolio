@@ -70,7 +70,7 @@
 			>
 				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
-						<h2 class="font-mono text-4xl font-bold" data-value="imlargo" {@attach useHyperText}>
+						<h2 class="font-mono text-4xl font-bold" data-value={content.footer.title} {@attach useHyperText}>
 							{content.footer.title}
 						</h2>
 						<p class="text-muted-foreground">{content.footer.subtitle}</p>
