@@ -1,56 +1,56 @@
-import type { Technology } from "./technology";
+import type { Technology } from './technology';
 
 export type Experience = {
-    role: string;
-    date: string;
-    stack: Technology[];
-    company: string;
-    description: string;
+	role: string;
+	date: string;
+	stack: Technology[];
+	company: string;
+	description: string;
 };
 
 export type Project = {
-    image?: string;
-    title: string;
-    description: string;
-    technologies: Technology[];
-    url?: string;
-    github?: string;
+	image?: string;
+	title: string;
+	description: string;
+	technologies: Technology[];
+	url?: string;
+	github?: string;
 };
 
 export type Content = {
-    name: string;
-    
-    hero: {
-        badge: string;
-        title: string;
-        description: string;
-    };
+	name: string;
 
-    experience: {
-        title: string;
-        description: string;
+	hero: {
+		badge: string;
+		title: string;
+		description: string;
+	};
 
-        items: Experience[];
-    };
+	experience: {
+		title: string;
+		description: string;
 
-    work: {
-        title: string;
-        description: string;
+		items: Experience[];
+	};
 
-        projects: Project[];
-        work: Project[];
-    };
+	work: {
+		title: string;
+		description: string;
 
-    skills: {
-        title: string;
-        description: string;
-        skills: Record<string, Technology[]>;
-    }
+		projects: Project[];
+		work: Project[];
+	};
 
-    socials?: {
-        github?: string;
-        linkedin?: string;
-        instagram?: string;
-        twitter?: string;
-    }
-}
+	skills: {
+		title: string;
+		description: string;
+		skills: Record<string, Technology[]>;
+	};
+
+	socials?: {
+		github?: string;
+		linkedin?: string;
+		instagram?: string;
+		twitter?: string;
+	};
+};

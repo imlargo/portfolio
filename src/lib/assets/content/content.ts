@@ -125,49 +125,67 @@ const experience: Experience[] = [
 ];
 
 export const content: Content = {
-	name: "imlargo",
+	name: 'imlargo',
 
 	hero: {
-		badge: "Available for freelance",
+		badge: 'Available for freelance',
 		title: "Hi, i'm largo",
-		description: "Ingeniero de Software Full Stack (Mid-Level) con experiencia solida desarollando y liderando el ciclo completo de desarrollo de productos de software escalables.",
+		description:
+			'Ingeniero de Software Full Stack (Mid-Level) con experiencia solida desarollando y liderando el ciclo completo de desarrollo de productos de software escalables.'
 	},
 
 	experience: {
-		title: "Mi experiencia",
-		description: "Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado arquitecturas de alto rendimiento en multiples sectores.",
+		title: 'Mi experiencia',
+		description:
+			'Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado arquitecturas de alto rendimiento en multiples sectores.',
 
-		items: experience,
+		items: experience
 	},
 
 	work: {
-		title: "Proyectos",
-		description: "Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y estrategia, con fuerte ownership, capacidad para gestionar integraciones complejas, resolver incidentes en producción y traducir problemas técnicos complejos en soluciones claras y de alto impacto",
+		title: 'Proyectos',
+		description:
+			'Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y estrategia, con fuerte ownership, capacidad para gestionar integraciones complejas, resolver incidentes en producción y traducir problemas técnicos complejos en soluciones claras y de alto impacto',
 
 		projects: projects,
-		work: [],
+		work: []
 	},
 
 	skills: {
-		title: "Habilidades y Tecnologias",
-		description: "Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de performance, integración de APIs y gestión de infraestructura en la nube.",
+		title: 'Habilidades y Tecnologias',
+		description:
+			'Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de performance, integración de APIs y gestión de infraestructura en la nube.',
 		skills: {
-			"Frontend": [
-				Technology.Svelte, Technology.Typescript, Technology.Tailwind, Technology.Astro, Technology.React, Technology.Html, Technology.Css
+			Frontend: [
+				Technology.Svelte,
+				Technology.Typescript,
+				Technology.Tailwind,
+				Technology.Astro,
+				Technology.React,
+				Technology.Html,
+				Technology.Css
 			],
-			"Backend": [
-				Technology.Go, Technology.NodeJs, Technology.Python, Technology.Postgres, Technology.Redis
+			Backend: [
+				Technology.Go,
+				Technology.NodeJs,
+				Technology.Python,
+				Technology.Postgres,
+				Technology.Redis
 			],
-			"DevOps & Cloud": [
-				Technology.Docker, Technology.CiCd, Technology.Aws, Technology.Git, Technology.Github, Technology.Githubactions
-			],
+			'DevOps & Cloud': [
+				Technology.Docker,
+				Technology.CiCd,
+				Technology.Aws,
+				Technology.Git,
+				Technology.Github,
+				Technology.Githubactions
+			]
 		}
 	},
 
 	socials: {
-		github: "https://github.com/imlargo",
-		linkedin: "https://www.linkedin.com/in/imlargo/",
-		instagram: "https://instagram.com/imlargo",
+		github: 'https://github.com/imlargo',
+		linkedin: 'https://www.linkedin.com/in/imlargo/',
+		instagram: 'https://instagram.com/imlargo'
 	}
-}
-
+};
