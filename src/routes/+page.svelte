@@ -17,6 +17,7 @@
 	import { Download } from '@lucide/svelte';
 	import FeaturedProject from '$lib/components/landing/FeaturedProject.svelte';
 	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
+	import Iridescence from '$lib/components/common/Iridescence.svelte';
 
 	let { data }: PageProps = $props();
 </script>
@@ -133,6 +134,10 @@
 		</div>
 	</div>
 </Section.Root>
+
+<div class="max-w-wx h-96 w-full overflow-hidden rounded-xl border-2">
+	<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.15} />
+</div>
 
 <Cta />
 
