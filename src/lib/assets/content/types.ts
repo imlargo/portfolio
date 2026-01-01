@@ -1,3 +1,4 @@
+import type { Technology } from "./technology";
 
 export type Experience = {
     role: string;
@@ -15,3 +16,34 @@ export type Project = {
     url?: string;
     github?: string;
 };
+
+export type Content = {
+    name: string;
+    
+    hero: {
+        badge: string;
+        title: string;
+        description: string;
+    };
+
+    experience: {
+        title: string;
+        description: string;
+
+        items: Experience[];
+    };
+
+    work: {
+        title: string;
+        description: string;
+
+        projects: Project[];
+        work: Project[];
+    };
+
+    skills: {
+        title: string;
+        description: string;
+        technologies: Record<string, Technology[]>;
+    }
+}

@@ -1,5 +1,6 @@
 import { Technology } from '$lib/assets/content/technology';
-import type { Experience, Project } from './types';
+import type { Content, Experience, Project } from './types';
+
 
 export const projects: Project[] = [
 	{
@@ -54,7 +55,7 @@ export const projects: Project[] = [
 	}
 ];
 
-export const experience: Experience[] = [
+const experience: Experience[] = [
 	{
 		role: 'CTO & Lead Developer',
 		date: 'Diciembre de 2024 - Actualidad',
@@ -123,3 +124,45 @@ export const experience: Experience[] = [
 			'Desarrollador frontend en Vue y TypeScript para plataforma interna de gestión del ciclo de vida completo de minigranjas solares.'
 	}
 ];
+
+export const content: Content = {
+	name: "imlargo",
+
+	hero: {
+		badge: "Available for freelance",
+		title: "Hi, i'm largo",
+		description: "Ingeniero de Software Full Stack (Mid-Level) con experiencia solida desarollando y liderando el ciclo completo de desarrollo de productos de software escalables.",
+	},
+
+	experience: {
+		title: "Mi experiencia",
+		description: "Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado arquitecturas de alto rendimiento en multiples sectores.",
+
+		items: experience,
+	},
+
+	work: {
+		title: "Proyectos",
+		description: "Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y estrategia, con fuerte ownership, capacidad para gestionar integraciones complejas, resolver incidentes en producción y traducir problemas técnicos complejos en soluciones claras y de alto impacto",
+
+		projects: projects,
+		work: [],
+	},
+
+	skills: {
+		title: "Habilidades y Tecnologias",
+		description: "Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de performance, integración de APIs y gestión de infraestructura en la nube.",
+		technologies: {
+			"Frontend": [
+				Technology.Svelte, Technology.Typescript, Technology.Tailwind, Technology.Astro, Technology.React, Technology.Html, Technology.Css
+			],
+			"Backend": [
+				Technology.Go, Technology.NodeJs, Technology.Python, Technology.Postgres, Technology.Redis
+			],
+			"DevOps & Cloud": [
+				Technology.Docker, Technology.CiCd, Technology.Aws, Technology.Git, Technology.Github, Technology.Githubactions
+			],
+		}
+	}
+}
+
