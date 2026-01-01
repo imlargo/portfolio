@@ -125,6 +125,15 @@
 		</p>
 	</div>
 
+
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		<span class="col-span-2 w-full pb-4 text-muted-foreground">Experimentos</span>
+
+		{#each projects as project}
+			<Project {project} />
+		{/each}
+	</div>
+	
 	<div class="flex flex-col">
 		<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
 		<div class="grid grid-cols-2 gap-x-8 gap-y-12">
@@ -134,13 +143,6 @@
 		</div>
 	</div>
 
-	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-		<span class="col-span-2 w-full pb-4 text-muted-foreground">Experimentos</span>
-
-		{#each projects as project}
-			<Project {project} />
-		{/each}
-	</div>
 </div>
 
 <div class="relative flex w-full max-w-screen-xl flex-col gap-12">
