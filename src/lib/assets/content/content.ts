@@ -143,9 +143,9 @@ export const content: Content = {
 	},
 
 	work: {
-		title: 'Proyectos',
+		title: 'Proyectos seleccionados',
 		description:
-			'Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y estrategia, con fuerte ownership, capacidad para gestionar integraciones complejas, resolver incidentes en producción y traducir problemas técnicos complejos en soluciones claras y de alto impacto',
+			'Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y mi habilidad para traducir problemas técnicos complejos en soluciones claras y de alto impacto',
 
 		projects: projects,
 		work: []

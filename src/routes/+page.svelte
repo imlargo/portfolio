@@ -14,7 +14,7 @@
 	import type { PageProps } from './$types';
 
 	import { getLabel } from '$lib/assets/content/technology';
-	import { Download } from '@lucide/svelte';
+	import { ArrowRight, ArrowUpRight, Download } from '@lucide/svelte';
 	import FeaturedProject from '$lib/components/landing/FeaturedProject.svelte';
 	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
 	import Iridescence from '$lib/components/common/Iridescence.svelte';
@@ -96,7 +96,13 @@
 	</Section.Header>
 
 	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-		<span class="w-full pb-4 text-muted-foreground lg:col-span-2">Experimentos</span>
+		<div class="flex w-full justify-between items-center lg:col-span-2">
+			<span class="w-full text-muted-foreground">Experimentos</span>
+			<Button href="/work" variant="link" class="text-muted-foreground" >
+				<span>Ver todo</span>
+				<ArrowRight class="size-4" />
+			</Button>		
+		</div>
 
 		{#each content.work.projects as project}
 			<Project {project} />
