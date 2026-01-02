@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
+	import Cta from '$lib/components/common/Cta.svelte';
 	import SkillBadge from '$lib/components/landing/SkillBadge.svelte';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
