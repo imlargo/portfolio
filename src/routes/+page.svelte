@@ -88,7 +88,9 @@
 </Section.Root>
 
 <Section.Root class="max-w-wx relative">
-	<div class="absolute inset-0 -z-50 h-full w-full  [mask-image:radial-gradient(ellipse_at_center,black,transparent_60%)]">
+	<div
+		class="absolute inset-0 -z-50 h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_60%)]"
+	>
 		<Silk speed={5} scale={1} color={'#9810fa'} noiseIntensity={1.5} rotation={0} />
 	</div>
 
