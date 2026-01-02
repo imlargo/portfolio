@@ -78,7 +78,7 @@ void main() {
 `;
 
 	let meshRef: Mesh;
-	const { size } = useThrelte();
+	const { camera, size } = useThrelte();
 
 	const uniforms = $derived({
 		uSpeed: { value: speed },
@@ -89,11 +89,16 @@ void main() {
 		uTime: { value: 0 }
 	});
 
-	// Update mesh scale based on viewport
+	// Update mesh scale based on viewport - usando la cámara para calcular correctamente
 	$effect(() => {
-		if (meshRef && $size) {
-			const aspect = $size.width / $size.height;
-			meshRef.scale.set($size.width / 100, $size.height / 100, 1);
+		if (meshRef && $size && $camera) {
+			// Calcular el tamaño visible en la posición z del mesh
+			const distance = $camera.position.z - meshRef.position.z;
+			const vFov = (($camera as any).fov * Math.PI) / 180;
+			const height = 2 * Math.tan(vFov / 2) * distance;
+			const width = height * ($size.width / $size.height);
+
+			meshRef.scale.set(width, height, 1);
 		}
 	});
 

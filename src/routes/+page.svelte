@@ -15,12 +15,12 @@
 	import { ArrowRight, ArrowUpRight, Download } from '@lucide/svelte';
 	import FeaturedProject from '$lib/components/landing/FeaturedProject.svelte';
 	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
+	import Silk from '$lib/components/common/effects/silk/Silk.svelte';
 
 	let { data }: PageProps = $props();
 </script>
 
 <div class="relative flex w-full items-center justify-center">
-	<!--
 	<div
 		class="pixel-canvas absolute h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
 	>
@@ -31,7 +31,6 @@
 			data-colors="#9810fa, #ad46ff, #dab2ff"
 		></pixel-canvas>
 	</div>
-	-->
 
 	<div class="max-w-wx z-10 flex w-full flex-col gap-y-12 py-24">
 		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
@@ -68,7 +67,7 @@
 	</div>
 </div>
 
-<Section.Root class="max-w-wx">
+<Section.Root class="max-w-wx relative">
 	<div class="flex flex-col justify-between gap-x-2 gap-y-4 lg:flex-row lg:items-end">
 		<Section.Header>
 			<Section.Title>{content.experience.title}</Section.Title>
@@ -88,7 +87,11 @@
 	</div>
 </Section.Root>
 
-<Section.Root class="max-w-wx">
+<Section.Root class="max-w-wx relative">
+	<div class="absolute inset-0 -z-50 h-full w-full  [mask-image:radial-gradient(ellipse_at_center,black,transparent_60%)]">
+		<Silk speed={5} scale={1} color={'#9810fa'} noiseIntensity={1.5} rotation={0} />
+	</div>
+
 	<Section.Header>
 		<Section.Title>{content.work.title}</Section.Title>
 		<Section.Description>{content.work.description}</Section.Description>

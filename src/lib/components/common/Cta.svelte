@@ -4,15 +4,11 @@
 	import Noise from '$lib/components/common/effects/Noise.svelte';
 	import * as Section from '$lib/components/kit/section';
 	import { ArrowUpRight } from '@lucide/svelte';
-	import Silk from './effects/silk/Silk.svelte';
 </script>
 
 <Section.Root class="max-w-wx relative w-full gap-y-4 overflow-hidden rounded-xl border-2 p-12">
 	<div class="absolute inset-0 -z-10 h-full w-full">
-		<!--
 		<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.15} />
-		-->
-		<Silk speed={2} scale={1} color={'#9810fa'} noiseIntensity={1.5} rotation={0} />
 	</div>
 
 	<div class="flex h-full w-full flex-col gap-y-24">
