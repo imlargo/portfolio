@@ -19,7 +19,7 @@
 </svelte:head>
 
 <div class="px-layout relative z-50 flex w-full flex-col items-center bg-background">
-	<div class="w-full max-w-wx">
+	<div class="max-w-wx w-full">
 		<NavigationBar />
 	</div>
 </div>

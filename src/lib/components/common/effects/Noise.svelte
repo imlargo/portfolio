@@ -68,7 +68,7 @@
 	});
 </script>
 
-<canvas bind:this={grainCanvas} class="noise-overlay" style="image-rendering: pixelated;" ></canvas>
+<canvas bind:this={grainCanvas} class="noise-overlay" style="image-rendering: pixelated;"></canvas>
 
 <style>
 	.noise-overlay {
