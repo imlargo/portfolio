@@ -8,11 +8,7 @@
 
 <Section.Root class="max-w-wx relative w-full gap-y-4 overflow-hidden rounded-xl border-2 p-12">
 	<div class="absolute inset-0 -z-10 h-full w-full">
-		<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.1} />
-	</div>
-
-	<div class="absolute inset-0 -z-10 h-full w-full">
-		<Noise patternRefreshInterval={2} />
+		<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.15} />
 	</div>
 
 	<div class="flex h-full w-full flex-col gap-y-24">
