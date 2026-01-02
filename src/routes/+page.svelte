@@ -96,12 +96,12 @@
 	</Section.Header>
 
 	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-		<div class="flex w-full justify-between items-center lg:col-span-2">
+		<div class="flex w-full items-center justify-between lg:col-span-2">
 			<span class="w-full text-muted-foreground">Experimentos</span>
-			<Button href="/work" variant="link" class="text-muted-foreground" >
+			<Button href="/work" variant="link" class="text-muted-foreground">
 				<span>Ver todo</span>
 				<ArrowRight class="size-4" />
-			</Button>		
+			</Button>
 		</div>
 
 		{#each content.work.projects as project}
@@ -141,8 +141,26 @@
 	</div>
 </Section.Root>
 
-<div class="max-w-wx h-96 w-full overflow-hidden rounded-xl border-2">
-	<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.15} />
+<div class="max-w-wx relative w-full gap-y-4 overflow-hidden rounded-xl border-2 p-12">
+	<div class="absolute inset-0 h-full w-full -z-10">
+		<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.15} />
+	</div>
+
+	<div class="flex flex-col gap-y-24 h-full w-full">
+		<div class="flex flex-col gap-y-4">
+			<h3 class="scroll-m-20 text-6xl font-bold tracking-tight text-balance ">Wanna create something awesome together?</h3>
+			<p class="text-xl">
+				Estoy disponible para proyectos freelance y colaboraciones.
+			</p>
+		</div>
+
+		<div class="flex justify-end">
+			<Button size="lg" class="max-w-max">
+				<span>Contactame</span>
+				<ArrowUpRight class="size-4" />
+			</Button>
+		</div>
+	</div>
 </div>
 
 <Cta />
