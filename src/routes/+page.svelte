@@ -8,21 +8,19 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import * as Section from '$lib/components/kit/section';
 	import { Button } from '$lib/components/ui/button';
-	import { Separator } from '$lib/components/ui/separator';
 	import { content } from '$lib/assets/content/content';
-	import { Technology } from '$lib/assets/content/technology';
 	import type { PageProps } from './$types';
 
 	import { getLabel } from '$lib/assets/content/technology';
 	import { ArrowRight, ArrowUpRight, Download } from '@lucide/svelte';
 	import FeaturedProject from '$lib/components/landing/FeaturedProject.svelte';
 	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
-	import Iridescence from '$lib/components/common/Iridescence.svelte';
 
 	let { data }: PageProps = $props();
 </script>
 
 <div class="relative flex w-full items-center justify-center">
+	<!--
 	<div
 		class="pixel-canvas absolute h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
 	>
@@ -33,6 +31,7 @@
 			data-colors="#9810fa, #ad46ff, #dab2ff"
 		></pixel-canvas>
 	</div>
+	-->
 
 	<div class="max-w-wx z-10 flex w-full flex-col gap-y-12 py-24">
 		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
@@ -140,28 +139,6 @@
 		</div>
 	</div>
 </Section.Root>
-
-<div class="max-w-wx relative w-full gap-y-4 overflow-hidden rounded-xl border-2 p-12">
-	<div class="absolute inset-0 h-full w-full -z-10">
-		<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.15} />
-	</div>
-
-	<div class="flex flex-col gap-y-24 h-full w-full">
-		<div class="flex flex-col gap-y-4">
-			<h3 class="scroll-m-20 text-6xl font-bold tracking-tight text-balance ">Wanna create something awesome together?</h3>
-			<p class="text-xl">
-				Estoy disponible para proyectos freelance y colaboraciones.
-			</p>
-		</div>
-
-		<div class="flex justify-end">
-			<Button size="lg" class="max-w-max">
-				<span>Contactame</span>
-				<ArrowUpRight class="size-4" />
-			</Button>
-		</div>
-	</div>
-</div>
 
 <Cta />
 

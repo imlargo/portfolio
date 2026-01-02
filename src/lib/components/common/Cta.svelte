@@ -1,37 +1,33 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button/index.js';
+	import Iridescence from '$lib/components/common/effects/Iridescence.svelte';
+	import Noise from '$lib/components/common/effects/Noise.svelte';
+	import * as Section from '$lib/components/kit/section';
+	import { ArrowUpRight } from '@lucide/svelte';
 </script>
 
-<div
-	class="relative flex w-full flex-col items-center justify-center rounded-lg py-12 md:py-24 lg:py-32"
->
-	<!--
-	<div class="pixel-canvas absolute h-full w-full rounded-xl opacity-50">
-		<pixel-canvas
-			data-gap="15"
-			data-noanimate="1"
-			data-speed="15"
-			data-colors="#9810fa, #ad46ff, #dab2ff"
-		></pixel-canvas>
+<Section.Root class="max-w-wx relative w-full gap-y-4 overflow-hidden rounded-xl border-2 p-12">
+	<div class="absolute inset-0 -z-10 h-full w-full">
+		<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.1} />
 	</div>
-	-->
 
-	<div class="flex max-w-lg flex-col items-center justify-center gap-7">
-		<div class="flex flex-col gap-5">
-			<h2 class="ganimate-fade-in text-center text-4xl font-semibold lg:text-5xl">
-				¡Trabajemos juntos!
-			</h2>
-			<span class="ganimate-fade-in text-center text-muted-foreground">
-				Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una pregunta o solo
-				quieras saludar, mi bandeja de entrada siempre está abierta.
-			</span>
+	<div class="absolute inset-0 -z-10 h-full w-full">
+		<Noise patternRefreshInterval={2} />
+	</div>
+
+	<div class="flex h-full w-full flex-col gap-y-24">
+		<div class="flex flex-col gap-y-4">
+			<h3 class="scroll-m-20 text-6xl font-bold tracking-tight text-balance">
+				Wanna create something awesome together?
+			</h3>
+			<p class="text-xl">Estoy disponible para proyectos freelance y colaboraciones.</p>
 		</div>
-		<Button target="_blank" class="ganimate-fade-in max-w-max">Contáctame</Button>
-	</div>
-</div>
 
-<style>
-	.pixel-canvas {
-		mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 40%);
-	}
-</style>
+		<div class="flex justify-end">
+			<Button size="lg" class="max-w-max">
+				<span>Contactame</span>
+				<ArrowUpRight class="size-4" />
+			</Button>
+		</div>
+	</div>
+</Section.Root>
