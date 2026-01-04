@@ -30,7 +30,7 @@
 		"@tailwindcss/vite": "^4.1.18",
 		"@types/node": "^20.19.27",
 		"@vitest/browser-playwright": "^4.0.16",
-		"bits-ui": "^2.14.4",
+		"bits-ui": "^2.15.2",
 		"clsx": "^2.1.1",
 		"embla-carousel-svelte": "^8.6.0",
 		"eslint": "^9.39.2",

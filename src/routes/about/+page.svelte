@@ -11,7 +11,7 @@
 	let { data }: PageProps = $props();
 </script>
 
-<div class="max-w-wx grid lg:grid-cols-2 gap-x-24 gap-y-12">
+<div class="max-w-wx grid gap-x-24 gap-y-12 lg:grid-cols-2">
 	<div class="flex flex-col gap-y-8">
 		<h2 class="ty-h1 font-mono">Acerca de mi</h2>
 
