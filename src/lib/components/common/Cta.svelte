@@ -6,14 +6,16 @@
 	import { ArrowUpRight } from '@lucide/svelte';
 </script>
 
-<Section.Root class="max-w-wx relative w-full gap-y-4 overflow-hidden rounded-xl border-2 p-12">
+<Section.Root
+	class="max-w-wx relative w-full gap-y-4 overflow-hidden rounded-xl border-2 p-8 lg:p-12"
+>
 	<div class="absolute inset-0 -z-10 h-full w-full">
 		<Iridescence mouseReact={false} color={[0.6, 0.4, 1]} speed={0.15} />
 	</div>
 
-	<div class="flex h-full w-full flex-col gap-y-24">
+	<div class="flex h-full w-full flex-col gap-y-12 lg:gap-y-24">
 		<div class="flex flex-col gap-y-4">
-			<h3 class="scroll-m-20 text-6xl font-bold tracking-tight text-balance">
+			<h3 class="scroll-m-20 text-5xl font-bold tracking-tight text-balance lg:text-6xl">
 				Qué te parece si creamos algo increíble juntos?
 			</h3>
 
