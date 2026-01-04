@@ -4,6 +4,7 @@
 	import Noise from '$lib/components/common/effects/Noise.svelte';
 	import * as Section from '$lib/components/kit/section';
 	import { ArrowUpRight } from '@lucide/svelte';
+	import { content } from '$lib/assets/content/content';
 </script>
 
 <Section.Root
@@ -23,7 +24,7 @@
 		</div>
 
 		<div class="flex justify-end">
-			<Button size="lg" class="max-w-max">
+			<Button size="lg" class="max-w-max" href="mailto:{content.email}">
 				<span>Contactame</span>
 				<ArrowUpRight class="size-4" />
 			</Button>

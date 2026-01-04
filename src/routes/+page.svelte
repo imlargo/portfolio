@@ -52,15 +52,19 @@
 		</div>
 
 		<div class="flex items-center gap-x-2">
-			<Button>Contactame</Button>
+			<Button href="mailto:{content.email}">Contactame</Button>
 
 			<div class="mx-2 h-5 w-0.5 bg-muted"></div>
 
-			<Button variant="secondary" size="icon">
+			<Button variant="secondary" size="icon" href={content.socials?.instagram} target="_blank">
+				<SocialIcon platform="instagram" />
+			</Button>
+
+			<Button variant="secondary" size="icon" href={content.socials?.github} target="_blank">
 				<SocialIcon platform="github" />
 			</Button>
 
-			<Button variant="secondary" size="icon">
+			<Button variant="secondary" size="icon" href={content.socials?.linkedin} target="_blank">
 				<SocialIcon platform="linkedin" />
 			</Button>
 		</div>
@@ -73,10 +77,9 @@
 			<Section.Title>{content.experience.title}</Section.Title>
 			<Section.Description>{content.experience.description}</Section.Description>
 		</Section.Header>
-
-		<Button class="max-w-max">
+		<Button class="max-w-max" target="_blank" href="/files/resume.pdf">
 			<span>Curriculum</span>
-			<Download class="size-4" />
+			<ArrowUpRight class="size-4" />
 		</Button>
 	</div>
 

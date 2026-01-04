@@ -53,8 +53,8 @@
 		</div>
 		<div class="flex justify-end gap-x-4">
 			<div class="flex items-center justify-center gap-x-2">
-				<Button variant="secondary" href="/">Resume</Button>
-				<Button href="/">Contact</Button>
+				<Button variant="secondary" target="_blank" href="/files/resume.pdf">Curriculum</Button>
+				<Button href="mailto:{content.email}">Contactame</Button>
 			</div>
 
 			<Popover.Root bind:open={isOpen}>

@@ -19,6 +19,7 @@ export type Project = {
 
 export type Content = {
 	name: string;
+	email: string;
 
 	hero: {
 		badge: string;

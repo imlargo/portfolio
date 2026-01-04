@@ -135,6 +135,7 @@ const experience: Experience[] = [
 
 export const content: Content = {
 	name: 'imlargo',
+	email: 'jclargob@gmail.com',
 
 	hero: {
 		badge: 'Available for freelance',
