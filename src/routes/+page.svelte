@@ -1,262 +1,160 @@
 <script lang="ts">
-	import Nav from '$components/UI/Nav/Nav.svelte';
-	import Footer from '$components/UI/Footer.svelte';
-	import ProyectCard from '$src/lib/components/UI/Items/ProyectCard.svelte';
-	import ExperienceCard from '$src/lib/components/UI/Items/Experience.svelte';
-	import Container from '$src/lib/components/UI/Container.svelte';
-	import SkillCarrousel from '$src/lib/components/UI/SkillCarrousel.svelte';
-	import Cta from '$src/lib/components/UI/Cta.svelte';
+	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
+	import Cta from '$lib/components/common/Cta.svelte';
+	import DotBackground from '$lib/components/kit/dot-background/DotBackground.svelte';
+	import Experience from '$lib/components/landing/Experience.svelte';
+	import Project from '$lib/components/landing/Project.svelte';
+	import SkillBadge from '$lib/components/landing/SkillBadge.svelte';
+	import { Badge } from '$lib/components/ui/badge';
+	import * as Section from '$lib/components/kit/section';
+	import { Button } from '$lib/components/ui/button';
+	import { content } from '$lib/assets/content/content';
+	import type { PageProps } from './$types';
 
-	function interactiveBlob(interBubble: HTMLElement) {
-		let curX = 0;
-		let curY = 0;
-		let tgX = 0;
-		let tgY = 0;
+	import { getLabel } from '$lib/assets/content/technology';
+	import { ArrowRight, ArrowUpRight, Download } from '@lucide/svelte';
+	import FeaturedProject from '$lib/components/landing/FeaturedProject.svelte';
+	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
+	import Silk from '$lib/components/common/effects/silk/Silk.svelte';
 
-		function move() {
-			curX += (tgX - curX) / 20;
-			curY += (tgY - curY) / 20;
-			interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
-			requestAnimationFrame(() => {
-				move();
-			});
-		}
-
-		window.addEventListener('mousemove', (event) => {
-			tgX = event.clientX;
-			tgY = event.clientY;
-		});
-
-		move();
-	}
+	let { data }: PageProps = $props();
 </script>
 
-<svelte:head>
-	<title>imlargo</title>
-</svelte:head>
-
-<header class="relative">
-	<div class="glass">
-		<Container>
-			<Nav />
-		</Container>
+<div class="relative flex w-full items-center justify-center">
+	<div
+		class="pixel-canvas absolute h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
+	>
+		<pixel-canvas
+			data-gap="15"
+			data-noanimate="1"
+			data-speed="15"
+			data-colors="#9810fa, #ad46ff, #dab2ff"
+		></pixel-canvas>
 	</div>
 
-	<div class="background-dots p-52">
-		<div class="gradient-bg mask">
-			<svg xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<filter id="goo">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-						<feColorMatrix
-							in="blur"
-							mode="matrix"
-							values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
-							result="goo"
-						/>
-						<feBlend in="SourceGraphic" in2="goo" />
-					</filter>
-				</defs>
-			</svg>
-			<div class="gradients-container">
-				<div class="g1"></div>
-				<div class="g2"></div>
-				<div class="g3"></div>
-				<div class="g4"></div>
-				<div class="g5"></div>
-				<div use:interactiveBlob class="interactive"></div>
+	<div class="max-w-wx z-10 flex w-full flex-col gap-y-12 py-24">
+		<img src="/assets/pfp.jpg" alt="" class="size-18 rounded-full object-cover" />
+
+		<div class="flex flex-col gap-y-4">
+			<AnimatedBadge text={content.hero.badge}>
+				<span
+					class="size-1.5 shrink-0 rounded-full bg-purple-500 leading-0 ring-2 ring-purple-800 outline-2 outline-offset-2 outline-purple-900/50"
+				></span>
+			</AnimatedBadge>
+
+			<h1 class="scroll-m-20 text-5xl font-extrabold tracking-tight text-balance">
+				{content.hero.title}
+			</h1>
+
+			<p class="max-w-prose text-xl text-muted-foreground">
+				{content.hero.description}
+			</p>
+		</div>
+
+		<div class="flex items-center gap-x-2">
+			<Button href="mailto:{content.email}">Contactame</Button>
+
+			<div class="mx-2 h-5 w-0.5 bg-muted"></div>
+
+			<Button variant="secondary" size="icon" href={content.socials?.instagram} target="_blank">
+				<SocialIcon platform="instagram" />
+			</Button>
+
+			<Button variant="secondary" size="icon" href={content.socials?.github} target="_blank">
+				<SocialIcon platform="github" />
+			</Button>
+
+			<Button variant="secondary" size="icon" href={content.socials?.linkedin} target="_blank">
+				<SocialIcon platform="linkedin" />
+			</Button>
+		</div>
+	</div>
+</div>
+
+<Section.Root class="max-w-wx relative">
+	<div class="flex flex-col justify-between gap-x-2 gap-y-4 lg:flex-row lg:items-end">
+		<Section.Header>
+			<Section.Title>{content.experience.title}</Section.Title>
+			<Section.Description>{content.experience.description}</Section.Description>
+		</Section.Header>
+		<Button class="max-w-max" target="_blank" href="/files/resume.pdf">
+			<span>Curriculum</span>
+			<ArrowUpRight class="size-4" />
+		</Button>
+	</div>
+
+	<div class="flex flex-col divide-y border-b">
+		{#each content.experience.items as experience}
+			<Experience {experience} />
+		{/each}
+	</div>
+</Section.Root>
+
+<Section.Root class="max-w-wx relative">
+	<div
+		class="absolute inset-0 -z-50 h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_60%)]"
+	>
+		<Silk speed={5} scale={1} color={'#9810fa'} noiseIntensity={1.5} rotation={0} />
+	</div>
+
+	<Section.Header>
+		<Section.Title>{content.work.title}</Section.Title>
+		<Section.Description>{content.work.description}</Section.Description>
+	</Section.Header>
+
+	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+		<div class="flex w-full items-center justify-between lg:col-span-2">
+			<span class="w-full text-muted-foreground">Mis proyectos</span>
+			<Button href="/work" variant="link" class="text-muted-foreground">
+				<span>Ver todo mi trabajo</span>
+				<ArrowRight class="size-4" />
+			</Button>
+		</div>
+
+		{#each content.work.projects as project}
+			<Project {project} />
+		{/each}
+	</div>
+
+	{#if content.work.work.length > 0}
+		<div class="flex flex-col">
+			<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
+			<div class="grid grid-cols-2 gap-x-8 gap-y-12">
+				{#each content.work.work as project}
+					<FeaturedProject {project} />
+				{/each}
 			</div>
 		</div>
-		<Container>
-			<section class="grid grid-cols-3">
-				<div class="col-span-2">
-					<span class="font-mono font-light tracking-tight text-zinc-300"
-						>Fullstack Developer, UI/UX Designer.</span
-					>
-					<div class="inline-block">
-						<h1 class="typing mt-4 pb-2 text-8xl font-bold text-white">Hi, i'm largo.</h1>
-					</div>
+	{/if}
+</Section.Root>
 
-					<p class="text-pretty text-base leading-relaxed text-zinc-200">
-						Experiencia en frontend, backend, web scraping y automatización. Enfocado en el
-						desarrollo web. Entre mis logros destaca la creación de proyectos personales que han
-						tenido un impacto positivo significativo en la comunidad universitaria.
-					</p>
+<Section.Root class="max-w-wx">
+	<Section.Header>
+		<Section.Title>{content.skills.title}</Section.Title>
+		<Section.Description>{content.skills.description}</Section.Description>
+	</Section.Header>
 
-					<div class="mt-9 flex items-center gap-7">
-						<a
-							class="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-black"
-							href="Currículum - Juan Carlos Largo.pdf"
-							target="_blank"
-						>
-							<i class="bi bi-code-slash"></i>
-							<span>Ver Curriculum</span>
-						</a>
-
-						<div
-							class="my-auto inline-block h-3/4 min-h-[1em] w-px self-stretch bg-neutral-400"
-						></div>
-
-						<a class="text-lg" target="_blank" href="https://github.com/imlargo">
-							<i class="bi bi-github"></i>
-						</a>
-
-						<a class="text-lg" target="_blank" href="https://www.instagram.com/imlargo">
-							<i class="bi bi-instagram"></i>
-						</a>
-
-						<a class="text-lg" target="_blank" href="https://www.linkedin.com/in/imlargo">
-							<i class="bi bi-linkedin"></i>
-						</a>
-					</div>
+	<div class="flex flex-col gap-y-4">
+		<div class="flex flex-col gap-y-4">
+			{#each Object.entries(content.skills.skills) as [category, skills]}
+				<h3 class="text-muted-foreground">{category}</h3>
+				<div class="flex flex-wrap gap-2">
+					{#each skills as skill}
+						<SkillBadge tech={skill} />
+					{/each}
 				</div>
-			</section>
-		</Container>
+			{/each}
+		</div>
 	</div>
-</header>
+</Section.Root>
 
-<div class="background-dots mask-radial">
-	<Container>
-		<section id="experiencia">
-			<h3 class="text-4xl font-medium tracking-tight">Experiencia</h3>
+<Cta />
 
-			<p class="text-display mb-7 mt-5 w-9/12">
-				Desarrollo aplicaciones web innovadoras y soluciones de software personalizadas. Creando
-				experiencias atractivas, enfocándome en la escalabilidad, el rendimiento, la calidad y
-				pensando siempre desde la perspectiva del usuario final.
-			</p>
+<style>
+	.line {
+		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 75%, rgba(255, 255, 255, 0) 100%);
+	}
 
-			<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
-				<ExperienceCard
-					cargo="Estudiante Auxiliar / Desarrollador de software"
-					fecha="Enero de 2024 - Actualidad"
-					stack="Typescript, Svelte, Tailwind, Javascript, HTML, CSS, SCSS, Bootstrap, Firebase, NodeJs, APIs, Apps Script"
-					lugar="Universidad Nacional de Colombia"
-				>
-					Colaboración con diversas áreas para adaptar soluciones a sus necesidades. Entre los
-					logros destacan la estandarización de datos, reducción significativa del tiempo en
-					procesos y mejora de la coordinación y experiencia de los usuarios.
-				</ExperienceCard>
-
-				<ExperienceCard
-					cargo="Estudiante Auxiliar / Desarrollador de software"
-					fecha="Noviembre de 2023 - Diciembre 2023"
-					stack="Javascript, Python, Apps Script"
-					lugar="Universidad Nacional de Colombia"
-				>
-					Identificación y resolución de problemas mediante Apps Script y Python para automatizar
-					tareas repetitivas, incrementando la eficiencia operativa y reduciendo el trabajo manual.
-					La automatización de procesos administrativos internos resultó en una significativa
-					reducción de la carga de trabajo manual y mejora de la productividad del equipo y
-					optimizando los flujos de trabajo.
-				</ExperienceCard>
-			</ul>
-		</section>
-	</Container>
-</div>
-
-<div class="background-dots mask-radial">
-	<Container>
-		<section class="py-32" id="proyectos">
-			<h3 class="text-4xl font-medium tracking-tight">Proyectos</h3>
-
-			<p class="text-display mb-7 mt-5 w-9/12">
-				Me apasiona construir soluciones que resuelvan problemas y generen valor. Te invito a
-				conocer algunos de mis proyectos personales en los que estoy o he estado trabajando, los
-				cuales llevan mi dedicación, cariño y esfuerzo.
-			</p>
-
-			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-				<ProyectCard
-					link="https://pegaso.imlargo.dev"
-					repo="https://github.com/imlargo/pegaso"
-					title="Pegaso"
-					stack="Svelte, Go, TypeScript, MongoDB, Tailwind"
-				>
-					Una aplicación diseñada para la creación de horarios y enfocada en brindar información
-					esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.
-				</ProyectCard>
-
-				<ProyectCard
-					link="https://copywhisper.imlargo.dev"
-					repo="https://github.com/imlargo/CopyWhisper"
-					title="CopyWhisper"
-					stack="Svelte, Typescript, Tailwind, SCSS"
-				>
-					Aplicación web impulsada por IA para analizar, calificar y optimizar el copywriting tu
-					página web, proporcionando análisis profundos y detallados con recomendaciones adaptadas a
-					tus necesidades específicas.
-				</ProyectCard>
-
-				<ProyectCard
-					link="https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles"
-					title="MinasBot"
-					stack="NodeJs, Javascript"
-				>
-					ChatBot de WhatsApp desarrollado en Node.js con el objetivo de automatizar respuestas a
-					preguntas frecuentes, distribuir información y gestionar procesos administrativos.
-				</ProyectCard>
-
-				<ProyectCard
-					link="https://odpiobservatorio.vercel.app"
-					repo="https://github.com/odpiobservatorio/odpiobservatorio.github.io"
-					title="ODPI Observatorio."
-					stack="Javascript, HTML, CSS, Firebase, Leaflet"
-				>
-					Contribuí al desarrollo del backend para un sistema de información web que visibiliza el
-					estado de los hechos de violencia contra los pueblos indígenas de Colombia.
-				</ProyectCard>
-
-				<ProyectCard
-					repo="https://github.com/imlargo/proyecto-vectorial"
-					title="Plataforma de enseñanza"
-					stack="Astro, Tailwind, Python, Markdown"
-				>
-					En mi tiempo libre me dedico a trabajar en una plataforma educativa diseñada para enseñar
-					a conceptos de geometría vectorial a través de animaciones.
-				</ProyectCard>
-			</div>
-		</section>
-	</Container>
-</div>
-
-<Container>
-	<div class="pb-32">
-		<h3 class="mb-5 text-4xl font-medium tracking-tight">Habilidades y tecnologias</h3>
-
-		<SkillCarrousel />
-	</div>
-</Container>
-
-<Container>
-	<section class="mb-32">
-		<Cta />
-	</section>
-</Container>
-
-<Container>
-	<Footer />
-</Container>
-
-<!--
-<section class="py-20" id="habilidades">
-	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Habilidades y tecnologias</h3>
-	<img
-		src="https://skillicons.dev/icons?i=js,py,go,java,svelte,astro,html,css,sass,bootstrap,tailwind,nodejs,firebase,mongodb,figma,latex,githubactions&theme=dark"
-	/>
-</section>
-
-<section class="py-20" id="educacion">
-	<h3 class="text-4xl tracking-tight font-bold text-slate-800 mb-5">Formacion</h3>
-	<ul class="experience-list gap-12 py-2 before:absolute after:absolute">
-		<EducationItem />
-
-		<EducationItem />
-	</ul>
-</section>
--->
-
-<style lang="scss">
 	@keyframes beam {
 		from {
 			height: 0%;
@@ -279,50 +177,14 @@
 		}
 	}
 
-	.experience-list {
-		display: flex;
-		position: relative;
-		flex-direction: column;
-		--mask-percentaje: 90%;
-
+	.timeline {
 		&::before {
 			position: absolute;
-			top: 1.5rem;
 			height: 100%;
-			transform: translateX(-50%);
-			width: 1px;
-
-			z-index: 1;
-			background: linear-gradient(180deg, rgba(243, 126, 255, 1) 0%, rgba(161, 37, 255, 1) 100%);
-			mask-image: linear-gradient(
-				180deg,
-				rgba(0, 0, 0, 1) var(--mask-percentaje),
-				rgba(161, 37, 255, 0) 100%
-			);
-
 			animation: beam ease both;
 			animation-timeline: scroll();
+			transition: all 0.3s ease;
+			mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 95%, rgba(255, 255, 255, 0) 100%);
 		}
-
-		&::after {
-			position: absolute;
-			top: 1.5rem;
-			bottom: 1.5rem;
-			transform: translateX(-50%);
-			border-width: 1px;
-			border-color: #2b2b2b;
-			mask-image: linear-gradient(
-				180deg,
-				rgba(0, 0, 0, 1) var(--mask-percentaje),
-				rgba(161, 37, 255, 0) 100%
-			);
-		}
-	}
-
-	.glass {
-		/* From https://css.glass */
-
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
 	}
 </style>

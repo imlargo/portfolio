@@ -1,113 +1,70 @@
-<script>
-	import Nav from '$components/UI/Nav/Nav.svelte';
-	import Footer from '$components/UI/Footer.svelte';
-	import Container from '$src/lib/components/UI/Container.svelte';
-	import Cta from '$src/lib/components/UI/Cta.svelte';
+<script lang="ts">
+	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
+	import Cta from '$lib/components/common/Cta.svelte';
+	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
+	import SkillBadge from '$lib/components/landing/SkillBadge.svelte';
+	import { Badge } from '$lib/components/ui/badge';
+	import { Button } from '$lib/components/ui/button';
+	import { Separator } from '$lib/components/ui/separator';
+	import type { PageProps } from './$types';
+
+	let { data }: PageProps = $props();
 </script>
 
-<svelte:head>
-	<title>imlargo - About</title>
-</svelte:head>
+<div class="max-w-wx grid gap-x-24 gap-y-12 lg:grid-cols-2">
+	<div class="flex flex-col gap-y-8">
+		<h2 class="ty-h1 font-mono">Acerca de mi</h2>
 
-<Container>
-	<Nav />
-</Container>
+		<div class="flex flex-col gap-y-4">
+			<p class="max-w-prose text-pretty text-muted-foreground">
+				¡Hola! me llamo <span class="font-semibold text-foreground">Juan Carlos Largo</span>, aunque
+				quiza me conozcas como <span class="ty-inlinecode">@imlargo</span>. Soy un ingeniero de
+				software, pero antes que nada, soy una persona con intereses y experiencias que van más allá
+				de la programacion. Bienvenido a mi espacio personal!, donde comparto más sobre mi.
+			</p>
 
-<section class="background-dots mask-radial py-32">
-	<Container>
-		<main class="grid grid-cols-5">
-			<section class="col-span-3">
-				<h1 class="max-w-max text-7xl font-bold tracking-tight">Acerca de mi</h1>
-				<div class="mt-6 w-10/12 space-y-7 text-pretty text-base leading-relaxed text-zinc-400">
-					<p>
-						¡Hola! me llamo Juan Carlos Largo, aunque quiza me conozcas como <span class="font-mono"
-							>@imlargo</span
-						>. Soy un desarrollador de software, pero antes que nada, soy una persona con intereses
-						y experiencias que van más allá de la programacion. Bienvenido a mi espacio personal!,
-						donde comparto más sobre mi.
-					</p>
-					<p>
-						Además del desarrollo de software, tengo una variedad de intereses que me apasionan.
-						Intento siempre encontrar tiempo para nadar, lo cual me mantiene motivado y energizado.
-						Me encanta escuchar música, comer pizza, ver atardeceres y salir a caminar para
-						relajarme y distraerme. Estas actividades me ayudan a mantener el equilibrio y a
-						inspirarme para mis proyectos profesionales mientras disfruto aprendiendo cosas nuevas.
-					</p>
-					<p>
-						Siempre he pensado que saber de programación es cómo hacer magia en el mundo moderno, y
-						es por eso que me encanta usar esta “magia” para crear soluciones que sean útiles y,
-						sobre todo, que aporten un verdadero valor. En los próximos años, espero seguir
-						aprendiendo, creciendo tanto personal como profesionalmente y sobre todo creando.
-					</p>
+			<p class="max-w-prose text-pretty text-muted-foreground">
+				Además del desarrollo de software, tengo una variedad de intereses que me apasionan. Intento
+				siempre encontrar tiempo para nadar, lo cual me mantiene motivado y energizado. Me encanta
+				escuchar música, comer pizza, ver atardeceres y salir a caminar para relajarme y distraerme.
+				Estas actividades me ayudan a mantener el equilibrio y a inspirarme para mis proyectos
+				profesionales mientras disfruto aprendiendo cosas nuevas.
+			</p>
 
-					<p>
-						Y finalmente gracias por tomarte el tiempo de leer un poco sobre mí. Si quieres saber
-						más o simplemente charlar, no dudes en contactarme. ¡Estoy siempre abierto a nuevas
-						conexiones y oportunidades!
-					</p>
-				</div>
-			</section>
+			<p class="max-w-prose text-pretty text-muted-foreground">
+				Siempre he pensado que saber de programación es cómo hacer magia en el mundo moderno, y es
+				por eso que me encanta usar esta “magia” para crear soluciones que sean útiles y, sobre
+				todo, que aporten un verdadero valor. En los próximos años, espero seguir aprendiendo,
+				creciendo tanto personal como profesionalmente y sobre todo creando.
+			</p>
 
-			<section class="col-span-2">
-				<div class="">
-					<img
-						src="https://media.licdn.com/dms/image/D4E03AQH8qCs5Z5PqaA/profile-displayphoto-shrink_800_800/0/1697915419824?e=1724889600&v=beta&t=11qxae0A7GBis-cdKjuA-WWnfweJ59mh2Up1kNg6PAs"
-						alt="imlargo"
-						class="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-					/>
-				</div>
+			<p class="max-w-prose text-pretty text-muted-foreground">
+				Y finalmente gracias por tomarte el tiempo de leer un poco sobre mí. Si quieres saber más o
+				simplemente charlar, no dudes en contactarme. ¡Estoy siempre abierto a nuevas conexiones y
+				oportunidades!
+			</p>
+		</div>
+	</div>
 
-				<div class="mt-8 flex flex-col gap-4">
-					<a
-						class="flex max-w-fit gap-3 text-zinc-400"
-						target="_blank"
-						href="https://github.com/imlargo"
-					>
-						<i class="bi bi-github"></i>
-						<span class="">Seguir en GitHub</span>
-					</a>
+	<div class="flex flex-col gap-y-4">
+		<div class="relative aspect-square w-full overflow-hidden rounded-lg border-2">
+			<img src="/assets/pfp.jpg" alt="" class="aspect-square h-full w-full object-cover" />
+		</div>
 
-					<a
-						class="flex max-w-fit gap-3 text-zinc-400"
-						target="_blank"
-						href="https://www.instagram.com/imlargo"
-					>
-						<i class="bi bi-instagram"></i>
-						<span class="">Seguir en Instagram</span>
-					</a>
+		<div class="flex flex-wrap gap-2">
+			<Button variant="secondary" size="icon">
+				<SocialIcon platform="github" />
+			</Button>
 
-					<a
-						class="flex max-w-fit gap-3 text-zinc-400"
-						target="_blank"
-						href="https://www.linkedin.com/in/imlargo"
-					>
-						<i class="bi bi-linkedin"></i>
-						<span class="">Seguir en Linkedin</span>
-					</a>
+			<Button variant="secondary" size="icon">
+				<SocialIcon platform="instagram" />
+			</Button>
 
-					<hr class="my-2" />
+			<Button variant="secondary" size="icon">
+				<SocialIcon platform="linkedin" />
+			</Button>
+		</div>
+	</div>
+</div>
 
-					<a
-						class="flex max-w-fit gap-3 text-zinc-400"
-						target="_blank"
-						href="mailto:jclargob@gmail.com"
-					>
-						<i class="bi bi-envelope"></i>
-						<span class="">jclargob@gmail.com</span>
-					</a>
-				</div>
-			</section>
-		</main>
-
-		<section class="mt-32">
-			<Cta />
-		</section>
-	</Container>
-</section>
-
-<Container>
-	<Footer />
-</Container>
-
-<style lang="scss">
-</style>
+<Cta />
