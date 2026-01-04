@@ -28,6 +28,7 @@
 			title: 'Resources',
 			links: [
 				{ label: 'GitHub', href: 'https://github.com/imlargo', external: true },
+				{ label: 'Instagram', href: 'https://instagram.com/imlargo', external: true },
 				{ label: 'Linkedin', href: 'https://github.com/imlargo', external: true }
 			]
 		}

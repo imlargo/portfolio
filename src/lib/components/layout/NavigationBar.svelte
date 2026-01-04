@@ -91,6 +91,15 @@
 									<ArrowUpRight />
 								</a>
 								<a
+									href="https://instagram.com/imlargo"
+									target="_blank"
+									data-sveltekit-reload
+									class="flex items-center gap-x-2"
+								>
+									<span>Instagram</span>
+									<ArrowUpRight />
+								</a>
+								<a
 									href="https://github.com/imlargo"
 									target="_blank"
 									data-sveltekit-reload
