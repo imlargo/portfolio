@@ -24,6 +24,22 @@ const projects: Project[] = [
 			'Aplicación web impulsada por IA para analizar, calificar y optimizar el copywriting tu página web, proporcionando análisis profundos y detallados con recomendaciones adaptadas a tus necesidades específicas.',
 		technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind, Technology.Scss]
 	},
+
+	{
+		github: 'https://github.com/imlargo/go-api',
+		url: 'https://github.com/imlargo/go-api',
+		title: 'Medusa Framework',
+		description: 'Framework robusto, modular y de alto rendimiento para construir backends en Go',
+		technologies: [Technology.Go]
+	},
+	{
+		github: 'https://github.com/imlargo/gleam-webpush',
+		url: 'https://hexdocs.pm/webpush/index.html',
+		title: 'Gleam WebPush',
+		description:
+			'Librería de Gleam para gestionar suscripciones y enviar notificaciones push web utilizando el estándar Web Push.',
+		technologies: [Technology.Gleam]
+	},
 	{
 		url: 'https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles',
 		title: 'MinasBot',
@@ -43,14 +59,6 @@ const projects: Project[] = [
 			Technology.Css,
 			Technology.Firebase,
 			Technology.Leaflet
-		]
-	},
-	{
-		github: 'https://github.com/imlargo/gleam-webpush',
-		title: 'Gleam-WebPush',
-		description: 'Librería de Gleam para gestionar suscripciones y enviar notificaciones push web utilizando el estándar Web Push.',
-		technologies: [
-			Technology.Gleam,
 		]
 	}
 ];
