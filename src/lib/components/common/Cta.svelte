@@ -14,8 +14,9 @@
 	<div class="flex h-full w-full flex-col gap-y-24">
 		<div class="flex flex-col gap-y-4">
 			<h3 class="scroll-m-20 text-6xl font-bold tracking-tight text-balance">
-				Wanna create something awesome together?
+				Qué te parece si creamos algo increíble juntos?				
 			</h3>
+
 			<p class="text-xl">Estoy disponible para proyectos freelance y colaboraciones.</p>
 		</div>
 

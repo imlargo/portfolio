@@ -101,9 +101,9 @@
 
 	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 		<div class="flex w-full items-center justify-between lg:col-span-2">
-			<span class="w-full text-muted-foreground">Experimentos</span>
+			<span class="w-full text-muted-foreground">Mis proyectos</span>
 			<Button href="/work" variant="link" class="text-muted-foreground">
-				<span>Ver todo</span>
+				<span>Ver todo mi trabajo</span>
 				<ArrowRight class="size-4" />
 			</Button>
 		</div>
