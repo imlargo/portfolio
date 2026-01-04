@@ -52,7 +52,7 @@
 		</div>
 
 		<div class="flex items-center gap-x-2">
-			<Button href="mailto:{content.email}">Contactame</Button>
+			<Button href="mailto:{content.email}">Contáctame</Button>
 
 			<div class="mx-2 h-5 w-0.5 bg-muted"></div>
 

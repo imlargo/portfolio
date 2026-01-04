@@ -12,9 +12,9 @@
 		<Empty.Media variant="icon">
 			<CircleAlert />
 		</Empty.Media>
-		<Empty.Title>Pagina en construccion</Empty.Title>
+		<Empty.Title>Página en construcción</Empty.Title>
 		<Empty.Description>
-			Estoy trabajando en esta seccion. Vuelve pronto para ver las actualizaciones!
+			Estoy trabajando en esta sección. Vuelve pronto para ver las actualizaciones!
 		</Empty.Description>
 	</Empty.Header>
 	<Button variant="link" class="text-muted-foreground" size="sm">

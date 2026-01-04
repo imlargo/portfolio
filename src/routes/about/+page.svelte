@@ -18,9 +18,9 @@
 		<div class="flex flex-col gap-y-4">
 			<p class="max-w-prose text-pretty text-muted-foreground">
 				¡Hola! me llamo <span class="font-semibold text-foreground">Juan Carlos Largo</span>, aunque
-				quiza me conozcas como <span class="ty-inlinecode">@imlargo</span>. Soy un ingeniero de
+				quizá me conozcas como <span class="ty-inlinecode">@imlargo</span>. Soy un ingeniero de
 				software, pero antes que nada, soy una persona con intereses y experiencias que van más allá
-				de la programacion. Bienvenido a mi espacio personal!, donde comparto más sobre mi.
+				de la programación. Bienvenido a mi espacio personal!, donde comparto más sobre mí.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">

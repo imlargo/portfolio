@@ -1,3 +1,3 @@
 # Portfolio
 
-> Nota: Aun se encuentra en construccion
+> Nota: Aún se encuentra en construcción
