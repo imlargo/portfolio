@@ -25,7 +25,7 @@
 
 		<div class="flex justify-end">
 			<Button size="lg" class="max-w-max" href="mailto:{content.email}">
-				<span>Contactame</span>
+				<span>Contáctame</span>
 				<ArrowUpRight class="size-4" />
 			</Button>
 		</div>

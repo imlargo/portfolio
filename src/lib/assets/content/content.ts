@@ -141,13 +141,13 @@ export const content: Content = {
 		badge: 'Available for freelance',
 		title: "Hi, i'm largo",
 		description:
-			'Ingeniero de Software Full Stack (Mid-Level) con experiencia solida desarollando y liderando el ciclo completo de desarrollo de productos de software escalables.'
+			'Ingeniero de Software Full Stack (Mid-Level) con experiencia sólida desarrollando y liderando el ciclo completo de desarrollo de productos de software escalables.'
 	},
 
 	experience: {
 		title: 'Mi experiencia',
 		description:
-			'Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado arquitecturas de alto rendimiento en multiples sectores.',
+			'Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado arquitecturas de alto rendimiento en múltiples sectores.',
 
 		items: experience
 	},
@@ -162,7 +162,7 @@ export const content: Content = {
 	},
 
 	skills: {
-		title: 'Habilidades y Tecnologias',
+		title: 'Habilidades y Tecnologías',
 		description:
 			'Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de performance, integración de APIs y gestión de infraestructura en la nube.',
 		skills: {
