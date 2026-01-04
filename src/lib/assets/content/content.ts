@@ -46,11 +46,12 @@ const projects: Project[] = [
 		]
 	},
 	{
-		github: 'https://github.com/imlargo/proyecto-vectorial',
-		title: 'Plataforma de enseñanza',
-		description:
-			'En mi tiempo libre me dedico a trabajar en una plataforma educativa diseñada para enseñar a conceptos de geometría vectorial a través de animaciones.',
-		technologies: [Technology.Astro, Technology.Tailwind, Technology.Python, Technology.Markdown]
+		github: 'https://github.com/imlargo/gleam-webpush',
+		title: 'Gleam-WebPush',
+		description: 'Librería de Gleam para gestionar suscripciones y enviar notificaciones push web utilizando el estándar Web Push.',
+		technologies: [
+			Technology.Gleam,
+		]
 	}
 ];
 

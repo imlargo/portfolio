@@ -10,6 +10,7 @@ export enum Technology {
 	Python,
 	Java,
 	Go,
+	Gleam,
 	Astro,
 	Html,
 	Css,
@@ -64,6 +65,8 @@ export function getLabel(technology: Technology): string {
 			return 'Markdown';
 		case Technology.Go:
 			return 'Go';
+		case Technology.Gleam:
+			return 'Gleam';
 		case Technology.Java:
 			return 'Java';
 		case Technology.Astro:
@@ -107,6 +110,8 @@ export function getColor(technology: Technology) {
 			return '#f58219';
 		case Technology.Go:
 			return '#00b4e0';
+		case Technology.Gleam:
+			return '#ffaff3';
 		case Technology.NodeJs:
 			return '#81cd39';
 		case Technology.Firebase:
