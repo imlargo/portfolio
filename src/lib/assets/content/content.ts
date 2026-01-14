@@ -26,8 +26,8 @@ const projects: Project[] = [
 	},
 
 	{
-		github: 'https://github.com/imlargo/go-api',
-		url: 'https://github.com/imlargo/go-api',
+		github: 'https://github.com/imlargo/medusa',
+		url: 'https://github.com/imlargo/medusa',
 		title: 'Medusa Framework',
 		description: 'A batteries-included Go framework for building modern, scalable backends',
 		technologies: [Technology.Go]
