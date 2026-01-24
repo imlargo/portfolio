@@ -100,6 +100,14 @@ const experience: Experience[] = [
 		description: 'Diseño y desarrollo de aplicaciones web full stack a medida.'
 	},
 	{
+		role: 'Software Developer',
+		date: 'Noviembre de 2025 - Enero de 2026',
+		stack: [Technology.Typescript, Technology.Javascript, Technology.Svelte, Technology.NodeJs],
+		company: 'Asociación Colombiana de Universidades (ASCUN)',
+		description:
+			'Ingeniero de software contratado como independiente para la gestión, migración y evolución de una plataforma institucional, incluyendo el desarrollo de un mapa interactivo para visualizar de forma clara las rutas y protocolos de VBG de las IES en Colombia.'
+	},
+	{
 		role: 'Ingeniero de Software / Estudiante Auxiliar',
 		date: 'Noviembre de 2023 - Diciembre de 2025',
 		stack: [

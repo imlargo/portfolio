@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Technology } from '$lib/assets/content/technology';
 	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
 	import Cta from '$lib/components/common/Cta.svelte';
 	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
@@ -17,31 +18,54 @@
 
 		<div class="flex flex-col gap-y-4">
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				¡Hola! me llamo <span class="font-semibold text-foreground">Juan Carlos Largo</span>, aunque
-				quizá me conozcas como <span class="ty-inlinecode">@imlargo</span>. Soy un ingeniero de
-				software, pero antes que nada, soy una persona con intereses y experiencias que van más allá
-				de la programación. Bienvenido a mi espacio personal!, donde comparto más sobre mí.
+				Hola, soy <span class="font-semibold text-foreground">Juan Carlos Largo</span> (<span
+					class="ty-inlinecode">@imlargo</span
+				>). ingeniero de software full stack y constructor de productos digitales.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Además del desarrollo de software, tengo una variedad de intereses que me apasionan. Intento
-				siempre encontrar tiempo para nadar, lo cual me mantiene motivado y energizado. Me encanta
-				escuchar música, comer pizza, ver atardeceres y salir a caminar para relajarme y distraerme.
-				Estas actividades me ayudan a mantener el equilibrio y a inspirarme para mis proyectos
-				profesionales mientras disfruto aprendiendo cosas nuevas.
+				Me especializo en diseñar, desarrollar y operar aplicaciones web escalables de principio a
+				fin: desde la arquitectura y la infraestructura, pasando por el backend y el frontend, hasta
+				llegar a la experiencia de usuario y la lógica de negocio. Trabajo principalmente con
+				<SkillBadge class="inline-flex rounded-md bg-muted/50 py-0.5" tech={Technology.Go} />, <SkillBadge
+					class="inline-flex rounded-md bg-muted/50 py-0.5"
+					tech={Technology.Typescript}
+				/> y <SkillBadge
+					class="inline-flex rounded-md bg-muted/50 py-0.5"
+					tech={Technology.Svelte}
+				/>, y disfruto construir sistemas que no solo funcionan bien, sino que resuelven problemas
+				reales de forma clara y sostenible.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Siempre he pensado que saber de programación es cómo hacer magia en el mundo moderno, y es
-				por eso que me encanta usar esta “magia” para crear soluciones que sean útiles y, sobre
-				todo, que aporten un verdadero valor. En los próximos años, espero seguir aprendiendo,
-				creciendo tanto personal como profesionalmente y sobre todo creando.
+				A lo largo de mi experiencia he liderado el ciclo completo de desarrollo de productos en
+				distintos contextos: desde plataformas SaaS de alcance internacional, hasta sistemas
+				internos de misión crítica para la Universidad Nacional de Colombia, además de proyectos
+				freelance y colaboraciones con startups. Me siento cómodo tomando ownership técnico,
+				gestionando integraciones complejas, resolviendo incidentes en producción y traduciendo
+				necesidades de negocio en soluciones técnicas bien pensadas y escalables
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Y finalmente gracias por tomarte el tiempo de leer un poco sobre mí. Si quieres saber más o
-				simplemente charlar, no dudes en contactarme. ¡Estoy siempre abierto a nuevas conexiones y
-				oportunidades!
+				También dedico una parte importante de mi tiempo a crear side projects y herramientas open
+				source. Entre ellos destaca Pegaso, una plataforma utilizada por miles de estudiantes para
+				facilitar la creación de horarios académicos, y CopyWhisper, una aplicación impulsada por IA
+				para analizar y mejorar el copywriting de páginas web, reconocida como proyecto destacado en
+				una hackathon de Vercel/Midudev. Suelo construir librerías, templates y herramientas a
+				partir de necesidades reales que encuentro en mi día a día como desarrollador, con el
+				objetivo de aprender y aportar a la comunidad.
+			</p>
+
+			<p class="max-w-prose text-pretty text-muted-foreground">
+				Más allá del código, creo firmemente que el desarrollo de software es una forma moderna de
+				“hacer magia”: convertir ideas abstractas en sistemas que generan impacto. Me interesa
+				entender el producto como un todo, colaborar de cerca con equipos de negocio y mantener
+				siempre un enfoque práctico, claro y orientado a valor.
+			</p>
+
+			<p class="max-w-prose text-pretty text-muted-foreground">
+				Si te interesa colaborar, charlar sobre tecnología o construir algo juntos, siempre estoy
+				abierto a nuevas conexiones.
 			</p>
 		</div>
 	</div>
