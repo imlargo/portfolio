@@ -7,7 +7,7 @@ const projects: Project[] = [
 		github: 'https://github.com/imlargo/pegaso',
 		title: 'Pegaso',
 		description:
-			'Una aplicación diseñada para la creación de horarios y enfocada en brindar información esencial con el objetivo de mejorar la experiencia de los estudiantes de la sede Medellín.',
+			'An application designed for schedule creation, focused on providing essential information to improve the experience of students at the Medellín campus.',
 		technologies: [
 			Technology.Svelte,
 			Technology.Go,
@@ -21,7 +21,7 @@ const projects: Project[] = [
 		github: 'https://github.com/imlargo/CopyWhisper',
 		title: 'CopyWhisper',
 		description:
-			'Aplicación web impulsada por IA para analizar, calificar y optimizar el copywriting tu página web, proporcionando análisis profundos y detallados con recomendaciones adaptadas a tus necesidades específicas.',
+			'AI-powered web application to analyze, score, and optimize the copywriting of your website, providing in-depth analysis with recommendations tailored to your specific needs.',
 		technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind, Technology.Scss]
 	},
 
@@ -37,14 +37,14 @@ const projects: Project[] = [
 		url: 'https://hexdocs.pm/webpush/index.html',
 		title: 'Gleam WebPush',
 		description:
-			'Librería de Gleam para gestionar suscripciones y enviar notificaciones push web utilizando el estándar Web Push.',
+			'Gleam library for managing subscriptions and sending web push notifications using the Web Push standard.',
 		technologies: [Technology.Gleam]
 	},
 	{
 		url: 'https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles',
 		title: 'MinasBot',
 		description:
-			'ChatBot de WhatsApp desarrollado en Node.js con el objetivo de automatizar respuestas a preguntas frecuentes, distribuir información y gestionar procesos administrativos.',
+			'WhatsApp chatbot built with Node.js to automate responses to frequently asked questions, distribute information, and manage administrative processes.',
 		technologies: [Technology.NodeJs, Technology.Javascript]
 	},
 	{
@@ -52,7 +52,7 @@ const projects: Project[] = [
 		github: 'https://github.com/odpiobservatorio/odpiobservatorio.github.io',
 		title: 'ODPI Observatorio.',
 		description:
-			'Contribuí al desarrollo del backend para un sistema de información web que visibiliza el estado de los hechos de violencia contra los pueblos indígenas de Colombia.',
+			'Contributed to backend development for a web information system that surfaces the state of violence against indigenous peoples in Colombia.',
 		technologies: [
 			Technology.Javascript,
 			Technology.Html,
@@ -66,7 +66,7 @@ const projects: Project[] = [
 const experience: Experience[] = [
 	{
 		role: 'CTO & Lead Developer',
-		date: 'Diciembre de 2024 - Actualidad',
+		date: 'December 2024 - Present',
 		stack: [
 			Technology.Go,
 			Technology.Typescript,
@@ -79,11 +79,11 @@ const experience: Experience[] = [
 		],
 		company: 'Butter',
 		description:
-			'Responsable técnico total de una plataforma SaaS internacional. Diseño, desarrollo y operación de la arquitectura completa del sistema.'
+			'Full technical ownership of an international SaaS platform. Design, development, and operation of the complete system architecture.'
 	},
 	{
 		role: 'Freelance Software Engineer',
-		date: 'Julio de 2024 - Actualidad',
+		date: 'July 2024 - Present',
 		stack: [
 			Technology.Go,
 			Technology.Typescript,
@@ -97,19 +97,19 @@ const experience: Experience[] = [
 			Technology.Docker
 		],
 		company: 'Freelance',
-		description: 'Diseño y desarrollo de aplicaciones web full stack a medida.'
+		description: 'Design and development of custom full-stack web applications.'
 	},
 	{
 		role: 'Software Developer',
-		date: 'Noviembre de 2025 - Enero de 2026',
+		date: 'November 2025 - January 2026',
 		stack: [Technology.Typescript, Technology.Javascript, Technology.Svelte, Technology.NodeJs],
 		company: 'Asociación Colombiana de Universidades (ASCUN)',
 		description:
-			'Ingeniero de software contratado como independiente para la gestión, migración y evolución de una plataforma institucional, incluyendo el desarrollo de un mapa interactivo para visualizar de forma clara las rutas y protocolos de VBG de las IES en Colombia.'
+			'Software engineer contracted as an independent consultant for the management, migration, and evolution of an institutional platform, including the development of an interactive map to clearly visualize GBV routes and protocols of HEIs in Colombia.'
 	},
 	{
-		role: 'Ingeniero de Software / Estudiante Auxiliar',
-		date: 'Noviembre de 2023 - Diciembre de 2025',
+		role: 'Software Engineer / Student Assistant',
+		date: 'November 2023 - December 2025',
 		stack: [
 			Technology.Go,
 			Technology.Typescript,
@@ -122,11 +122,11 @@ const experience: Experience[] = [
 		],
 		company: 'Universidad Nacional de Colombia',
 		description:
-			'Líder y responsable del desarrollo full stack de múltiples aplicativos internos en producción.'
+			'Lead developer responsible for full-stack development of multiple internal production applications.'
 	},
 	{
 		role: 'Frontend Developer',
-		date: 'Noviembre de 2024 - Mayo de 2025',
+		date: 'November 2024 - May 2025',
 		stack: [
 			Technology.Vue,
 			Technology.Typescript,
@@ -137,7 +137,7 @@ const experience: Experience[] = [
 		],
 		company: 'Unergy',
 		description:
-			'Desarrollador frontend en Vue y TypeScript para plataforma interna de gestión del ciclo de vida completo de minigranjas solares.'
+			'Frontend developer in Vue and TypeScript for an internal platform managing the complete lifecycle of solar mini-farms.'
 	}
 ];
 
@@ -149,30 +149,30 @@ export const content: Content = {
 		badge: 'Available for freelance',
 		title: "Hi, i'm largo",
 		description:
-			'Ingeniero de Software Full Stack (Mid-Level) con experiencia sólida desarrollando y liderando el ciclo completo de desarrollo de productos de software escalables.'
+			'Full Stack Software Engineer (Mid-Level) with solid experience developing and leading the complete development lifecycle of scalable software products.'
 	},
 
 	experience: {
-		title: 'Mi experiencia',
+		title: 'My experience',
 		description:
-			'Especialista en Golang, Svelte y TypeScript, he diseñado, puesto en producción y operado arquitecturas de alto rendimiento en múltiples sectores.',
+			'Specialist in Golang, Svelte, and TypeScript, I have designed, deployed, and operated high-performance architectures across multiple industries.',
 
 		items: experience
 	},
 
 	work: {
-		title: 'Proyectos seleccionados',
+		title: 'Selected projects',
 		description:
-			'Me destaco por mi visión integral del producto desde arquitectura e infraestructura hasta UX y mi habilidad para traducir problemas técnicos complejos en soluciones claras y de alto impacto',
+			'I stand out for my holistic product vision — from architecture and infrastructure to UX — and my ability to translate complex technical problems into clear, high-impact solutions',
 
 		projects: projects,
 		work: []
 	},
 
 	skills: {
-		title: 'Habilidades y Tecnologías',
+		title: 'Skills & Technologies',
 		description:
-			'Amplia experiencia en desarrollo full stack con énfasis en backend con Go y frontend con Svelte/TypeScript. Habilidades sólidas en diseño de arquitecturas escalables, optimización de performance, integración de APIs y gestión de infraestructura en la nube.',
+			'Extensive experience in full-stack development with emphasis on backend with Go and frontend with Svelte/TypeScript. Strong skills in scalable architecture design, performance optimization, API integration, and cloud infrastructure management.',
 		skills: {
 			Frontend: [
 				Technology.Svelte,
@@ -209,7 +209,7 @@ export const content: Content = {
 
 	footer: {
 		title: 'imlargo',
-		subtitle: 'Ingeniero de Software Full Stack',
+		subtitle: 'Full Stack Software Engineer',
 		credits: 'Designed & Built by Imlargo'
 	}
 };

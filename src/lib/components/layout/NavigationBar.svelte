@@ -53,8 +53,8 @@
 		</div>
 		<div class="flex justify-end gap-x-4">
 			<div class="flex items-center justify-center gap-x-2">
-				<Button variant="secondary" target="_blank" href="/files/resume.pdf">Curriculum</Button>
-				<Button href="mailto:{content.email}">Contáctame</Button>
+				<Button variant="secondary" target="_blank" href="/files/resume.pdf">Resume</Button>
+				<Button href="mailto:{content.email}">Contact me</Button>
 			</div>
 
 			<Popover.Root bind:open={isOpen}>
@@ -71,7 +71,7 @@
 				>
 					<div class="flex flex-col gap-y-8">
 						<div class="flex flex-col gap-y-5">
-							<span class="text-sm font-medium text-muted-foreground">Navegacion</span>
+							<span class="text-sm font-medium text-muted-foreground">Navigation</span>
 							<div class="flex flex-col gap-y-3 text-2xl font-medium">
 								{#each links as link}
 									<a href={link.href} data-sveltekit-reload>{link.label}</a>
@@ -79,7 +79,7 @@
 							</div>
 						</div>
 						<div class="flex flex-col gap-y-5">
-							<span class="text-sm font-medium text-muted-foreground">Redes</span>
+							<span class="text-sm font-medium text-muted-foreground">Socials</span>
 							<div class="flex flex-col gap-y-3 text-2xl font-medium">
 								<a
 									href="https://github.com/imlargo"

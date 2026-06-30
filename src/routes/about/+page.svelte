@@ -14,58 +14,58 @@
 
 <div class="max-w-wx grid gap-x-24 gap-y-12 lg:grid-cols-2">
 	<div class="flex flex-col gap-y-8">
-		<h2 class="ty-h1 font-mono">Acerca de mi</h2>
+		<h2 class="ty-h1 font-mono">About me</h2>
 
 		<div class="flex flex-col gap-y-4">
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Hola, soy <span class="font-semibold text-foreground">Juan Carlos Largo</span> (<span
+				Hi, I'm <span class="font-semibold text-foreground">Juan Carlos Largo</span> (<span
 					class="ty-inlinecode">@imlargo</span
-				>). ingeniero de software full stack y constructor de productos digitales.
+				>). Full stack software engineer and digital product builder.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Me especializo en diseñar, desarrollar y operar aplicaciones web escalables de principio a
-				fin: desde la arquitectura y la infraestructura, pasando por el backend y el frontend, hasta
-				llegar a la experiencia de usuario y la lógica de negocio. Trabajo principalmente con
+				I specialize in designing, developing, and operating scalable web applications end-to-end:
+				from architecture and infrastructure, through backend and frontend, all the way to user
+				experience and business logic. I work primarily with
 				<SkillBadge class="inline-flex rounded-md bg-muted/50 py-0.5" tech={Technology.Go} />, <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Typescript}
-				/> y <SkillBadge
+				/> and <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Svelte}
-				/>, y disfruto construir sistemas que no solo funcionan bien, sino que resuelven problemas
-				reales de forma clara y sostenible.
+				/>, and I enjoy building systems that not only work well, but solve real problems in a clear
+				and sustainable way.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				A lo largo de mi experiencia he liderado el ciclo completo de desarrollo de productos en
-				distintos contextos: desde plataformas SaaS de alcance internacional, hasta sistemas
-				internos de misión crítica para la Universidad Nacional de Colombia, además de proyectos
-				freelance y colaboraciones con startups. Me siento cómodo tomando ownership técnico,
-				gestionando integraciones complejas, resolviendo incidentes en producción y traduciendo
-				necesidades de negocio en soluciones técnicas bien pensadas y escalables
+				Throughout my career I have led the complete product development cycle in different contexts:
+				from internationally-reaching SaaS platforms, to mission-critical internal systems for the
+				Universidad Nacional de Colombia, as well as freelance projects and startup collaborations. I
+				feel comfortable taking technical ownership, managing complex integrations, resolving
+				production incidents, and translating business needs into well-thought-out, scalable
+				technical solutions.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				También dedico una parte importante de mi tiempo a crear side projects y herramientas open
-				source. Entre ellos destaca Pegaso, una plataforma utilizada por miles de estudiantes para
-				facilitar la creación de horarios académicos, y CopyWhisper, una aplicación impulsada por IA
-				para analizar y mejorar el copywriting de páginas web, reconocida como proyecto destacado en
-				una hackathon de Vercel/Midudev. Suelo construir librerías, templates y herramientas a
-				partir de necesidades reales que encuentro en mi día a día como desarrollador, con el
-				objetivo de aprender y aportar a la comunidad.
+				I also dedicate a significant portion of my time to building side projects and open-source
+				tools. Among them, Pegaso stands out — a platform used by thousands of students to ease the
+				creation of academic schedules — and CopyWhisper, an AI-powered application to analyze and
+				improve the copywriting of web pages, recognized as a featured project at a Vercel/Midudev
+				hackathon. I often build libraries, templates, and tools based on real needs I encounter in
+				my day-to-day work as a developer, with the goal of learning and contributing to the
+				community.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Más allá del código, creo firmemente que el desarrollo de software es una forma moderna de
-				“hacer magia”: convertir ideas abstractas en sistemas que generan impacto. Me interesa
-				entender el producto como un todo, colaborar de cerca con equipos de negocio y mantener
-				siempre un enfoque práctico, claro y orientado a valor.
+				Beyond code, I firmly believe that software development is a modern form of "making magic":
+				turning abstract ideas into systems that create impact. I'm interested in understanding the
+				product as a whole, collaborating closely with business teams, and always maintaining a
+				practical, clear, and value-oriented approach.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Si te interesa colaborar, charlar sobre tecnología o construir algo juntos, siempre estoy
-				abierto a nuevas conexiones.
+				If you're interested in collaborating, talking about technology, or building something
+				together, I'm always open to new connections.
 			</p>
 		</div>
 	</div>

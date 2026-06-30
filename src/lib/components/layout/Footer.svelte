@@ -16,7 +16,7 @@
 
 	const links = $derived<LinkGroup[]>([
 		{
-			title: 'Navegacion',
+			title: 'Navigation',
 			links: [
 				{ label: 'Home', href: '/' },
 				{ label: 'About', href: '/about' },

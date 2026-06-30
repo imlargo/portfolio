@@ -17,15 +17,15 @@
 	<div class="flex h-full w-full flex-col gap-y-12 lg:gap-y-24">
 		<div class="flex flex-col gap-y-4">
 			<h3 class="scroll-m-20 text-5xl font-bold tracking-tight text-balance lg:text-6xl">
-				Qué te parece si creamos algo increíble juntos?
+				What if we build something amazing together?
 			</h3>
 
-			<p class="text-xl">Estoy disponible para proyectos freelance y colaboraciones.</p>
+			<p class="text-xl">I'm available for freelance projects and collaborations.</p>
 		</div>
 
 		<div class="flex justify-end">
 			<Button size="lg" class="max-w-max" href="mailto:{content.email}">
-				<span>Contáctame</span>
+				<span>Contact me</span>
 				<ArrowUpRight class="size-4" />
 			</Button>
 		</div>
