@@ -7,6 +7,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
+	import { content } from '$lib/assets/content/content';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -56,8 +57,8 @@
 				On the side, I build tools and open-source projects. Pegaso, a course scheduling platform
 				for Universidad Nacional de Colombia, reached 6,200+ active users through entirely organic
 				adoption and prompted formal acquisition discussions with the institution. I also contribute
-				to open-source projects including Svelte core, Gin, and shadcn/ui, and published a webpush
-				library for the Gleam ecosystem.
+				to open-source projects including shadcn/ui (Svelte + Vue ports), Svelte ecosystem
+				libraries, and Gin, and published a webpush library for the Gleam ecosystem.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
@@ -73,15 +74,15 @@
 		</div>
 
 		<div class="flex flex-wrap gap-2">
-			<Button variant="secondary" size="icon">
+			<Button variant="secondary" size="icon" href={content.socials?.github} target="_blank">
 				<SocialIcon platform="github" />
 			</Button>
 
-			<Button variant="secondary" size="icon">
+			<Button variant="secondary" size="icon" href={content.socials?.instagram} target="_blank">
 				<SocialIcon platform="instagram" />
 			</Button>
 
-			<Button variant="secondary" size="icon">
+			<Button variant="secondary" size="icon" href={content.socials?.linkedin} target="_blank">
 				<SocialIcon platform="linkedin" />
 			</Button>
 		</div>
