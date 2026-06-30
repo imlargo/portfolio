@@ -120,7 +120,7 @@ const experience: Experience[] = [
 			"Engaged as sole engineer by the Colombian Association of Universities (operating jointly with Colombia's Ministry of Education) to redesign a national gender-based-violence prevention platform end-to-end. Rewrote 3 product surfaces, built a conversational chatbot with an interactive map for GBV protocol navigation across 64+ universities, and shipped with complete technical documentation."
 	},
 	{
-		role: 'Lead Software Engineer',
+		role: 'Senior Software Engineer',
 		date: 'Nov 2023 - Nov 2025',
 		stack: [
 			Technology.Go,
