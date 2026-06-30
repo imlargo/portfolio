@@ -7,7 +7,7 @@ const projects: Project[] = [
 		github: 'https://github.com/imlargo/pegaso',
 		title: 'Pegaso',
 		description:
-			"Course scheduling and discovery platform for Universidad Nacional de Colombia. Scaled to 6,200+ active users through entirely organic adoption — the university's subsequent official platform adopted its core design decisions, and the project prompted formal acquisition discussions.",
+			"Course scheduling and discovery platform for Universidad Nacional de Colombia. Scaled to 6,200+ active users through entirely organic adoption, — the university's subsequent official platform adopted its core design decisions, and the project prompted formal acquisition discussions.",
 		technologies: [
 			Technology.Svelte,
 			Technology.Go,
@@ -21,7 +21,7 @@ const projects: Project[] = [
 		url: 'https://github.com/imlargo/medusa',
 		title: 'Medusa Framework',
 		description:
-			'Open-source Go framework built around clean architecture principles, extracted from production patterns across multiple client systems and deployed back into those same environments — validating the abstractions under real constraints, not in isolation.',
+			'Open-source Go framework built around clean architecture principles, extracted from production patterns across multiple client systems and deployed back into those same environments, — validating the abstractions under real constraints, not in isolation.',
 		technologies: [Technology.Go]
 	},
 	{
@@ -92,7 +92,7 @@ const experience: Experience[] = [
 		],
 		company: 'Butter',
 		description:
-			'Sole technical owner across architecture, implementation, infrastructure, and production operations for an international content-generation SaaS — taken from zero to 1,000+ active users. Engineered the core content-generation pipeline (FFmpeg, GPU scheduling, multi-model AI), a Stripe-based subscription and marketplace system, and full-stack observability sustaining 99.9% uptime.'
+			'Sole technical owner across architecture, implementation, infrastructure, and production operations for an international content-generation SaaS, — taken from zero to 1,000+ active users. Engineered the core content-generation pipeline (FFmpeg, GPU scheduling, multi-model AI), a Stripe-based subscription and marketplace system, and full-stack observability sustaining 99.9% uptime.'
 	},
 	{
 		role: 'Founder & Lead Engineer',
@@ -133,7 +133,7 @@ const experience: Experience[] = [
 		],
 		company: 'Universidad Nacional de Colombia',
 		description:
-			'Technical lead and full-stack engineer for mission-critical administrative systems at the Faculty of Engineering. Delivered a field-trip management platform that cut approval cycles from 1–2 weeks to 20–30 minutes, a real-time air-quality monitoring platform for a publishable-data research lab, and an internal LMS — 4+ critical systems maintained in active production post-handoff.'
+			'Technical lead and full-stack engineer for mission-critical administrative systems at the Faculty of Engineering. Delivered a field-trip management platform that cut approval cycles from 1–2 weeks to 20–30 minutes, a real-time air-quality monitoring platform for a publishable-data research lab, and an internal LMS, — 4+ critical systems maintained in active production post-handoff.'
 	}
 ];
 
@@ -145,13 +145,13 @@ export const content: Content = {
 		badge: 'Open to remote',
 		title: "Hi, i'm largo",
 		description:
-			'Senior Software Engineer with 3+ years of production ownership across Go distributed systems, TypeScript/Vue/Svelte frontends, and AWS cloud infrastructure. I build things end-to-end — from architecture to deployment — and lead the engineers around me.'
+			'Senior Software Engineer with 3+ years of production ownership across Go distributed systems, TypeScript/Vue/Svelte frontends, and AWS cloud infrastructure. I build things end-to-end, — from architecture to deployment, — and lead the engineers around me.'
 	},
 
 	experience: {
 		title: 'My experience',
 		description:
-			'From leading distributed systems at scale to frontend architecture at a solar energy company — full technical ownership across multiple industries and team sizes.',
+			'From leading distributed systems at scale to frontend architecture at a solar energy company, — full technical ownership across multiple industries and team sizes.',
 
 		items: experience
 	},
@@ -159,7 +159,7 @@ export const content: Content = {
 	work: {
 		title: 'Selected projects',
 		description:
-			'Side projects, open-source tools, and experiments — built to solve real problems, learn in public, and contribute back to the community.',
+			'Side projects, open-source tools, and experiments, — built to solve real problems, learn in public, and contribute back to the community.',
 
 		projects: projects,
 		work: []
