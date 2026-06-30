@@ -20,47 +20,44 @@
 			<p class="max-w-prose text-pretty text-muted-foreground">
 				Hi, I'm <span class="font-semibold text-foreground">Juan Carlos Largo</span> (<span
 					class="ty-inlinecode">@imlargo</span
-				>). Full stack software engineer and digital product builder.
+				>). Senior software engineer and technical lead, based in Medellín, Colombia.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				I specialize in designing, developing, and operating scalable web applications end-to-end:
-				from architecture and infrastructure, through backend and frontend, all the way to user
-				experience and business logic. I work primarily with
+				I'm full-stack with architectural depth on both sides. I work primarily with
 				<SkillBadge class="inline-flex rounded-md bg-muted/50 py-0.5" tech={Technology.Go} />, <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Typescript}
 				/> and <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Svelte}
-				/>, and I enjoy building systems that not only work well, but solve real problems in a clear
-				and sustainable way.
+				/>, and I've spent the past 3+ years building and leading production systems across Go
+				distributed backends, TypeScript/Vue/Svelte frontends, and AWS cloud infrastructure.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Throughout my career I have led the complete product development cycle in different contexts:
-				from internationally-reaching SaaS platforms, to mission-critical internal systems for the
-				Universidad Nacional de Colombia, as well as freelance projects and startup collaborations. I
-				feel comfortable taking technical ownership, managing complex integrations, resolving
-				production incidents, and translating business needs into well-thought-out, scalable
-				technical solutions.
+				I currently lead frontend engineering at Unergy, a solar energy company, where I own all
+				frontend architecture decisions, lead a team of 4+ engineers, and am directing a progressive
+				migration from Vue to Svelte across the company's platforms. Before that, I was the sole
+				technical owner at Butter — an international content-generation SaaS I co-founded and took
+				from zero to 1,000+ active users, owning architecture, infrastructure, and production
+				operations end-to-end.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				I also dedicate a significant portion of my time to building side projects and open-source
-				tools. Among them, Pegaso stands out — a platform used by thousands of students to ease the
-				creation of academic schedules — and CopyWhisper, an AI-powered application to analyze and
-				improve the copywriting of web pages, recognized as a featured project at a Vercel/Midudev
-				hackathon. I often build libraries, templates, and tools based on real needs I encounter in
-				my day-to-day work as a developer, with the goal of learning and contributing to the
-				community.
+				I also run <span class="font-semibold text-foreground">Kora Systems</span>, an engineering
+				consultancy where I've delivered 5 production systems across 4 industries — all shipped to
+				full production with zero ongoing supervision required. I'm equally comfortable as the sole
+				engineer on a greenfield system or as the technical lead coordinating a team, defining
+				standards, and raising the quality bar.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Beyond code, I firmly believe that software development is a modern form of "making magic":
-				turning abstract ideas into systems that create impact. I'm interested in understanding the
-				product as a whole, collaborating closely with business teams, and always maintaining a
-				practical, clear, and value-oriented approach.
+				On the side, I build tools and open-source projects. Pegaso — a course scheduling platform
+				for Universidad Nacional de Colombia — reached 6,200+ active users through entirely organic
+				adoption and prompted formal acquisition discussions with the institution. I also contribute
+				to open-source projects including Svelte core, Gin, and shadcn/ui, and published a webpush
+				library for the Gleam ecosystem.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
