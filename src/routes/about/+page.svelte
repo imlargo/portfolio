@@ -39,22 +39,22 @@
 				I currently lead frontend engineering at Unergy, a solar energy company, where I own all
 				frontend architecture decisions, lead a team of 4+ engineers, and am directing a progressive
 				migration from Vue to Svelte across the company's platforms. Before that, I was the sole
-				technical owner at Butter, — an international content-generation SaaS I co-founded and took
+				technical owner at Butter, an international content-generation SaaS I co-founded and took
 				from zero to 1,000+ active users, owning architecture, infrastructure, and production
 				operations end-to-end.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
 				I also run <span class="font-semibold text-foreground">Kora Systems</span>, an engineering
-				consultancy where I've delivered 5 production systems across 4 industries, — all shipped to
+				consultancy where I've delivered 5 production systems across 4 industries, all shipped to
 				full production with zero ongoing supervision required. I'm equally comfortable as the sole
 				engineer on a greenfield system or as the technical lead coordinating a team, defining
 				standards, and raising the quality bar.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				On the side, I build tools and open-source projects. Pegaso, — a course scheduling platform
-				for Universidad Nacional de Colombia, — reached 6,200+ active users through entirely organic
+				On the side, I build tools and open-source projects. Pegaso, a course scheduling platform
+				for Universidad Nacional de Colombia, reached 6,200+ active users through entirely organic
 				adoption and prompted formal acquisition discussions with the institution. I also contribute
 				to open-source projects including Svelte core, Gin, and shadcn/ui, and published a webpush
 				library for the Gleam ecosystem.
