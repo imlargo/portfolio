@@ -52,7 +52,7 @@
 		</div>
 
 		<div class="flex items-center gap-x-2">
-			<Button href="mailto:{content.email}">Contáctame</Button>
+			<Button href="mailto:{content.email}">Contact me</Button>
 
 			<div class="mx-2 h-5 w-0.5 bg-muted"></div>
 
@@ -78,7 +78,7 @@
 			<Section.Description>{content.experience.description}</Section.Description>
 		</Section.Header>
 		<Button class="max-w-max" target="_blank" href="/files/resume.pdf">
-			<span>Curriculum</span>
+			<span>Resume</span>
 			<ArrowUpRight class="size-4" />
 		</Button>
 	</div>
@@ -104,9 +104,9 @@
 
 	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 		<div class="flex w-full items-center justify-between lg:col-span-2">
-			<span class="w-full text-muted-foreground">Mis proyectos</span>
+			<span class="w-full text-muted-foreground">My projects</span>
 			<Button href="/work" variant="link" class="text-muted-foreground">
-				<span>Ver todo mi trabajo</span>
+				<span>See all my work</span>
 				<ArrowRight class="size-4" />
 			</Button>
 		</div>
@@ -118,7 +118,7 @@
 
 	{#if content.work.work.length > 0}
 		<div class="flex flex-col">
-			<span class="w-full pb-4 text-muted-foreground">Mi trabajo</span>
+			<span class="w-full pb-4 text-muted-foreground">My work</span>
 			<div class="grid grid-cols-2 gap-x-8 gap-y-12">
 				{#each content.work.work as project}
 					<FeaturedProject {project} />

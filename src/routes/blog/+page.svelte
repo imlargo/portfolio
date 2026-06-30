@@ -12,14 +12,14 @@
 		<Empty.Media variant="icon">
 			<CircleAlert />
 		</Empty.Media>
-		<Empty.Title>Página en construcción</Empty.Title>
+		<Empty.Title>Page under construction</Empty.Title>
 		<Empty.Description>
-			Estoy trabajando en esta sección. Vuelve pronto para ver las actualizaciones!
+			I'm working on this section. Check back soon for updates!
 		</Empty.Description>
 	</Empty.Header>
 	<Button variant="link" class="text-muted-foreground" size="sm">
 		<a href="/">
-			Inicio <ArrowUpRight class="inline" />
+			Home <ArrowUpRight class="inline" />
 		</a>
 	</Button>
 </Empty.Root>
