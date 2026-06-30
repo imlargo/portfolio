@@ -113,15 +113,15 @@ const experience: Experience[] = [
 	},
 	{
 		role: 'Senior Software Engineer',
-		date: 'Jan 2026 - Feb 2026',
+		date: 'Nov 2025 - Feb 2026',
 		stack: [Technology.Typescript, Technology.Javascript, Technology.Svelte, Technology.NodeJs],
 		company: 'ASCUN',
 		description:
 			"Engaged as sole engineer by the Colombian Association of Universities (operating jointly with Colombia's Ministry of Education) to redesign a national gender-based-violence prevention platform end-to-end. Rewrote 3 product surfaces, built a conversational chatbot with an interactive map for GBV protocol navigation across 64+ universities, and shipped with complete technical documentation."
 	},
 	{
-		role: 'Lead Software Engineer',
-		date: 'Nov 2023 - Dec 2025',
+		role: 'Senior Software Engineer',
+		date: 'Nov 2023 - Nov 2025',
 		stack: [
 			Technology.Go,
 			Technology.Typescript,
@@ -133,7 +133,7 @@ const experience: Experience[] = [
 		],
 		company: 'Universidad Nacional de Colombia',
 		description:
-			'Technical lead and full-stack engineer for mission-critical administrative systems at the Faculty of Engineering. Delivered a field-trip management platform that cut approval cycles from 1–2 weeks to 20–30 minutes, a real-time air-quality monitoring platform for a publishable-data research lab, and an internal LMS, 4+ critical systems maintained in active production post-handoff.'
+			'Technical lead and full-stack engineer for mission-critical administrative systems at the Faculty of Engineering. Delivered a field-trip management platform that cut approval cycles from 2 weeks to 20 minutes, a real-time air-quality monitoring platform for a publishable-data research lab, and an internal LMS, 4+ critical systems maintained in active production post-handoff.'
 	}
 ];
 
