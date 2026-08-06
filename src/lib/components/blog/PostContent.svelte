@@ -57,7 +57,7 @@
 					<InlineText text={block.text} />
 				</p>
 				{#if block.cite}
-					<footer class="mt-2 font-mono text-sm text-muted-foreground">— {block.cite}</footer>
+					<footer class="mt-2 font-mono text-sm text-muted-foreground">{block.cite}</footer>
 				{/if}
 			</blockquote>
 		{/if}

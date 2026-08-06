@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-	<title>{content.blog.title} — {content.name}</title>
+	<title>{content.blog.title} | {content.name}</title>
 	<meta name="description" content={content.blog.description} />
 </svelte:head>
 

@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>{post.title} — {content.name}</title>
+	<title>{post.title} | {content.name}</title>
 	<meta name="description" content={post.description} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={post.title} />
@@ -81,7 +81,7 @@
 				href={content.socials?.linkedin}
 				target="_blank"
 			>
-				<span>Let's talk about it</span>
+				<span>Get in touch</span>
 				<ArrowUpRight class="size-4" />
 			</Button>
 		</div>

@@ -201,7 +201,7 @@ export const content: Content = {
 	blog: {
 		title: 'Writing',
 		description:
-			'Notes from production: architecture decisions, the tradeoffs behind them, and what the systems taught me once real users showed up.'
+			'Notes on things I have built, the decisions behind them and the parts I got wrong.'
 	},
 
 	socials: {
