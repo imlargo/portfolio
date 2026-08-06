@@ -198,6 +198,12 @@ export const content: Content = {
 		}
 	},
 
+	blog: {
+		title: 'Writing',
+		description:
+			'Notes from production: architecture decisions, the tradeoffs behind them, and what the systems taught me once real users showed up.'
+	},
+
 	socials: {
 		github: 'https://github.com/imlargo',
 		linkedin: 'https://www.linkedin.com/in/imlargo/',

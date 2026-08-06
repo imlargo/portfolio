@@ -17,6 +17,27 @@ export type Project = {
 	github?: string;
 };
 
+export type PostBlock =
+	| { type: 'paragraph'; text: string }
+	| { type: 'heading'; level: 2 | 3; text: string }
+	| { type: 'code'; language: string; code: string }
+	| { type: 'list'; ordered?: boolean; items: string[] }
+	| { type: 'quote'; text: string; cite?: string };
+
+export type Post = {
+	slug: string;
+	title: string;
+	description: string;
+	date: string;
+	tags: string[];
+	featured?: boolean;
+	content: PostBlock[];
+};
+
+export type PostSummary = Omit<Post, 'content'> & {
+	readingTime: number;
+};
+
 export type Content = {
 	name: string;
 	email: string;
@@ -46,6 +67,11 @@ export type Content = {
 		title: string;
 		description: string;
 		skills: Record<string, Technology[]>;
+	};
+
+	blog: {
+		title: string;
+		description: string;
 	};
 
 	socials?: {
