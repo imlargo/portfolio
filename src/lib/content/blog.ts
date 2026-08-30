@@ -3,9 +3,9 @@ import type { Post, PostBlock, PostSummary } from './types';
 const posts: Post[] = [
 	{
 		slug: 'building-air-from-empty-repo-to-npm',
-		title: 'Writing the fetch wrapper I had rewritten in every project',
+		title: 'The fetch wrapper I had rewritten in every project',
 		description:
-			'air started as the same `api.ts` I had typed from scratch in every app. Turning that file into a library was mostly deciding what belonged in it: the rules I wrote before the code, and the reason behind each of the eight options that survived.',
+			'air is the `api.ts` I had retyped from scratch in every app, written once as a package instead. Most of the work was deciding what belonged in it: the rules I wrote before the code, and the reason behind each of the eight options that survived.',
 		date: '2026-08-19',
 		tags: ['TypeScript', 'Open Source', 'API Design'],
 		// azul cristal: una librería mínima y precisa, sin peso de más
@@ -14,7 +14,7 @@ const posts: Post[] = [
 		content: [
 			{
 				type: 'paragraph',
-				text: 'Every project I work on eventually grows the same file. `api.ts` or `http.ts`, wrapping `fetch`: join a base URL, serialize a body, parse the response, throw when the status is not 2xx. None of it is hard, and I had still written it from scratch every time, because copying the old one over always felt worse than retyping it.'
+				text: 'Every project I work on eventually grows the same file. `api.ts` or `http.ts`, wrapping `fetch`: join a base URL, serialize a body, parse the response, throw when the status is not 2xx. None of it is hard. I wrote it from scratch every time anyway, because copying the old one over always felt worse than retyping it.'
 			},
 			{
 				type: 'paragraph',
@@ -36,19 +36,19 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			{ type: 'heading', level: 2, text: 'Why not one of the existing ones' },
 			{
 				type: 'paragraph',
-				text: 'Before writing anything I read the three clients people compare it to, and measured them rather than trusting the impression each one gives. Bundled and minified with esbuild, then gzipped: `axios` is 18.6 kB in the browser and 64.9 kB on the server, `ky` 7.3 kB, `ofetch` 4 kB in the browser and 36.8 kB on the server.'
+				text: 'Before writing anything I read the three clients people compare it to, and measured them instead of trusting the impression each one leaves. Bundled and minified with esbuild, then gzipped: `axios` is 18.6 kB in the browser and 64.9 kB on the server, `ky` 7.3 kB, `ofetch` 4 kB in the browser and 36.8 kB on the server.'
 			},
 			{
 				type: 'list',
 				items: [
 					'`axios` comes from before `fetch` was universal, which explains most of it: its own adapter layer over XHR and Node `http`, an interceptor system, CJS support. It is still the default answer in most of the ecosystem.',
-					'`ky` is the closest sibling: `fetch`-only, zero dependencies, ESM-only, the taste of one author applied consistently. It makes the opposite call on batteries: retry, timeout and hooks ship with it, and by default it times out at 10 s and retries twice.',
+					'`ky` is the closest sibling: `fetch`-only, zero dependencies, ESM-only, the taste of one author applied consistently. It makes the opposite call on batteries. Retry, timeout and hooks ship with it, and out of the box it times out at 10 s and retries twice.',
 					'`ofetch` has almost exactly the ergonomics I wanted, and pays for Node compatibility to get there: three runtime dependencies and a polyfill that accounts for most of its cost on the server. It also retries GET and HEAD once, silently.'
 				]
 			},
 			{
 				type: 'paragraph',
-				text: 'None of that is wrong. It is a different bet, and the difference is mostly about who owns the decisions: `ky` returns a response you call `.json<User>()` on, `axios` gives you a `data` property to unwrap on every call, and both retry defaults above mean a request I believe I sent once may have been sent twice.'
+				text: 'None of that is wrong. It is a different bet, and the difference is mostly about who owns the decisions. `ky` returns a response you call `.json<User>()` on. `axios` gives you a `data` property to unwrap on every call. And two of the three retry on their own, which means a request I believe I sent once may have been sent twice.'
 			},
 			{
 				type: 'paragraph',
@@ -56,16 +56,16 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			},
 			{
 				type: 'paragraph',
-				text: 'The comparison document in the repo also carries the part that does not flatter me: those three have years of resolved edge cases behind them, and air has one author and a test suite. I wrote that line into the repo myself so I would not be tempted to frame it better later.'
+				text: 'The same document carries the unflattering half. Those three have years of resolved edge cases behind them and 131 million weekly downloads between them; air has one author, a test suite, and 47. I wrote that comparison into the repo myself so I would not be tempted to frame it better later.'
 			},
 			{ type: 'heading', level: 2, text: 'The rules came before the code' },
 			{
 				type: 'paragraph',
-				text: 'The first commit that mattered was not code. It was a document: less code is better, zero runtime dependencies ever, native `fetch` only with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of things air is not allowed to become: interceptor chains, a plugin system, retries or timeouts in any form, caching, request deduplication, Node-only features that break in a browser.'
+				text: 'The first commit that mattered was a document, not code: less code is better, zero runtime dependencies ever, native `fetch` only with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of things air is not allowed to become: interceptor chains, a plugin system, retries or timeouts in any form, caching, request deduplication, Node-only features that break in a browser.'
 			},
 			{
 				type: 'paragraph',
-				text: 'That is a lot of ceremony for a package this size, and it earned its place anyway. On day one the pressure to add a feature does not come from users, because there are none. It comes from me at 11 p.m., deciding that one small option would be convenient. With the rule written down, I have to go argue with the document first, and I lose that argument more often than I win it.'
+				text: 'That is a lot of ceremony for a package this size, and it earned its place anyway. On day one the pressure to add a feature does not come from users, because there are none. It comes from me at 11 p.m., deciding that one small option would be convenient. With the rule written down I have to go argue with the document first, and I lose that argument more often than I win it.'
 			},
 			{
 				type: 'paragraph',
@@ -78,11 +78,11 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			{ type: 'heading', level: 2, text: 'One implementation, not two' },
 			{
 				type: 'paragraph',
-				text: 'air had to work two ways: as a direct wrapper you call with `air.get(url)`, and as a factory producing configured clients with `air.create({ baseURL })`. The obvious implementation gives you two code paths (a default instance and a constructor), and they drift the first time an option lands in one and not the other.'
+				text: 'air had to work two ways: as a direct wrapper you call with `air.get(url)`, and as a factory producing configured clients with `air.create({ baseURL })`. The obvious implementation gives you two code paths, a default instance and a constructor, and they drift the first time an option lands in one and not the other.'
 			},
 			{
 				type: 'paragraph',
-				text: 'So the root export is not special. It is a client created with empty defaults, which leaves exactly one implementation to keep correct.'
+				text: 'So the root export is just another client, created with empty defaults. That leaves exactly one implementation to keep correct.'
 			},
 			{
 				type: 'code',
@@ -91,16 +91,16 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			},
 			{
 				type: 'paragraph',
-				text: 'The same idea decided the rest of the internals. The seven verbs are listed in one helper that both the plain client and the raw one are built from, so a method cannot be added to one and forgotten in the other. Both clients project from a single `request()` that always resolves to both halves, because two code paths through a request is how they disagree about what a request is. The whole thing is seven flat files (`url`, `body`, `parse`, `error`, `client`, `types`, `index`), with no directory tree and no barrel file except the entry point.'
+				text: 'The same idea decided the rest of the internals. The seven verbs are listed in one helper that both the plain client and the raw one are built from, so a method cannot be added to one and forgotten in the other. Both clients project from a single `request()` that always resolves to both halves, because a second path through a request is where the two would start disagreeing about what a request is. The whole thing is seven flat files (`url`, `body`, `parse`, `error`, `client`, `types`, `index`), with no directory tree and no barrel file except the entry point.'
 			},
 			{ type: 'heading', level: 2, text: 'Eight options, and what each one had to prove' },
 			{
 				type: 'paragraph',
-				text: 'The options table is the part I rewrote most. Every option on it is permanent: something a user has to learn, and something I have to keep true in every future version. A few of the decisions behind the current eight:'
+				text: 'The options table is the part I rewrote most. Every option on it is permanent: something a user has to learn, and something I have to keep true in every future version. A few of the decisions behind the current eight.'
 			},
 			{
 				type: 'paragraph',
-				text: '`baseURL` joins as strings rather than resolving as URLs. Standard URL resolution treats a leading slash as origin-root, so `https://api.test/v1` plus `/users` would drop the `/v1`, which breaks any API mounted under a path. For the same reason a leading `//` is treated as a path and not as a protocol-relative URL: stray double slashes from string building are far more common than the intentional case, which is deprecated anyway. I changed that rule once and reverted it when a test showed `///users` resolving to `https://users/`.'
+				text: '`baseURL` joins as strings rather than resolving as URLs. Standard URL resolution treats a leading slash as origin-root, so `https://api.test/v1` plus `/users` would drop the `/v1`, which breaks any API mounted under a path. For the same reason a leading `//` is read as a path and not as a protocol-relative URL: stray double slashes from string building are far more common than the intentional case, which is deprecated anyway. I changed that rule once and reverted it when a test showed `///users` resolving to `https://users/`.'
 			},
 			{
 				type: 'paragraph',
@@ -121,7 +121,7 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: 'And errors, which are the reason people wrap `fetch` in the first place. A non-2xx throws an `AirError` carrying the status, the parsed error body, the response, and the request as it was really sent, resolved headers included. `options.headers` may still be an unevaluated function, which is useless when you are holding a 401 and want to know which token went out.'
+				text: 'And errors, which are the reason people wrap `fetch` in the first place. A non-2xx throws an `AirError` carrying the status, the parsed error body, the response, and the request as it went out, resolved headers included. `options.headers` may still be an unevaluated function, which is useless when you are holding a 401 and want to know which token was sent.'
 			},
 			{
 				type: 'code',
@@ -138,7 +138,7 @@ await api.get('/search', { query: { since: new Date() } })
 			{ type: 'heading', level: 2, text: 'Two options that take a function' },
 			{
 				type: 'paragraph',
-				text: 'The first user-facing bug I had to fix was not a crash. A client built once with `headers: { Authorization: ... }` is evaluated at `create()` time and frozen in the closure from then on, so every request made after the token rotates sends the stale one. A long-lived client and a refreshing token are the normal case, not the exotic one.'
+				text: 'The first user-facing bug was a client that kept sending an expired token. A `headers` object passed to `create()` is evaluated once, at `create()` time, and frozen in the closure from then on, so every request made after a refresh sends the stale one. A long-lived client and a rotating token are the normal case, not the exotic one.'
 			},
 			{
 				type: 'paragraph',
@@ -160,7 +160,7 @@ await api.get('/search', { query: { since: new Date() } })
 			{ type: 'heading', level: 2, text: 'What I decided not to build' },
 			{
 				type: 'paragraph',
-				text: "`timeout` and `retry` both existed, and both came out. The timeout was built the obvious way: an `AbortController` inside the client, a timer that aborts it, the caller's signal forwarded in, and a `finally` that tears both down. But `fetch()` resolves when the headers arrive, not when the body has been read, so that cleanup disarmed the timer exactly as the download started. Against an endpoint that drips its body over ten seconds, a 500 ms timeout and an explicit abort at 50 ms, the request hung forever. `AbortSignal.timeout(ms)` and `AbortSignal.any([...])` are both native, so deleting the option meant deleting the bridge where that bug lived. air forwards `signal` to `fetch` untouched."
+				text: "`timeout` and `retry` both existed, and both came out. The timeout was built the obvious way: an `AbortController` inside the client, a timer that aborts it, the caller's signal forwarded in, and a `finally` that tears both down. But `fetch()` resolves when the headers arrive, not when the body has been read, so that cleanup disarmed the timer exactly as the download started. Against an endpoint that drips its body over ten seconds, a 500 ms timeout and an explicit abort at 50 ms both did nothing, and the request hung forever. `AbortSignal.timeout(ms)` and `AbortSignal.any([...])` are native, so deleting the option meant deleting the bridge where that bug lived. air forwards `signal` to `fetch` untouched."
 			},
 			{
 				type: 'paragraph',
@@ -168,7 +168,7 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: 'The rule that came out of that generalizes past retries: moving a decision out of the client only works if the information behind it moves out too. Before extracting anything into a helper, check which of the two it actually needs.'
+				text: 'The rule that came out of that generalizes past retries: moving a decision out of the client only works if the information behind it moves out too. Before extracting anything into a helper, check which of the two it needs.'
 			},
 			{ type: 'heading', level: 2, text: 'What the tests could not tell me' },
 			{
@@ -177,12 +177,12 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: "Real `fetch` refuses a `ReadableStream` body without `duplex: 'half'`, rejects an already-fired signal before sending, and the `Headers` constructor stringifies a `null` instead of deleting the key. A hand-written double does none of that unless you already knew about the bug. So `examples/` became the integration lane: seven files, each one a recipe from the README made executable against a local server and the real `fetch`, asserting what it demonstrates. CI runs them on every supported Node, and all three shipped bugs are pinned there."
+				text: "Real `fetch` refuses a `ReadableStream` body without `duplex: 'half'`, rejects an already-fired signal before sending, and stringifies a `null` header instead of deleting the key. A hand-written double does none of that unless you already knew about the bug. So `examples/` became the integration lane: seven files, each one a recipe from the README made executable against a local server and the real `fetch`, asserting what it demonstrates. CI runs them on every supported Node, and all three shipped bugs are pinned there."
 			},
 			{ type: 'heading', level: 2, text: 'What it cost to publish' },
 			{
 				type: 'paragraph',
-				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it; `npm publish --dry-run` in a fresh clone caught it, and that is now the thing I do before every release. The name `air` was taken on npm, so it went out as `@korastd/air`, and CI publishes through OIDC trusted publishing rather than a stored token.'
+				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it. `npm publish --dry-run` in a fresh clone caught it, and that is now the thing I do before every release. The name `air` was taken on npm, so it went out as `@korastd/air`, and CI publishes through OIDC trusted publishing rather than a stored token.'
 			},
 			{
 				type: 'paragraph',
