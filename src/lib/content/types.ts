@@ -50,7 +50,12 @@ export type Post = {
 	description: string;
 	date: string;
 	tags: string[];
-	featured?: boolean;
+	/**
+	 * Color de la portada. Es el de la tecnología que protagoniza el post; donde
+	 * dos entradas comparten lenguaje manda lo que las diferencia, y las que van
+	 * sobre herramientas propias llevan el lila de marca.
+	 */
+	accent: string;
 	content: PostBlock[];
 };
 
