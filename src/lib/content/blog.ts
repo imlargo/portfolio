@@ -8,8 +8,8 @@ const posts: Post[] = [
 			'I wrote a 300-line fetch wrapper and published it to npm. Most of the work happened after it already worked: three bugs the test suite could not see, and two features I removed instead of fixing.',
 		date: '2026-08-06',
 		tags: ['TypeScript', 'Open Source', 'API Design'],
-		// TypeScript: el post es sobre una librería de TS
-		accent: '#3178c6',
+		// cian frío: una librería mínima, sin peso — el tono acompaña el tamaño
+		accent: '#22d3ee',
 		content: [
 			{
 				type: 'paragraph',
@@ -147,8 +147,8 @@ async function withRetry(fn, signal, attempts = 3) {
 			'A course scheduling platform for my university went from a weekend project to something 6,200 students depended on. The traffic found problems I would not have predicted.',
 		date: '2026-05-18',
 		tags: ['Architecture', 'Go', 'Postgres'],
-		// crecimiento: lo que define al post son los 6.200 usuarios
-		accent: '#3fa66a',
+		// violeta: la identidad visual de Pegaso, la plataforma que escala
+		accent: '#8b5cf6',
 		content: [
 			{
 				type: 'paragraph',
@@ -226,8 +226,8 @@ func (c *Catalog) Rebuild(ctx context.Context, db *pgxpool.Pool) error {
 			'Medusa came out of four production Go services that had ended up with the same structure. I pulled the shared parts into a framework, then put it back into the services it came from.',
 		date: '2026-03-02',
 		tags: ['Go', 'Open Source', 'Architecture'],
-		// lila de marca: va sobre herramienta propia
-		accent: '#b19eef',
+		// azul: el framework extraído de servicios Go, frío y estructural
+		accent: '#3b82f6',
 		content: [
 			{
 				type: 'paragraph',

@@ -20,6 +20,7 @@
      del grupo. -->
 <article class="post-card group relative flex h-full flex-col gap-y-5">
 	<PostCover
+		slug={post.slug}
 		accent={post.accent}
 		class="{featured
 			? 'aspect-16/9'
