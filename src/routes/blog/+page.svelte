@@ -6,9 +6,9 @@
 
 	let { data }: PageProps = $props();
 
-	const { title, description } = siteContent.blog;
+	const { metaTitle, description } = siteContent.blog;
 </script>
 
-<Seo {title} {description} />
+<Seo title={metaTitle} {description} />
 
 <BlogLanding posts={data.posts} tags={data.tags} />

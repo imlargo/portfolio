@@ -22,7 +22,7 @@
 	}
 </script>
 
-<figure class="group relative overflow-hidden rounded-lg border bg-card/50">
+<figure class="group relative overflow-hidden rounded-2xl border bg-muted/40">
 	<figcaption
 		class="flex items-center justify-between border-b bg-muted/30 py-2 pr-2 pl-4 font-mono text-xs text-muted-foreground"
 	>

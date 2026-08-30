@@ -3,7 +3,6 @@
 	import { SiteCta } from '$lib/components/sections';
 	import * as Section from '$lib/components/layout/section';
 	import { PostContent, PostMeta, TableOfContents } from '$lib/features/blog/components';
-	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import { siteContent } from '$lib/content/site-content';
@@ -44,13 +43,12 @@
 					<p class="ty-lead max-w-prose text-pretty">{post.description}</p>
 				</div>
 
-				<div class="flex flex-wrap gap-2">
-					{#each post.tags as tag (tag)}
-						<Badge variant="outline" class="font-mono font-normal text-muted-foreground"
-							>{tag}</Badge
-						>
+				<p class="flex flex-wrap items-center gap-x-2 font-mono text-sm text-muted-foreground">
+					{#each post.tags as tag, i (tag)}
+						{#if i > 0}<span class="text-muted-foreground/40" aria-hidden="true">·</span>{/if}
+						<span>{tag}</span>
 					{/each}
-				</div>
+				</p>
 			</div>
 		</div>
 
@@ -85,36 +83,44 @@
 			</div>
 
 			{#if data.previous || data.next}
-				<nav class="grid gap-2 lg:grid-cols-2" aria-label="More posts">
+				<!-- Dos columnas separadas por un filete, no dos tarjetas: son la
+				     continuación del índice, y una caja las convertiría en piezas
+				     sueltas. -->
+				<nav class="grid gap-x-8 gap-y-8 border-t pt-8 sm:grid-cols-2" aria-label="More posts">
 					{#if data.previous}
-						<a
-							href="/blog/{data.previous.slug}"
-							class="p-card group flex flex-col gap-y-2 rounded-4xl border bg-muted/40 transition-colors duration-500 hover:bg-muted/60"
-						>
-							<span class="flex items-center gap-x-2 font-mono text-xs text-muted-foreground">
+						<a href="/blog/{data.previous.slug}" class="group/nav flex flex-col gap-y-2">
+							<span class="flex items-center gap-x-2 font-mono text-sm text-muted-foreground">
 								<ArrowLeft
-									class="size-3 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-x-1"
+									class="size-3.5 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/nav:-translate-x-1"
 								/>
 								Newer
 							</span>
-							<span class="font-medium text-pretty">{data.previous.title}</span>
+							<span
+								class="text-pretty transition-colors duration-500 group-hover/nav:text-foreground/70"
+							>
+								{data.previous.title}
+							</span>
 						</a>
 					{:else}
-						<span class="hidden lg:block"></span>
+						<span class="hidden sm:block"></span>
 					{/if}
 
 					{#if data.next}
 						<a
 							href="/blog/{data.next.slug}"
-							class="p-card group flex flex-col items-end gap-y-2 rounded-4xl border bg-muted/40 text-right transition-colors duration-500 hover:bg-muted/60"
+							class="group/nav flex flex-col items-start gap-y-2 sm:items-end sm:text-right"
 						>
-							<span class="flex items-center gap-x-2 font-mono text-xs text-muted-foreground">
+							<span class="flex items-center gap-x-2 font-mono text-sm text-muted-foreground">
 								Older
 								<ArrowRight
-									class="size-3 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-1"
+									class="size-3.5 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/nav:translate-x-1"
 								/>
 							</span>
-							<span class="font-medium text-pretty">{data.next.title}</span>
+							<span
+								class="text-pretty transition-colors duration-500 group-hover/nav:text-foreground/70"
+							>
+								{data.next.title}
+							</span>
 						</a>
 					{/if}
 				</nav>

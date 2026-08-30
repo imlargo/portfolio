@@ -57,7 +57,12 @@ export type SiteContent = {
 	};
 
 	blog: {
+		eyebrow: string;
+		/** El titular va partido en dos: el planteo en gris y el remate en blanco. */
 		title: string;
+		titleAccent: string;
+		/** Para el <title> y la meta description de la página. */
+		metaTitle: string;
 		description: string;
 	};
 
@@ -168,7 +173,10 @@ export const siteContent: SiteContent = {
 	},
 
 	blog: {
-		title: 'Writing',
+		eyebrow: 'Blog',
+		title: 'Things I have built, the decisions behind them',
+		titleAccent: 'and the parts I got wrong.',
+		metaTitle: 'Writing',
 		description: 'Things I have built, the decisions behind them and the parts I got wrong.'
 	},
 

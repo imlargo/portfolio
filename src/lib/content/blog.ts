@@ -383,6 +383,15 @@ export function slugify(value: string): string {
 		.replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Fecha numérica para el índice: alineada, del mismo ancho en todas las filas y
+ * ordenable a ojo. En una lista, `2026.08.06` se compara de un vistazo con la
+ * de abajo; `Aug 6, 2026` no.
+ */
+export function formatDateIndex(date: string): string {
+	return date.replaceAll('-', '.');
+}
+
 export function formatDate(date: string): string {
 	return new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', {
 		year: 'numeric',

@@ -17,7 +17,7 @@
      enciende al pasar sale del token de marca, así que es el mismo acento del
      hero y del rótulo de sección, no un morado suelto. -->
 <article
-	class="project p-card group relative flex h-full flex-col justify-between gap-y-8 overflow-hidden rounded-4xl border bg-muted/40 transition-colors duration-500 hover:border-foreground/20 hover:bg-muted/60"
+	class="project p-card group relative flex h-full flex-col justify-between gap-y-8 overflow-hidden rounded-4xl border bg-muted/40 transition-[color,background-color,border-color,transform] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-muted/60"
 >
 	<div class="relative flex flex-col gap-y-2">
 		<h3 class="ty-h4">{project.title}</h3>

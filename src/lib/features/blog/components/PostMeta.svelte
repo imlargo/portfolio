@@ -13,7 +13,7 @@
 
 <div
 	class={cn(
-		'flex items-center gap-x-2 font-mono text-sm leading-none font-medium text-muted-foreground',
+		'flex items-center gap-x-2 font-mono text-sm leading-none text-muted-foreground',
 		className
 	)}
 >
