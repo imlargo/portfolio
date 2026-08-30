@@ -38,7 +38,7 @@
 				<InlineText text={block.text} />
 			</p>
 		{:else if block.type === 'code'}
-			<CodeBlock language={block.language} code={block.code} />
+			<CodeBlock language={block.language} code={block.code} html={block.html} />
 		{:else if block.type === 'list'}
 			{#if block.ordered}
 				<ol class="flex flex-col gap-y-3 pl-1">

@@ -40,7 +40,7 @@ export type Project = {
 export type PostBlock =
 	| { type: 'paragraph'; text: string }
 	| { type: 'heading'; level: 2 | 3; text: string }
-	| { type: 'code'; language: string; code: string }
+	| { type: 'code'; language: string; code: string; html?: string }
 	| { type: 'list'; ordered?: boolean; items: string[] }
 	| { type: 'quote'; text: string; cite?: string };
 

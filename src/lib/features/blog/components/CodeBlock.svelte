@@ -5,9 +5,11 @@
 	type Props = {
 		language: string;
 		code: string;
+		/** HTML ya resaltado por Shiki, calculado en el servidor al cargar la página. */
+		html?: string;
 	};
 
-	const { language, code }: Props = $props();
+	const { language, code, html }: Props = $props();
 
 	let copied = $state(false);
 
@@ -44,7 +46,27 @@
 		</button>
 	</figcaption>
 
-	<pre class="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-foreground/90"><code
-			>{code}</code
-		></pre>
+	<!-- El `<pre><code>` de Shiki trae su propio fondo (el de Catppuccin Mocha)
+	     y el color por token inline; acá solo se anulan fondo y márgenes para que
+	     la superficie sea la tarjeta (`bg-muted/40`) y no una caja dentro de otra.
+	     Sin `html` —content todavía no pasó por el resaltador— cae al texto
+	     plano, para que el bloque nunca se quede vacío. -->
+	<div class="code-block overflow-x-auto p-4 font-mono text-sm leading-relaxed">
+		{#if html}
+			<!-- El HTML lo genera Shiki en el servidor a partir del contenido propio
+			     del sitio (`src/lib/content/blog.ts`), nunca de datos externos ni de
+			     usuarios: no hay superficie de XSS que este `{@html}` esté abriendo. -->
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+			{@html html}
+		{:else}
+			<pre><code>{code}</code></pre>
+		{/if}
+	</div>
 </figure>
+
+<style>
+	.code-block :global(pre) {
+		background: transparent !important;
+		margin: 0;
+	}
+</style>
