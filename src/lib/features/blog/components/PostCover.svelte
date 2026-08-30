@@ -36,7 +36,7 @@
 	// cuatro portadas eran el mismo remolino repintado. El slug es la semilla que
 	// mueve el ángulo de mezcla, la rotación, la frecuencia de la onda y dónde
 	// queda su centro, así que cada post tiene su propia composición y no solo su
-	// propio color — y sigue siendo estable entre recargas.
+	// propio color, y sigue siendo estable entre recargas.
 	function hash(value: string): number {
 		let h = 2166136261;
 		for (let i = 0; i < value.length; i++) {

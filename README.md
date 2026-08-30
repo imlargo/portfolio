@@ -1,13 +1,14 @@
 # imlargo.dev
 
-Portfolio of Juan Carlos Largo (`@imlargo`) — senior software engineer, founder of
+Portfolio of Juan Carlos Largo (`@imlargo`), senior software engineer, founder of
 [Kora Studio](https://kora.imlargo.dev).
 
 It shares Kora's design system on purpose: same neutral scale, same brand accent,
 same spacing rhythm and the same motion vocabulary, because the studio and the person
-behind it are the same. What separates the two sites is the voice — Manrope instead of
-Kora's Space Grotesk, and the mono face carrying the identity in the wordmark, the page
-titles and every date and stack label — and the content, which is a career, not an offer.
+behind it are the same. What separates the two sites is the voice and the content. The
+voice is Manrope instead of Kora's Space Grotesk, with the mono face carrying the identity
+in the wordmark, the page titles and every date and stack label. The content is a career,
+not an offer.
 
 ## Stack
 
@@ -33,7 +34,7 @@ src/
 │   │   ├── effects/          # Canvas/WebGL: PixelBlast, Iridescence, Noise
 │   │   ├── layout/           # SiteHeader, Footer, section/ primitives
 │   │   ├── sections/         # Cross-page bands: SiteCta, ClosingCta, PanelCtas
-│   │   ├── seo/              # <Seo /> — every page mounts exactly one
+│   │   ├── seo/              # <Seo />: every page mounts exactly one
 │   │   └── ui/               # shadcn-svelte, style `maia`. Do not hand-edit; see below
 │   ├── content/              # Every string and every record on the site
 │   ├── features/             # Vertical slices: home, work, about, blog
@@ -73,7 +74,7 @@ place. The parts worth knowing before writing a component:
 ### Type
 
 Hierarchy comes from **size, never from weight**. `.ty-h1` and `.ty-h2` carry no
-weight class at all — they inherit the body's 400 — and `font-medium` is the
+weight class at all (they inherit the body's 400), and `font-medium` is the
 ceiling for everything else. The single exception is the giant footer wordmark,
 which is a decorative mass rather than text to read. Emphasis inside a paragraph
 is marked with **colour** (`text-foreground` against `text-muted-foreground`
@@ -82,11 +83,11 @@ prose), not by fattening the word.
 No `uppercase` anywhere: labels stay in their natural case.
 
 Use `<Section.Root>` (`$lib/components/layout/section`) rather than writing
-`<section class="px-layout py-section">` by hand — it carries the margin, the
+`<section class="px-layout py-section">` by hand: it carries the margin, the
 rhythm and the content column together.
 
 Two families, no more: **Manrope** for everything (`--font-sans`, `--font-heading`)
-and **Source Code Pro** for the mono — the wordmark, dates, stack labels and the
+and **Source Code Pro** for the mono: the wordmark, dates, stack labels and the
 `ty-inlinecode` snippets. The mono is the site's signature; adding a third family
 would dilute it.
 
@@ -109,5 +110,5 @@ pnpm test      # vitest (browser) + playwright
 ### Updating shadcn components
 
 `src/lib/components/ui/` is generated. To pull current versions of the configured
-style, run `./update-components.sh` and re-check the diff — local edits to those
+style, run `./update-components.sh` and re-check the diff. Local edits to those
 files get overwritten, so anything site-specific belongs in a wrapper, not in `ui/`.

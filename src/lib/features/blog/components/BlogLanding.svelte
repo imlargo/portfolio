@@ -20,7 +20,7 @@
 	);
 
 	// Sin filtro, los posts marcados `featured` en el contenido encabezan a mayor
-	// escala —es una curaduría, no un cálculo por fecha— y el resto va debajo. Con
+	// escala (es una curaduría, no un cálculo por fecha) y el resto va debajo. Con
 	// filtro no hay curaduría que respetar: se muestra una sola retícula pareja,
 	// porque el criterio pasó a ser el tag.
 	const featured = $derived(activeTag ? [] : visible.filter((post) => post.featured));

@@ -60,7 +60,7 @@
 	}
 
 	/* El brillo es el degradado pintado dentro de las letras. Los extremos van en
-	   `muted-foreground` —no en transparente— para que el texto exista siempre y
+	   `muted-foreground` (no en transparente) para que el texto exista siempre y
 	   solo el punto medio se aclare al pasar. */
 	.shine {
 		background-image: linear-gradient(

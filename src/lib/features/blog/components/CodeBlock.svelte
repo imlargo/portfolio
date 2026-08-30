@@ -49,7 +49,7 @@
 	<!-- El `<pre><code>` de Shiki trae su propio fondo (el de Catppuccin Mocha)
 	     y el color por token inline; acá solo se anulan fondo y márgenes para que
 	     la superficie sea la tarjeta (`bg-muted/40`) y no una caja dentro de otra.
-	     Sin `html` —content todavía no pasó por el resaltador— cae al texto
+	     Sin `html` (content todavía no pasó por el resaltador) cae al texto
 	     plano, para que el bloque nunca se quede vacío. -->
 	<div class="code-block overflow-x-auto p-4 font-mono text-sm leading-relaxed">
 		{#if html}

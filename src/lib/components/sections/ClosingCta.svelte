@@ -27,7 +27,7 @@
      página y tiene que pesar.
 
      Lo único que varía entre vistas es el fondo, y por eso entra como snippet:
-     el resto —escala, retícula, tipografía y el par de botones— es idéntico y
+     el resto (escala, retícula, tipografía y el par de botones) es idéntico y
      debe seguir siéndolo, para que las cuatro piezas se lean como la misma. -->
 <section class="px-layout py-section-lg flex w-full flex-col items-center">
 	<div

@@ -28,8 +28,8 @@
 	de la home, el de /services y la visual de about.
 
 	El orden de las capas es el que importa y por eso vive acá: el velo y la
-	viñeta bajan la luminancia media del plasma —sin recortar un parche detrás
-	del contenido— y el grano va al final, encima de las dos.
+	viñeta bajan la luminancia media del plasma (sin recortar un parche detrás
+	del contenido) y el grano va al final, encima de las dos.
 
 	Se posiciona solo (`absolute inset-0`), así que el contenedor tiene que ser
 	`relative` y `overflow-hidden`.

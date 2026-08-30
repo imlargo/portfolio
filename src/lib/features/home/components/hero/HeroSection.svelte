@@ -13,8 +13,8 @@
 </script>
 
 <section class="px-layout py-hero relative flex w-full flex-col items-center">
-	<!-- El canvas se confina al área que el texto no usa —la mitad de abajo en
-	     móvil, la mitad derecha desde md— en vez de cubrir el hero y taparse con
+	<!-- El canvas se confina al área que el texto no usa (la mitad de abajo en
+	     móvil, la mitad derecha desde md) en vez de cubrir el hero y taparse con
 	     una máscara encima. Todo lo que se pinta sobre un canvas que se redibuja
 	     cada frame hay que volver a mezclarlo cada frame; sacarlo de debajo del
 	     texto elimina ese costo y ahorra la mitad de los fragmentos. -->

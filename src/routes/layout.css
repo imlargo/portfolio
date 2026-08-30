@@ -12,7 +12,7 @@
 /* ── Paleta ───────────────────────────────────────────────────────────────────
    Misma escala neutra (zinc) y mismo acento que Kora: el estudio y yo somos la
    misma persona y los dos sitios tienen que leerse como una sola familia. Lo
-   que los diferencia no es el color, es la voz — acá manda la mono. */
+   que los diferencia no es el color, es la voz: acá manda la mono. */
 :root {
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.141 0.005 285.823);
@@ -116,8 +116,8 @@
 }
 
 @theme inline {
-	/* Manrope para el texto corrido, Geist Mono para la firma —wordmark, títulos
-	   de página, rótulos, fechas y stack—. Son las dos únicas familias del sitio,
+	/* Manrope para el texto corrido, Geist Mono para la firma (wordmark, títulos
+	   de página, rótulos, fechas y stack). Son las dos únicas familias del sitio,
 	   y las dos son estrechas y modernas: por eso conviven sin pelearse. */
 	--font-sans: 'Manrope Variable', sans-serif;
 	--font-heading: 'Manrope Variable', sans-serif;
@@ -245,7 +245,7 @@
    Una sola regla detrás de todo esto: la jerarquía la marca el TAMAÑO, no el
    grosor. Un título grande en peso normal se lee sofisticado; el mismo título
    en negrita se lee como un aviso. Por eso `ty-h1` y `ty-h2` no llevan peso
-   —heredan el 400 del cuerpo— y a partir de `ty-h3`, donde el tamaño ya no
+   (heredan el 400 del cuerpo) y a partir de `ty-h3`, donde el tamaño ya no
    alcanza para separar, entra `font-medium` y nunca más arriba.
 
    `font-semibold` y superiores quedan reservados para dos excepciones que no
@@ -358,7 +358,7 @@ html {
 /* ── Movimiento reducido ──────────────────────────────────────────────────────
    Red de seguridad para todo lo que se mueve por CSS: hovers, subrayados que
    crecen, el aro del badge, los desplazamientos de las flechas. Los efectos en
-   JS ya se apagan solos —cada attachment consulta `prefersReducedMotion`— pero
+   JS ya se apagan solos (cada attachment consulta `prefersReducedMotion`) pero
    las transiciones declaradas en el marcado no tienen quién las mire, y son la
    mayoría. Esto las neutraliza de una vez en vez de repetir la media query en
    cada componente.

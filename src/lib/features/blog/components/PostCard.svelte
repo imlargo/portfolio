@@ -15,8 +15,8 @@
 
 <!-- La tarjeta entera es clicable con un solo enlace: el del título se estira
      sobre el artículo con `after:absolute inset-0`. Por eso el pie no lleva un
-     `<a>` ni un `<button>` de verdad —anidar interactivos dentro de un enlace es
-     marcado inválido— sino un `span` con forma de botón que reacciona al hover
+     `<a>` ni un `<button>` de verdad (anidar interactivos dentro de un enlace es
+     marcado inválido) sino un `span` con forma de botón que reacciona al hover
      del grupo. -->
 <article class="post-card group relative flex h-full flex-col gap-y-5">
 	<PostCover

@@ -10,8 +10,8 @@ export const entries: EntryGenerator = () => posts.map((post) => ({ slug: post.s
 
 /**
  * El resaltado corre acá y no en el componente: como `+page.server.ts` solo se
- * ejecuta en el servidor —en este sitio, solo durante el build, porque la ruta
- * está prerenderizada— Shiki nunca viaja al navegador. Lo que llega al cliente
+ * ejecuta en el servidor (en este sitio, solo durante el build, porque la ruta
+ * está prerenderizada), Shiki nunca viaja al navegador. Lo que llega al cliente
  * es el HTML ya coloreado, tokens y estilos inline incluidos.
  */
 async function highlight(content: PostBlock[]): Promise<PostBlock[]> {

@@ -29,7 +29,7 @@
 <!-- `modeStorageKey` propio: la clave por defecto puede traer un 'light' guardado
      de antes de esta decisión, y el script que mode-watcher inyecta en el head lo
      aplicaría antes de que hidrate nada. Con clave nueva no hay nada guardado y
-     el modo por defecto —oscuro— gana desde el arranque. -->
+     el modo por defecto (oscuro) gana desde el arranque. -->
 <ModeWatcher defaultMode="dark" track={false} modeStorageKey="imlargo-mode" />
 <Toaster />
 
