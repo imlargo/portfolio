@@ -3,8 +3,27 @@
 	import { Toaster } from '$lib/components/ui/sonner/index.js';
 	import { ModeWatcher } from 'mode-watcher';
 	import { SiteHeader, Footer } from '$lib/components/layout';
+	import { onNavigate } from '$app/navigation';
 
 	let { children } = $props();
+
+	// Fundido entre páginas con la View Transitions API del navegador. No hay
+	// librería ni estado detrás: se le entrega la navegación al navegador y él
+	// interpola el antes y el después.
+	//
+	// Donde la API no existe, el `return` temprano deja la navegación normal, sin
+	// fallback que mantener. La duración y el respeto por `prefers-reduced-motion`
+	// se resuelven en el CSS, sobre los pseudo-elementos `::view-transition-*`.
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <!-- `modeStorageKey` propio: la clave por defecto puede traer un 'light' guardado
@@ -21,11 +40,7 @@
 	Skip to main content
 </a>
 
-<div class="px-layout relative z-50 flex w-full flex-col items-center bg-background">
-	<div class="max-w-wx w-full">
-		<SiteHeader />
-	</div>
-</div>
+<SiteHeader />
 
 <!-- Sin `px-layout` ni `gap` acá: el margen lateral y el ritmo vertical los pone
      cada sección sobre sí misma, así una banda puede sangrar a pantalla completa

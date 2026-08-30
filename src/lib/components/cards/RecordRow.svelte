@@ -21,8 +21,12 @@
      el archivo de /work, que solo se diferenciaban en cómo llamaban a sus
      campos. Tres columnas en escritorio (cuándo · qué · dónde) y una sola
      columna en móvil, donde el "dónde" se sube junto al título. -->
-<div class="record-row items-top py-item flex flex-col gap-y-4 lg:grid lg:grid-cols-3 lg:gap-x-8">
-	<span class="font-mono text-sm text-muted-foreground">
+<div
+	class="record-row group/row items-top py-item flex flex-col gap-y-4 lg:grid lg:grid-cols-3 lg:gap-x-8"
+>
+	<span
+		class="font-mono text-sm text-muted-foreground transition-colors duration-500 group-hover/row:text-foreground"
+	>
 		{period}
 	</span>
 
@@ -56,5 +60,9 @@
 		</div>
 	</div>
 
-	<span class="hidden text-end font-mono text-sm text-muted-foreground lg:block">{context}</span>
+	<span
+		class="hidden text-end font-mono text-sm text-muted-foreground transition-colors duration-500 group-hover/row:text-foreground lg:block"
+	>
+		{context}
+	</span>
 </div>

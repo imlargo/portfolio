@@ -1,8 +1,9 @@
+<!-- Sin efectos de scroll acá a propósito: el footer es lo último de la página
+     y un reveal que arranca en `opacity: 0` se queda invisible si su disparador
+     no llega a cruzarse. Se renderiza y ya. -->
 <script lang="ts">
 	import { siteContent } from '$lib/content/site-content';
 	import { useHyperText } from '$lib/attachments/text-encrypt';
-	import { useReveal } from '$lib/attachments/reveal';
-	import { useParallax } from '$lib/attachments/parallax';
 	import { ArrowUpRight } from '@lucide/svelte';
 
 	const { footer, name } = siteContent;
@@ -10,14 +11,16 @@
 
 {#snippet LinkItem(label: string, href: string, external: boolean = false)}
 	<a
-		class="flex w-full items-center gap-x-2 text-muted-foreground hover:text-primary"
+		class="group/link flex w-full items-center gap-x-2 text-muted-foreground transition-colors hover:text-foreground"
 		{href}
 		target={external ? '_blank' : '_self'}
 		rel={external ? 'noopener noreferrer' : undefined}
 	>
 		<span>{label}</span>
 		{#if external || href.startsWith('http')}
-			<ArrowUpRight class="size-4" />
+			<ArrowUpRight
+				class="size-4 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+			/>
 		{/if}
 	</a>
 {/snippet}
@@ -32,7 +35,6 @@
 			<p
 				class="line-clamp-none align-bottom font-mono text-[8rem] leading-none font-extrabold tracking-wider text-secondary/50 md:text-[14rem] lg:text-[24rem]"
 				aria-hidden="true"
-				{@attach useParallax(60)}
 			>
 				{name}
 			</p>
@@ -43,11 +45,8 @@
 				<div class="footer-gradient h-px w-full border-none"></div>
 			</div>
 
-			<footer
-				class="px-layout flex w-full flex-col gap-y-6 bg-secondary/25 py-12"
-				{@attach useReveal({ targets: '.footer-item', stagger: 0.1, y: 24 })}
-			>
-				<div class="footer-item flex flex-col gap-y-8 md:flex-row md:justify-between">
+			<footer class="px-layout flex w-full flex-col gap-y-6 bg-secondary/25 py-12">
+				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
 						<p class="font-mono text-4xl font-medium" data-value={name} {@attach useHyperText}>
 							{name}
@@ -72,7 +71,7 @@
 					</nav>
 				</div>
 
-				<div class="footer-item mt-8 flex items-center justify-between">
+				<div class="mt-8 flex items-center justify-between">
 					<span class="hidden font-mono text-sm text-muted-foreground md:inline-flex">
 						{footer.credits}
 					</span>

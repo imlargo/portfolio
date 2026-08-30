@@ -319,13 +319,67 @@
 }
 
 .link-underline:hover,
-.link-underline:focus-visible {
+.link-underline:focus-visible,
+.link-underline[aria-current='page'] {
 	background-size: 100% 1px;
 }
 
+/* ── Transición entre páginas ─────────────────────────────────────────────────
+   Un fundido corto, sin desplazamiento: el contenido cambia pero la retícula no
+   se mueve, que es lo que evita que la navegación se sienta como una diapositiva.
+   La salida dura menos que la entrada para que no se vea la página vieja
+   desvanecerse encima de la nueva. */
+::view-transition-old(root) {
+	animation: fade-out 0.12s ease-out both;
+}
+
+::view-transition-new(root) {
+	animation: fade-in 0.28s var(--ease-out-expo) both;
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+/* Los anclas del índice del blog van suaves. `scroll-mt` ya lo ponen los
+   encabezados, para que el header pegajoso no los tape al llegar. */
+html {
+	scroll-behavior: smooth;
+}
+
+/* ── Movimiento reducido ──────────────────────────────────────────────────────
+   Red de seguridad para todo lo que se mueve por CSS: hovers, subrayados que
+   crecen, el aro del badge, los desplazamientos de las flechas. Los efectos en
+   JS ya se apagan solos —cada attachment consulta `prefersReducedMotion`— pero
+   las transiciones declaradas en el marcado no tienen quién las mire, y son la
+   mayoría. Esto las neutraliza de una vez en vez de repetir la media query en
+   cada componente.
+
+   No se anulan a 0s sino a 0.01ms: así los eventos `transitionend` que algún
+   componente pueda estar esperando siguen disparando. */
 @media (prefers-reduced-motion: reduce) {
-	.link-underline {
-		transition: none;
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	/* `*` no alcanza a los pseudo-elementos de la View Transition, así que se
+	   apagan aparte. */
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: none !important;
 	}
 }
 

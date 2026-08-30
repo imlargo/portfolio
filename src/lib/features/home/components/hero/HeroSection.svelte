@@ -34,7 +34,7 @@
 			<img
 				src="/assets/pfp.jpg"
 				alt={fullName}
-				class="hero-item size-18 rounded-full object-cover"
+				class="hero-item size-18 rounded-full object-cover ring-1 ring-transparent transition-[transform,box-shadow] duration-500 ease-[var(--ease-out-expo)] hover:scale-105 hover:ring-brand/40"
 			/>
 
 			<div class="flex flex-col gap-y-4">
