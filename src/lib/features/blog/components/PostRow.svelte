@@ -24,7 +24,7 @@
 
 	<div class="flex w-full flex-col gap-y-4">
 		<div class="flex items-start justify-between gap-x-4">
-			<span class="text-lg font-medium transition-colors group-hover:text-foreground/70 lg:text-xl">
+			<span class="text-lg font-medium transition-colors group-hover:text-foreground/70">
 				{post.title}
 			</span>
 

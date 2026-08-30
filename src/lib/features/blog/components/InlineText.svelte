@@ -48,7 +48,7 @@
 
 {#each tokens as token, index (index)}
 	{#if token.kind === 'strong'}
-		<strong class="font-semibold text-foreground">{token.value}</strong>
+		<strong class="font-medium text-foreground">{token.value}</strong>
 	{:else if token.kind === 'em'}
 		<em class="italic">{token.value}</em>
 	{:else if token.kind === 'code'}

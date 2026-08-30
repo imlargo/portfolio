@@ -49,7 +49,7 @@
 			>
 				<div class="footer-item flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
-						<p class="font-mono text-4xl font-bold" data-value={name} {@attach useHyperText}>
+						<p class="font-mono text-4xl font-medium" data-value={name} {@attach useHyperText}>
 							{name}
 						</p>
 						<p class="max-w-sm text-muted-foreground">{footer.subtitle}</p>
@@ -61,7 +61,7 @@
 					>
 						{#each footer.linkGroups as group (group.title)}
 							<div class="flex flex-col gap-y-4">
-								<h3 class="font-semibold">{group.title}</h3>
+								<h3 class="font-medium">{group.title}</h3>
 								<ul class="flex flex-col gap-y-1.5">
 									{#each group.links as link (link.href)}
 										<li>{@render LinkItem(link.label, link.href, link.external)}</li>

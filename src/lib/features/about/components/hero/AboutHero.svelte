@@ -23,11 +23,10 @@
 
 			<div class="flex flex-col gap-y-4" {@attach useReveal({ targets: 'p', stagger: 0.08 })}>
 				<p class="max-w-prose text-pretty text-muted-foreground">
-					Hi, I'm <span class="font-semibold text-foreground">Juan Carlos Largo</span> (<span
+					Hi, I'm <span class="text-foreground">Juan Carlos Largo</span> (<span
 						class="ty-inlinecode">@imlargo</span
 					>). Senior software engineer and founder of
-					<span class="font-semibold text-foreground">Kora Studio</span>, based in Medellín,
-					Colombia.
+					<span class="text-foreground">Kora Studio</span>, based in Medellín, Colombia.
 				</p>
 
 				<p class="max-w-prose text-pretty text-muted-foreground">

@@ -21,7 +21,7 @@
 		{@attach useReveal({ y: -16, duration: 0.7, start: 'top 100%' })}
 	>
 		<div class="flex items-center">
-			<a href="/" class="font-mono text-xl font-semibold" data-value={name} {@attach useHyperText}>
+			<a href="/" class="font-mono text-xl font-medium" data-value={name} {@attach useHyperText}>
 				{name}
 			</a>
 		</div>

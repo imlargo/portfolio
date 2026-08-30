@@ -13,7 +13,7 @@
 <h2
 	bind:this={ref}
 	data-slot="section-title"
-	class={cn('max-w-2xl text-3xl tracking-tight text-balance md:text-4xl', className)}
+	class={cn('ty-h2 max-w-2xl', className)}
 	{...restProps}
 >
 	{@render children?.()}

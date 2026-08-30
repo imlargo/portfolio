@@ -23,7 +23,7 @@
 			<PostMeta date={post.date} readingTime={post.readingTime} />
 		</div>
 
-		<h3 class="relative max-w-2xl text-3xl tracking-tight text-balance lg:text-4xl">
+		<h3 class="ty-h2 relative max-w-2xl">
 			{post.title}
 		</h3>
 

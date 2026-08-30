@@ -6,7 +6,7 @@
 <div
 	class="px-layout flex min-h-svh w-full flex-col items-center justify-center gap-y-6 text-center"
 >
-	<p class="font-mono text-6xl font-bold text-muted-foreground">{page.status}</p>
+	<p class="font-mono text-6xl text-muted-foreground">{page.status}</p>
 
 	<h1 class="text-2xl font-medium">
 		{#if page.status === 404}

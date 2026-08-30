@@ -20,7 +20,7 @@
 	class="project p-card group relative flex h-full flex-col justify-between gap-y-8 overflow-hidden rounded-4xl border bg-muted/40 transition-colors duration-500 hover:bg-muted/60"
 >
 	<div class="relative flex flex-col gap-y-2">
-		<h3 class="font-medium">{project.title}</h3>
+		<h3 class="ty-h4">{project.title}</h3>
 		<p class="text-pretty text-muted-foreground">
 			{project.description}
 		</p>

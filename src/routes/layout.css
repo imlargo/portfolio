@@ -245,20 +245,33 @@
 }
 
 /* ── Tipografía ─────────────────────────────────────────────────────────── */
+/* ── Escala tipográfica ───────────────────────────────────────────────────────
+   Una sola regla detrás de todo esto: la jerarquía la marca el TAMAÑO, no el
+   grosor. Un título grande en peso normal se lee sofisticado; el mismo título
+   en negrita se lee como un aviso. Por eso `ty-h1` y `ty-h2` no llevan peso
+   —heredan el 400 del cuerpo— y a partir de `ty-h3`, donde el tamaño ya no
+   alcanza para separar, entra `font-medium` y nunca más arriba.
+
+   `font-semibold` y superiores quedan reservados para dos excepciones que no
+   son texto de lectura: el wordmark gigante del footer, que es una masa
+   decorativa, y nada más.
+
+   El énfasis dentro de un párrafo se marca con COLOR (`text-foreground` sobre
+   prosa en `text-muted-foreground`), no engordando la palabra. */
 .ty-h1 {
-	@apply scroll-m-20 text-4xl font-semibold tracking-tight text-balance;
+	@apply scroll-m-20 text-4xl tracking-tight text-balance md:text-5xl;
 }
 
 .ty-h2 {
-	@apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+	@apply scroll-m-20 text-3xl tracking-tight text-balance md:text-4xl;
 }
 
 .ty-h3 {
-	@apply scroll-m-20 text-2xl font-semibold tracking-tight;
+	@apply scroll-m-20 text-xl font-medium tracking-tight;
 }
 
 .ty-h4 {
-	@apply scroll-m-20 text-xl font-semibold tracking-tight;
+	@apply scroll-m-20 text-lg font-medium tracking-tight;
 }
 
 .ty-inlinecode {
@@ -266,11 +279,11 @@
 }
 
 .ty-lead {
-	@apply text-xl text-muted-foreground;
+	@apply text-lg text-muted-foreground;
 }
 
 .ty-large {
-	@apply text-lg font-semibold;
+	@apply text-lg font-medium;
 }
 
 .ty-small {

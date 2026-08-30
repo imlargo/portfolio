@@ -39,7 +39,7 @@
 				<div class="flex flex-col gap-y-4">
 					<PostMeta date={post.date} readingTime={data.readingTime} />
 
-					<h1 class="ty-h1 max-w-4xl text-4xl lg:text-5xl">{post.title}</h1>
+					<h1 class="ty-h1 max-w-4xl">{post.title}</h1>
 
 					<p class="ty-lead max-w-prose text-pretty">{post.description}</p>
 				</div>
