@@ -42,13 +42,13 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 				type: 'list',
 				items: [
 					'`axios` comes from before `fetch` was universal, which explains most of it: its own adapter layer over XHR and Node `http`, an interceptor system, CJS support. It is still the default answer in most of the ecosystem.',
-					'`ky` is the closest sibling — `fetch`-only, zero dependencies, ESM-only, one author’s taste applied consistently. It makes the opposite call on batteries: retry, timeout and hooks ship with it, and by default it times out at 10 s and retries twice.',
+					'`ky` is the closest sibling — `fetch`-only, zero dependencies, ESM-only, the taste of one author applied consistently. It makes the opposite call on batteries: retry, timeout and hooks ship with it, and by default it times out at 10 s and retries twice.',
 					'`ofetch` has almost exactly the ergonomics I wanted, and pays for Node compatibility to get there: three runtime dependencies and a polyfill that accounts for most of its cost on the server. It also retries GET and HEAD once, silently.'
 				]
 			},
 			{
 				type: 'paragraph',
-				text: 'None of that is wrong. It is a different bet, and the differences are mostly about who owns the decisions. `ky` returns a response you call `.json<User>()` on; `axios` gives you a `data` property to unwrap on every call. Both defaults for retry above are somebody deciding on my behalf that a request I believe I sent once may have been sent twice.'
+				text: 'None of that is wrong. It is a different bet, and the difference is mostly about who owns the decisions: `ky` returns a response you call `.json<User>()` on, `axios` gives you a `data` property to unwrap on every call, and both retry defaults above mean a request I believe I sent once may have been sent twice.'
 			},
 			{
 				type: 'paragraph',
@@ -104,7 +104,7 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			},
 			{
 				type: 'paragraph',
-				text: 'query refuses to guess. Values are primitives or arrays of primitives, and the type enforces it, so an object or a `Date` is a compile error instead of an `[object Object]` or a locale-dependent string you find in production. `undefined` and `null` are dropped while `false`, `0` and `''` are kept, which is the same bug I have written by hand in a dozen of those `api.ts` files.'
+				text: '`query` refuses to guess. Values are primitives or arrays of primitives, and the type enforces it, so an object or a `Date` is a compile error instead of an `[object Object]` or a locale-dependent string you find in production. `undefined` and `null` are dropped while `false`, `0` and the empty string are kept, which is the same bug I have written by hand in a dozen of those `api.ts` files.'
 			},
 			{
 				type: 'code',
@@ -117,7 +117,7 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: 'Body detection never re-serializes something that is already a valid `fetch` body. Plain objects and arrays become JSON with a `Content-Type`; `FormData`, `Blob`, `URLSearchParams`, typed arrays and strings pass through untouched. `FormData` is the one place air overrides the caller instead of deferring to them: it deletes a `Content-Type` even when it was set explicitly, because the multipart boundary is generated at send time and no literal value a caller could write is ever correct. That is the most common bug in wrappers like this one.'
+				text: 'Body detection never re-serializes something that is already a valid `fetch` body: plain objects and arrays become JSON with a `Content-Type`, and `FormData`, `Blob`, `URLSearchParams`, typed arrays and strings pass through untouched. `FormData` is the one place air overrides the caller instead of deferring to them, deleting a `Content-Type` even when it was set explicitly, because the multipart boundary is generated at send time and no literal value a caller could write is ever correct. That is the most common bug in wrappers like this one.'
 			},
 			{
 				type: 'paragraph',
@@ -164,7 +164,7 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: "Retry went for a subtler reason. A retry loop has to tell a transient failure apart from a request the caller cancelled on purpose, and the only reliable source for that is the `AbortSignal` itself — `abort(reason)` lets the caller supply any reason, so sniffing the error's `name` for `AbortError` misclassifies a deliberate cancellation as a transient failure. Mine retried cancelled requests three times, and there was no fixing it where it sat: a generic helper that receives a callback and an error never has the signal in scope. In the caller's own code the loop is five lines and the signal is right there."
+				text: "Retry went for a subtler reason. A retry loop has to tell a transient failure apart from a request the caller cancelled on purpose, and the only reliable source for that is the `AbortSignal` itself: `abort(reason)` lets the caller supply any reason, so sniffing the error's `name` for `AbortError` misclassifies a deliberate cancellation as transient. Mine retried cancelled requests three times, and there was no fixing it where it sat, because a generic helper that receives a callback and an error never has the signal in scope. In the caller's own code the loop is five lines and the signal is right there."
 			},
 			{
 				type: 'paragraph',
@@ -173,16 +173,16 @@ await api.get('/search', { query: { since: new Date() } })
 			{ type: 'heading', level: 2, text: 'What the tests could not tell me' },
 			{
 				type: 'paragraph',
-				text: 'All three bugs air has shipped got through a fully green test run: a streaming request body that threw at the transport, a shared signal that permanently broke a client after five seconds, and a `null` header that went out as the string `"null"`. That is the shape of the tool rather than a coverage gap. The suite mocks `fetch`, and a mock agrees with whatever its author already believed. Real `fetch` refuses a `ReadableStream` body without `duplex: \'half\'`, rejects an already-fired signal before sending, and the `Headers` constructor stringifies a `null` instead of deleting the key. A hand-written double does none of that unless you already knew about the bug.'
+				text: 'All three bugs air has shipped got through a fully green test run: a streaming request body that threw at the transport, a shared signal that permanently broke a client after five seconds, and a `null` header that went out as the string `"null"`. That is the shape of the tool rather than a coverage gap. The suite mocks `fetch`, and a mock agrees with whatever its author already believed.'
 			},
 			{
 				type: 'paragraph',
-				text: 'So `examples/` became the integration lane: seven files, each one a recipe from the README made executable. Each starts a local HTTP server, exercises the built package over real `fetch`, and asserts what it demonstrates. CI runs them on every supported Node, and all three shipped bugs are pinned there. If a recipe cannot be asserted, I do not understand it well enough to publish it.'
+				text: "Real `fetch` refuses a `ReadableStream` body without `duplex: 'half'`, rejects an already-fired signal before sending, and the `Headers` constructor stringifies a `null` instead of deleting the key. A hand-written double does none of that unless you already knew about the bug. So `examples/` became the integration lane: seven files, each one a recipe from the README made executable against a local server and the real `fetch`, asserting what it demonstrates. CI runs them on every supported Node, and all three shipped bugs are pinned there."
 			},
 			{ type: 'heading', level: 2, text: 'What it cost to publish' },
 			{
 				type: 'paragraph',
-				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it; `npm publish --dry-run` in a fresh clone caught it, and that is now the thing I do before every release. The name `air` was taken on npm, so it went out as `@korastd/air`. npm had removed the 2FA-bypass tokens automation used to rely on, so the release workflow authenticates through OIDC trusted publishing with no long-lived credential anywhere. Then GitHub Actions had a major outage on release day and the first publish went out by hand behind a passkey.'
+				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it; `npm publish --dry-run` in a fresh clone caught it, and that is now the thing I do before every release. The name `air` was taken on npm, so it went out as `@korastd/air`, and CI publishes through OIDC trusted publishing rather than a stored token.'
 			},
 			{
 				type: 'paragraph',
