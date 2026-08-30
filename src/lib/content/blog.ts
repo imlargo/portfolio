@@ -18,11 +18,11 @@ const posts: Post[] = [
 			},
 			{
 				type: 'paragraph',
-				text: 'That file is never finished, either. It gets a token header when the app grows auth, a `Content-Type` exception the first time someone uploads a file, a second branch when the framework hands me its own `fetch` on the server. By then it is a small library living inside an application, with no tests, no name and no reason to be there.'
+				text: 'That file is never finished, either. It gets a token header when the app grows auth, a `Content-Type` exception the first time someone uploads a file, a second branch when the framework hands me its own `fetch` on the server. By then it is a small library living inside an application, with no tests and no name of its own.'
 			},
 			{
 				type: 'paragraph',
-				text: 'So I wrote it once, on purpose, as a package. air is seven files and about 580 lines of TypeScript with no runtime dependencies, and it does four things: build a URL, detect a body, parse a response, and throw an error worth catching.'
+				text: 'So I wrote it once, on purpose, as a package. air is seven files and about 580 lines of TypeScript with no runtime dependencies, and it does four things: build a URL, detect a body, parse a response, and throw an error that carries the response with it.'
 			},
 			{
 				type: 'code',
@@ -36,13 +36,13 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			{ type: 'heading', level: 2, text: 'Why not one of the existing ones' },
 			{
 				type: 'paragraph',
-				text: 'Before writing anything I read the three clients people actually compare, and measured them rather than trusting the impression each one gives. Bundled and minified with esbuild, then gzipped: `axios` is 18.6 kB in the browser and 64.9 kB on the server, `ky` 7.3 kB, `ofetch` 4 kB in the browser and 36.8 kB on the server.'
+				text: 'Before writing anything I read the three clients people compare it to, and measured them rather than trusting the impression each one gives. Bundled and minified with esbuild, then gzipped: `axios` is 18.6 kB in the browser and 64.9 kB on the server, `ky` 7.3 kB, `ofetch` 4 kB in the browser and 36.8 kB on the server.'
 			},
 			{
 				type: 'list',
 				items: [
 					'`axios` comes from before `fetch` was universal, which explains most of it: its own adapter layer over XHR and Node `http`, an interceptor system, CJS support. It is still the default answer in most of the ecosystem.',
-					'`ky` is the closest sibling — `fetch`-only, zero dependencies, ESM-only, the taste of one author applied consistently. It makes the opposite call on batteries: retry, timeout and hooks ship with it, and by default it times out at 10 s and retries twice.',
+					'`ky` is the closest sibling: `fetch`-only, zero dependencies, ESM-only, the taste of one author applied consistently. It makes the opposite call on batteries: retry, timeout and hooks ship with it, and by default it times out at 10 s and retries twice.',
 					'`ofetch` has almost exactly the ergonomics I wanted, and pays for Node compatibility to get there: three runtime dependencies and a polyfill that accounts for most of its cost on the server. It also retries GET and HEAD once, silently.'
 				]
 			},
@@ -61,7 +61,7 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			{ type: 'heading', level: 2, text: 'The rules came before the code' },
 			{
 				type: 'paragraph',
-				text: 'The first commit that mattered was not code. It was a document: less code is better, zero runtime dependencies ever, native `fetch` only with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of things air is not allowed to become — interceptor chains, a plugin system, retries or timeouts in any form, caching, request deduplication, Node-only features that break in a browser.'
+				text: 'The first commit that mattered was not code. It was a document: less code is better, zero runtime dependencies ever, native `fetch` only with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of things air is not allowed to become: interceptor chains, a plugin system, retries or timeouts in any form, caching, request deduplication, Node-only features that break in a browser.'
 			},
 			{
 				type: 'paragraph',
@@ -73,12 +73,12 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			},
 			{
 				type: 'paragraph',
-				text: 'That question is where the real gaps were. Auto-parsing the response is the entire point of a wrapper like this, right up until you want something that lives on the response rather than in it — a `Link` header, an `ETag`, `201` versus `200`, the final URL after a redirect. On a successful call none of it was reachable, and nobody was ever going to file an issue about it; they would have dropped down to `fetch` for that one endpoint and moved on. Every client carries a `raw` twin now, with the same seven methods, resolving to `{ data, response }` instead of the body.'
+				text: 'That question is where the gaps were. Auto-parsing the response is the entire point of a wrapper like this, right up until you want something that lives on the response rather than in it: a `Link` header, an `ETag`, `201` versus `200`, the final URL after a redirect. On a successful call none of it was reachable, and nobody was ever going to file an issue about it; they would have dropped down to `fetch` for that one endpoint and moved on. Every client carries a `raw` twin now, with the same seven methods, resolving to `{ data, response }` instead of the body.'
 			},
 			{ type: 'heading', level: 2, text: 'One implementation, not two' },
 			{
 				type: 'paragraph',
-				text: 'air had to work two ways: as a direct wrapper you call with `air.get(url)`, and as a factory producing configured clients with `air.create({ baseURL })`. The obvious implementation gives you two code paths — a default instance and a constructor — and they drift the first time an option lands in one and not the other.'
+				text: 'air had to work two ways: as a direct wrapper you call with `air.get(url)`, and as a factory producing configured clients with `air.create({ baseURL })`. The obvious implementation gives you two code paths (a default instance and a constructor), and they drift the first time an option lands in one and not the other.'
 			},
 			{
 				type: 'paragraph',
@@ -91,7 +91,7 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			},
 			{
 				type: 'paragraph',
-				text: 'The same idea decided the rest of the internals. The seven verbs are listed in one helper that both the plain client and the raw one are built from, so a method cannot be added to one and forgotten in the other. Both clients project from a single `request()` that always resolves to both halves, because two code paths through a request is how they disagree about what a request is. The whole thing is seven flat files — `url`, `body`, `parse`, `error`, `client`, `types`, `index` — with no directory tree and no barrel file except the entry point.'
+				text: 'The same idea decided the rest of the internals. The seven verbs are listed in one helper that both the plain client and the raw one are built from, so a method cannot be added to one and forgotten in the other. Both clients project from a single `request()` that always resolves to both halves, because two code paths through a request is how they disagree about what a request is. The whole thing is seven flat files (`url`, `body`, `parse`, `error`, `client`, `types`, `index`), with no directory tree and no barrel file except the entry point.'
 			},
 			{ type: 'heading', level: 2, text: 'Eight options, and what each one had to prove' },
 			{
@@ -100,7 +100,7 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			},
 			{
 				type: 'paragraph',
-				text: '`baseURL` joins as strings rather than resolving as URLs. Standard URL resolution treats a leading slash as origin-root, so `https://api.test/v1` plus `/users` would drop the `/v1` and surprise everyone who mounts an API under a path. For the same reason a leading `//` is treated as a path and not as a protocol-relative URL: stray double slashes from string building are far more common than the intentional case, which is deprecated anyway. I changed that rule once and reverted it when a test showed `///users` resolving to `https://users/`.'
+				text: '`baseURL` joins as strings rather than resolving as URLs. Standard URL resolution treats a leading slash as origin-root, so `https://api.test/v1` plus `/users` would drop the `/v1`, which breaks any API mounted under a path. For the same reason a leading `//` is treated as a path and not as a protocol-relative URL: stray double slashes from string building are far more common than the intentional case, which is deprecated anyway. I changed that rule once and reverted it when a test showed `///users` resolving to `https://users/`.'
 			},
 			{
 				type: 'paragraph',
@@ -121,7 +121,7 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: 'And errors, which are the actual reason people wrap `fetch` in the first place. A non-2xx throws an `AirError` carrying the status, the parsed error body, the response, and the request as it was really sent — including the resolved headers, because `options.headers` may still be an unevaluated function, which is useless when you are holding a 401 and want to know which token went out.'
+				text: 'And errors, which are the reason people wrap `fetch` in the first place. A non-2xx throws an `AirError` carrying the status, the parsed error body, the response, and the request as it was really sent, resolved headers included. `options.headers` may still be an unevaluated function, which is useless when you are holding a 401 and want to know which token went out.'
 			},
 			{
 				type: 'code',
@@ -142,7 +142,7 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: 'The fix stayed inside the existing option instead of growing a new one: `headers` may be a function, called once per request. Header sources also merge lazily, so a chain of `create()` calls nests closures and nothing is resolved until the request that needs it — resolving eagerly at merge time would reintroduce the frozen token one layer down.'
+				text: 'The fix stayed inside the existing option instead of growing a new one: `headers` may be a function, called once per request. Header sources also merge lazily, so a chain of `create()` calls nests closures and nothing is resolved until the request that needs it. Resolving eagerly at merge time would reintroduce the frozen token one layer down.'
 			},
 			{
 				type: 'code',
@@ -186,7 +186,7 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: 'What is left is 122 tests, seven modules, 7.6 kB of JavaScript, and a contributing guide that records why each decision went the way it did — including the ones that removed something.'
+				text: 'What is left is 122 tests, seven modules, 7.6 kB of JavaScript, and a contributing guide that records why each decision went the way it did, including the ones that removed something.'
 			},
 			{
 				type: 'paragraph',
