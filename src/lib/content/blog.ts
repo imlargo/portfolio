@@ -3,9 +3,9 @@ import type { Post, PostBlock, PostSummary } from './types';
 const posts: Post[] = [
 	{
 		slug: 'building-air-from-empty-repo-to-npm',
-		title: 'Building air, and the two features I deleted',
+		title: 'Taking things out of air before publishing it',
 		description:
-			'A fetch wrapper I published to npm. It worked in an afternoon; the two weeks after went into deciding what it was not allowed to become, and into the class of bug a green test suite is structurally unable to see.',
+			'A fetch wrapper I published to npm. The first working version took an afternoon; the two weeks after went into removing two features it already had, and into the class of bug a green test suite cannot see.',
 		date: '2026-08-19',
 		tags: ['TypeScript', 'Open Source', 'API Design'],
 		// azul cristal: una librería mínima y precisa, sin peso de más
@@ -14,33 +14,24 @@ const posts: Post[] = [
 		content: [
 			{
 				type: 'paragraph',
-				text: 'Every project I work on eventually grows the same file. `api.ts` or `http.ts`, wrapping `fetch`: parse the response, throw when the status is not 2xx, join a base URL, serialize a body. None of it is hard, and I had still written it from scratch every time, because copying the old one over always felt worse than retyping it.'
+				text: 'Every project I work on eventually grows the same file. `api.ts` or `http.ts`, wrapping `fetch`: join a base URL, serialize a body, parse the response, throw when the status is not 2xx. None of it is hard, and I had still written it from scratch every time, because copying the old one over always felt worse than retyping it.'
 			},
 			{
 				type: 'paragraph',
-				text: 'So I wrote it once properly. air is 371 lines across seven files, zero runtime dependencies, 2.6 kB gzipped on the wire, and the first working version took an afternoon. Then I spent two weeks and seventy-seven commits on something that already worked.'
+				text: 'So I wrote it once, properly. air is seven files and about 580 lines of TypeScript, zero runtime dependencies, 7.6 kB shipped and 2.6 kB gzipped. The first working version took an afternoon. The seventy-seven commits after it were mostly about what the library was not going to do.'
+			},
+			{ type: 'heading', level: 2, text: 'The rules came before the code' },
+			{
+				type: 'paragraph',
+				text: 'Before writing anything I put the philosophy in the repo as its own document. Most of it is a list of things air is not allowed to become: interceptor chains, a plugin system, retries or timeouts in any form, caching, request deduplication, Node-only escape hatches that break in a browser.'
 			},
 			{
 				type: 'paragraph',
-				text: 'Almost none of that time went into HTTP.'
-			},
-			{ type: 'heading', level: 2, text: 'Writing the constraints down first' },
-			{
-				type: 'paragraph',
-				text: 'Before writing any code I put the philosophy in the repo as its own document. Most of it is a list of things air is not allowed to become: interceptor chains, a plugin system, retries or timeouts in any form, caching, request deduplication, Node-only escape hatches that break in a browser.'
+				text: 'That is a lot of ceremony for a package this size, and it earned its place anyway. On day one the pressure to add a feature does not come from users. It comes from me at 11 p.m., deciding that one small option would be convenient. With the rule written down, I have to go argue with the document first.'
 			},
 			{
 				type: 'paragraph',
-				text: 'That is a lot of ceremony for a package this small. It earned its place anyway. On day one the pressure to add a feature does not come from users. It comes from me at 11 p.m., deciding that one small option would be convenient. Having written the rule down, I have to go argue with the document before I add anything.'
-			},
-			{ type: 'heading', level: 2, text: 'The question that keeps "less is better" honest' },
-			{
-				type: 'paragraph',
-				text: '*Less code is better* is the first rule in that document, and it is the one that needed a counterweight. It can justify any omission, because the cost of a feature you shipped is visible in the diff and the cost of one you did not ship is invisible everywhere. So next to *what can we remove?*, every review asks a second question: **what can a user not do at all?** The first has an obvious answer. The second is where the real defects were.'
-			},
-			{
-				type: 'paragraph',
-				text: 'The raw client came out of that. Auto-parsing the response is the entire point of a wrapper like this, right up until you want something that lives on the response rather than in it: a `Link` header, an `ETag`, a rate-limit budget, `201` versus `200`, the final URL after a redirect. On a successful call, none of it was reachable. Minimalism had justified the omission, and nobody was ever going to file an issue about it. They would have dropped down to `fetch` for that one endpoint and moved on.'
+				text: 'The rule that needed a counterweight is the first one, "less code is better". It can justify any omission, because the cost of a feature you shipped shows up in the diff and the cost of one you did not ship shows up nowhere. So every review asks a second question next to *what can we remove*: what can a user not do at all? That is where the real gaps were. Auto-parsing the response is the entire point of a wrapper like this, right up until you want something that lives on the response rather than in it — a `Link` header, an `ETag`, `201` versus `200`, the final URL after a redirect. On a successful call, none of it was reachable, and nobody was ever going to file an issue about it. They would have dropped down to `fetch` for that one endpoint and moved on. Every client carries a `raw` twin now.'
 			},
 			{
 				type: 'code',
@@ -50,60 +41,7 @@ const posts: Post[] = [
 data[0].name
 response.headers.get('link')`
 			},
-			{
-				type: 'paragraph',
-				text: 'A second client rather than a `raw: true` option, because an option that rewrites the return type has to be read back out with a conditional type. Both clients project from the same `request()`, which always resolves to both halves: two code paths through a request is how they drift apart.'
-			},
-			{ type: 'heading', level: 2, text: 'One decision shaped the whole API' },
-			{
-				type: 'paragraph',
-				text: 'air had to work two ways: as a direct wrapper you call with `air.get(url)`, and as a factory producing configured clients with `air.create({ baseURL })`. The obvious implementation gives you two code paths, a default instance and a constructor, and they drift the first time an option lands in one and not the other.'
-			},
-			{
-				type: 'paragraph',
-				text: 'The fix was to stop treating the root export as special. `air` is a client created with empty defaults, so there is exactly one implementation.'
-			},
-			{
-				type: 'code',
-				language: 'ts',
-				code: `export function create(defaults: AirOptions = {}): AirClient {
-  const settle = (options?: AnyOptions, method?: string): AnyOptions =>
-    method ? { ...merge(defaults, options), method } : merge(defaults, options)
-
-  const call = <T>(url: AirURL, options?: AnyOptions): Promise<T> =>
-    request(url, settle(options)).then((result) => result.data as T)
-
-  const shortcut =
-    (method: string) =>
-    <T>(url: AirURL, options?: AnyOptions): Promise<T> =>
-      request(url, settle(options, method)).then((result) => result.data as T)
-
-  return Object.assign(call, verbs(shortcut), {
-    raw: Object.assign(rawCall, verbs(rawShortcut)),
-    create: (options?: AirOptions) => create(merge(defaults, options) as AirOptions)
-  })
-}
-
-export const air = create()`
-			},
-			{
-				type: 'paragraph',
-				text: 'The seven verbs are listed in exactly one place too, in that `verbs()` helper, which both the plain client and the raw one are built from, for the same reason. A method cannot be added to one client and forgotten in the other if there is only one list. The rest fell into seven flat files: `url`, `body`, `parse`, `error`, `client`, `types`, `index` (the largest of them 233 lines, comments included). No directory tree, and no barrel file except the entry point.'
-			},
-			{ type: 'heading', level: 2, text: 'The bug that never failed' },
-			{
-				type: 'paragraph',
-				text: 'The worst defect this library shipped never produced an error. air picks a parse mode from the response `Content-Type`: JSON for `application/json`, text for anything under `text/`, a `Blob` for the rest. `text/event-stream` matches that `text/` prefix, so a server-sent-events endpoint was read as text. And every parse mode but one reads the body to completion.'
-			},
-			{
-				type: 'paragraph',
-				text: 'An SSE endpoint is designed never to close. So the request succeeded, the bytes kept arriving, and the promise never settled. Not a failure you could catch: no status to inspect, no error to log, nothing on fire. Just a call that never came back.'
-			},
-			{
-				type: 'paragraph',
-				text: '`text/event-stream`, `application/x-ndjson` and `application/jsonl` are now checked before the `text/` rule and handed back unread, as a `ReadableStream`. The fix has a cost: that list is something I maintain now, and adding to it is a breaking change for anyone parsing one of those types today. `application/octet-stream` is deliberately not on it, despite the name: a binary download ends, and buffering one is what `Blob` is for.'
-			},
-			{ type: 'heading', level: 2, text: 'Deleting features instead of fixing them' },
+			{ type: 'heading', level: 2, text: 'Deleting two features instead of fixing them' },
 			{
 				type: 'paragraph',
 				text: "The first `timeout` option was built the obvious way: an `AbortController` inside the client, a timer that aborts it, the caller's own signal forwarded in, and a `finally` that tears both down when the request finishes. But `fetch()` resolves when the headers arrive, not when the body has been read, so that cleanup disarmed the timer exactly as the download started. I pointed it at an endpoint that drips its body over ten seconds, set a 500 ms timeout, fired an explicit abort at 50 ms, and watched the request hang forever."
@@ -114,7 +52,7 @@ export const air = create()`
 			},
 			{
 				type: 'paragraph',
-				text: "That went well enough that I did the same to `retry`, pulling it out into a standalone helper. The helper turned out to have a bug of its own. A retry loop has to tell a transient failure apart from a request the caller cancelled on purpose, and mine did it by checking the error's `name` for `AbortError`. Which holds until someone writes `controller.abort(new Error('user navigated away'))`. Now the name is `Error`, the check says transient, and the helper makes three attempts at a request that was explicitly cancelled. I watched it do that in a test."
+				text: "That went well enough that I did the same to `retry`, pulling it out into a standalone helper. The helper had a bug of its own. A retry loop has to tell a transient failure apart from a request the caller cancelled on purpose, and mine did it by checking the error's `name` for `AbortError`, which holds until someone writes `controller.abort(new Error('user navigated away'))`. Now the name is `Error`, the check says transient, and the helper makes three attempts at a request that was explicitly cancelled. I watched it do that in a test."
 			},
 			{
 				type: 'paragraph',
@@ -138,12 +76,12 @@ async function withRetry(fn, signal, attempts = 3) {
 			},
 			{
 				type: 'paragraph',
-				text: "Reading `ofetch` afterwards, I found its retry loop making the same `error.name === 'AbortError'` check for the same decision, which is the outside confirmation I did not have when I deleted mine. The rule that came out of it generalizes past retries: **moving a decision out of the client only works if the information behind it moves out too.** Before extracting anything into a helper, check which of the two it actually needs."
+				text: "Reading `ofetch` afterwards, I found its retry loop making the same `error.name === 'AbortError'` check for the same decision, which is the outside confirmation I did not have when I deleted mine."
 			},
-			{ type: 'heading', level: 2, text: 'What the deletion cost' },
+			{ type: 'heading', level: 2, text: 'What the removal cost' },
 			{
 				type: 'paragraph',
-				text: 'Removing `timeout` left a hole, and it took a user-facing bug to see it. Pointing people at `AbortSignal.timeout(ms)` works per request; it gives them no way to express a budget as a client default. Written into `create()`, a signal is a single instance shared by every request that client will ever make, with its clock started at `create()` time.'
+				text: 'Taking `timeout` out left a hole, and it took a user-facing bug to show it to me. Pointing people at `AbortSignal.timeout(ms)` works per request and gives them no way to express a budget as a client default. Written into `create()`, a signal is one instance shared by every request that client will ever make, with its clock started at `create()` time.'
 			},
 			{
 				type: 'code',
@@ -157,71 +95,38 @@ const api = air.create({ signal: () => AbortSignal.timeout(5000) })`
 			},
 			{
 				type: 'paragraph',
-				text: 'A fired signal stays fired, and `fetch` rejects an already-aborted one before it sends anything, so the client worked for five seconds and was then permanently broken. Same trap as a static `Authorization` header baked into a long-lived client, and the same fix.'
+				text: 'A fired signal stays fired, and `fetch` rejects an already-aborted one before it sends anything, so the client worked for five seconds and was then permanently broken. That function is narrower than it looks: there is still no `AbortController` inside the client, no bridging and no composing of signals, and forwarding is still untouched, so the bug that got `timeout` deleted stays fixed. It only decides which signal gets forwarded. `headers` takes a function for the same reason, since a token that refreshes cannot be baked into a long-lived client either.'
+			},
+			{ type: 'heading', level: 2, text: 'The bug that never failed' },
+			{
+				type: 'paragraph',
+				text: 'The worst defect this library shipped never produced an error. air picks a parse mode from the response `Content-Type`: JSON for `application/json`, text for anything under `text/`, a `Blob` for the rest. `text/event-stream` matches that `text/` prefix, so a server-sent-events endpoint was read as text, and every parse mode but one reads the body to completion.'
 			},
 			{
 				type: 'paragraph',
-				text: 'That function is narrower than it looks. There is still no `AbortController` inside the client, no bridging and no composing of signals; it only decides *which* signal gets forwarded, and forwarding is still untouched: the bug that got `timeout` deleted stays fixed. Two options now take a function for the same reason, so the pattern earned a name: **an option whose correct value is only knowable per request may be a function.** Which is not a licence to make everything a thunk. `baseURL` cannot go stale between requests, and a function there would buy nothing but a call.'
-			},
-			{ type: 'heading', level: 2, text: 'A type that could not lie' },
-			{
-				type: 'paragraph',
-				text: "`parse: 'stream'` hands the body back unread. It is also the one parse mode whose type air already knows, which is what made this compile:"
-			},
-			{
-				type: 'code',
-				language: 'ts',
-				code: `const user = await api.get<User>('/download', { parse: 'stream' })
-user.id // typechecks. it is a ReadableStream.`
+				text: 'An SSE endpoint is designed never to close. So the request succeeded, the bytes kept arriving, and the promise never settled. There was no status to inspect, no error to log, nothing on fire. Just a call that never came back.'
 			},
 			{
 				type: 'paragraph',
-				text: "Every other mode's type is the caller's assertion, because only they know what the endpoint returns. For this one the compiler was endorsing an answer it could see was wrong. That is the single class of defect here that corrupts a program rather than annoying a developer, and the second time that exact hole opened: an earlier `parse: 'response'` had it first, and its replacement reopened it."
-			},
-			{
-				type: 'paragraph',
-				text: 'Four designs went through the compiler before one held. Overloads alone do not close it: an explicit `<T>` makes TypeScript discard every overload without type parameters and fall through to the generic one. What shipped is the fourth attempt: `stream` is excluded from the options type entirely, and reachable only through an overload that has no `<T>` to contradict.'
-			},
-			{
-				type: 'paragraph',
-				text: 'Client defaults are the one place no signature can reach, so `air.create({ parse: \'stream\' })` is a compile error rather than a documented footgun. A client sends requests to many endpoints, and "every response here is an unread stream" was never a thing to mean.'
-			},
-			{ type: 'heading', level: 2, text: 'Reading ofetch' },
-			{
-				type: 'paragraph',
-				text: 'Once the design settled I cloned `ofetch` and read all 800 lines of it. It has been in this problem space for years and has already met edge cases I had not reached. Two things went in; the rest went into a written rejected list, so the next person who reads that source does not re-propose them from scratch.'
-			},
-			{
-				type: 'list',
-				items: [
-					"Took: trimming the library's own frames off thrown stack traces. One guarded call to `Error.captureStackTrace`, and every error points at the caller's line instead of at air's internals.",
-					'Took: accepting a `URL` object as a request target. Native `fetch` does, and my signature had been narrower than the thing it wraps.',
-					'Refused: lifecycle hooks. Seen in a real implementation they cost a context object threaded through four optional slots. The concrete request behind the ask is almost always "refresh the token on a 401", which a wrapper around the injected `fetch` answers on its own. So the README answers it there, once, instead of the library carrying the general case forever.',
-					'Refused: quietly `JSON.stringify`-ing nested query values. Objects and `Date`s are a compile error instead, so passing one is something you see immediately rather than a locale-dependent string you find in production.'
-				]
+				text: '`text/event-stream`, `application/x-ndjson` and `application/jsonl` are checked before the `text/` rule now, and handed back unread as a `ReadableStream`. `application/octet-stream` is deliberately not on that list, despite the name: a binary download ends, and buffering one is what `Blob` is for.'
 			},
 			{ type: 'heading', level: 2, text: 'The test suite was never the gate' },
 			{
 				type: 'paragraph',
-				text: 'All three bugs air has shipped got through a fully green test run. A streaming request body that threw at the transport, the shared signal above, and a `null` header that went out as the string `"null"` on one code path. That is the shape of the tool, not a coverage gap: the suite mocks `fetch`, and a mock agrees with whatever its author already believed.'
+				text: 'All three bugs air has shipped got through a fully green test run: a streaming request body that threw at the transport, the shared signal above, and a `null` header that went out as the string `"null"` on one code path. That is the shape of the tool, not a coverage gap. The suite mocks `fetch`, and a mock agrees with whatever its author already believed.'
 			},
 			{
 				type: 'paragraph',
-				text: "Real `fetch` refuses a `ReadableStream` body unless you tell it `duplex: 'half'`. Real `fetch` rejects an already-fired signal before sending. The `Headers` constructor stringifies a `null` instead of deleting the key. A hand-written double does none of that unless you already knew to make it. Which is to say: unless you already knew about the bug."
+				text: "Real `fetch` refuses a `ReadableStream` body unless you tell it `duplex: 'half'`. Real `fetch` rejects an already-fired signal before sending. The `Headers` constructor stringifies a `null` instead of deleting the key. A hand-written double does none of that unless you already knew to make it, which is to say unless you already knew about the bug."
 			},
 			{
 				type: 'paragraph',
-				text: 'So `examples/` became the integration lane. Seven files, each one a recipe from the README made executable: it starts a local HTTP server, exercises the built package over real `fetch`, and asserts what it demonstrates. CI runs them on every supported Node, and all three shipped bugs are pinned there now. Each file is a recipe *and* a test, in that order: setup above a `--- the recipe ---` marker so the part a reader copies is obvious, assertions below a `--- what it proves ---` one. If a recipe cannot be asserted, it is not understood well enough to publish.'
-			},
-			{
-				type: 'quote',
-				text: 'When the mock and the platform disagree, the mock is wrong.',
-				cite: 'CONTRIBUTING.md'
+				text: 'So `examples/` became the integration lane. Seven files, each one a recipe from the README made executable: it starts a local HTTP server, exercises the built package over real `fetch`, and asserts what it demonstrates. CI runs them on every supported Node, and all three shipped bugs are pinned there now. If a recipe cannot be asserted, I do not understand it well enough to publish it.'
 			},
 			{ type: 'heading', level: 2, text: 'Shipping was its own project' },
 			{
 				type: 'paragraph',
-				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it, caught by running `npm publish --dry-run` in a fresh clone, which is now the thing I do before every release. The name `air` was taken on npm, so it went out as `@korastd/air`. And npm had removed the 2FA-bypass tokens automation used to rely on, so a stored token in CI now just earns a 403; the release workflow authenticates through OIDC trusted publishing instead, with no long-lived credential anywhere.'
+				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it; running `npm publish --dry-run` in a fresh clone caught it, and that is now the thing I do before every release. The name `air` was taken on npm, so it went out as `@korastd/air`. And npm had removed the 2FA-bypass tokens automation used to rely on, so a stored token in CI now just earns a 403, and the release workflow authenticates through OIDC trusted publishing instead, with no long-lived credential anywhere.'
 			},
 			{
 				type: 'paragraph',
@@ -229,11 +134,7 @@ user.id // typechecks. it is a ReadableStream.`
 			},
 			{
 				type: 'paragraph',
-				text: "One more thing changes the moment code lands in somebody else's dependency tree. An app can end up holding two copies of a package (two versions resolved, or a bundled copy beside an installed one), and each copy brings its own classes. `isAirError` used `instanceof`, so across that boundary it would have quietly answered `false` on an error air itself had thrown. It checks a `Symbol.for('air.error')` brand now; the symbol registry is global, so every copy agrees."
-			},
-			{
-				type: 'paragraph',
-				text: 'What is left is 122 tests, seven modules, 7.6 kB of JavaScript, and a contributing guide that records why each removal happened, including one change I made, tested and then reverted when a new test showed `///users` resolving to `https://users/`.'
+				text: 'What is left is 122 tests, seven modules, 7.6 kB of JavaScript, and a contributing guide that records why each removal happened.'
 			},
 			{
 				type: 'paragraph',
