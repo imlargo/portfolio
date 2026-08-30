@@ -19,11 +19,12 @@
 		activeTag ? posts.filter((post) => post.tags.includes(activeTag!)) : posts
 	);
 
-	// Sin filtro, las dos entradas más recientes encabezan a mayor escala y el
-	// resto va debajo. Con filtro no hay "más recientes" que destacar: se muestra
-	// una sola retícula pareja, porque el criterio pasó a ser el tag.
-	const featured = $derived(activeTag ? [] : visible.slice(0, 2));
-	const rest = $derived(activeTag ? visible : visible.slice(2));
+	// Sin filtro, los posts marcados `featured` en el contenido encabezan a mayor
+	// escala —es una curaduría, no un cálculo por fecha— y el resto va debajo. Con
+	// filtro no hay curaduría que respetar: se muestra una sola retícula pareja,
+	// porque el criterio pasó a ser el tag.
+	const featured = $derived(activeTag ? [] : visible.filter((post) => post.featured));
+	const rest = $derived(activeTag ? visible : visible.filter((post) => !post.featured));
 
 	const motion = $derived(prefersReducedMotion() ? 0 : 1);
 </script>

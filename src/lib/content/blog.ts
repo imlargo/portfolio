@@ -299,7 +299,7 @@ func Handle(svc Service) http.HandlerFunc {
 				text: 'What is left is smaller than what I would have designed on a whiteboard, and every piece of it has a production system behind it. When someone asks why a boundary sits where it does, I can point at four codebases that put it there before I did.'
 			}
 		]
-	},
+	}
 ];
 
 const WORDS_PER_MINUTE = 210;
