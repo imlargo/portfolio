@@ -140,7 +140,14 @@ async function withRetry(fn, signal, attempts = 3) {
 				text: 'What is left is 70 tests, seven modules, and a contributing guide recording why each removal happened, including one change I made, tested and reverted inside an hour when a new test proved it wrong. A missing feature leaves no trace in the code. Without that file I would eventually put all of it back.'
 			}
 		]
-	},
+	}
+	/*
+	 * Pegaso y Medusa quedan escritos pero fuera de circulación: no aparecen en
+	 * /blog, no generan su ruta, y un enlace viejo a cualquiera de las dos da
+	 * 404 como cualquier slug que no existe. El contenido se conserva completo
+	 * —nada se borró— para poder reactivarlos descomentando este bloque.
+	 */
+	/*
 	{
 		slug: 'scaling-pegaso-to-6200-users',
 		title: 'Scaling Pegaso to 6,200 users without a budget',
@@ -300,6 +307,7 @@ func Handle(svc Service) http.HandlerFunc {
 			}
 		]
 	}
+	*/
 ];
 
 const WORDS_PER_MINUTE = 210;
