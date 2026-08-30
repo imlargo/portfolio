@@ -56,6 +56,8 @@ export type Post = {
 	 * sobre herramientas propias llevan el lila de marca.
 	 */
 	accent: string;
+	/** Va en la retícula grande del índice, sin importar qué tan reciente sea. */
+	featured?: boolean;
 	content: PostBlock[];
 };
 

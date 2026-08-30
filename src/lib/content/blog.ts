@@ -8,8 +8,9 @@ const posts: Post[] = [
 			'I wrote a 300-line fetch wrapper and published it to npm. Most of the work happened after it already worked: three bugs the test suite could not see, and two features I removed instead of fixing.',
 		date: '2026-08-06',
 		tags: ['TypeScript', 'Open Source', 'API Design'],
-		// cian frío: una librería mínima, sin peso — el tono acompaña el tamaño
-		accent: '#22d3ee',
+		// azul cristal: una librería mínima y precisa, sin peso de más
+		accent: '#3b82f6',
+		featured: true,
 		content: [
 			{
 				type: 'paragraph',
@@ -226,8 +227,12 @@ func (c *Catalog) Rebuild(ctx context.Context, db *pgxpool.Pool) error {
 			'Medusa came out of four production Go services that had ended up with the same structure. I pulled the shared parts into a framework, then put it back into the services it came from.',
 		date: '2026-03-02',
 		tags: ['Go', 'Open Source', 'Architecture'],
-		// azul: el framework extraído de servicios Go, frío y estructural
-		accent: '#3b82f6',
+		// Medusa es medusa: en español, el nombre ya es una criatura marina. El
+		// teal bioluminiscente lee más "aguaviva de profundidad" que "framework de
+		// Go", y es esa asociación —no el lenguaje— la que le da personalidad
+		// propia frente al resto de los acentos, todos elegidos por tecnología.
+		accent: '#0891b2',
+		featured: true,
 		content: [
 			{
 				type: 'paragraph',
@@ -295,68 +300,6 @@ func Handle(svc Service) http.HandlerFunc {
 			}
 		]
 	},
-	{
-		slug: 'migrating-vue-to-svelte-progressively',
-		title: 'Migrating a Vue codebase to Svelte, one route at a time',
-		description:
-			'Moving a production platform from Vue to Svelte without a feature freeze or a long-lived branch, and what the framework switch actually costs a team.',
-		date: '2026-01-20',
-		tags: ['Svelte', 'Vue', 'Frontend'],
-		// Svelte: es el destino de la migración
-		accent: '#ff3e00',
-		content: [
-			{
-				type: 'paragraph',
-				text: 'Any proposal that opens with "we stop shipping features for a quarter" gets rejected, and it should. So the migration had to be a sequence of changes that each ship on their own.'
-			},
-			{ type: 'heading', level: 2, text: 'Route-level boundaries' },
-			{
-				type: 'paragraph',
-				text: 'We move a route at a time, not a component at a time. A route already has a clean contract with the rest of the app: a URL, some query params, whatever lives in the shared store. Components have no such boundary, so going component by component turns the whole thing into an interop problem.'
-			},
-			{
-				type: 'paragraph',
-				text: 'Each migrated route deploys on its own. If one regresses, the rollback is that route.'
-			},
-			{ type: 'heading', level: 3, text: 'Keeping the design system in one place' },
-			{
-				type: 'paragraph',
-				text: 'The component library is the hard dependency. Two implementations means two sources of truth for every button state, and they drift. So the design decisions moved down into tokens that neither framework owns.'
-			},
-			{
-				type: 'code',
-				language: 'css',
-				code: `/* Tokens are framework-agnostic, so both implementations
-   render the same button without sharing code. */
-:root {
-	--control-height: 2.25rem;
-	--control-radius: 0.5rem;
-	--control-padding-inline: 0.875rem;
-	--control-bg: var(--primary);
-	--control-fg: var(--primary-foreground);
-}`
-			},
-			{
-				type: 'paragraph',
-				text: 'With tokens in place the Vue button and the Svelte button are thin wrappers over the same values, and a visual change is a token change reviewed once.'
-			},
-			{ type: 'heading', level: 2, text: 'What transfers and what does not' },
-			{
-				type: 'list',
-				items: [
-					'Reactivity intuition transfers almost completely. Runes and the Composition API are the same mental model with different syntax.',
-					"Store patterns only half transfer. Anything built around Vue's plugin injection has to be rethought rather than ported.",
-					'Build tooling is a non-issue, since both sit on Vite.',
-					'Team habits are the slow part, and they set the real timeline.'
-				]
-			},
-			{ type: 'heading', level: 2, text: 'Where it stands' },
-			{
-				type: 'paragraph',
-				text: 'Several routes are live in Svelte, both frameworks read the same token layer, and the team ships at the same cadence as before. There was no freeze and no long-lived branch, and there will not be a launch day either.'
-			}
-		]
-	}
 ];
 
 const WORDS_PER_MINUTE = 210;
