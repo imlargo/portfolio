@@ -1,0 +1,24 @@
+<script lang="ts">
+	import { page } from '$app/state';
+	import { Button } from '$lib/components/ui/button';
+</script>
+
+<div
+	class="px-layout flex min-h-svh w-full flex-col items-center justify-center gap-y-6 text-center"
+>
+	<p class="font-mono text-6xl font-bold text-muted-foreground">{page.status}</p>
+
+	<h1 class="text-2xl font-medium">
+		{#if page.status === 404}
+			This page does not exist
+		{:else}
+			Something went wrong
+		{/if}
+	</h1>
+
+	<p class="max-w-sm text-pretty text-muted-foreground">
+		{page.error?.message ?? 'An unexpected error occurred. Please try again.'}
+	</p>
+
+	<Button href="/">Go home</Button>
+</div>

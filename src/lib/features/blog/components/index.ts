@@ -1,9 +1,8 @@
-import CodeBlock from './CodeBlock.svelte';
-import FeaturedPost from './FeaturedPost.svelte';
-import InlineText from './InlineText.svelte';
-import PostContent from './PostContent.svelte';
-import PostMeta from './PostMeta.svelte';
-import PostRow from './PostRow.svelte';
-import TableOfContents from './TableOfContents.svelte';
-
-export { CodeBlock, FeaturedPost, InlineText, PostContent, PostMeta, PostRow, TableOfContents };
+export { default as BlogLanding } from './BlogLanding.svelte';
+export { default as CodeBlock } from './CodeBlock.svelte';
+export { default as FeaturedPost } from './FeaturedPost.svelte';
+export { default as InlineText } from './InlineText.svelte';
+export { default as PostContent } from './PostContent.svelte';
+export { default as PostMeta } from './PostMeta.svelte';
+export { default as PostRow } from './PostRow.svelte';
+export { default as TableOfContents } from './TableOfContents.svelte';

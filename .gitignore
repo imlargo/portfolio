@@ -25,3 +25,6 @@ vite.config.ts.timestamp-*
 
 # Cloudflare Types
 /worker-configuration.d.ts
+
+# Reference checkout of the Kora repo, not part of this project
+/kora/

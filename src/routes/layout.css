@@ -1,89 +1,197 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
 @import 'tw-animate-css';
+@import 'shadcn-svelte/tailwind.css';
+
+/* ── Fuentes ──────────────────────────────────────────────────────────────────
+   Las cuatro candidatas van cargadas a la vez para poder compararlas en vivo.
+   Al elegir, borrá las otras tres de acá y del package.json. Cuál se usa lo
+   decide `data-type` en src/app.html; buscá "FUENTES · OPCIONES" más abajo. */
+@import '@fontsource-variable/source-code-pro';
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/manrope';
+@import '@fontsource-variable/work-sans';
+@import '@fontsource-variable/inter';
 
 @custom-variant dark (&:is(.dark *));
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
 
-:root {
-	--radius: 0.625rem;
+/* ── Paleta ───────────────────────────────────────────────────────────────────
+   Misma escala neutra (zinc) y mismo acento que Kora: el estudio y yo somos la
+   misma persona y los dos sitios tienen que leerse como una sola familia. Lo
+   que los diferencia no es el color, es la voz — acá manda la mono.
+
+   `.theme-invert` comparte los tokens claros de `:root`, para poder voltear una
+   sección suelta a fondo brillante sin que la paleta se desvíe entre las dos. */
+:root,
+.theme-invert {
 	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
+	--foreground: oklch(0.141 0.005 285.823);
+
 	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
+	--card-foreground: oklch(0.141 0.005 285.823);
+
 	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
+	--popover-foreground: oklch(0.141 0.005 285.823);
+
+	--primary: oklch(0.21 0.006 285.885);
 	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	--destructive: oklch(57.7% 0.245 27.325);
-	--warning: oklch(66.6% 0.179 58.318);
-	--success: oklch(64.8% 0.2 131.684);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
-	--chart-1: oklch(0.646 0.222 41.116);
-	--chart-2: oklch(0.6 0.118 184.704);
-	--chart-3: oklch(0.398 0.07 227.392);
-	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
+
+	--secondary: oklch(0.967 0.001 286.375);
+	--secondary-foreground: oklch(0.21 0.006 285.885);
+
+	--muted: oklch(0.967 0.001 286.375);
+	--muted-foreground: oklch(0.552 0.016 285.938);
+
+	--accent: oklch(0.967 0.001 286.375);
+	--accent-foreground: oklch(0.21 0.006 285.885);
+
+	--destructive: oklch(0.577 0.245 27.325);
+	--warning: oklch(0.666 0.179 58.318);
+	--success: oklch(0.648 0.2 131.684);
+
+	/* Acento de marca, el mismo de Kora. Sobre fondo claro va más profundo que
+	   el lila de los efectos, que sobre blanco casi desaparece; el valor claro
+	   vive en `.dark`. Un solo token para los dos temas. */
+	--brand: oklch(0.58 0.16 295);
+
+	--border: oklch(0.92 0.004 286.32);
+	--input: oklch(0.92 0.004 286.32);
+	--ring: oklch(0.705 0.015 286.067);
+
+	--chart-1: oklch(0.871 0.006 286.286);
+	--chart-2: oklch(0.552 0.016 285.938);
+	--chart-3: oklch(0.442 0.017 285.786);
+	--chart-4: oklch(0.37 0.013 285.805);
+	--chart-5: oklch(0.274 0.006 286.033);
+
+	--radius: 0.625rem;
+
 	--sidebar: oklch(0.985 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
+	--sidebar-foreground: oklch(0.141 0.005 285.823);
+	--sidebar-primary: oklch(0.21 0.006 285.885);
 	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.97 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+	--sidebar-accent: oklch(0.967 0.001 286.375);
+	--sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+	--sidebar-border: oklch(0.92 0.004 286.32);
+	--sidebar-ring: oklch(0.705 0.015 286.067);
 }
 
 .dark {
-	--background: oklch(0.145 0 0);
+	--background: oklch(0.141 0.005 285.823);
 	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.205 0 0);
+
+	--card: oklch(0.21 0.006 285.885);
 	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
+
+	--popover: oklch(0.21 0.006 285.885);
 	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
+
+	--primary: oklch(0.92 0.004 286.32);
+	--primary-foreground: oklch(0.21 0.006 285.885);
+
+	--secondary: oklch(0.274 0.006 286.033);
 	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
+
+	--muted: oklch(0.274 0.006 286.033);
+	--muted-foreground: oklch(0.705 0.015 286.067);
+
+	--accent: oklch(0.274 0.006 286.033);
 	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(70.4% 0.191 22.216);
-	--warning: oklch(82.8% 0.189 84.429);
-	--success: oklch(84.1% 0.238 128.85);
+
+	--destructive: oklch(0.704 0.191 22.216);
+	--warning: oklch(0.828 0.189 84.429);
+	--success: oklch(0.841 0.238 128.85);
+
+	/* Equivalente a #B19EEF, el lila que ya usan los efectos del hero. */
+	--brand: oklch(0.76 0.12 295);
+
 	--border: oklch(1 0 0 / 10%);
 	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.556 0 0);
-	--chart-1: oklch(0.488 0.243 264.376);
-	--chart-2: oklch(0.696 0.17 162.48);
-	--chart-3: oklch(0.769 0.188 70.08);
-	--chart-4: oklch(0.627 0.265 303.9);
-	--chart-5: oklch(0.645 0.246 16.439);
-	--sidebar: oklch(0.205 0 0);
+	--ring: oklch(0.552 0.016 285.938);
+
+	--chart-1: oklch(0.871 0.006 286.286);
+	--chart-2: oklch(0.552 0.016 285.938);
+	--chart-3: oklch(0.442 0.017 285.786);
+	--chart-4: oklch(0.37 0.013 285.805);
+	--chart-5: oklch(0.274 0.006 286.033);
+
+	--sidebar: oklch(0.21 0.006 285.885);
 	--sidebar-foreground: oklch(0.985 0 0);
 	--sidebar-primary: oklch(0.488 0.243 264.376);
 	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.269 0 0);
+	--sidebar-accent: oklch(0.274 0.006 286.033);
 	--sidebar-accent-foreground: oklch(0.985 0 0);
 	--sidebar-border: oklch(1 0 0 / 10%);
-	--sidebar-ring: oklch(0.556 0 0);
+	--sidebar-ring: oklch(0.552 0.016 285.938);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FUENTES · OPCIONES
+   ══════════════════════════════════════════════════════════════════════════════
+   Para cambiar de tipografía se toca UNA línea, en src/app.html:
+
+       <html lang="en" class="dark h-full" data-type="manrope" ...>
+
+   Para comparar sin recargar, pegá esto en la consola del navegador:
+
+       document.documentElement.dataset.type = 'manrope'
+
+   Las cuatro son grotescas de palo seco y las diferencias son finas, así que
+   conviene mirar siempre lo mismo para poder decidir: la 'a' y la 'g' (de uno o
+   de dos pisos), cuánto abren los remates de la 'C' y la 'S', y sobre todo el
+   ancho — Manrope es la más estrecha y Work Sans la más abierta, y eso cambia
+   cuántas palabras entran por línea en los párrafos largos del about.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Sin `data-type`, o con uno que no exista, manda esto. */
+:root {
+	--type-heading: 'Space Grotesk Variable', sans-serif;
+	--type-sans: 'Space Grotesk Variable', sans-serif;
+}
+
+/* grotesk ─ ACTUAL. Geométrica, con la 'a' de un piso y terminales cortados en
+   recto: se lee técnica, casi de interfaz. La misma que Kora. */
+[data-type='grotesk'] {
+	--type-heading: 'Space Grotesk Variable', sans-serif;
+	--type-sans: 'Space Grotesk Variable', sans-serif;
+}
+
+/* manrope ─ semi-geométrica y estrecha, con las curvas apenas achatadas. Es la
+   más contemporánea de las cuatro y la que más se parece a lo que usan los
+   estudios; en títulos grandes se planta muy bien. */
+[data-type='manrope'] {
+	--type-heading: 'Manrope Variable', sans-serif;
+	--type-sans: 'Manrope Variable', sans-serif;
+}
+
+/* work ─ humanista: 'g' de doble piso, terminales suaves y ejes con algo de
+   inclinación. La más cálida y la menos de interfaz; el cuerpo del about se
+   lee más como prosa y menos como documentación. */
+[data-type='work'] {
+	--type-heading: 'Work Sans Variable', sans-serif;
+	--type-sans: 'Work Sans Variable', sans-serif;
+}
+
+/* inter ─ neutra de interfaz, dibujada para pantallas chicas y alta legibilidad.
+   Es la más segura y la más anónima: no estorba, pero tampoco aporta carácter,
+   y está en medio internet. */
+[data-type='inter'] {
+	--type-heading: 'Inter Variable', sans-serif;
+	--type-sans: 'Inter Variable', sans-serif;
 }
 
 @theme inline {
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--radius-xl: calc(var(--radius) + 4px);
+	/* Los tres tokens apuntan a las variables de "FUENTES · OPCIONES", que es lo
+	   que cambia según `data-type`. `@theme inline` copia el `var()` tal cual
+	   dentro de la utilidad, así que `.font-sans` termina resolviéndose en el
+	   navegador y no al compilar: por eso el cambio se ve sin recargar.
+
+	   La mono es la firma del sitio y no entra en la comparación. */
+	--font-sans: var(--type-sans);
+	--font-heading: var(--type-heading);
+	--font-mono: 'Source Code Pro Variable', ui-monospace, monospace;
+
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-card: var(--card);
@@ -101,6 +209,7 @@
 	--color-destructive: var(--destructive);
 	--color-warning: var(--warning);
 	--color-success: var(--success);
+	--color-brand: var(--brand);
 	--color-border: var(--border);
 	--color-input: var(--input);
 	--color-ring: var(--ring);
@@ -117,6 +226,25 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+
+	/* Escala de esquina proporcional al radio base, no compensada con píxeles
+	   sueltos: una tarjeta grande y un botón pequeño mantienen la misma
+	   relación entre curva y tamaño. */
+	--radius-sm: calc(var(--radius) * 0.6);
+	--radius-md: calc(var(--radius) * 0.8);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) * 1.4);
+	--radius-2xl: calc(var(--radius) * 1.8);
+	--radius-3xl: calc(var(--radius) * 2.2);
+	--radius-4xl: calc(var(--radius) * 2.6);
+
+	/* Tracking de las etiquetas mono en mayúsculas (rótulo de sección, fechas,
+	   stack): un solo valor para que todas se vean igual de "espaciadas". */
+	--tracking-mono: 0.15em;
+
+	/* Curva de las micro-interacciones de hover (flechas, imágenes de tarjeta):
+	   un solo "sabor" de easing en todo el sitio en vez de repetir el bezier. */
+	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
@@ -127,22 +255,82 @@
 	body {
 		font-optical-sizing: auto;
 		font-style: normal;
-		@apply bg-background text-foreground;
+		@apply overflow-x-hidden bg-background text-foreground;
+	}
+
+	html {
+		@apply font-sans;
+	}
+
+	/* Sin esto `--font-heading` no haría nada en las páginas: los títulos
+	   heredaban de `html` y solo los componentes shadcn usaban la clase. Va
+	   sobre el elemento, así que cualquier `font-mono` o `font-sans` puesto en
+	   el marcado le sigue ganando —las utilidades mandan sobre la capa base. */
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-heading;
 	}
 }
 
-.font-mono {
-	font-family: 'Source Code Pro', monospace !important;
-}
-
+/* ── Retícula horizontal ─────────────────────────────────────────────────────
+   Un solo margen lateral para todo el sitio. Cada sección lo aplica sobre sí
+   misma en vez de heredarlo de un contenedor, así una banda puede sangrar a
+   pantalla completa (el fondo del cierre, el marquee) sin pelear con el padre. */
 .px-layout {
-	@apply px-6 md:px-8 lg:px-12;
+	@apply px-6 md:px-8 lg:px-12 xl:px-24 2xl:px-44;
 }
 
 .max-w-wx {
 	@apply max-w-screen-xl;
 }
 
+/* ── Ritmo vertical ──────────────────────────────────────────────────────────
+   Una sola escala para todas las vistas. La unidad es el relleno de una sección
+   (P = 80px móvil / 112px escritorio). Como cada sección lo aplica arriba y
+   abajo, toda frontera entre secciones mide 2P y la página entera respira
+   igual, sin importar de qué vista se trate.
+
+   .py-section     P arriba y abajo. El caso normal.
+   .pb-section     Solo abajo. Para el bloque que continúa al anterior sin corte
+                   (su frontera con el de arriba mide P en vez de 2P, y esa es
+                   justamente la señal de que van juntos).
+   .py-hero        Arriba respira menos, porque el header ya deja aire. Abajo
+                   cierra con P, así el primer corte de la página mide lo mismo
+                   que todos los demás.
+   .py-section-lg  Solo el bloque de cierre, que necesita separarse del footer.
+   .gap-block      Separación entre piezas hermanas dentro de una sección: P, la
+                   mitad de lo que separa dos secciones. */
+.py-section {
+	@apply py-20 sm:py-28;
+}
+
+.pb-section {
+	@apply pb-20 sm:pb-28;
+}
+
+.py-hero {
+	@apply pt-8 pb-20 sm:pt-14 sm:pb-28;
+}
+
+.py-section-lg {
+	@apply py-28 sm:py-36;
+}
+
+.gap-block {
+	@apply gap-y-20 sm:gap-y-28;
+}
+
+.p-card {
+	@apply p-6 md:p-8;
+}
+
+.py-item {
+	@apply py-8;
+}
+
+/* ── Tipografía ─────────────────────────────────────────────────────────── */
 .ty-h1 {
 	@apply scroll-m-20 text-4xl font-extrabold tracking-tight text-balance;
 }
@@ -177,4 +365,84 @@
 
 .ty-muted {
 	@apply text-sm text-muted-foreground;
+}
+
+.tilt-perspective {
+	perspective: 1200px;
+}
+
+/* Tratamiento compartido de los paneles "imagen, no interfaz" (plasma en
+   monocromo + viñeta). Vive acá porque lo usan el cierre de cada página y el
+   retrato del about, y tienen que verse idénticos. */
+.iridescence-mono {
+	filter: grayscale(1) contrast(1.12) brightness(0.68);
+}
+
+/* Dos halos superpuestos: uno central que garantiza contraste del contenido
+   pase lo que pase debajo (el plasma se mueve y su luminancia cambia), y la
+   viñeta de borde que le da profundidad a la pieza. */
+.vignette {
+	background:
+		radial-gradient(42% 52% at 50% 50%, rgba(0, 0, 0, 0.5) 0%, transparent 72%),
+		radial-gradient(120% 90% at 50% 45%, transparent 25%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+/* Subrayado que crece de izquierda a derecha en vez de aparecer de golpe.
+   `text-decoration` no es animable, así que la línea es un degradado de 1px
+   pintado como fondo, que sí puede transicionar su ancho. */
+.link-underline {
+	background-image: linear-gradient(currentColor, currentColor);
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 0% 1px;
+	transition: background-size 0.5s var(--ease-out-expo);
+	padding-bottom: 0.15em;
+}
+
+.link-underline:hover,
+.link-underline:focus-visible {
+	background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.link-underline {
+		transition: none;
+	}
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: oklch(0.705 0.015 286.067 / 30%);
+	border-radius: 9999px;
+	transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: oklch(0.552 0.016 285.938 / 60%);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+	background: oklch(1 0 0 / 15%);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+	background: oklch(1 0 0 / 35%);
+}
+
+/* Firefox */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: oklch(0.705 0.015 286.067 / 30%) transparent;
+}
+
+.dark * {
+	scrollbar-color: oklch(1 0 0 / 15%) transparent;
 }

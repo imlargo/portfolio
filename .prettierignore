@@ -7,3 +7,6 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Reference checkout of the Kora repo, not part of this project
+/kora/

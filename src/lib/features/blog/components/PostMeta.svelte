@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatDate } from '$lib/assets/content/blog';
+	import { formatDate } from '$lib/content/blog';
 	import { cn } from '$lib/utils';
 
 	type Props = {

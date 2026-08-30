@@ -3,8 +3,12 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
+	compilerOptions: {
+		// Runes obligatorias en todo el proyecto menos las librerías. Se puede
+		// quitar en Svelte 6, donde ya es el modo por defecto.
+		runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
+	},
+
 	preprocess: vitePreprocess(),
 
 	kit: {
@@ -12,11 +16,9 @@ const config = {
 
 		alias: {
 			$lib: './src/lib',
-			$styles: './src/styles',
 			$components: './src/lib/components',
-			$types: './src/lib/types',
-			$client: './src/lib/client',
-			$server: './src/lib/server',
+			$content: './src/lib/content',
+			$features: './src/lib/features',
 			$ui: './src/lib/components/ui'
 		}
 	}

@@ -1,4 +1,4 @@
-import { getPost, getSiblings, posts, readingTime } from '$lib/assets/content/blog';
+import { getPost, getSiblings, posts, readingTime } from '$lib/content/blog';
 import { error } from '@sveltejs/kit';
 import type { EntryGenerator, PageLoad } from './$types';
 

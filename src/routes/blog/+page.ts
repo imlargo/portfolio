@@ -1,4 +1,4 @@
-import { getSummaries, getTags } from '$lib/assets/content/blog';
+import { getSummaries, getTags } from '$lib/content/blog';
 import type { PageLoad } from './$types';
 
 export const prerender = true;

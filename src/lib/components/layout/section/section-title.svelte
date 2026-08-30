@@ -7,9 +7,14 @@
 		class: className,
 		children,
 		...restProps
-	}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
+	}: WithElementRef<HTMLAttributes<HTMLHeadingElement>> = $props();
 </script>
 
-<div bind:this={ref} data-slot="section-title" class={cn('ty-h2', className)} {...restProps}>
+<h2
+	bind:this={ref}
+	data-slot="section-title"
+	class={cn('max-w-2xl text-3xl tracking-tight text-balance md:text-4xl', className)}
+	{...restProps}
+>
 	{@render children?.()}
-</div>
+</h2>

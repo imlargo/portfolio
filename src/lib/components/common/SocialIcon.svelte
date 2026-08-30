@@ -15,7 +15,7 @@
 		width="16"
 		height="16"
 		fill="currentColor"
-		class="bi bi-github"
+		class={className}
 		viewBox="0 0 16 16"
 	>
 		<path
@@ -28,7 +28,7 @@
 		width="16"
 		height="16"
 		fill="currentColor"
-		class="bi bi-linkedin"
+		class={className}
 		viewBox="0 0 16 16"
 	>
 		<path
@@ -41,7 +41,7 @@
 		width="16"
 		height="16"
 		fill="currentColor"
-		class="bi bi-twitter-x"
+		class={className}
 		viewBox="0 0 16 16"
 	>
 		<path
@@ -54,7 +54,7 @@
 		width="16"
 		height="16"
 		fill="currentColor"
-		class="bi bi-instagram"
+		class={className}
 		viewBox="0 0 16 16"
 	>
 		<path

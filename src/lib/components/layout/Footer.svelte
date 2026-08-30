@@ -1,40 +1,11 @@
 <script lang="ts">
-	import { content } from '$lib/assets/content/content';
+	import { siteContent } from '$lib/content/site-content';
 	import { useHyperText } from '$lib/attachments/text-encrypt';
+	import { useReveal } from '$lib/attachments/reveal';
+	import { useParallax } from '$lib/attachments/parallax';
 	import { ArrowUpRight } from '@lucide/svelte';
 
-	interface Link {
-		label: string;
-		href: string;
-		external?: boolean;
-	}
-
-	interface LinkGroup {
-		title: string;
-		links: Link[];
-	}
-
-	const links = $derived<LinkGroup[]>([
-		{
-			title: 'Navigation',
-			links: [
-				{ label: 'Home', href: '/' },
-				{ label: 'About', href: '/about' },
-				{ label: 'Work', href: '/work' },
-				{ label: 'Blog', href: '/blog' }
-			]
-		},
-		{
-			title: 'Elsewhere',
-			links: [
-				{ label: 'GitHub', href: content.socials?.github ?? '', external: true },
-				{ label: 'LinkedIn', href: content.socials?.linkedin ?? '', external: true },
-				{ label: 'Instagram', href: content.socials?.instagram ?? '', external: true },
-				{ label: 'Kora Studio', href: 'https://kora.imlargo.dev', external: true },
-				{ label: 'Resume', href: '/files/resume.pdf', external: true }
-			]
-		}
-	]);
+	const { footer, name } = siteContent;
 </script>
 
 {#snippet LinkItem(label: string, href: string, external: boolean = false)}
@@ -53,61 +24,58 @@
 
 <div class="overflow-hidden pt-18 md:pt-28 lg:pt-56">
 	<div class="relative bg-background">
+		<!-- El handle enorme detrás del footer, con parallax: el mismo recurso que
+		     cierra Kora, pero acá la palabra es el nombre y va en mono. -->
 		<div
 			class="absolute -top-20 -z-20 flex w-full items-center justify-center md:-top-35 lg:-top-60"
 		>
-			<h1
-				class="line-clamp-none align-bottom text-[8rem] leading-none font-extrabold tracking-wider text-secondary/50 md:text-[14rem] lg:text-[24rem]"
+			<p
+				class="line-clamp-none align-bottom font-mono text-[8rem] leading-none font-extrabold tracking-wider text-secondary/50 md:text-[14rem] lg:text-[24rem]"
+				aria-hidden="true"
+				{@attach useParallax(60)}
 			>
-				{content.name}
-			</h1>
+				{name}
+			</p>
 		</div>
 
 		<div class="z-10">
 			<div class="flex items-center justify-center">
-				<div class="footer-gradient h-[1px] w-full border-none"></div>
+				<div class="footer-gradient h-px w-full border-none"></div>
 			</div>
 
 			<footer
-				class="flex w-full flex-col gap-y-6 bg-secondary/25 px-6 py-12 lg:px-12 xl:px-24 2xl:px-72"
+				class="px-layout flex w-full flex-col gap-y-6 bg-secondary/25 py-12"
+				{@attach useReveal({ targets: '.footer-item', stagger: 0.1, y: 24 })}
 			>
-				<div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
+				<div class="footer-item flex flex-col gap-y-8 md:flex-row md:justify-between">
 					<div class="space-y-2">
-						<h2
-							class="font-mono text-4xl font-bold"
-							data-value={content.name}
-							{@attach useHyperText}
-						>
-							{content.name}
-						</h2>
-						<p class="text-muted-foreground">{content.footer.subtitle}</p>
+						<p class="font-mono text-4xl font-bold" data-value={name} {@attach useHyperText}>
+							{name}
+						</p>
+						<p class="max-w-sm text-muted-foreground">{footer.subtitle}</p>
 					</div>
 
-					<div class="flex flex-col gap-x-24 gap-y-12 md:flex-row md:justify-end">
-						{#each links as group}
+					<nav
+						class="flex flex-col gap-x-24 gap-y-12 md:flex-row md:justify-end"
+						aria-label="Footer"
+					>
+						{#each footer.linkGroups as group (group.title)}
 							<div class="flex flex-col gap-y-4">
 								<h3 class="font-semibold">{group.title}</h3>
-								<div class="flex flex-col gap-y-1.5">
-									{#each group.links as link}
-										{@render LinkItem(link.label, link.href, link.external)}
+								<ul class="flex flex-col gap-y-1.5">
+									{#each group.links as link (link.href)}
+										<li>{@render LinkItem(link.label, link.href, link.external)}</li>
 									{/each}
-								</div>
+								</ul>
 							</div>
 						{/each}
-					</div>
+					</nav>
 				</div>
 
-				<div class="mt-8 flex items-center justify-between">
-					<span class="hidden font-mono text-sm text-muted-foreground md:inline-flex"
-						>{content.footer.credits}</span
-					>
-
-					<!--
-					<div class="flex items-center gap-x-4">
-						<a href="/privacy-policy" class="text-sm">Privacy Policy</a>
-						<a href="/terms-conditions" class="text-sm">Terms of Service</a>
-					</div>
-                    -->
+				<div class="footer-item mt-8 flex items-center justify-between">
+					<span class="hidden font-mono text-sm text-muted-foreground md:inline-flex">
+						{footer.credits}
+					</span>
 				</div>
 			</footer>
 		</div>

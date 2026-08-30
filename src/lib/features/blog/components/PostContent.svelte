@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { PostBlock } from '$lib/assets/content/types';
-	import { slugify } from '$lib/assets/content/blog';
+	import type { PostBlock } from '$lib/content/types';
+	import { slugify } from '$lib/content/blog';
 	import CodeBlock from './CodeBlock.svelte';
 	import InlineText from './InlineText.svelte';
 
