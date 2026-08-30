@@ -15,7 +15,7 @@ export const experience: Experience[] = [
 		],
 		company: 'Unergy',
 		description:
-			'Own frontend architecture for the platform running the company solar mini-farm business, leading a team of 4. Shipped a Vue + TypeScript component library used across every application, refactored 6 core modules for 25% smaller bundles, and am migrating the platform to Svelte one module at a time.'
+			"Own frontend architecture for the platform running the company's solar mini-farm business, leading a team of 4. Shipped a Vue + TypeScript component library used across every application, refactored 6 core modules for 25% smaller bundles, and am migrating the platform to Svelte one module at a time."
 	},
 	{
 		role: 'Founder & Lead Engineer',

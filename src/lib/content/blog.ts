@@ -22,7 +22,7 @@ const posts: Post[] = [
 			},
 			{
 				type: 'paragraph',
-				text: 'Almost none of that time went into HTTP. It went into deciding what the library was not going to do, and into finding the bugs that a fully green test run is structurally unable to catch.'
+				text: 'Almost none of that time went into HTTP.'
 			},
 			{ type: 'heading', level: 2, text: 'Writing the constraints down first' },
 			{
@@ -97,11 +97,11 @@ export const air = create()`
 			},
 			{
 				type: 'paragraph',
-				text: 'An SSE endpoint is designed never to close. So the request succeeded, the bytes kept arriving, and the promise simply never settled. Not a failure you could catch: no status to inspect, no error to log, nothing on fire. Just a call that never came back.'
+				text: 'An SSE endpoint is designed never to close. So the request succeeded, the bytes kept arriving, and the promise never settled. Not a failure you could catch: no status to inspect, no error to log, nothing on fire. Just a call that never came back.'
 			},
 			{
 				type: 'paragraph',
-				text: '`text/event-stream`, `application/x-ndjson` and `application/jsonl` are now checked before the `text/` rule and handed back unread, as a `ReadableStream`. The fix has a cost worth naming: that list is something I maintain now, and adding to it is a breaking change for anyone parsing one of those types today. `application/octet-stream` is deliberately not on it, despite the name — a binary download ends, and buffering one is what `Blob` is for.'
+				text: '`text/event-stream`, `application/x-ndjson` and `application/jsonl` are now checked before the `text/` rule and handed back unread, as a `ReadableStream`. The fix has a cost: that list is something I maintain now, and adding to it is a breaking change for anyone parsing one of those types today. `application/octet-stream` is deliberately not on it, despite the name — a binary download ends, and buffering one is what `Blob` is for.'
 			},
 			{ type: 'heading', level: 2, text: 'Deleting features instead of fixing them' },
 			{
@@ -161,7 +161,7 @@ const api = air.create({ signal: () => AbortSignal.timeout(5000) })`
 			},
 			{
 				type: 'paragraph',
-				text: 'Worth being precise about what that function is not. There is still no `AbortController` inside the client, no bridging and no composing of signals; it only decides *which* signal gets forwarded, and forwarding is still untouched — the bug that got `timeout` deleted stays fixed. Two options now take a function for the same reason, so the pattern earned a name: **an option whose correct value is only knowable per request may be a function.** Which is not a licence to make everything a thunk. `baseURL` cannot go stale between requests, and a function there would buy nothing but a call.'
+				text: 'That function is narrower than it looks. There is still no `AbortController` inside the client, no bridging and no composing of signals; it only decides *which* signal gets forwarded, and forwarding is still untouched — the bug that got `timeout` deleted stays fixed. Two options now take a function for the same reason, so the pattern earned a name: **an option whose correct value is only knowable per request may be a function.** Which is not a licence to make everything a thunk. `baseURL` cannot go stale between requests, and a function there would buy nothing but a call.'
 			},
 			{ type: 'heading', level: 2, text: 'A type that could not lie' },
 			{
@@ -203,7 +203,7 @@ user.id // typechecks. it is a ReadableStream.`
 			{ type: 'heading', level: 2, text: 'The test suite was never the gate' },
 			{
 				type: 'paragraph',
-				text: 'All three bugs air has shipped got through a fully green test run. A streaming request body that threw at the transport, the shared signal above, and a `null` header that went out as the string `"null"` on one code path. That is not a coverage gap, it is the shape of the tool: the suite mocks `fetch`, and a mock agrees with whatever its author already believed.'
+				text: 'All three bugs air has shipped got through a fully green test run. A streaming request body that threw at the transport, the shared signal above, and a `null` header that went out as the string `"null"` on one code path. That is the shape of the tool, not a coverage gap: the suite mocks `fetch`, and a mock agrees with whatever its author already believed.'
 			},
 			{
 				type: 'paragraph',

@@ -30,7 +30,7 @@ export const projects: Project[] = [
 		url: 'https://github.com/imlargo/medusa-template',
 		title: 'Medusa',
 		description:
-			'Batteries-included Go framework for modern backends, extracted from production systems and deployed back into them, so the abstractions had to survive somewhere real first.',
+			'Go framework on Gin: auth, Postgres, Redis, S3 storage, SSE and Prometheus already wired. Extracted from production systems and deployed back into them, so the abstractions had to survive somewhere real first.',
 		technologies: [Technology.Go, Technology.Gin, Technology.Postgres]
 	},
 	{
@@ -281,7 +281,7 @@ export const sideProjects: Project[] = [
 		url: 'https://github.com/imlargo/svelte-template',
 		title: 'svelte-template',
 		description:
-			'Production-ready Svelte 5 starter with a layered architecture, the structure I use to start real projects.',
+			'SvelteKit 2 starter with a layered architecture: password and Google OAuth, server-side route guards, a permissions layer and the tests that cover them. The structure I use to start real projects.',
 		technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind]
 	},
 	{
@@ -304,8 +304,7 @@ export const sideProjects: Project[] = [
 		github: 'https://github.com/imlargo/janus',
 		url: 'https://github.com/imlargo/janus',
 		title: 'janus',
-		description:
-			'Plug-and-play authentication for Go: sessions, refresh tokens and the boundaries between them.',
+		description: 'Authentication for Go: sessions, refresh tokens and the boundaries between them.',
 		technologies: [Technology.Go, Technology.Postgres, Technology.Redis]
 	},
 	{

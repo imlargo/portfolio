@@ -117,7 +117,7 @@ export const siteContent: SiteContent = {
 	},
 
 	cta: {
-		title: 'What if we build something amazing together?',
+		title: "Tell me what you're building.",
 		description:
 			'Open to remote roles, and taking on a couple of client projects at a time through Kora Studio.',
 		primaryCta: contactCta,
