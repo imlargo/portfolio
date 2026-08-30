@@ -29,7 +29,7 @@ const projects: Project[] = [
 		url: 'https://github.com/imlargo/medusa-template',
 		title: 'Medusa',
 		description:
-			'Batteries-included Go framework for modern backends, extracted from production systems and deployed back into them. Validated under real constraints, not in isolation.',
+			'Batteries-included Go framework for modern backends, extracted from production systems and deployed back into them, so the abstractions had to survive somewhere real first.',
 		technologies: [Technology.Go, Technology.Gin, Technology.Postgres]
 	},
 	{
@@ -37,7 +37,7 @@ const projects: Project[] = [
 		url: 'https://github.com/imlargo/coral',
 		title: 'coral',
 		description:
-			'A Svelte component layer on top of shadcn that ships composed patterns instead of primitives, so the next project starts where the last one finished.',
+			'A Svelte component layer on top of shadcn that ships composed patterns instead of primitives. The pieces I rebuild on every frontend, packaged once.',
 		technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind]
 	},
 	{
@@ -143,7 +143,8 @@ const experience: Experience[] = [
 const workGroups: WorkGroup[] = [
 	{
 		title: 'Product & platform',
-		description: 'Systems I own end-to-end: architecture, infrastructure and production behaviour.',
+		description:
+			'Systems where I own the architecture, the infrastructure and whatever happens in production.',
 		items: [
 			{
 				title: 'Solar project lifecycle platform',
@@ -198,8 +199,7 @@ const workGroups: WorkGroup[] = [
 	},
 	{
 		title: 'Public sector & education',
-		description:
-			'Institutional work, where the constraint is rarely the technology and almost always the process.',
+		description: 'Institutional work. The hard part is almost never the code.',
 		items: [
 			{
 				title: 'National GBV prevention and response platform',
@@ -315,7 +315,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Retail client, via Kora Studio',
 				period: '2025',
 				description:
-					'Built on our own foundation instead of a template, shaped around the client operation so growth does not mean a redesign a year later.',
+					'Built on our own foundation instead of a template, shaped around how the client actually sells, so it can grow without a rewrite.',
 				technologies: [Technology.Svelte, Technology.Go, Technology.Postgres, Technology.Docker]
 			},
 			{
@@ -376,7 +376,7 @@ const sideProjects: Project[] = [
 		url: 'https://www.npmjs.com/package/@korastd/critical-path-method',
 		title: 'Critical Path Method',
 		description:
-			'CPM engine in TypeScript, pure functions and zero dependencies. Written for construction scheduling, useful for any plan with dependencies and a deadline.',
+			'CPM engine in TypeScript, pure functions and zero dependencies. Written for construction scheduling; it works for any plan with dependencies and a deadline.',
 		technologies: [Technology.Typescript]
 	},
 	{

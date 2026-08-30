@@ -11,29 +11,29 @@ const posts: Post[] = [
 		content: [
 			{
 				type: 'paragraph',
-				text: 'Every project I work on eventually grows the same file. Something called `api.ts` or `http.ts` that wraps `fetch`, parses the response, throws when the status is not 2xx, joins a base URL, and serializes a body. None of that is difficult, and I had rewritten it from scratch every time because copying it over felt worse than retyping it.'
+				text: 'Every project I work on eventually grows the same file. `api.ts` or `http.ts`, wrapping `fetch`: parse the response, throw when the status is not 2xx, join a base URL, serialize a body. None of it is hard, and I had still written it from scratch every time, because copying the old one over always felt worse than retyping it.'
 			},
 			{
 				type: 'paragraph',
-				text: 'So I wrote it once properly. The result is air: around 300 lines, zero runtime dependencies, roughly 2 kB over the wire. That part took an afternoon. The weeks after it worked are where everything interesting happened.'
+				text: 'So I wrote it once properly. air is around 300 lines, zero runtime dependencies, roughly 2 kB over the wire, and it took an afternoon. Then I spent a few weeks on it anyway.'
 			},
 			{ type: 'heading', level: 2, text: 'Writing the constraints down first' },
 			{
 				type: 'paragraph',
-				text: 'Before any code I put the philosophy in the repo as its own document, with an explicit list of things the library is not allowed to become: no interceptor chains, no plugin system, no caching layer, no Node-specific escape hatches that break in a browser.'
+				text: 'Before writing any code I put the philosophy in the repo as its own document. Most of it is a list of things the library is not allowed to become: interceptor chains, a plugin system, a caching layer, Node-specific escape hatches that break in a browser.'
 			},
 			{
 				type: 'paragraph',
-				text: 'That is a lot of ceremony for a 300-line package and I still think it earned its place. Pressure to add features does not come from users on day one. It comes from me at 11 p.m. thinking a small option would be convenient. Once the rule is written down I have to argue with it before I can break it.'
+				text: 'That is a lot of ceremony for a 300-line package. It earned its place anyway. On day one the pressure to add features does not come from users, it comes from me at 11 p.m. deciding that a small option would be convenient. Having written the rule down, I have to go argue with the document before I add anything.'
 			},
 			{ type: 'heading', level: 2, text: 'One decision shaped the API' },
 			{
 				type: 'paragraph',
-				text: 'air had to work two ways: as a direct wrapper you call with `air.get(url)`, and as a factory that produces configured clients with `air.create({ baseURL })`. Implement that the obvious way and you get two code paths, a default instance and a constructor, which drift as options get added to one and forgotten in the other.'
+				text: 'air had to work two ways: as a direct wrapper you call with `air.get(url)`, and as a factory that produces configured clients with `air.create({ baseURL })`. The obvious implementation gives you two code paths, a default instance and a constructor, and they drift the first time an option lands in one and not the other.'
 			},
 			{
 				type: 'paragraph',
-				text: 'The fix was to stop treating the root export as special. `air` is a client created with empty defaults. There is one implementation, so there is nothing to keep in sync.'
+				text: 'The fix was to stop treating the root export as special. `air` is just a client created with empty defaults, so there is only one implementation.'
 			},
 			{
 				type: 'code',
@@ -61,37 +61,37 @@ export const air = create()`
 			},
 			{
 				type: 'paragraph',
-				text: 'The rest fell into seven flat files: `url`, `body`, `parse`, `error`, `client`, `types`, `index`. None of them is longer than about a hundred lines. No directory tree, no barrel files.'
+				text: 'The rest fell into seven flat files: `url`, `body`, `parse`, `error`, `client`, `types`, `index`, none longer than about a hundred lines. No directory tree, no barrel files.'
 			},
 			{ type: 'heading', level: 2, text: 'Three bugs the tests could not see' },
 			{
 				type: 'paragraph',
-				text: 'The first version passed everything I had written for it. It was still wrong in three places, and the suite could not have caught any of them, because it imported the source and mocked `fetch`, which is where the bugs actually were.'
+				text: 'The first version passed every test I had written for it and was wrong in three places. The suite could not have caught any of them: it imported the source and mocked `fetch`, and `fetch` was where the bugs were.'
 			},
 			{
 				type: 'paragraph',
-				text: "The worst one was `timeout`. I implemented it the obvious way: an `AbortController`, a timer that aborts it, the caller's own signal forwarded in, and a `finally` that cleans both up when the request finishes. But `fetch()` resolves when the headers arrive, not when the body has been read, so that cleanup disarmed the timer right as the download started. Pointed at an endpoint that trickles its body over ten seconds, with a 500 ms timeout and an explicit abort fired at 50 ms, the request hung forever."
+				text: "The worst one was `timeout`. I implemented it the obvious way: an `AbortController`, a timer that aborts it, the caller's own signal forwarded in, and a `finally` that cleans both up when the request finishes. But `fetch()` resolves when the headers arrive, not when the body has been read, so that cleanup disarmed the timer right as the download started. I pointed it at an endpoint that trickles its body over ten seconds, set a 500 ms timeout, fired an explicit abort at 50 ms, and the request hung forever."
 			},
 			{
 				type: 'paragraph',
-				text: "The second was `isAirError`, which used `instanceof`. An application can end up with two copies of a package loaded, either two versions in the tree or a bundled copy beside a resolved one, and each copy brings its own class, so `instanceof` returns false across them. It now checks a `Symbol.for('air.error')` brand, since the symbol registry is global and every copy agrees on it."
+				text: "The second was `isAirError`, which used `instanceof`. An application can end up with two copies of a package loaded, two versions in the tree or a bundled copy beside a resolved one, and each copy brings its own class, so `instanceof` comes back false across them. It checks a `Symbol.for('air.error')` brand now. The symbol registry is global, so every copy agrees."
 			},
 			{
 				type: 'paragraph',
-				text: "The third was a dead end rather than a bug. Auto-parsing responses is convenient until you need a header: `Link` for pagination, `ETag` for caching, anything about rate limits. There was no way to reach the `Response` on a successful call. A rule like 'less is better' will justify any omission you like, and the cost of what you left out never shows up in the issue tracker."
+				text: "The third was a dead end rather than a bug. Auto-parsing the response is convenient until you want a header off it, `Link` or `ETag` or anything about rate limits, and there was no way to reach the `Response` on a successful call. 'Less is better' had justified that omission, and nobody was ever going to file an issue about it."
 			},
 			{ type: 'heading', level: 2, text: 'Deleting features instead of fixing them' },
 			{
 				type: 'paragraph',
-				text: "The fix for the timeout bug was to remove the option. `AbortSignal.timeout(ms)` is native, `AbortSignal.any([...])` composes it with the caller's own signal, and air now forwards `signal` straight to `fetch`. There is no bridge left to tear down."
+				text: "The fix for the timeout bug was to delete the option. `AbortSignal.timeout(ms)` is native, `AbortSignal.any([...])` composes it with the caller's own signal, and air forwards `signal` straight to `fetch`, so there is no bridge left to tear down."
 			},
 			{
 				type: 'paragraph',
-				text: 'That went well enough that I did the same to `retry` and pulled it into a standalone helper. The helper had a bug of its own. A retry loop needs to tell a transient failure apart from a request the caller cancelled deliberately, and mine did it by checking the error\'s `name` for `AbortError`. That holds until someone calls `controller.abort(new Error("user navigated away"))`. Now the name is `Error`, the check says transient, and it makes three attempts at a request that was explicitly cancelled. I measured it doing exactly that.'
+				text: 'It went well enough that I did the same to `retry`, pulling it into a standalone helper, and the helper turned out to have a bug of its own. A retry loop has to tell a transient failure apart from a request the caller cancelled on purpose, and mine did it by checking the error\'s `name` for `AbortError`. That holds until someone calls `controller.abort(new Error("user navigated away"))`. Now the name is `Error`, the check says transient, and the helper makes three attempts at a request that was explicitly cancelled. I watched it do that in a test.'
 			},
 			{
 				type: 'paragraph',
-				text: 'The predicate could not be fixed where it was. The reliable source of truth for whether something was cancelled on purpose is the `AbortSignal`, and a generic helper that receives a callback and an error never has the signal in scope. I had moved the decision out of the library and left the information it needed behind. Retry came out completely. Written in userland the same loop is five lines and the signal is right there.'
+				text: 'There was no fixing the predicate where it sat. The only reliable answer to whether something was cancelled on purpose is the `AbortSignal` itself, and a generic helper that receives a callback and an error never has the signal in scope. So retry came out completely. In userland the same loop is five lines and the signal is right there.'
 			},
 			{
 				type: 'code',
@@ -112,21 +112,21 @@ async function withRetry(fn, signal, attempts = 3) {
 			{ type: 'heading', level: 2, text: 'Reading ofetch' },
 			{
 				type: 'paragraph',
-				text: 'Once the design settled I cloned `ofetch` and read all 800 lines of it. A mature library in the same problem space has already met the edge cases I had not reached yet, and its choices tell you something whether you agree with them or not.'
+				text: 'Once the design settled I cloned `ofetch` and read all 800 lines of it. It has been in the same problem space for years and has already met edge cases I had not reached.'
 			},
 			{
 				type: 'list',
 				items: [
-					"Took: trimming the library's own frames from thrown stack traces, so an error points at the caller instead of at internals. One line, and every error the library throws gets quieter.",
-					'Took: accepting a `URL` object as a request target. Native `fetch` already does, and my signature was narrower than the thing it wraps for no reason I could defend.',
-					'Refused: lifecycle hooks. Seeing what they cost in a real implementation, a context object threaded through four optional slots, settled the question.',
-					'Refused: silently `JSON.stringify`-ing nested query values. My `Query` type rejects them at compile time, so a `Date` is an error you see immediately instead of a locale-dependent string you find in production.'
+					"Took: trimming the library's own frames off thrown stack traces. One line, and every error points at the caller instead of at air's internals.",
+					'Took: accepting a `URL` object as a request target. Native `fetch` does, and my signature had been narrower than the thing it wraps.',
+					'Refused: lifecycle hooks. In a real implementation they cost a context object threaded through four optional slots.',
+					'Refused: quietly `JSON.stringify`-ing nested query values. The `Query` type rejects them at compile time, so passing a `Date` is an error you see immediately rather than a locale-dependent string you find in production.'
 				]
 			},
 			{ type: 'heading', level: 2, text: 'Shipping was its own project' },
 			{
 				type: 'paragraph',
-				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it. I caught that by running `npm publish --dry-run` in a fresh clone instead of trusting the config. The name `air` was already taken on npm, so it went out scoped. npm had removed the 2FA-bypass tokens CI used to rely on, so the release workflow authenticates through OIDC trusted publishing, with no stored credential at all.'
+				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it. I caught that running `npm publish --dry-run` in a fresh clone. The name `air` was taken on npm, so it went out as `@korastd/air`. And npm had removed the 2FA-bypass tokens CI used to rely on, so the release workflow authenticates through OIDC trusted publishing instead, with no stored credential.'
 			},
 			{
 				type: 'paragraph',
@@ -134,7 +134,7 @@ async function withRetry(fn, signal, attempts = 3) {
 			},
 			{
 				type: 'paragraph',
-				text: 'What is left is 70 tests, seven modules, and a contributing guide that records why each removal happened, including one change I made, tested, and reverted within the hour when a new test proved it wrong. A missing feature leaves no trace in the code, so without that file the next person to read it, probably me, would put it back.'
+				text: 'What is left is 70 tests, seven modules, and a contributing guide recording why each removal happened, including one change I made, tested and reverted inside an hour when a new test proved it wrong. A missing feature leaves no trace in the code. Without that file I would eventually put all of it back.'
 			}
 		]
 	},
@@ -153,21 +153,21 @@ async function withRetry(fn, signal, attempts = 3) {
 			},
 			{
 				type: 'paragraph',
-				text: 'Within three weeks it had 6,200 active users, all organic. No marketing, no institutional endorsement, just a link that kept getting forwarded.'
+				text: 'Within three weeks it had 6,200 active users. No marketing and no institutional endorsement, just a link that kept getting forwarded.'
 			},
 			{ type: 'heading', level: 2, text: 'The traffic shape' },
 			{
 				type: 'paragraph',
-				text: 'Academic tooling has a brutal traffic curve. For most of the semester the service sits nearly idle. Then registration opens and every student in the faculty arrives inside the same 90 minutes. Average load tells you nothing; the peak is the only number worth designing for.'
+				text: 'Academic tooling has a brutal traffic curve. For most of the semester the service sits nearly idle, and then registration opens and every student in the faculty arrives inside the same 90 minutes. There is no point looking at average load.'
 			},
 			{
 				type: 'paragraph',
-				text: 'That drove most of the architecture. Autoscaling reacts too slowly to help at that granularity, so I optimized for making the peak cheap to serve.'
+				text: 'Autoscaling reacts too slowly to help at that granularity, so most of the architecture went into making the peak cheap to serve.'
 			},
 			{ type: 'heading', level: 3, text: 'Precomputing the expensive path' },
 			{
 				type: 'paragraph',
-				text: 'The course catalog changes a handful of times per semester and is identical for every user. Schedule permutation is per-user and combinatorial. Splitting those two lifetimes was the whole optimization: the catalog is materialized into an immutable snapshot on ingest, and the solver runs against an in-memory view of it.'
+				text: 'The course catalog changes a handful of times a semester and is identical for every user, while schedule permutation is per-user and combinatorial. Splitting those two lifetimes was most of the optimization: the catalog is materialized into an immutable snapshot on ingest, and the solver runs against an in-memory view of it.'
 			},
 			{
 				type: 'code',
@@ -194,7 +194,7 @@ func (c *Catalog) Rebuild(ctx context.Context, db *pgxpool.Pool) error {
 			},
 			{
 				type: 'paragraph',
-				text: 'During the registration spike, requests never hit Postgres for catalog reads. The database handles writes and the occasional saved schedule. That turns a scaling problem into a memory allocation problem, and memory is cheaper than connections.'
+				text: 'During the registration spike, requests never hit Postgres for catalog reads. The database only handles writes and the occasional saved schedule. Allocating more memory turned out to be cheaper than finding more connections.'
 			},
 			{ type: 'heading', level: 2, text: 'What actually broke' },
 			{
@@ -207,12 +207,12 @@ func (c *Catalog) Rebuild(ctx context.Context, db *pgxpool.Pool) error {
 			},
 			{
 				type: 'paragraph',
-				text: 'None of that was hard to fix once I could see it. I just could not have found any of it without real traffic on the thing.'
+				text: 'None of it was hard to fix once I could see it, and none of it was going to show up without real traffic on the thing.'
 			},
 			{ type: 'heading', level: 2, text: 'Afterwards' },
 			{
 				type: 'paragraph',
-				text: "The university's own platform, released the following year, adopted the core interaction model Pegaso had converged on. That eventually led to formal acquisition discussions. I had not planned for any of it. I wanted my own schedule to stop taking an afternoon."
+				text: "The university's own platform, released the following year, adopted the interaction model Pegaso had landed on, and there were eventually formal acquisition conversations. None of that was the plan. I wanted my own schedule to stop taking an afternoon."
 			}
 		]
 	},
@@ -226,16 +226,16 @@ func (c *Catalog) Rebuild(ctx context.Context, db *pgxpool.Pool) error {
 		content: [
 			{
 				type: 'paragraph',
-				text: 'Most frameworks get written in the wrong order. Someone imagines the applications people will build, designs abstractions for them, and finds out later that the abstractions were guesses.'
+				text: 'Most frameworks get written in the wrong order: someone imagines the applications people will build, designs abstractions for them, and finds out later which ones were guesses.'
 			},
 			{
 				type: 'paragraph',
-				text: 'Medusa went the other way around. By the time I wrote the first line of it I had shipped four production Go services for different clients in different industries. They shared no code, but reading them side by side they had the same skeleton.'
+				text: 'Medusa went the other way around. By the time I wrote the first line of it I had shipped four production Go services for different clients in different industries. They shared no code. Read side by side, they had the same skeleton.'
 			},
 			{ type: 'heading', level: 2, text: 'Repetition across codebases' },
 			{
 				type: 'paragraph',
-				text: 'What made it worth extracting was that the similarity happened without coordination. Four codebases written months apart under different constraints had landed on the same boundary between transport, use case, and persistence. That is better evidence than my own preference.'
+				text: 'What made it worth extracting is that the similarity happened without coordination. Four codebases written months apart, under different constraints, had landed on the same boundary between transport, use case and persistence.'
 			},
 			{
 				type: 'code',
@@ -267,7 +267,7 @@ func Handle(svc Service) http.HandlerFunc {
 			{ type: 'heading', level: 2, text: 'The validation loop' },
 			{
 				type: 'paragraph',
-				text: 'Extraction on its own proves nothing, so every abstraction had to make a round trip: pull it out, then deploy it back into the systems it came from. If moving a service onto the framework version made that service worse, the abstraction was wrong and got deleted.'
+				text: 'Extraction on its own proves nothing, so every abstraction had to make the round trip: pull it out, then put it back into the systems it came from. If moving a service onto the framework version made that service worse, the abstraction was wrong and got deleted.'
 			},
 			{
 				type: 'list',
@@ -275,18 +275,18 @@ func Handle(svc Service) http.HandlerFunc {
 				items: [
 					'Identify a pattern that appears in at least three of the four services.',
 					'Extract the smallest version of it that covers all three call sites.',
-					'Migrate one service to it and measure the diff in real code, not in principle.',
+					'Migrate one service onto it and read the resulting diff.',
 					'If the migration adds indirection without removing decisions, discard it.'
 				]
 			},
 			{
 				type: 'paragraph',
-				text: 'Step four killed more candidates than the rest combined. Configurable middleware chains, a generic repository layer, a pluggable event bus: all fine in isolation, all of them made the calling code harder to read.'
+				text: 'Step four killed more candidates than the rest combined. Configurable middleware chains, a generic repository layer, a pluggable event bus. Each one was fine on its own, and each one made the calling code harder to read.'
 			},
 			{ type: 'heading', level: 2, text: 'Where it landed' },
 			{
 				type: 'paragraph',
-				text: 'The result is smaller than what I would have designed on a whiteboard, and every piece of it has a production system behind it. When someone asks why a boundary sits where it does, the answer is that four codebases put it there before I did.'
+				text: 'What is left is smaller than what I would have designed on a whiteboard, and every piece of it has a production system behind it. When someone asks why a boundary sits where it does, I can point at four codebases that put it there before I did.'
 			}
 		]
 	},
@@ -300,12 +300,12 @@ func Handle(svc Service) http.HandlerFunc {
 		content: [
 			{
 				type: 'paragraph',
-				text: 'The proposal that gets rejected, correctly, is the one that opens with "we stop shipping features for a quarter." No business takes that trade. So the migration had to be a sequence of changes that each ship on their own.'
+				text: 'Any proposal that opens with "we stop shipping features for a quarter" gets rejected, and it should. So the migration had to be a sequence of changes that each ship on their own.'
 			},
 			{ type: 'heading', level: 2, text: 'Route-level boundaries' },
 			{
 				type: 'paragraph',
-				text: 'The unit of migration is the route, not the component. A route already has a clean contract with the rest of the app: a URL, some query params, and whatever lives in the shared store. Components do not, which is why going component by component turns into an interop problem.'
+				text: 'We move a route at a time, not a component at a time. A route already has a clean contract with the rest of the app: a URL, some query params, whatever lives in the shared store. Components have no such boundary, so going component by component turns the whole thing into an interop problem.'
 			},
 			{
 				type: 'paragraph',
@@ -314,7 +314,7 @@ func Handle(svc Service) http.HandlerFunc {
 			{ type: 'heading', level: 3, text: 'Keeping the design system in one place' },
 			{
 				type: 'paragraph',
-				text: 'The component library is the hard dependency. Two implementations means two sources of truth for every button state, and they will drift. I pushed the design decisions down into tokens that neither framework owns.'
+				text: 'The component library is the hard dependency. Two implementations means two sources of truth for every button state, and they drift. So the design decisions moved down into tokens that neither framework owns.'
 			},
 			{
 				type: 'code',
@@ -331,22 +331,22 @@ func Handle(svc Service) http.HandlerFunc {
 			},
 			{
 				type: 'paragraph',
-				text: 'With tokens in place, the Vue button and the Svelte button are thin wrappers over the same values. A visual change is a token change, reviewed once.'
+				text: 'With tokens in place the Vue button and the Svelte button are thin wrappers over the same values, and a visual change is a token change reviewed once.'
 			},
 			{ type: 'heading', level: 2, text: 'What transfers and what does not' },
 			{
 				type: 'list',
 				items: [
 					'Reactivity intuition transfers almost completely. Runes and the Composition API are the same mental model with different syntax.',
-					'Store patterns transfer partially. Anything built around Vue plugin injection needs rethinking rather than porting.',
-					'Build tooling transfers cleanly, since both sit on Vite.',
-					'Team habits transfer slowest, and they set the actual timeline.'
+					"Store patterns only half transfer. Anything built around Vue's plugin injection has to be rethought rather than ported.",
+					'Build tooling is a non-issue, since both sit on Vite.',
+					'Team habits are the slow part, and they set the real timeline.'
 				]
 			},
 			{ type: 'heading', level: 2, text: 'Where it stands' },
 			{
 				type: 'paragraph',
-				text: 'Several routes are live in Svelte, the token layer is shared by both frameworks, and the team ships at the same cadence as before. There was no freeze and no long-lived branch, and there will not be a launch day.'
+				text: 'Several routes are live in Svelte, both frameworks read the same token layer, and the team ships at the same cadence as before. There was no freeze and no long-lived branch, and there will not be a launch day either.'
 			}
 		]
 	}
