@@ -20,6 +20,16 @@
 	let { data }: PageProps = $props();
 </script>
 
+<svelte:head>
+	<title>Juan Carlos Largo · Senior Software Engineer</title>
+	<meta name="description" content={content.hero.description} />
+	<meta property="og:title" content="Juan Carlos Largo · Senior Software Engineer" />
+	<meta property="og:description" content={content.hero.description} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://imlargo.dev" />
+	<meta name="twitter:card" content="summary_large_image" />
+</svelte:head>
+
 <div class="relative flex w-full items-center justify-center">
 	<div
 		class="pixel-canvas absolute h-full w-full [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] opacity-50"
@@ -51,8 +61,13 @@
 			</p>
 		</div>
 
-		<div class="flex items-center gap-x-2">
+		<div class="flex flex-wrap items-center gap-x-2 gap-y-3">
 			<Button href="mailto:{content.email}">Contact me</Button>
+
+			<Button variant="secondary" href="https://kora.imlargo.dev" target="_blank">
+				<span>Kora Studio</span>
+				<ArrowUpRight class="size-4" />
+			</Button>
 
 			<div class="mx-2 h-5 w-0.5 bg-muted"></div>
 

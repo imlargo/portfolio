@@ -20,7 +20,15 @@
 				What if we build something amazing together?
 			</h3>
 
-			<p class="text-xl">I'm available for freelance projects and collaborations.</p>
+			<p class="text-xl">
+				Open to remote roles, and taking on a couple of client projects at a time through
+				<a
+					href="https://kora.imlargo.dev"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="font-semibold underline underline-offset-4">Kora Studio</a
+				>.
+			</p>
 		</div>
 
 		<div class="flex justify-end">

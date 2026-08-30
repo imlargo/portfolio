@@ -8,6 +8,26 @@ export type Experience = {
 	description: string;
 };
 
+export type WorkItem = {
+	title: string;
+	context: string;
+	period: string;
+	description: string;
+	technologies: Technology[];
+	url?: string;
+};
+
+export type WorkGroup = {
+	title: string;
+	description: string;
+	items: WorkItem[];
+};
+
+export type Stat = {
+	value: string;
+	label: string;
+};
+
 export type Project = {
 	image?: string;
 	title: string;
@@ -61,6 +81,18 @@ export type Content = {
 
 		projects: Project[];
 		work: Project[];
+	};
+
+	workPage: {
+		title: string;
+		description: string;
+		stats: Stat[];
+		groups: WorkGroup[];
+		side: {
+			title: string;
+			description: string;
+			projects: Project[];
+		};
 	};
 
 	skills: {

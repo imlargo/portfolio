@@ -25,11 +25,13 @@
 			]
 		},
 		{
-			title: 'Resources',
+			title: 'Elsewhere',
 			links: [
-				{ label: 'GitHub', href: 'https://github.com/imlargo', external: true },
-				{ label: 'Instagram', href: 'https://instagram.com/imlargo', external: true },
-				{ label: 'Linkedin', href: 'https://github.com/imlargo', external: true }
+				{ label: 'GitHub', href: content.socials?.github ?? '', external: true },
+				{ label: 'LinkedIn', href: content.socials?.linkedin ?? '', external: true },
+				{ label: 'Instagram', href: content.socials?.instagram ?? '', external: true },
+				{ label: 'Kora Studio', href: 'https://kora.imlargo.dev', external: true },
+				{ label: 'Resume', href: '/files/resume.pdf', external: true }
 			]
 		}
 	]);

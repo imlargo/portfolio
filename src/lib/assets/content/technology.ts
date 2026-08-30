@@ -28,7 +28,16 @@ export enum Technology {
 	Redis,
 	Docker,
 	Aws,
-	CiCd
+	CiCd,
+	Gin,
+	RabbitMQ,
+	Nginx,
+	Grafana,
+	Prometheus,
+	Vitest,
+	Playwright,
+	Kubernetes,
+	Terraform
 }
 
 export function getLabel(technology: Technology): string {
@@ -93,6 +102,24 @@ export function getLabel(technology: Technology): string {
 			return 'AWS';
 		case Technology.CiCd:
 			return 'CI/CD';
+		case Technology.Gin:
+			return 'Gin';
+		case Technology.RabbitMQ:
+			return 'RabbitMQ';
+		case Technology.Nginx:
+			return 'Nginx';
+		case Technology.Grafana:
+			return 'Grafana';
+		case Technology.Prometheus:
+			return 'Prometheus';
+		case Technology.Vitest:
+			return 'Vitest';
+		case Technology.Playwright:
+			return 'Playwright';
+		case Technology.Kubernetes:
+			return 'Kubernetes';
+		case Technology.Terraform:
+			return 'Terraform';
 		default:
 			return 'Unknown';
 	}
@@ -156,6 +183,24 @@ export function getColor(technology: Technology) {
 			return '#2496ed';
 		case Technology.Aws:
 			return '#ff9900';
+		case Technology.Gin:
+			return '#008ecf';
+		case Technology.RabbitMQ:
+			return '#ff6600';
+		case Technology.Nginx:
+			return '#009639';
+		case Technology.Grafana:
+			return '#f46800';
+		case Technology.Prometheus:
+			return '#e6522c';
+		case Technology.Vitest:
+			return '#fcc72b';
+		case Technology.Playwright:
+			return '#2ead33';
+		case Technology.Kubernetes:
+			return '#326ce5';
+		case Technology.Terraform:
+			return '#7b42bc';
 		default:
 			return '#4b4b4b';
 	}

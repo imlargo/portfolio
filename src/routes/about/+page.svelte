@@ -1,17 +1,20 @@
 <script lang="ts">
 	import { Technology } from '$lib/assets/content/technology';
-	import AnimatedBadge from '$lib/components/common/AnimatedBadge.svelte';
 	import Cta from '$lib/components/common/Cta.svelte';
 	import SocialIcon from '$lib/components/kit/social-icon/SocialIcon.svelte';
 	import SkillBadge from '$lib/components/landing/SkillBadge.svelte';
-	import { Badge } from '$lib/components/ui/badge';
-	import { Button } from '$lib/components/ui/button';
-	import { Separator } from '$lib/components/ui/separator';
+	import { Button } from '$lib/components/ui/button/index.js';
 	import { content } from '$lib/assets/content/content';
-	import type { PageProps } from './$types';
-
-	let { data }: PageProps = $props();
+	import { ArrowUpRight } from '@lucide/svelte';
 </script>
+
+<svelte:head>
+	<title>About | {content.name}</title>
+	<meta
+		name="description"
+		content="Juan Carlos Largo (@imlargo), senior software engineer and founder of Kora Studio, based in Medellín, Colombia."
+	/>
+</svelte:head>
 
 <div class="max-w-wx grid gap-x-24 gap-y-12 lg:grid-cols-2">
 	<div class="flex flex-col gap-y-8">
@@ -21,50 +24,62 @@
 			<p class="max-w-prose text-pretty text-muted-foreground">
 				Hi, I'm <span class="font-semibold text-foreground">Juan Carlos Largo</span> (<span
 					class="ty-inlinecode">@imlargo</span
-				>). Senior software engineer and technical lead, based in Medellín, Colombia.
+				>). Senior software engineer and founder of
+				<span class="font-semibold text-foreground">Kora Studio</span>, based in Medellín, Colombia.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				I'm full-stack with architectural depth on both sides. I work primarily with
+				I build systems that go to production and stay there. 20+ shipped since 2023, all still
+				running. I'm full-stack with architectural depth on both sides, working primarily with
 				<SkillBadge class="inline-flex rounded-md bg-muted/50 py-0.5" tech={Technology.Go} />, <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Typescript}
 				/> and <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Svelte}
-				/>, and I've spent the past 3+ years building and leading production systems across Go
-				distributed backends, TypeScript/Vue/Svelte frontends, and AWS cloud infrastructure.
+				/>, across Go distributed backends, TypeScript frontends and AWS infrastructure.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				I currently lead frontend engineering at Unergy, a solar energy company, where I own all
-				frontend architecture decisions, lead a team of 4+ engineers, and am directing a progressive
-				migration from Vue to Svelte across the company's platforms. Before that, I was the sole
-				technical owner at Butter, an international content-generation SaaS I co-founded and took
-				from zero to 1,000+ active users, owning architecture, infrastructure, and production
-				operations end-to-end.
+				Kora is a product and technology studio, not a software factory and not an agency. The
+				conviction behind it is that software rarely fails because of how it was built, it fails
+				because of what someone decided to build. So every engagement starts with understanding the
+				business, and the first conversation is with the person who will write the code. 12+ systems
+				delivered across construction, education, retail and the public sector, every client through
+				referral, and we have never advertised.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				I also run <span class="font-semibold text-foreground">Kora Systems</span>, an engineering
-				consultancy where I've delivered 5 production systems across 4 industries, all shipped to
-				full production with zero ongoing supervision required. I'm equally comfortable as the sole
-				engineer on a greenfield system or as the technical lead coordinating a team, defining
-				standards, and raising the quality bar.
+				Alongside that I lead frontend engineering at Unergy, a solar energy company, where I own
+				the frontend architecture, lead a team of 4 engineers and am directing a progressive
+				migration from Vue to Svelte. Before that I was the sole technical owner at Butter, an
+				international content-generation SaaS I co-founded and took from zero to 1,000+ users, and
+				the engineer behind a national gender-based-violence prevention platform serving 64+
+				universities with Colombia's Ministry of Education.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				On the side, I build tools and open-source projects. Pegaso, a course scheduling platform
-				for Universidad Nacional de Colombia, reached 6,200+ active users through entirely organic
-				adoption and prompted formal acquisition discussions with the institution. I also contribute
-				to open-source projects including shadcn/ui (Svelte + Vue ports), Svelte ecosystem
-				libraries, and Gin, and published a webpush library for the Gleam ecosystem.
+				What I publish on GitHub comes out of that work: patterns pulled from real systems, cleaned
+				up, and put back into the ones that needed them. If a library of mine exists, it's because I
+				needed it three times first. That's where air, coral, medusa and a Web Push library for
+				Gleam came from. Pegaso, a course scheduling platform for Universidad Nacional de Colombia,
+				grew to 6,200+ users through entirely organic adoption and prompted formal acquisition
+				discussions with the institution.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				If you're interested in collaborating, talking about technology, or building something
-				together, I'm always open to new connections.
+				I care about small surfaces, sane defaults, and code that still reads well six months later.
+				I'd rather own the whole thing than a slice of it. If you want to collaborate, talk about
+				technology, or build something together, I'm always open to new connections.
 			</p>
+		</div>
+
+		<div class="flex flex-wrap items-center gap-2">
+			<Button href="mailto:{content.email}">Contact me</Button>
+			<Button variant="secondary" href="https://kora.imlargo.dev" target="_blank">
+				<span>Kora Studio</span>
+				<ArrowUpRight class="size-4" />
+			</Button>
 		</div>
 	</div>
 

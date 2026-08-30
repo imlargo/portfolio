@@ -82,7 +82,7 @@
 							<span class="text-sm font-medium text-muted-foreground">Socials</span>
 							<div class="flex flex-col gap-y-3 text-2xl font-medium">
 								<a
-									href="https://github.com/imlargo"
+									href={content.socials?.github}
 									target="_blank"
 									data-sveltekit-reload
 									class="flex items-center gap-x-2"
@@ -91,7 +91,16 @@
 									<ArrowUpRight />
 								</a>
 								<a
-									href="https://instagram.com/imlargo"
+									href={content.socials?.linkedin}
+									target="_blank"
+									data-sveltekit-reload
+									class="flex items-center gap-x-2"
+								>
+									<span>LinkedIn</span>
+									<ArrowUpRight />
+								</a>
+								<a
+									href={content.socials?.instagram}
 									target="_blank"
 									data-sveltekit-reload
 									class="flex items-center gap-x-2"
@@ -100,12 +109,12 @@
 									<ArrowUpRight />
 								</a>
 								<a
-									href="https://github.com/imlargo"
+									href="https://kora.imlargo.dev"
 									target="_blank"
 									data-sveltekit-reload
 									class="flex items-center gap-x-2"
 								>
-									<span>LinkedIn</span>
+									<span>Kora Studio</span>
 									<ArrowUpRight />
 								</a>
 							</div>
