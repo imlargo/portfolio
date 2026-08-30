@@ -40,7 +40,7 @@
 			<div class="flex flex-col gap-y-4">
 				<HeroBadge class="hero-item">{hero.badge}</HeroBadge>
 
-				<h1 class="ty-h1 max-w-3xl text-5xl" {@attach useSplitTitle(0.15)}>
+				<h1 class="ty-h1 max-w-3xl font-mono text-5xl" {@attach useSplitTitle(0.15)}>
 					{hero.title}
 				</h1>
 

@@ -36,7 +36,7 @@
 			class="ml-1 flex size-1.5 shrink-0 rounded-full bg-brand ring-2 ring-brand/40 outline-2 outline-offset-2 outline-brand/20"
 			aria-hidden="true"
 		></span>
-		<span class="shine pr-2">{@render children()}</span>
+		<span class="shine pr-2 font-mono">{@render children()}</span>
 	</span>
 </span>
 

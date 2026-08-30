@@ -20,5 +20,5 @@
 		style:border-color={getColor(tech)}
 		aria-hidden="true"
 	></span>
-	<span class="text-center font-semibold text-muted-foreground">{getLabel(tech)}</span>
+	<span class="text-center font-mono font-medium text-muted-foreground">{getLabel(tech)}</span>
 </Badge>
