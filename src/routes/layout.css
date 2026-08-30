@@ -2,15 +2,8 @@
 @import 'tw-animate-css';
 @import 'shadcn-svelte/tailwind.css';
 
-/* ── Fuentes ──────────────────────────────────────────────────────────────────
-   Las cuatro candidatas van cargadas a la vez para poder compararlas en vivo.
-   Al elegir, borrá las otras tres de acá y del package.json. Cuál se usa lo
-   decide `data-type` en src/app.html; buscá "FUENTES · OPCIONES" más abajo. */
-@import '@fontsource-variable/source-code-pro';
-@import '@fontsource-variable/space-grotesk';
 @import '@fontsource-variable/manrope';
-@import '@fontsource-variable/work-sans';
-@import '@fontsource-variable/inter';
+@import '@fontsource-variable/source-code-pro';
 
 @custom-variant dark (&:is(.dark *));
 @plugin '@tailwindcss/forms';
@@ -19,12 +12,8 @@
 /* ── Paleta ───────────────────────────────────────────────────────────────────
    Misma escala neutra (zinc) y mismo acento que Kora: el estudio y yo somos la
    misma persona y los dos sitios tienen que leerse como una sola familia. Lo
-   que los diferencia no es el color, es la voz — acá manda la mono.
-
-   `.theme-invert` comparte los tokens claros de `:root`, para poder voltear una
-   sección suelta a fondo brillante sin que la paleta se desvíe entre las dos. */
-:root,
-.theme-invert {
+   que los diferencia no es el color, es la voz — acá manda la mono. */
+:root {
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.141 0.005 285.823);
 
@@ -126,70 +115,12 @@
 	--sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   FUENTES · OPCIONES
-   ══════════════════════════════════════════════════════════════════════════════
-   Para cambiar de tipografía se toca UNA línea, en src/app.html:
-
-       <html lang="en" class="dark h-full" data-type="manrope" ...>
-
-   Para comparar sin recargar, pegá esto en la consola del navegador:
-
-       document.documentElement.dataset.type = 'manrope'
-
-   Las cuatro son grotescas de palo seco y las diferencias son finas, así que
-   conviene mirar siempre lo mismo para poder decidir: la 'a' y la 'g' (de uno o
-   de dos pisos), cuánto abren los remates de la 'C' y la 'S', y sobre todo el
-   ancho — Manrope es la más estrecha y Work Sans la más abierta, y eso cambia
-   cuántas palabras entran por línea en los párrafos largos del about.
-   ══════════════════════════════════════════════════════════════════════════════ */
-
-/* Sin `data-type`, o con uno que no exista, manda esto. */
-:root {
-	--type-heading: 'Space Grotesk Variable', sans-serif;
-	--type-sans: 'Space Grotesk Variable', sans-serif;
-}
-
-/* grotesk ─ ACTUAL. Geométrica, con la 'a' de un piso y terminales cortados en
-   recto: se lee técnica, casi de interfaz. La misma que Kora. */
-[data-type='grotesk'] {
-	--type-heading: 'Space Grotesk Variable', sans-serif;
-	--type-sans: 'Space Grotesk Variable', sans-serif;
-}
-
-/* manrope ─ semi-geométrica y estrecha, con las curvas apenas achatadas. Es la
-   más contemporánea de las cuatro y la que más se parece a lo que usan los
-   estudios; en títulos grandes se planta muy bien. */
-[data-type='manrope'] {
-	--type-heading: 'Manrope Variable', sans-serif;
-	--type-sans: 'Manrope Variable', sans-serif;
-}
-
-/* work ─ humanista: 'g' de doble piso, terminales suaves y ejes con algo de
-   inclinación. La más cálida y la menos de interfaz; el cuerpo del about se
-   lee más como prosa y menos como documentación. */
-[data-type='work'] {
-	--type-heading: 'Work Sans Variable', sans-serif;
-	--type-sans: 'Work Sans Variable', sans-serif;
-}
-
-/* inter ─ neutra de interfaz, dibujada para pantallas chicas y alta legibilidad.
-   Es la más segura y la más anónima: no estorba, pero tampoco aporta carácter,
-   y está en medio internet. */
-[data-type='inter'] {
-	--type-heading: 'Inter Variable', sans-serif;
-	--type-sans: 'Inter Variable', sans-serif;
-}
-
 @theme inline {
-	/* Los tres tokens apuntan a las variables de "FUENTES · OPCIONES", que es lo
-	   que cambia según `data-type`. `@theme inline` copia el `var()` tal cual
-	   dentro de la utilidad, así que `.font-sans` termina resolviéndose en el
-	   navegador y no al compilar: por eso el cambio se ve sin recargar.
-
-	   La mono es la firma del sitio y no entra en la comparación. */
-	--font-sans: var(--type-sans);
-	--font-heading: var(--type-heading);
+	/* Manrope en todo el sitio: semi-geométrica y estrecha, se planta en los
+	   títulos y no se lee como interfaz. La mono es la firma —rótulos, fechas,
+	   stack y el wordmark— y por eso son las dos únicas familias del sitio. */
+	--font-sans: 'Manrope Variable', sans-serif;
+	--font-heading: 'Manrope Variable', sans-serif;
 	--font-mono: 'Source Code Pro Variable', ui-monospace, monospace;
 
 	--color-background: var(--background);
@@ -261,17 +192,6 @@
 	html {
 		@apply font-sans;
 	}
-
-	/* Sin esto `--font-heading` no haría nada en las páginas: los títulos
-	   heredaban de `html` y solo los componentes shadcn usaban la clase. Va
-	   sobre el elemento, así que cualquier `font-mono` o `font-sans` puesto en
-	   el marcado le sigue ganando —las utilidades mandan sobre la capa base. */
-	h1,
-	h2,
-	h3,
-	h4 {
-		@apply font-heading;
-	}
 }
 
 /* ── Retícula horizontal ─────────────────────────────────────────────────────
@@ -299,9 +219,7 @@
    .py-hero        Arriba respira menos, porque el header ya deja aire. Abajo
                    cierra con P, así el primer corte de la página mide lo mismo
                    que todos los demás.
-   .py-section-lg  Solo el bloque de cierre, que necesita separarse del footer.
-   .gap-block      Separación entre piezas hermanas dentro de una sección: P, la
-                   mitad de lo que separa dos secciones. */
+   .py-section-lg  Solo el bloque de cierre, que necesita separarse del footer. */
 .py-section {
 	@apply py-20 sm:py-28;
 }
@@ -316,10 +234,6 @@
 
 .py-section-lg {
 	@apply py-28 sm:py-36;
-}
-
-.gap-block {
-	@apply gap-y-20 sm:gap-y-28;
 }
 
 .p-card {
@@ -365,10 +279,6 @@
 
 .ty-muted {
 	@apply text-sm text-muted-foreground;
-}
-
-.tilt-perspective {
-	perspective: 1200px;
 }
 
 /* Tratamiento compartido de los paneles "imagen, no interfaz" (plasma en

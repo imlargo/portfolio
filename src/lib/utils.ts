@@ -11,10 +11,3 @@ export type WithoutChild<T> = T extends { child?: any } ? Omit<T, 'child'> : T;
 export type WithoutChildren<T> = T extends { children?: any } ? Omit<T, 'children'> : T;
 export type WithoutChildrenOrChild<T> = WithoutChildren<WithoutChild<T>>;
 export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?: U | null };
-
-/**
- * Registra valores como dependencias de un `$effect` que puede salir antes de
- * llegar a leerlos. Evaluar los argumentos en la llamada *es* la lectura, así
- * que el cuerpo está vacío a propósito.
- */
-export function trackDeps(..._values: unknown[]): void {}

@@ -5,9 +5,9 @@ Portfolio of Juan Carlos Largo (`@imlargo`) — senior software engineer, founde
 
 It shares Kora's design system on purpose: same neutral scale, same brand accent,
 same spacing rhythm and the same motion vocabulary, because the studio and the person
-behind it are the same. What separates the two sites is the voice — here the mono face
-carries the identity, in the wordmark, the page titles and every date and stack label —
-and the content, which is a career, not an offer.
+behind it are the same. What separates the two sites is the voice — Manrope instead of
+Kora's Space Grotesk, and the mono face carrying the identity in the wordmark, the page
+titles and every date and stack label — and the content, which is a career, not an offer.
 
 ## Stack
 
@@ -26,7 +26,7 @@ and the content, which is a career, not an offer.
 ```
 src/
 ├── lib/
-│   ├── attachments/          # Svelte attachments: reveal, parallax, tilt, counter, scramble…
+│   ├── attachments/          # Svelte attachments: reveal, parallax, split-title, counter…
 │   ├── components/
 │   │   ├── cards/            # Shared cards: ProjectCard, RecordRow, SkillBadge
 │   │   ├── common/           # Small shared pieces (SocialIcon)
@@ -73,6 +73,11 @@ place. The parts worth knowing before writing a component:
 Use `<Section.Root>` (`$lib/components/layout/section`) rather than writing
 `<section class="px-layout py-section">` by hand — it carries the margin, the
 rhythm and the content column together.
+
+Two families, no more: **Manrope** for everything (`--font-sans`, `--font-heading`)
+and **Source Code Pro** for the mono — the wordmark, dates, stack labels and the
+`ty-inlinecode` snippets. The mono is the site's signature; adding a third family
+would dilute it.
 
 Motion goes through the attachments in `src/lib/attachments/`, never inline GSAP.
 All of them no-op under `prefers-reduced-motion: reduce`; keeping that in one
