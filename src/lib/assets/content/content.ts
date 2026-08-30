@@ -7,7 +7,7 @@ const projects: Project[] = [
 		github: 'https://github.com/imlargo/pegaso',
 		title: 'Pegaso',
 		description:
-			"Course scheduling and discovery platform for Universidad Nacional de Colombia. Scaled to 6,200+ active users through entirely organic adoption, the university's subsequent official platform adopted its core design decisions, and the project prompted formal acquisition discussions.",
+			"Course scheduling platform for Universidad Nacional de Colombia. 6,200+ users through organic adoption, no advertising. The university's official platform later adopted its core design decisions.",
 		technologies: [
 			Technology.Svelte,
 			Technology.Go,
@@ -21,7 +21,7 @@ const projects: Project[] = [
 		github: 'https://github.com/imlargo/air',
 		title: 'air',
 		description:
-			'A tiny HTTP client for TypeScript built on native fetch. Around 300 lines, zero runtime dependencies, ~2 kB over the wire. I had rewritten the same fetch wrapper in every project, so I wrote it once properly and published it.',
+			'A tiny HTTP client for TypeScript built on native fetch. 300 lines, zero dependencies, ~2 kB. I had rewritten the same wrapper in every project, so I wrote it once properly.',
 		technologies: [Technology.Typescript]
 	},
 	{
@@ -29,7 +29,7 @@ const projects: Project[] = [
 		url: 'https://github.com/imlargo/medusa-template',
 		title: 'Medusa',
 		description:
-			'Batteries-included Go framework for modern backends, extracted from production patterns across multiple client systems and deployed back into those same environments, validating the abstractions under real constraints, not in isolation.',
+			'Batteries-included Go framework for modern backends, extracted from production systems and deployed back into them. Validated under real constraints, not in isolation.',
 		technologies: [Technology.Go, Technology.Gin, Technology.Postgres]
 	},
 	{
@@ -37,7 +37,7 @@ const projects: Project[] = [
 		url: 'https://github.com/imlargo/coral',
 		title: 'coral',
 		description:
-			'A Svelte component layer on top of shadcn that ships composed, ready-to-use patterns instead of primitives. The pieces I ended up rebuilding on every frontend, packaged so the next project starts where the last one finished.',
+			'A Svelte component layer on top of shadcn that ships composed patterns instead of primitives, so the next project starts where the last one finished.',
 		technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind]
 	},
 	{
@@ -45,7 +45,7 @@ const projects: Project[] = [
 		url: 'https://github.com/imlargo/sse',
 		title: 'sse',
 		description:
-			'Server-Sent Events for Go. Connection handling, broadcasting and per-client fan-out behind a small surface, pulled out of a production system that needed streaming updates and kept needing them.',
+			'Server-Sent Events for Go. Connections, broadcasting and per-client fan-out behind a small surface.',
 		technologies: [Technology.Go]
 	},
 	{
@@ -53,7 +53,7 @@ const projects: Project[] = [
 		url: 'https://hexdocs.pm/webpush/index.html',
 		title: 'Gleam WebPush',
 		description:
-			'Web Push for the Gleam ecosystem, following RFC 8291 and 8292. No external dependencies, only OTP crypto. There was no Web Push library for Gleam, so I wrote it, and v2 is complete and production-ready.',
+			'Web Push for Gleam, following RFC 8291 and 8292. No external dependencies, only OTP crypto. There was no library for it, so I wrote one.',
 		technologies: [Technology.Gleam]
 	}
 ];
@@ -72,7 +72,7 @@ const experience: Experience[] = [
 		],
 		company: 'Unergy',
 		description:
-			'Leading frontend engineering at a solar energy company, owning architecture and delivery for the platform that manages the complete solar mini-farm project lifecycle. Lead a team of 4 engineers, architected a Vue + TypeScript component library standardized across every company application, led a structural refactor of 6 core modules that cut bundle size and load times by 25%, and am directing a progressive, module-by-module migration from Vue to Svelte with test coverage backing every step.'
+			'Own frontend architecture for the platform running the company solar mini-farm business, leading a team of 4. Shipped a Vue + TypeScript component library used across every application, refactored 6 core modules for 25% smaller bundles, and am migrating the platform to Svelte one module at a time.'
 	},
 	{
 		role: 'Founder & Lead Engineer',
@@ -89,7 +89,7 @@ const experience: Experience[] = [
 		],
 		company: 'Kora Studio',
 		description:
-			'Founded and run a product and technology studio in Medellín. Every engagement starts with understanding the business, not with a backlog: I run the first conversation, decide what is actually worth building, and stay accountable through architecture, implementation, deployment and handoff. 12+ systems delivered across construction, education, retail and the public sector. All of them still in production, every client arrived by referral, and we have never advertised.'
+			'Product and technology studio in Medellín. Every engagement starts with understanding the business, and the first conversation is with the person who writes the code. 12+ systems across construction, education, retail and the public sector, all still in production, every client by referral.'
 	},
 	{
 		role: 'Senior Software Engineer',
@@ -103,7 +103,7 @@ const experience: Experience[] = [
 		],
 		company: 'ASCUN',
 		description:
-			"Engaged as sole engineer by the Colombian Association of Universities (operating jointly with Colombia's Ministry of Education) to redesign a national gender-based-violence prevention platform end-to-end, with security and compliance held to a higher bar for sensitive citizen data. Rewrote a legacy Node.js backend into a layered architecture, rebuilt 3 product surfaces, and shipped a conversational assistant with an interactive map of Colombia serving 64+ universities."
+			"Sole engineer on a national gender-based-violence prevention platform, built with Colombia's Ministry of Education for 64+ universities. Rebuilt a legacy Node.js backend into a layered architecture under a higher compliance bar, rewrote 3 product surfaces, and shipped a conversational assistant with an interactive map."
 	},
 	{
 		role: 'Lead Software Engineer & Technical Co-Founder',
@@ -120,7 +120,7 @@ const experience: Experience[] = [
 		],
 		company: 'Butter',
 		description:
-			"Joined when the product was an idea and stayed the sole technical owner across architecture, implementation, infrastructure and production operations for an international content-generation SaaS, taken from zero to 1,000+ active users. Built the AI pipeline that was the product's differentiator, multi-model LLM integration with cost and latency tradeoffs, FFmpeg processing and GPU scheduling, running 2,000+ jobs/day at ~2.4 min median latency, plus Stripe billing, a multi-vendor marketplace and observability sustaining 99.9% uptime."
+			'Sole technical owner of an international content-generation SaaS, from idea to 1,000+ users. Built the AI pipeline that differentiated it (multi-model LLMs, FFmpeg, GPU scheduling) running 2,000+ jobs/day at ~2.4 min median, plus Stripe billing, a marketplace and the observability behind 99.9% uptime.'
 	},
 	{
 		role: 'Senior Software Engineer',
@@ -136,22 +136,21 @@ const experience: Experience[] = [
 		],
 		company: 'Universidad Nacional de Colombia',
 		description:
-			"Technical lead and full-stack engineer for mission-critical administrative systems at the Faculty of Engineering, accountable from requirements through long-term maintenance. Delivered a field-trip management platform that cut approval cycles from 2 weeks to 20 minutes across 200+ requests per semester, a real-time air-quality monitoring platform accurate enough for a research lab's publishable data, and an educational platform with an integrated code judge that the Faculty formally approved as an institutional tool."
+			'Technical lead for administrative systems at the Faculty of Engineering. Built a field-trip platform that cut approval cycles from 2 weeks to 20 minutes over 200+ requests a semester, a real-time air-quality platform accurate enough to publish from, and a learning platform with a code judge the Faculty approved as an institutional tool.'
 	}
 ];
 
 const workGroups: WorkGroup[] = [
 	{
 		title: 'Product & platform',
-		description:
-			'Systems I own end-to-end, where the architecture, the infrastructure and the production behaviour are all mine to answer for.',
+		description: 'Systems I own end-to-end: architecture, infrastructure and production behaviour.',
 		items: [
 			{
 				title: 'Solar project lifecycle platform',
 				context: 'Unergy',
 				period: '2025 - Present',
 				description:
-					"The system that runs Unergy's solar mini-farm business, from project origination through construction and operation. I own the frontend architecture, and I am migrating it from Vue to Svelte one module at a time while the platform keeps shipping features.",
+					'Runs the solar mini-farm business from origination through construction and operation. Migrating it from Vue to Svelte module by module while it keeps shipping features.',
 				technologies: [
 					Technology.Vue,
 					Technology.Svelte,
@@ -164,7 +163,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Unergy',
 				period: '2026',
 				description:
-					'A Vue + TypeScript component library, project templates and shared foundations standardized across every application in the company. New features ship 20% faster and a new project goes from days of setup to hours.',
+					'Vue + TypeScript components, project templates and shared foundations used across every application. New projects go from days of setup to hours.',
 				technologies: [
 					Technology.Vue,
 					Technology.Typescript,
@@ -177,7 +176,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Own product, international',
 				period: '2025 - 2026',
 				description:
-					'Distributed Go system built from zero: async job queues, PostgreSQL and Redis, containerized AWS infrastructure, a multi-model AI pipeline with FFmpeg and GPU scheduling, Stripe subscriptions and a multi-vendor marketplace. 1,000+ users, 2,000+ jobs a day, 99.9% uptime, one engineer.',
+					'Distributed Go system built from zero: job queues, Postgres and Redis, AWS, a multi-model AI pipeline, Stripe subscriptions and a marketplace. 1,000+ users, 2,000+ jobs a day, one engineer.',
 				technologies: [
 					Technology.Go,
 					Technology.Svelte,
@@ -192,7 +191,7 @@ const workGroups: WorkGroup[] = [
 				context: 'ING, via Kora Studio',
 				period: '2026',
 				description:
-					'The core system for a construction company: contracts, service orders, work plans and budgets across every project, with field teams logging constraints that feed straight back into schedule adjustments.',
+					'Contracts, service orders, work plans and budgets across every project, with field constraints feeding straight back into the schedule.',
 				technologies: [Technology.Go, Technology.Svelte, Technology.Typescript, Technology.Postgres]
 			}
 		]
@@ -200,14 +199,14 @@ const workGroups: WorkGroup[] = [
 	{
 		title: 'Public sector & education',
 		description:
-			'Institutional work, where the constraint is rarely the technology and almost always the process the software has to survive.',
+			'Institutional work, where the constraint is rarely the technology and almost always the process.',
 		items: [
 			{
 				title: 'National GBV prevention and response platform',
 				context: "ASCUN & Colombia's Ministry of Education",
 				period: '2025 - 2026',
 				description:
-					'A national platform serving 64+ universities, rebuilt end-to-end: a layered Node.js backend meeting an elevated compliance bar for sensitive citizen data, three distinct product surfaces, and a conversational assistant with an interactive map of Colombia for protocol navigation.',
+					'Rebuilt end-to-end for 64+ universities: a layered Node.js backend handling sensitive citizen data, three product surfaces, and a conversational assistant with an interactive map of Colombia.',
 				technologies: [
 					Technology.NodeJs,
 					Technology.React,
@@ -221,7 +220,7 @@ const workGroups: WorkGroup[] = [
 				context: "Colombia's Ministry of Education",
 				period: '2025',
 				description:
-					'A tool that takes the components of a gender-based-violence case and returns the applicable response procedure immediately, designed for people using it during a crisis rather than at a desk.',
+					'Takes the components of a gender-based-violence case and returns the applicable procedure immediately, designed for people using it during a crisis.',
 				technologies: [Technology.Typescript, Technology.React]
 			},
 			{
@@ -229,7 +228,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Universidad Nacional de Colombia',
 				period: '2024 - 2025',
 				description:
-					'Replaced a fully manual administrative and financial process with automated workflows, cutting the per-trip cycle from 1-2 weeks to under 20 minutes across 200+ requests per semester. Still the highest-impact system I have built for the Faculty.',
+					'Replaced a manual administrative and financial process with automated workflows, cutting each trip from 1-2 weeks to under 20 minutes across 200+ requests a semester.',
 				technologies: [Technology.Go, Technology.Svelte, Technology.Postgres, Technology.Typescript]
 			},
 			{
@@ -237,7 +236,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Research lab, Universidad Nacional de Colombia',
 				period: '2024',
 				description:
-					'Continuous ingestion from sensor networks with analytics dashboards and automated report export, accurate enough for the lab to publish from it.',
+					'Continuous sensor ingestion, dashboards and automated reports, accurate enough for the lab to publish from.',
 				technologies: [
 					Technology.NodeJs,
 					Technology.Javascript,
@@ -250,7 +249,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Universidad Nacional de Colombia',
 				period: '2024',
 				description:
-					'Course and module management with an automated code-judge engine for programming assessments, reviewed and formally approved by the Faculty as a viable institutional tool.',
+					'Course management with an automated judge for programming assessments, formally approved by the Faculty as an institutional tool.',
 				technologies: [
 					Technology.Svelte,
 					Technology.NodeJs,
@@ -263,7 +262,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Universidad Nacional de Colombia',
 				period: '2025',
 				description:
-					'Centralized courses, materials, assessments, attendance and eligibility for student representatives across every campus of the university.',
+					'Courses, materials, assessments, attendance and eligibility for student representatives across every campus.',
 				technologies: [
 					Technology.Svelte,
 					Technology.Typescript,
@@ -276,7 +275,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Facultad de Minas',
 				period: '2024',
 				description:
-					'Internal system coordinating subject content updates across multiple stakeholders, replacing a document-and-email workflow that nobody could audit.',
+					'Coordinates subject content updates across multiple stakeholders, replacing a document-and-email workflow nobody could audit.',
 				technologies: [Technology.Svelte, Technology.NodeJs, Technology.Firebase]
 			},
 			{
@@ -284,7 +283,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Facultad de Minas',
 				period: '2023 - 2024',
 				description:
-					'WhatsApp chatbot automating answers to frequent student questions and routing administrative requests, covered by the Faculty as one of its student-facing AI initiatives.',
+					'Answers frequent student questions and routes administrative requests, covered by the Faculty as one of its student-facing AI initiatives.',
 				technologies: [Technology.NodeJs, Technology.Javascript],
 				url: 'https://minas.medellin.unal.edu.co/noticias/facultad/5569-con-inteligencia-artificial-estudiantes-optimizan-las-solicitudes-estudiantiles'
 			},
@@ -293,7 +292,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Facultad de Minas',
 				period: '2023 - 2024',
 				description:
-					'Apps Script and Python automations that removed high-volume manual work from an office that was doing it by hand every week.',
+					'Apps Script and Python automations that removed high-volume manual work from an office doing it by hand every week.',
 				technologies: [Technology.AppsScript, Technology.Python, Technology.Javascript]
 			}
 		]
@@ -301,14 +300,14 @@ const workGroups: WorkGroup[] = [
 	{
 		title: 'Commerce & business systems',
 		description:
-			'Client work through Kora Studio: businesses running on spreadsheets, email and WhatsApp that needed software built around how they actually operate.',
+			'Client work through Kora Studio: businesses running on spreadsheets and WhatsApp that needed software built around how they operate.',
 		items: [
 			{
 				title: 'ScholarKit, school kit e-commerce',
 				context: 'Education retail, via Kora Studio',
 				period: '2025',
 				description:
-					'An online store where families buy the kit and uniform for their exact grade and group, with order management organized the way the school actually distributes them.',
+					'Families buy the kit and uniform for their exact grade and group, with orders organized the way the school distributes them.',
 				technologies: [Technology.Svelte, Technology.Typescript, Technology.Postgres, Technology.Go]
 			},
 			{
@@ -316,7 +315,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Retail client, via Kora Studio',
 				period: '2025',
 				description:
-					'Built on our own foundation rather than a template, shaped around the client operation so growth does not mean redesigning the system a year later.',
+					'Built on our own foundation instead of a template, shaped around the client operation so growth does not mean a redesign a year later.',
 				technologies: [Technology.Svelte, Technology.Go, Technology.Postgres, Technology.Docker]
 			},
 			{
@@ -324,7 +323,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Nightlife & events startup, via Kora Studio',
 				period: '2024 - 2025',
 				description:
-					'Reservation marketplace for venues and events with online payments, where I helped define the product scope alongside the technical architecture.',
+					'Reservations and online payments for venues and events, where I helped define the product scope alongside the architecture.',
 				technologies: [Technology.Svelte, Technology.Go, Technology.Postgres, Technology.Typescript]
 			},
 			{
@@ -332,7 +331,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Client engagement, via Kora Studio',
 				period: '2026',
 				description:
-					'An LLM agent for business due diligence combining token-cost optimization with human-in-the-loop verification, taking the cost of a single run from millions of Colombian pesos to a few hundred without giving up reliability.',
+					'LLM agent with token-cost optimization and human-in-the-loop verification, taking a due-diligence run from millions of Colombian pesos to a few hundred.',
 				technologies: [Technology.Go, Technology.Typescript, Technology.Postgres]
 			},
 			{
@@ -340,7 +339,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Client engagement, via Kora Studio',
 				period: '2024',
 				description:
-					'One system serving many independently branded sites, so publishing a new one is a configuration change instead of a new deployment.',
+					'One system serving many independently branded sites, so publishing a new one is a configuration change.',
 				technologies: [Technology.Svelte, Technology.Typescript, Technology.NodeJs]
 			},
 			{
@@ -348,7 +347,7 @@ const workGroups: WorkGroup[] = [
 				context: 'Client engagements, via Kora Studio',
 				period: '2024 - 2026',
 				description:
-					'Internal tools that took recurring manual operations out of spreadsheets and inboxes: scheduled jobs, integrations between systems that did not talk to each other, alerts and reminders.',
+					'Internal tools that took recurring operations out of spreadsheets and inboxes: scheduled jobs, integrations, alerts and reminders.',
 				technologies: [Technology.Go, Technology.Typescript, Technology.Postgres, Technology.Docker]
 			}
 		]
@@ -361,7 +360,7 @@ const sideProjects: Project[] = [
 		url: 'https://github.com/imlargo/svelte-template',
 		title: 'svelte-template',
 		description:
-			'A production-ready Svelte 5 starter with a layered architecture, the same structure I use to start real projects instead of rediscovering it every time.',
+			'Production-ready Svelte 5 starter with a layered architecture, the structure I use to start real projects.',
 		technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind]
 	},
 	{
@@ -369,7 +368,7 @@ const sideProjects: Project[] = [
 		url: 'https://github.com/imlargo/ratelimit',
 		title: 'ratelimit',
 		description:
-			'Rate limiting for Go services, with the strategies and storage backends I kept reimplementing across backends, behind one small interface.',
+			'Rate limiting for Go services. The strategies and storage backends I kept reimplementing, behind one interface.',
 		technologies: [Technology.Go, Technology.Redis]
 	},
 	{
@@ -377,15 +376,23 @@ const sideProjects: Project[] = [
 		url: 'https://www.npmjs.com/package/@korastd/critical-path-method',
 		title: 'Critical Path Method',
 		description:
-			'A Critical Path Method engine in TypeScript: pure functions, zero runtime dependencies. Written for construction scheduling, useful anywhere a plan has dependencies and a deadline.',
+			'CPM engine in TypeScript, pure functions and zero dependencies. Written for construction scheduling, useful for any plan with dependencies and a deadline.',
 		technologies: [Technology.Typescript]
+	},
+	{
+		github: 'https://github.com/imlargo/janus',
+		url: 'https://github.com/imlargo/janus',
+		title: 'janus',
+		description:
+			'Plug-and-play authentication for Go: sessions, refresh tokens and the boundaries between them.',
+		technologies: [Technology.Go, Technology.Postgres, Technology.Redis]
 	},
 	{
 		url: 'https://odpiobservatorio.vercel.app',
 		github: 'https://github.com/odpiobservatorio/odpiobservatorio.github.io',
 		title: 'ODPI Observatorio',
 		description:
-			'Contributed to a human rights data platform that surfaces the state of violence against indigenous peoples in Colombia. Its outputs are cited in official UN Special Rapporteur reports.',
+			'Human rights data platform on violence against indigenous peoples in Colombia. Its outputs are cited in official UN Special Rapporteur reports.',
 		technologies: [
 			Technology.Javascript,
 			Technology.Html,
@@ -399,16 +406,8 @@ const sideProjects: Project[] = [
 		github: 'https://github.com/imlargo/CopyWhisper',
 		title: 'CopyWhisper',
 		description:
-			'AI-powered tool that analyzes, scores and rewrites the copy of a landing page. Built for a Vercel and midudev hackathon, where it was named one of the featured projects.',
+			'Analyzes, scores and rewrites the copy of a landing page. Built for a Vercel and midudev hackathon, where it was one of the featured projects.',
 		technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind, Technology.Scss]
-	},
-	{
-		github: 'https://github.com/imlargo/janus',
-		url: 'https://github.com/imlargo/janus',
-		title: 'janus',
-		description:
-			'Plug-and-play authentication for Go, covering the flows that are tedious to get right and dangerous to get wrong: sessions, refresh tokens, and the boundaries between them.',
-		technologies: [Technology.Go, Technology.Postgres, Technology.Redis]
 	}
 ];
 
@@ -420,13 +419,12 @@ export const content: Content = {
 		badge: 'Open to remote',
 		title: "Hi, i'm largo",
 		description:
-			'Senior Software Engineer and founder of Kora Studio. I build systems that go to production and stay there, from architecture to deployment: Go on the backend, TypeScript and Svelte on the frontend. 20+ shipped, all still running.'
+			'Senior Software Engineer and founder of Kora Studio. Go on the backend, TypeScript and Svelte on the frontend, architecture through deployment. 20+ systems shipped, all still running.'
 	},
 
 	experience: {
 		title: 'My experience',
-		description:
-			'Leading frontend architecture at a solar energy company, running my own product and technology studio, and taking a distributed Go SaaS from zero to production. Full technical ownership across several industries and team sizes.',
+		description: 'Full technical ownership across several industries and team sizes.',
 
 		items: experience
 	},
@@ -434,7 +432,7 @@ export const content: Content = {
 	work: {
 		title: 'Selected projects',
 		description:
-			'Open-source libraries and products I build in my own time. Most of them exist because I needed the same thing three times first, and the ones that made it here are the ones I kept using afterwards.',
+			'Open source and side projects. Most exist because I needed the same thing three times first.',
 
 		projects: projects,
 		work: []
@@ -443,7 +441,7 @@ export const content: Content = {
 	workPage: {
 		title: 'Work',
 		description:
-			'20+ production systems built from scratch since 2023, for companies, universities and government-linked institutions. Most of them are private, so this is what I can say about each without opening the repository.',
+			'20+ production systems built from scratch since 2023, for companies, universities and government-linked institutions. Most are private, so this is what I can say without opening the repository.',
 		stats: [
 			{ value: '20+', label: 'Systems shipped to production' },
 			{ value: '4', label: 'Industries' },
@@ -453,7 +451,7 @@ export const content: Content = {
 		side: {
 			title: 'Open source & side projects',
 			description:
-				'Libraries, templates and experiments. Some are patterns pulled out of the systems above, cleaned up and put back into the ones that needed them.',
+				'Libraries, templates and experiments, most of them patterns pulled out of the systems above.',
 			projects: sideProjects
 		}
 	},
@@ -461,7 +459,7 @@ export const content: Content = {
 	skills: {
 		title: 'Skills & Technologies',
 		description:
-			'Full-stack with architectural depth on both sides. Go and Gin on the backend, Svelte and TypeScript on the frontend, plus multi-model LLM integration, agents and tool calling taken all the way to production monitoring for quality, latency and cost.',
+			'Go and Gin on the backend, Svelte and TypeScript on the frontend, plus multi-model LLM integration taken all the way to production monitoring.',
 		skills: {
 			Frontend: [
 				Technology.Svelte,
@@ -495,8 +493,7 @@ export const content: Content = {
 
 	blog: {
 		title: 'Writing',
-		description:
-			'Notes on things I have built, the decisions behind them and the parts I got wrong.'
+		description: 'Things I have built, the decisions behind them and the parts I got wrong.'
 	},
 
 	socials: {

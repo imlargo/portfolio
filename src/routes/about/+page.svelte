@@ -30,47 +30,38 @@
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
 				I build systems that go to production and stay there. 20+ shipped since 2023, all still
-				running. I'm full-stack with architectural depth on both sides, working primarily with
+				running. Mostly
 				<SkillBadge class="inline-flex rounded-md bg-muted/50 py-0.5" tech={Technology.Go} />, <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Typescript}
 				/> and <SkillBadge
 					class="inline-flex rounded-md bg-muted/50 py-0.5"
 					tech={Technology.Svelte}
-				/>, across Go distributed backends, TypeScript frontends and AWS infrastructure.
+				/>, full-stack with architectural depth on both sides.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Kora is a product and technology studio, not a software factory and not an agency. The
-				conviction behind it is that software rarely fails because of how it was built, it fails
-				because of what someone decided to build. So every engagement starts with understanding the
-				business, and the first conversation is with the person who will write the code. 12+ systems
-				delivered across construction, education, retail and the public sector, every client through
-				referral, and we have never advertised.
+				Kora is a product and technology studio, not an agency. Software rarely fails because of how
+				it was built, it fails because of what someone decided to build, so every engagement starts
+				with understanding the business. 12+ systems delivered, every client by referral.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				Alongside that I lead frontend engineering at Unergy, a solar energy company, where I own
-				the frontend architecture, lead a team of 4 engineers and am directing a progressive
-				migration from Vue to Svelte. Before that I was the sole technical owner at Butter, an
-				international content-generation SaaS I co-founded and took from zero to 1,000+ users, and
-				the engineer behind a national gender-based-violence prevention platform serving 64+
-				universities with Colombia's Ministry of Education.
+				Alongside that I lead frontend engineering at Unergy, a solar energy company. Before that I
+				was the sole technical owner at Butter, a content-generation SaaS I co-founded and took to
+				1,000+ users, and the engineer behind a national gender-based-violence prevention platform
+				serving 64+ universities.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
-				What I publish on GitHub comes out of that work: patterns pulled from real systems, cleaned
-				up, and put back into the ones that needed them. If a library of mine exists, it's because I
-				needed it three times first. That's where air, coral, medusa and a Web Push library for
-				Gleam came from. Pegaso, a course scheduling platform for Universidad Nacional de Colombia,
-				grew to 6,200+ users through entirely organic adoption and prompted formal acquisition
-				discussions with the institution.
+				What I publish comes out of that work. If a library of mine exists, it's because I needed it
+				three times first: air, coral, medusa, Web Push for Gleam. Pegaso, a course scheduling
+				platform for Universidad Nacional de Colombia, grew to 6,200+ users with no advertising.
 			</p>
 
 			<p class="max-w-prose text-pretty text-muted-foreground">
 				I care about small surfaces, sane defaults, and code that still reads well six months later.
-				I'd rather own the whole thing than a slice of it. If you want to collaborate, talk about
-				technology, or build something together, I'm always open to new connections.
+				I'd rather own the whole thing than a slice of it.
 			</p>
 		</div>
 
