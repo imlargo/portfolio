@@ -15,10 +15,7 @@
 	href="/blog/{post.slug}"
 	class="post-row group items-top py-item flex flex-col gap-y-4 lg:grid lg:grid-cols-3 lg:gap-x-8"
 >
-	<time
-		datetime={post.date}
-		class="font-mono text-sm tracking-[var(--tracking-mono)] text-muted-foreground"
-	>
+	<time datetime={post.date} class="font-mono text-sm text-muted-foreground">
 		{formatDate(post.date)}
 	</time>
 

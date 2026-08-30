@@ -19,9 +19,7 @@
 	>
 		{#each Object.entries(skills.groups) as [category, items] (category)}
 			<div class="skill-group flex flex-col gap-y-4">
-				<h3
-					class="font-mono text-sm tracking-[var(--tracking-mono)] text-muted-foreground uppercase"
-				>
+				<h3 class="font-mono text-sm text-muted-foreground">
 					{category}
 				</h3>
 				<div class="flex flex-wrap gap-2">

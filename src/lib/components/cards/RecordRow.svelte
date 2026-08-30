@@ -22,7 +22,7 @@
      campos. Tres columnas en escritorio (cuándo · qué · dónde) y una sola
      columna en móvil, donde el "dónde" se sube junto al título. -->
 <div class="record-row items-top py-item flex flex-col gap-y-4 lg:grid lg:grid-cols-3 lg:gap-x-8">
-	<span class="font-mono text-sm tracking-[var(--tracking-mono)] text-muted-foreground">
+	<span class="font-mono text-sm text-muted-foreground">
 		{period}
 	</span>
 

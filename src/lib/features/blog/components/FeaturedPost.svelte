@@ -17,9 +17,7 @@
 >
 	<div class="relative flex flex-col gap-y-4">
 		<div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-			<Badge variant="secondary" class="font-mono tracking-[var(--tracking-mono)] uppercase">
-				Latest
-			</Badge>
+			<Badge variant="secondary" class="font-mono font-normal">Latest</Badge>
 			<PostMeta date={post.date} readingTime={post.readingTime} />
 		</div>
 

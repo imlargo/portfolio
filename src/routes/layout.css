@@ -169,10 +169,6 @@
 	--radius-3xl: calc(var(--radius) * 2.2);
 	--radius-4xl: calc(var(--radius) * 2.6);
 
-	/* Tracking de las etiquetas mono en mayúsculas (rótulo de sección, fechas,
-	   stack): un solo valor para que todas se vean igual de "espaciadas". */
-	--tracking-mono: 0.15em;
-
 	/* Curva de las micro-interacciones de hover (flechas, imágenes de tarjeta):
 	   un solo "sabor" de easing en todo el sitio en vez de repetir el bezier. */
 	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

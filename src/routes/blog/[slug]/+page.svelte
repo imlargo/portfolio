@@ -91,9 +91,7 @@
 							href="/blog/{data.previous.slug}"
 							class="p-card group flex flex-col gap-y-2 rounded-4xl border bg-muted/40 transition-colors duration-500 hover:bg-muted/60"
 						>
-							<span
-								class="flex items-center gap-x-2 font-mono text-xs tracking-wider text-muted-foreground uppercase"
-							>
+							<span class="flex items-center gap-x-2 font-mono text-xs text-muted-foreground">
 								<ArrowLeft
 									class="size-3 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-x-1"
 								/>
@@ -110,9 +108,7 @@
 							href="/blog/{data.next.slug}"
 							class="p-card group flex flex-col items-end gap-y-2 rounded-4xl border bg-muted/40 text-right transition-colors duration-500 hover:bg-muted/60"
 						>
-							<span
-								class="flex items-center gap-x-2 font-mono text-xs tracking-wider text-muted-foreground uppercase"
-							>
+							<span class="flex items-center gap-x-2 font-mono text-xs text-muted-foreground">
 								Older
 								<ArrowRight
 									class="size-3 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-1"

@@ -41,9 +41,7 @@
 
 {#if headings.length > 1}
 	<nav aria-label="Table of contents" class="flex flex-col gap-y-4">
-		<span class="font-mono text-xs tracking-wider text-muted-foreground uppercase">
-			On this page
-		</span>
+		<span class="font-mono text-xs text-muted-foreground"> On this page </span>
 
 		<ul class="flex flex-col gap-y-1 border-l">
 			{#each headings as heading (heading.id)}

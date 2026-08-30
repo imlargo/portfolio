@@ -66,9 +66,20 @@ place. The parts worth knowing before writing a component:
 | `.py-section` / `.pb-section` | One unit of vertical rhythm (P). `pb-` for a block that continues the previous one. |
 | `.py-hero` / `.py-section-lg` | First block (header already left air) / closing block.                              |
 | `.p-card` / `.py-item`        | Card padding / list-row padding.                                                    |
+| `.ty-h1` … `.ty-h4`           | The type scale. Hierarchy comes from size, never from weight.                       |
 | `--color-brand`               | The accent, shared with Kora. Never a loose hex.                                    |
-| `--tracking-mono`             | Letter-spacing for every uppercase mono label.                                      |
 | `--ease-out-expo`             | The one hover curve, so micro-interactions match.                                   |
+
+### Type
+
+Hierarchy comes from **size, never from weight**. `.ty-h1` and `.ty-h2` carry no
+weight class at all — they inherit the body's 400 — and `font-medium` is the
+ceiling for everything else. The single exception is the giant footer wordmark,
+which is a decorative mass rather than text to read. Emphasis inside a paragraph
+is marked with **colour** (`text-foreground` against `text-muted-foreground`
+prose), not by fattening the word.
+
+No `uppercase` anywhere: labels stay in their natural case.
 
 Use `<Section.Root>` (`$lib/components/layout/section`) rather than writing
 `<section class="px-layout py-section">` by hand — it carries the margin, the
