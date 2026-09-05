@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { JsonLd, Seo, postSchema } from '$lib/components/seo';
+	import { JsonLd, Seo, postImage, postSchema } from '$lib/components/seo';
 	import { SiteCta } from '$lib/components/sections';
 	import * as Section from '$lib/components/layout/section';
 	import { PostContent, PostMeta, TableOfContents } from '$lib/features/blog/components';
@@ -15,12 +15,19 @@
 	const post = $derived(data.post);
 </script>
 
+<!-- Cada post comparte con su propia tarjeta, generada por `pnpm og` a partir del
+     título y del color de acento del post. -->
 <Seo
 	title={post.title}
 	description={post.description}
 	type="article"
 	published={post.date}
+	modified={post.updated}
 	tags={post.tags}
+	image={postImage(post.slug)}
+	imageWidth={1200}
+	imageHeight={630}
+	imageAlt="{post.title} — {siteContent.name}"
 />
 
 <JsonLd schema={postSchema(post, { readingTime: data.readingTime, words: data.words })} />

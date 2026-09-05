@@ -49,6 +49,12 @@ export type Post = {
 	title: string;
 	description: string;
 	date: string;
+	/**
+	 * Solo cuando el post se editó después de publicarse. Alimenta el
+	 * `dateModified` del JSON-LD y el `lastmod` del sitemap, que es como un
+	 * buscador sabe que vale la pena volver a rastrear una URL que ya conoce.
+	 */
+	updated?: string;
 	tags: string[];
 	/**
 	 * Color de la portada. Es el de la tecnología que protagoniza el post; donde

@@ -1,5 +1,6 @@
 import { siteContent } from '$lib/content/site-content';
 import { getLabel } from '$lib/content/technology';
+import { plainText } from '$lib/content/inline-markdown';
 import type { Post, PostSummary } from '$lib/content/types';
 
 /**
@@ -25,6 +26,14 @@ export const BLOG_ID = `${SITE}/blog#blog`;
 
 export function absolute(path: string): string {
 	return new URL(path, SITE).href;
+}
+
+/**
+ * La tarjeta de Open Graph propia de un post, generada por `scripts/generate-og.mjs`.
+ * El nombre sale del slug, así que la ruta se deriva sin guardarla en el contenido.
+ */
+export function postImage(slug: string): string {
+	return `/assets/og/${slug}.jpg`;
 }
 
 /** Una fecha `YYYY-MM-DD` como instante ISO; los buscadores esperan zona horaria. */
@@ -130,9 +139,10 @@ export function aboutSchema(): string {
 }
 
 /**
- * Work: la colección de proyectos como `ItemList`. Cada proyecto con URL propia
- * se declara como `SoftwareSourceCode` o `CreativeWork` según tenga repositorio
- * o no, que es la diferencia que un buscador puede verificar.
+ * Work: la colección de proyectos como `ItemList`. Cada proyecto entra como
+ * `CreativeWork` con el mismo autor referenciado por `@id`, y solo lleva `url`
+ * cuando existe una pública: la mayoría de estos sistemas son privados y una URL
+ * inventada es justo lo que un buscador puede verificar y castigar.
  */
 export function workSchema(): string {
 	const { workPage } = siteContent;
@@ -156,8 +166,8 @@ export function workSchema(): string {
 				position: i + 1,
 				item: {
 					'@type': 'CreativeWork',
-					name: project.title,
-					description: project.description,
+					name: plainText(project.title),
+					description: plainText(project.description),
 					creator: { '@id': PERSON_ID },
 					...(project.url ? { url: project.url } : {})
 				}
@@ -182,10 +192,12 @@ export function blogSchema(posts: PostSummary[]): string {
 		blogPost: posts.map((post) => ({
 			'@type': 'BlogPosting',
 			'@id': `${absolute(`/blog/${post.slug}`)}#article`,
-			headline: post.title,
-			description: post.description,
+			headline: plainText(post.title),
+			description: plainText(post.description),
 			url: absolute(`/blog/${post.slug}`),
 			datePublished: isoDate(post.date),
+			dateModified: isoDate(post.updated ?? post.date),
+			image: absolute(postImage(post.slug)),
 			keywords: post.tags,
 			author: { '@id': PERSON_ID }
 		}))
@@ -205,11 +217,11 @@ export function postSchema(post: Post, meta: { readingTime: number; words: numbe
 		'@id': `${url}#article`,
 		mainEntityOfPage: { '@type': 'WebPage', '@id': url },
 		url,
-		headline: post.title,
-		description: post.description,
-		image: absolute(seo.defaultImage),
+		headline: plainText(post.title),
+		description: plainText(post.description),
+		image: absolute(postImage(post.slug)),
 		datePublished: isoDate(post.date),
-		dateModified: isoDate(post.date),
+		dateModified: isoDate(post.updated ?? post.date),
 		author: { '@id': PERSON_ID },
 		publisher: { '@id': PERSON_ID },
 		isPartOf: { '@id': BLOG_ID },
@@ -220,7 +232,7 @@ export function postSchema(post: Post, meta: { readingTime: number; words: numbe
 		inLanguage: 'en',
 		breadcrumb: breadcrumbs([
 			{ name: 'Writing', path: '/blog' },
-			{ name: post.title, path: `/blog/${post.slug}` }
+			{ name: plainText(post.title), path: `/blog/${post.slug}` }
 		])
 	});
 }

@@ -5,6 +5,7 @@ export {
 	aboutSchema,
 	blogSchema,
 	homeSchema,
+	postImage,
 	postSchema,
 	workSchema
 } from './structured-data';

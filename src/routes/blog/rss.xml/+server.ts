@@ -1,6 +1,7 @@
 import { getPosts } from '$lib/content/blog';
 import { absolute } from '$lib/components/seo/structured-data';
 import { siteContent } from '$lib/content/site-content';
+import { inlineHtml, plainText } from '$lib/content/inline-markdown';
 import type { PostBlock } from '$lib/content/types';
 import type { RequestHandler } from './$types';
 
@@ -16,28 +17,35 @@ function escapeXml(value: string): string {
 		.replace(/"/g, '&quot;');
 }
 
+/** Prosa del feed: primero se escapa el XML, después se abren las etiquetas. */
+function prose(text: string): string {
+	return inlineHtml(escapeXml(text));
+}
+
 /**
  * Los bloques van a HTML plano, sin las clases ni los atributos que usa el sitio:
  * un lector de feeds descarta el CSS de todos modos y lo que sobra estorba. El
  * código sale como `<pre><code>` crudo, no con el resaltado de Shiki, porque el
- * HTML de Shiki depende de estilos inline que el feed no arrastra.
+ * HTML de Shiki depende de estilos inline que el feed no arrastra. Por lo mismo el
+ * bloque de código no pasa por `prose`: ahí un acento grave o un asterisco son
+ * parte del programa, no una marca de formato.
  */
 function blockToHtml(block: PostBlock): string {
 	switch (block.type) {
 		case 'paragraph':
-			return `<p>${escapeXml(block.text)}</p>`;
+			return `<p>${prose(block.text)}</p>`;
 		case 'heading':
-			return `<h${block.level}>${escapeXml(block.text)}</h${block.level}>`;
+			return `<h${block.level}>${prose(block.text)}</h${block.level}>`;
 		case 'code':
 			return `<pre><code>${escapeXml(block.code)}</code></pre>`;
 		case 'list': {
 			const tag = block.ordered ? 'ol' : 'ul';
-			const items = block.items.map((item) => `<li>${escapeXml(item)}</li>`).join('');
+			const items = block.items.map((item) => `<li>${prose(item)}</li>`).join('');
 			return `<${tag}>${items}</${tag}>`;
 		}
 		case 'quote': {
-			const cite = block.cite ? `<footer>${escapeXml(block.cite)}</footer>` : '';
-			return `<blockquote><p>${escapeXml(block.text)}</p>${cite}</blockquote>`;
+			const cite = block.cite ? `<footer>${prose(block.cite)}</footer>` : '';
+			return `<blockquote><p>${prose(block.text)}</p>${cite}</blockquote>`;
 		}
 	}
 }
@@ -60,12 +68,12 @@ export const GET: RequestHandler = () => {
 				.join('');
 
 			return `<item>
-<title>${escapeXml(post.title)}</title>
+<title>${escapeXml(plainText(post.title))}</title>
 <link>${url}</link>
 <guid isPermaLink="true">${url}</guid>
 <pubDate>${rfc822(post.date)}</pubDate>
 <dc:creator>${escapeXml(fullName)}</dc:creator>
-<description>${escapeXml(post.description)}</description>
+<description>${escapeXml(plainText(post.description))}</description>
 ${categories}
 <content:encoded><![CDATA[${content}]]></content:encoded>
 </item>`;

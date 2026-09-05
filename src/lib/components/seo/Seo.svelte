@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { siteContent } from '$lib/content/site-content';
+	import { plainText } from '$lib/content/inline-markdown';
 
 	type Props = {
 		/** Page title without the suffix. Omit on the home page to use the default. */
@@ -42,8 +43,14 @@
 
 	// Titles are built from the template only when a page supplies its own; the
 	// home page passes nothing and gets the full default title verbatim.
-	const resolvedTitle = $derived(title ? seo.titleTemplate.replace('%s', title) : seo.defaultTitle);
-	const resolvedDescription = $derived(description ?? seo.defaultDescription);
+	//
+	// Both run through `plainText`: the content carries inline markdown that the
+	// page turns into `<code>` or `<strong>`, and a crawler would print it
+	// literally instead — backticks and asterisks included, in the search result.
+	const resolvedTitle = $derived(
+		plainText(title ? seo.titleTemplate.replace('%s', title) : seo.defaultTitle)
+	);
+	const resolvedDescription = $derived(plainText(description ?? seo.defaultDescription));
 
 	// Everything a crawler reads resolves against the production origin, never
 	// against the request's. A preview deploy on `*.workers.dev` is byte-identical

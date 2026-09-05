@@ -24,11 +24,11 @@ export const GET: RequestHandler = () => {
 	// El índice del blog cambia cuando se publica una entrada, así que su fecha es
 	// la de la más reciente. Las demás páginas estáticas no tienen una fecha
 	// verificable y se quedan sin `lastmod`.
-	const latest = posts[0]?.date;
+	const latest = posts[0] && (posts[0].updated ?? posts[0].date);
 
 	const urls = [
 		...STATIC_PATHS.map((path) => entry(path, path === '/blog' ? latest : undefined)),
-		...posts.map((post) => entry(`/blog/${post.slug}`, post.date))
+		...posts.map((post) => entry(`/blog/${post.slug}`, post.updated ?? post.date))
 	];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>

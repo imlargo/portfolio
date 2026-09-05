@@ -1,4 +1,6 @@
 <script lang="ts" module>
+	import { INLINE_PATTERN } from '$lib/content/inline-markdown';
+
 	type Token =
 		| { kind: 'text'; value: string }
 		| { kind: 'strong'; value: string }
@@ -6,12 +8,11 @@
 		| { kind: 'code'; value: string }
 		| { kind: 'link'; value: string; href: string };
 
-	const PATTERN = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|\*[^*]+\*)/g;
 	const LINK = /^\[([^\]]+)\]\(([^)]+)\)$/;
 
 	function tokenize(text: string): Token[] {
 		return text
-			.split(PATTERN)
+			.split(INLINE_PATTERN)
 			.filter(Boolean)
 			.map((chunk): Token => {
 				if (chunk.startsWith('**') && chunk.endsWith('**')) {

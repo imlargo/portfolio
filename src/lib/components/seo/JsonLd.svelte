@@ -12,11 +12,16 @@
 	// inyectaría el resto en el documento. `<` es un escape válido de JSON,
 	// así que el parser del buscador lee exactamente el mismo grafo.
 	const payload = $derived(schema.replace(/</g, '\\u003c'));
+
+	// El nombre de la etiqueta va interpolado y no escrito literal: emitir un
+	// bloque de script desde un componente exige que ni el compilador de Svelte ni
+	// el analizador de ESLint vean la etiqueta abrirse o cerrarse en el archivo.
+	const TAG = 'script';
+	const tag = $derived(
+		`<${TAG} type="application/ld+json">${payload}</${TAG}>`
+	);
 </script>
 
 <svelte:head>
-	<!-- El `{@html}` es la única forma de emitir un bloque de script desde
-	     `svelte:head`: escrito como etiqueta literal, el compilador lo tomaría
-	     como código del componente. -->
-	{@html `<script type="application/ld+json">${payload}</script>`}
+	{@html tag}
 </svelte:head>
