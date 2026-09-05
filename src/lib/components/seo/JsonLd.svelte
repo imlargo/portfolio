@@ -17,11 +17,14 @@
 	// bloque de script desde un componente exige que ni el compilador de Svelte ni
 	// el analizador de ESLint vean la etiqueta abrirse o cerrarse en el archivo.
 	const TAG = 'script';
-	const tag = $derived(
-		`<${TAG} type="application/ld+json">${payload}</${TAG}>`
-	);
+	const tag = $derived(`<${TAG} type="application/ld+json">${payload}</${TAG}>`);
 </script>
 
 <svelte:head>
+	<!-- La regla es correcta en general y acá no aplica: no hay entrada de usuario
+	     en el grafo —sale de `src/lib/content`— y lo único que podría cerrar la
+	     etiqueta, el `<`, ya viene escapado desde `payload`. Es la única forma de
+	     emitir JSON-LD, que por especificación va dentro de un bloque de script. -->
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html tag}
 </svelte:head>

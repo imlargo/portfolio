@@ -63,9 +63,7 @@ export const GET: RequestHandler = () => {
 		.map((post) => {
 			const url = absolute(`/blog/${post.slug}`);
 			const content = post.content.map(blockToHtml).join('');
-			const categories = post.tags
-				.map((tag) => `<category>${escapeXml(tag)}</category>`)
-				.join('');
+			const categories = post.tags.map((tag) => `<category>${escapeXml(tag)}</category>`).join('');
 
 			return `<item>
 <title>${escapeXml(plainText(post.title))}</title>
