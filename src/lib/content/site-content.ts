@@ -28,10 +28,15 @@ export type SiteContent = {
 		titleTemplate: string;
 		defaultDescription: string;
 		defaultImage: string;
-		/** Ancho y alto reales de `defaultImage`; se declaran tal cual en los `og:image:*`. */
-		defaultImageWidth: number;
-		defaultImageHeight: number;
 		defaultImageAlt: string;
+		/**
+		 * Tamaño de TODAS las tarjetas para compartir: `pnpm og` las genera así y
+		 * los `og:image:*` lo declaran así. Es un invariante del sistema, no un dato
+		 * por imagen; declarar un tamaño que el archivo no tiene hace que la
+		 * plataforma recorte de nuevo, o que descarte la vista previa.
+		 */
+		imageWidth: number;
+		imageHeight: number;
 		locale: string;
 		twitterHandle?: string;
 		/** Ciudad y país; solo alimentan el `PostalAddress` del JSON-LD. */
@@ -118,10 +123,10 @@ export const siteContent: SiteContent = {
 		defaultDescription:
 			'Juan Carlos Largo (@imlargo). Senior Software Engineer and founder of Kora Studio. Go on the backend, TypeScript and Svelte on the frontend, architecture through deployment. 20+ systems shipped, all still running.',
 		defaultImage: '/assets/og.jpg',
-		defaultImageWidth: 1200,
-		defaultImageHeight: 630,
 		defaultImageAlt:
 			'imlargo — Juan Carlos Largo, Senior Software Engineer and founder of Kora Studio.',
+		imageWidth: 1200,
+		imageHeight: 630,
 		locale: 'en_US',
 		locality: 'Medellín',
 		region: 'Antioquia',

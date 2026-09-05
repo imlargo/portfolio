@@ -1,17 +1,15 @@
 /**
- * Genera las imágenes de Open Graph del sitio: la tarjeta por defecto y una por
- * cada post publicado.
+ * Genera las tarjetas de Open Graph: la del sitio y una por cada post publicado.
  *
- * Se generan como archivos estáticos y se versionan en el repositorio, en vez de
- * renderizarse por request. El sitio entero se prerenderiza y el contenido vive
- * en módulos de TypeScript, así que una imagen por post es un archivo que solo
- * cambia cuando cambia el post; hacerlo en el borde costaría un runtime de
- * Satori y un tiempo de respuesta peor justo en la petición que hace el
- * rastreador. Después de escribir o retitular un post: `pnpm og`.
+ * Son archivos estáticos versionados en el repositorio, no imágenes renderizadas
+ * por request. El sitio entero se prerenderiza y el contenido vive en módulos de
+ * TypeScript, así que la tarjeta de un post es un archivo que solo cambia cuando
+ * cambia el post; generarla en el borde costaría un runtime de Satori y peor
+ * tiempo de respuesta justo en la petición del rastreador. Después de escribir o
+ * retitular un post: `pnpm og`.
  *
- * El contenido se lee con Vite, no con un `import` directo: los módulos de
- * `src/lib/content` son TypeScript con imports sin extensión y un `enum`, que
- * Node no resuelve solo.
+ * El contenido se lee con Vite y no con un `import` directo, porque los módulos
+ * de `src/lib/content` son TypeScript con imports sin extensión y un `enum`.
  */
 import { chromium } from 'playwright';
 import { createServer } from 'vite';
@@ -24,13 +22,32 @@ const OUT = path.join(root, 'static/assets/og');
 const FONTS = path.join(root, 'node_modules/@fontsource-variable');
 const PFP = path.join(root, 'static/assets/pfp.jpg');
 
+/** Los mismos tokens del tema oscuro de `src/routes/layout.css`. */
 const BG = 'oklch(0.141 0.005 285.823)';
 const FG = 'oklch(0.985 0 0)';
 const MUTED = 'oklch(0.705 0.015 286.067)';
+const BORDER = 'oklch(1 0 0 / 10%)';
 const BRAND = 'oklch(0.76 0.12 295)';
 
-/** El acento de cada post ya viene en hex desde el contenido; el del sitio es el lila de marca. */
-const shell = (accent, body) => `<!doctype html>
+const escape = (s) =>
+	s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const mono = (parts) =>
+	parts
+		.filter(Boolean)
+		.map(escape)
+		.join('<span class="sep">·</span>');
+
+/**
+ * Las dos tarjetas comparten esqueleto: rótulo arriba, cuerpo en el medio, y un
+ * filete con dos datos abajo. Cambia lo que va en el cuerpo, no la composición.
+ *
+ * El sitio marca la jerarquía con el tamaño y no con el grosor —sus títulos
+ * heredan el peso 400 del cuerpo—, así que acá tampoco hay negritas: el título
+ * pesa lo mismo que el pie y se impone solo por escala. El acento aparece una
+ * sola vez, en el punto del rótulo, como en el badge del hero.
+ */
+const card = ({ accent = BRAND, eyebrow, body, left, right, css = '' }) => `<!doctype html>
 <html><head><meta charset="utf-8" /><style>
   @font-face { font-family: 'Manrope'; font-weight: 200 800;
     src: url('file://${FONTS}/manrope/files/manrope-latin-wght-normal.woff2') format('woff2'); }
@@ -38,129 +55,104 @@ const shell = (accent, body) => `<!doctype html>
     src: url('file://${FONTS}/geist-mono/files/geist-mono-latin-wght-normal.woff2') format('woff2'); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { width: 1200px; height: 630px; background: ${BG}; color: ${FG};
-    font-family: 'Manrope', sans-serif; overflow: hidden; position: relative; }
-  .glow { position: absolute; left: -180px; top: -220px; width: 780px; height: 780px;
-    border-radius: 50%; background: radial-gradient(circle, ${accent}33 0%, transparent 62%); }
-  .grid { position: absolute; inset: 0;
-    background-image: linear-gradient(${FG.replace(')', ' / 0.035)')} 1px, transparent 1px),
-      linear-gradient(90deg, ${FG.replace(')', ' / 0.035)')} 1px, transparent 1px);
-    background-size: 64px 64px; mask-image: linear-gradient(105deg, #000 0%, transparent 68%); }
-  .eyebrow { font-family: 'Geist Mono', monospace; font-size: 21px; letter-spacing: 0.16em;
-    text-transform: uppercase; color: ${accent}; display: flex; align-items: center; gap: 14px; }
-  .eyebrow::before { content: ''; width: 34px; height: 2px; background: ${accent}; flex: none; }
-  .domain { font-family: 'Geist Mono', monospace; font-size: 24px; letter-spacing: -0.01em; }
-  .meta { font-family: 'Geist Mono', monospace; font-size: 20px; color: ${MUTED};
-    display: flex; align-items: center; gap: 12px; }
-  .dot { color: ${FG.replace(')', ' / 0.28)')}; }
-  /* Filete de acento al pie: es lo que hace que dos tarjetas del mismo sitio se
-     distingan de un vistazo en un feed. */
-  .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; z-index: 3;
-    background: linear-gradient(90deg, ${accent}, transparent); }
-  ${body.css}
+    font-family: 'Manrope', sans-serif; font-weight: 400; overflow: hidden;
+    padding: 80px; display: flex; flex-direction: column; justify-content: space-between;
+    -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'Geist Mono', monospace; font-size: 19px; color: ${MUTED};
+    letter-spacing: 0.01em; }
+  .eyebrow { display: flex; align-items: center; gap: 13px; text-transform: uppercase;
+    letter-spacing: 0.14em; }
+  /* Punto de acento con su halo, el mismo gesto que el badge del hero: el único
+     color de la tarjeta. */
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: ${accent};
+    box-shadow: 0 0 0 4px color-mix(in oklab, ${accent} 22%, transparent); flex: none; }
+  .foot { display: flex; align-items: baseline; justify-content: space-between; gap: 40px;
+    border-top: 1px solid ${BORDER}; padding-top: 26px; }
+  .sep { color: ${FG.replace(')', ' / 0.28)')}; margin: 0 10px; }
+  ${css}
 </style></head><body>
-  <div class="glow"></div><div class="grid"></div>
-  ${body.html}
-  <div class="bar"></div>
+  <div class="mono eyebrow"><span class="dot"></span>${eyebrow}</div>
+  ${body}
+  <div class="foot"><span class="mono">${left}</span><span class="mono">${right}</span></div>
 </body></html>`;
 
-const escape = (s) =>
-	s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
-/** Tarjeta del sitio: retrato a la derecha, identidad a la izquierda. */
-function siteCard(content) {
-	const stack = ['Go', 'TypeScript', 'Svelte', 'Postgres', 'AWS'];
-
-	return shell(BRAND, {
+/**
+ * Tarjeta del sitio. El retrato va como avatar circular pequeño, que es como
+ * aparece en el hero, en vez de como fondo a sangre.
+ */
+function siteCard({ content, host, stack }) {
+	return card({
+		eyebrow: escape(content.home.hero.badge),
 		css: `
-  .wrap { position: relative; display: flex; height: 100%; }
-  .left { flex: 1; padding: 76px 0 76px 76px; display: flex; flex-direction: column;
-    justify-content: center; gap: 34px; }
-  h1 { font-family: 'Geist Mono', monospace; font-size: 96px; font-weight: 500;
-    letter-spacing: -0.045em; line-height: 1; margin-bottom: 20px; }
-  .role { font-size: 33px; font-weight: 500; line-height: 1.32; max-width: 21ch; }
-  .role em { font-style: normal; color: ${MUTED}; }
-  .right { position: relative; width: 430px; }
-  .right img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-    object-position: 46% 30%; filter: grayscale(1) contrast(1.02) brightness(1.35); }
-  /* La foto se disuelve en el fondo por los cuatro lados en vez de quedar como un
-     recorte rectangular pegado al borde. */
-  .right::after { content: ''; position: absolute; inset: 0; z-index: 2; background:
-    linear-gradient(90deg, ${BG} 0%, transparent 58%),
-    linear-gradient(0deg, ${BG} 0%, transparent 34%),
-    linear-gradient(180deg, ${BG} 0%, transparent 22%), ${BRAND.replace(')', ' / 0.13)')}; }`,
-		html: `<div class="wrap">
-    <div class="left">
-      <div class="eyebrow">${escape(content.jobTitle)}</div>
-      <div>
-        <h1>${escape(content.name)}</h1>
-        <div class="role">Go, TypeScript and Svelte — <em>architecture through deployment.</em></div>
-      </div>
-      <div>
-        <div class="meta">${stack.map(escape).join('<span class="dot">/</span>')}</div>
-        <div class="domain" style="margin-top:16px">${escape(host)}</div>
-      </div>
+  .body { display: flex; align-items: center; gap: 34px; }
+  .avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex: none;
+    box-shadow: 0 0 0 1px ${BORDER}; }
+  h1 { font-family: 'Geist Mono', monospace; font-size: 84px; font-weight: 400;
+    letter-spacing: -0.04em; line-height: 1; }
+  .lead { font-size: 30px; color: ${MUTED}; margin-top: 16px; letter-spacing: -0.01em; }`,
+		body: `<div class="body">
+    <img class="avatar" src="file://${PFP}" />
+    <div>
+      <h1>${escape(content.name)}</h1>
+      <div class="lead">${escape(content.footer.subtitle)}</div>
     </div>
-    <div class="right"><img src="file://${PFP}" /></div>
-  </div>`
+  </div>`,
+		left: escape(host),
+		right: mono(stack)
 	});
 }
 
 /**
- * Tarjeta de un post: el título ocupa la tarjeta entera. El tamaño baja por
- * tramos según el largo, porque un titular de 90 caracteres a 68px se desborda y
- * uno de 30 a 44px deja la mitad de la tarjeta vacía.
+ * Tarjeta de un post: el título ocupa la tarjeta. El tamaño baja por tramos
+ * según el largo, porque un titular de 90 caracteres al tamaño del más corto se
+ * desborda, y uno de 30 al tamaño del más largo deja la tarjeta medio vacía.
  */
-function postCard(post, readingTime) {
-	// El título va sin markdown: en la tarjeta no hay quién lo interprete.
-	const title = plainText(post.title);
-	const size = title.length > 78 ? 54 : title.length > 52 ? 62 : 72;
+function postCard({ post, title, readingTime, host }) {
+	const size = title.length > 76 ? 58 : title.length > 50 ? 68 : 78;
 
-	return shell(post.accent, {
+	return card({
+		accent: post.accent,
+		eyebrow: mono(post.tags.slice(0, 3)),
 		css: `
-  .wrap { position: relative; height: 100%; padding: 76px; display: flex;
-    flex-direction: column; justify-content: space-between; }
-  h1 { font-size: ${size}px; font-weight: 600; line-height: 1.14; letter-spacing: -0.03em;
-    max-width: 17ch; text-wrap: balance; }
-  .foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
-  .byline { font-size: 22px; color: ${MUTED}; margin-top: 14px; }`,
-		html: `<div class="wrap">
-    <div class="eyebrow">${escape(post.tags.slice(0, 3).join(' · '))}</div>
-    <h1>${escape(title)}</h1>
-    <div class="foot">
-      <div>
-        <div class="meta">
-          <span>${post.date.replaceAll('-', '.')}</span>
-          <span class="dot">/</span>
-          <span>${readingTime} min read</span>
-        </div>
-        <div class="byline">${escape(host)}</div>
-      </div>
-      <div class="domain">${escape(content.name)}</div>
-    </div>
-  </div>`
+  h1 { font-size: ${size}px; font-weight: 400; line-height: 1.12; letter-spacing: -0.025em;
+    max-width: 19ch; text-wrap: balance; }`,
+		body: `<h1>${escape(title)}</h1>`,
+		left: escape(host),
+		right: mono([post.date.replaceAll('-', '.'), `${readingTime} min read`])
 	});
 }
 
 // --- ejecución -------------------------------------------------------------
 
 const vite = await createServer({ root, server: { middlewareMode: true }, appType: 'custom' });
-const { siteContent } = await vite.ssrLoadModule('/src/lib/content/site-content.ts');
-const { getPosts, readingTime } = await vite.ssrLoadModule('/src/lib/content/blog.ts');
-const { plainText } = await vite.ssrLoadModule('/src/lib/content/inline-markdown.ts');
 
-const content = siteContent;
+const [{ siteContent }, blog, { plainText }, { getLabel }] = await Promise.all(
+	[
+		'/src/lib/content/site-content.ts',
+		'/src/lib/content/blog.ts',
+		'/src/lib/content/inline-markdown.ts',
+		'/src/lib/content/technology.ts'
+	].map((id) => vite.ssrLoadModule(id))
+);
+
 const host = new URL(siteContent.seo.siteUrl).host;
 
-const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
+// Una tecnología por grupo de skills, en el orden en que el sitio las declara:
+// la fila del pie sale del contenido y no de una lista escrita acá.
+const stack = Object.values(siteContent.skills.groups).map((group) => getLabel(group[0]));
 
-/** El archivo se escribe con el tamaño exacto que los `og:image:*` declaran. */
+const browser = await chromium.launch();
+const page = await browser.newPage({
+	viewport: { width: siteContent.seo.imageWidth, height: siteContent.seo.imageHeight }
+});
+
+/** El archivo se escribe con el tamaño exacto que declaran los `og:image:*`. */
 async function render(html, file) {
 	const tmp = path.join(OUT, '.render.html');
 	await writeFile(tmp, html);
 	await page.goto(`file://${tmp}`);
 	await page.evaluate(() => document.fonts.ready);
-	await page.screenshot({ path: file, type: 'jpeg', quality: 90 });
+	await page.screenshot({ path: file, type: 'jpeg', quality: 92 });
 	await rm(tmp);
 	console.log('  ✓', path.relative(root, file));
 }
@@ -168,10 +160,17 @@ async function render(html, file) {
 await mkdir(OUT, { recursive: true });
 
 console.log('Open Graph:');
-await render(siteCard(siteContent), path.join(root, 'static/assets/og.jpg'));
+await render(siteCard({ content: siteContent, host, stack }), path.join(root, 'static/assets/og.jpg'));
 
-for (const post of getPosts()) {
-	await render(postCard(post, readingTime(post)), path.join(OUT, `${post.slug}.jpg`));
+for (const post of blog.getPosts()) {
+	// El título va sin markdown: en la tarjeta no hay quién lo interprete.
+	const html = postCard({
+		post,
+		title: plainText(post.title),
+		readingTime: blog.readingTime(post),
+		host
+	});
+	await render(html, path.join(OUT, `${post.slug}.jpg`));
 }
 
 await browser.close();
