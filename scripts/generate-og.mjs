@@ -8,12 +8,17 @@
  * tiempo de respuesta justo en la petición del rastreador. Después de escribir o
  * retitular un post: `pnpm og`.
  *
+ * Con `--check` no genera nada: solo verifica que cada post publicado tenga su
+ * tarjeta, y falla si falta alguna. Va enganchado al `build` porque el error
+ * natural es escribir un post y olvidar el comando, y sin esta guarda eso no se
+ * nota hasta que el enlace ya se compartió con una vista previa rota.
+ *
  * El contenido se lee con Vite y no con un `import` directo, porque los módulos
  * de `src/lib/content` son TypeScript con imports sin extensión y un `enum`.
  */
-import { chromium } from 'playwright';
 import { createServer } from 'vite';
 import { mkdir, writeFile, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -120,6 +125,8 @@ function postCard({ post, title, readingTime, host }) {
 
 // --- ejecución -------------------------------------------------------------
 
+const CHECK = process.argv.includes('--check');
+
 const vite = await createServer({ root, server: { middlewareMode: true }, appType: 'custom' });
 
 const [{ siteContent }, blog, { plainText }, { getLabel }] = await Promise.all(
@@ -137,40 +144,60 @@ const host = new URL(siteContent.seo.siteUrl).host;
 // la fila del pie sale del contenido y no de una lista escrita acá.
 const stack = Object.values(siteContent.skills.groups).map((group) => getLabel(group[0]));
 
+/**
+ * Qué tarjetas debe haber. Generar y verificar leen esta misma lista, así que no
+ * hay forma de que la guarda y el generador discrepen sobre qué tiene que existir.
+ * El HTML se arma en una función y no de una vez, para no renderizar plantillas
+ * que `--check` no va a usar.
+ */
+const cards = [
+	{
+		file: path.join(root, 'static/assets', 'og.jpg'),
+		html: () => siteCard({ content: siteContent, host, stack })
+	},
+	...blog.getPosts().map((post) => ({
+		file: path.join(OUT, `${post.slug}.jpg`),
+		// El título va sin markdown: en la tarjeta no hay quién lo interprete.
+		html: () =>
+			postCard({ post, title: plainText(post.title), readingTime: blog.readingTime(post), host })
+	}))
+];
+
+await vite.close();
+
+if (CHECK) {
+	const missing = cards.filter((card) => !existsSync(card.file));
+
+	if (missing.length > 0) {
+		const list = missing.map((card) => `    ${path.relative(root, card.file)}`).join('\n');
+		console.error(`\n  ✗ Faltan ${missing.length} tarjeta(s) de Open Graph:\n${list}`);
+		console.error('\n    Corré: pnpm og\n');
+		process.exit(1);
+	}
+
+	console.log(`Open Graph: ${cards.length} tarjeta(s), todas presentes.`);
+	process.exit(0);
+}
+
+const { chromium } = await import('playwright');
 const browser = await chromium.launch();
 const page = await browser.newPage({
 	viewport: { width: siteContent.seo.imageWidth, height: siteContent.seo.imageHeight }
 });
 
-/** El archivo se escribe con el tamaño exacto que declaran los `og:image:*`. */
-async function render(html, file) {
-	const tmp = path.join(OUT, '.render.html');
-	await writeFile(tmp, html);
-	await page.goto(`file://${tmp}`);
-	await page.evaluate(() => document.fonts.ready);
-	await page.screenshot({ path: file, type: 'jpeg', quality: 92 });
-	await rm(tmp);
-	console.log('  ✓', path.relative(root, file));
-}
-
 await mkdir(OUT, { recursive: true });
 
 console.log('Open Graph:');
-await render(
-	siteCard({ content: siteContent, host, stack }),
-	path.join(root, 'static/assets/og.jpg')
-);
 
-for (const post of blog.getPosts()) {
-	// El título va sin markdown: en la tarjeta no hay quién lo interprete.
-	const html = postCard({
-		post,
-		title: plainText(post.title),
-		readingTime: blog.readingTime(post),
-		host
-	});
-	await render(html, path.join(OUT, `${post.slug}.jpg`));
+for (const card of cards) {
+	// El archivo se escribe con el tamaño exacto que declaran los `og:image:*`.
+	const tmp = path.join(OUT, '.render.html');
+	await writeFile(tmp, card.html());
+	await page.goto(`file://${tmp}`);
+	await page.evaluate(() => document.fonts.ready);
+	await page.screenshot({ path: card.file, type: 'jpeg', quality: 92 });
+	await rm(tmp);
+	console.log('  ✓', path.relative(root, card.file));
 }
 
 await browser.close();
-await vite.close();
