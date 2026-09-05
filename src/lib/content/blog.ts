@@ -57,7 +57,7 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			{ type: 'heading', level: 2, text: 'The rules came before the code' },
 			{
 				type: 'paragraph',
-				text: 'The first commit that mattered was a document, not code: less code is better, zero dependencies ever, native `fetch` with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of what air is not allowed to become: interceptor chains, plugins, retries or timeouts, caching, deduplication, Node-only features that break in a browser.'
+				text: 'The first commit that mattered was a document, not code: less code is better, zero dependencies ever, native `fetch` with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of what air is not allowed to become: interceptor chains, plugins, retries or timeouts in any form, caching, deduplication, Node-only features that break in a browser.'
 			},
 			{
 				type: 'paragraph',
@@ -183,11 +183,11 @@ await api.get('/search', { query: { since: new Date() } })
 			{ type: 'heading', level: 2, text: 'What a month in production changed' },
 			{
 				type: 'paragraph',
-				text: 'Four of my own systems moved onto air the week it shipped, and they changed it more than the design document did. Two of the changes broke 1.0, which is why the current version is 2.1 rather than 1.3.'
+				text: 'Four of my own systems moved onto air the week it shipped. A month of running it there, and of measuring it against the other three clients, changed it more than the design document had. Two of the changes broke 1.0, which is why the current version is 2.1 rather than 1.3.'
 			},
 			{
 				type: 'paragraph',
-				text: 'One was a type that lied. A `204`, or any empty body, had always resolved to `null`; the signature promised `T`. I had written that compromise down as acceptable, because `T | null` puts a null check on every caller for a case most of them never hit. Then a caller hit it. Every call now resolves to `T | null`, and the migration was one `if (!user)` per endpoint that can answer empty, which is where the check belonged all along.'
+				text: 'One was a type that lied. A `204`, or any empty body, had always resolved to `null`; the signature promised `T`. I had written that compromise down as acceptable, because `T | null` puts a null check on every caller for a case most of them never hit. Rereading it a month later, it was a lie the compiler was helping me tell. Every call now resolves to `T | null`, and the cost is one `if (!user)` per endpoint that can answer empty, which is where the check belonged all along.'
 			},
 			{
 				type: 'paragraph',
