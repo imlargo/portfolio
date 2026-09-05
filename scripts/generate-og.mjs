@@ -32,11 +32,7 @@ const BRAND = 'oklch(0.76 0.12 295)';
 const escape = (s) =>
 	s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const mono = (parts) =>
-	parts
-		.filter(Boolean)
-		.map(escape)
-		.join('<span class="sep">·</span>');
+const mono = (parts) => parts.filter(Boolean).map(escape).join('<span class="sep">·</span>');
 
 /**
  * Las dos tarjetas comparten esqueleto: rótulo arriba, cuerpo en el medio, y un
@@ -160,7 +156,10 @@ async function render(html, file) {
 await mkdir(OUT, { recursive: true });
 
 console.log('Open Graph:');
-await render(siteCard({ content: siteContent, host, stack }), path.join(root, 'static/assets/og.jpg'));
+await render(
+	siteCard({ content: siteContent, host, stack }),
+	path.join(root, 'static/assets/og.jpg')
+);
 
 for (const post of blog.getPosts()) {
 	// El título va sin markdown: en la tarjeta no hay quién lo interprete.
