@@ -6,7 +6,7 @@ const posts: Post[] = [
 		title: 'The fetch wrapper I had rewritten in every project',
 		description:
 			'The `api.ts` I had retyped from scratch in every app, written once as a package. Most of the work was deciding what belonged in it: the rules that came before the code, and the reason behind each of the eight options that survived.',
-		date: '2026-08-19',
+		date: '2026-09-05',
 		tags: ['TypeScript', 'Open Source', 'API Design'],
 		// azul cristal: una librería mínima y precisa, sin peso de más
 		accent: '#3b82f6',
@@ -22,7 +22,7 @@ const posts: Post[] = [
 			},
 			{
 				type: 'paragraph',
-				text: 'So I wrote it once, on purpose, as a package. air is seven files, 580 lines, no dependencies. It builds a URL, detects a body, parses a response, and throws an error that carries the response with it.'
+				text: 'So I wrote it once, on purpose, as a package. The client in air is seven files, about 380 lines of code, no dependencies. It builds a URL, detects a body, parses a response, and throws an error that carries the response with it.'
 			},
 			{
 				type: 'code',
@@ -36,7 +36,7 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			{ type: 'heading', level: 2, text: 'Why not one of the existing ones' },
 			{
 				type: 'paragraph',
-				text: 'I read the three clients people compare it to first, and measured them rather than trust the impression each one leaves. Bundled, minified and gzipped: `axios` 18.6 kB in the browser and 64.9 kB on the server, `ky` 7.3 kB, `ofetch` 4 kB and 36.8 kB.'
+				text: 'I read the three clients people compare it to first, and measured them rather than trust the impression each one leaves. Bundled, minified and gzipped: `axios` 19.2 kB in the browser and 65 kB on the server, `ky` 8.8 kB, `ofetch` 4 kB and 36 kB.'
 			},
 			{
 				type: 'list',
@@ -48,16 +48,16 @@ const created = await api.post<User>('/users', { body: { name: 'Ada' } })`
 			},
 			{
 				type: 'paragraph',
-				text: 'None of that is wrong. It is a different bet about who owns the decisions. `ky` hands back a response you call `.json<User>()` on; `axios`, a `data` property to unwrap on every call. Two of the three retry on their own, so a request I believe I sent once may have been sent twice. Mine is that those four things are the whole job. air is 1.94 kB gzipped, the same in the browser and on the server, because there is no second transport.'
+				text: 'None of that is wrong. It is a different bet about who owns the decisions. `ky` hands back a response you call `.json<User>()` on; `axios`, a `data` property to unwrap on every call. Two of the three retry on their own, so a request I believe I sent once may have been sent twice. My bet is that those four things are the whole job. air is 1.9 kB gzipped, the same in the browser and on the server, because there is no second transport.'
 			},
 			{
 				type: 'paragraph',
-				text: 'The same document carries the unflattering half: those three have years of resolved edge cases and 131 million weekly downloads between them; air has one author, a test suite, and 47. I wrote it into the repo so I would not be tempted to frame it better later.'
+				text: 'The same document carries the unflattering half: those three have years of resolved edge cases and about 160 million weekly downloads between them; air has one author, a test suite, and the four systems of mine that run it. I wrote it into the repo so I would not be tempted to frame it better later.'
 			},
 			{ type: 'heading', level: 2, text: 'The rules came before the code' },
 			{
 				type: 'paragraph',
-				text: 'The first commit that mattered was a document, not code: less code is better, zero dependencies ever, native `fetch` with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of what air is not allowed to become: interceptor chains, plugins, retries or timeouts in any form, caching, deduplication, Node-only features that break in a browser.'
+				text: 'The first commit that mattered was a document, not code: less code is better, zero dependencies ever, native `fetch` with no polyfill and no second transport, ESM only, predictable over clever, types are the docs. Then a list of what air is not allowed to become: interceptor chains, plugins, retries or timeouts, caching, deduplication, Node-only features that break in a browser.'
 			},
 			{
 				type: 'paragraph',
@@ -173,16 +173,57 @@ await api.get('/search', { query: { since: new Date() } })
 			},
 			{
 				type: 'paragraph',
-				text: "Real `fetch` refuses a `ReadableStream` body without `duplex: 'half'`, rejects an already-fired signal before sending, and stringifies a `null` header instead of deleting the key. A hand-written double does none of that unless you already knew about the bug. So `examples/` became the integration lane: seven files, each a README recipe made executable against a local server and real `fetch`, asserting what it demonstrates. CI runs them on every supported Node, and all three bugs are pinned there."
+				text: "Real `fetch` refuses a `ReadableStream` body without `duplex: 'half'`, rejects an already-fired signal before sending, and stringifies a `null` header instead of deleting the key. A hand-written double does none of that unless you already knew about the bug. So `examples/` became the integration lane: eight files, each a README recipe made executable against a local server and real `fetch`, asserting what it demonstrates. They are TypeScript that Node runs directly, type-checked against the built package, so a recipe cannot drift from the types it shows. CI runs them on every supported Node, and all three bugs are pinned there."
 			},
 			{ type: 'heading', level: 2, text: 'What it cost to publish' },
 			{
 				type: 'paragraph',
-				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it; `npm publish --dry-run` in a fresh clone caught it, and that is now the thing I do before every release. The name `air` was taken, so it went out as `@korastd/air`, and CI publishes through OIDC rather than a stored token.'
+				text: 'The last stretch had nothing to do with HTTP. `dist/` was gitignored while `files` pointed at it, so publishing from a clean checkout would have shipped a package with no code in it; `npm publish --dry-run` in a fresh clone caught it, and that is now the thing I do before every release. The name `air` was taken, so it went out as `@korastd/air`, under a studio scope, and moved to `@imlargo/air` at 2.0 once it was clear this was a personal project; the old name is deprecated and points at the new one. CI publishes through OIDC rather than a stored token.'
+			},
+			{ type: 'heading', level: 2, text: 'What a month in production changed' },
+			{
+				type: 'paragraph',
+				text: 'Four of my own systems moved onto air the week it shipped, and they changed it more than the design document did. Two of the changes broke 1.0, which is why the current version is 2.1 rather than 1.3.'
 			},
 			{
 				type: 'paragraph',
-				text: 'What is left is 122 tests, seven modules, 7.6 kB of JavaScript, and a contributing guide that records why each decision went the way it did, including the ones that removed something.'
+				text: 'One was a type that lied. A `204`, or any empty body, had always resolved to `null`; the signature promised `T`. I had written that compromise down as acceptable, because `T | null` puts a null check on every caller for a case most of them never hit. Then a caller hit it. Every call now resolves to `T | null`, and the migration was one `if (!user)` per endpoint that can answer empty, which is where the check belonged all along.'
+			},
+			{
+				type: 'paragraph',
+				text: 'The other widened the list of content types handed back unread, from three to nine, so a `stream+json` or `json-seq` endpoint is a stream on the first request rather than a promise that never settles.'
+			},
+			{
+				type: 'paragraph',
+				text: "The 2.1 change was the retry rule, and it came from the same lesson that removed retries in the first place. A generic helper never had the caller's signal in scope. A wrapper around `fetch` does: it receives `init.signal` and can refuse to retry anything already aborted without guessing from the error's name. So the rule went from no retries in any form to none inside the client, and `retry` ships as a function you hand to the `fetch` option, next to token refresh, download progress and two serializers, each under its own import path. Importing one loads one file. The client is still 2 kB."
+			},
+			{
+				type: 'code',
+				language: 'ts',
+				code: `import { retry } from '@imlargo/air/retry'
+import { refresh } from '@imlargo/air/refresh'
+
+const api = air.create({
+  baseURL: 'https://api.example.com',
+  headers: () => ({ Authorization: \`Bearer \${session.token}\` }),
+  fetch: retry({ attempts: 3, fetch: refresh({ headers: renewToken }) }),
+})`
+			},
+			{
+				type: 'paragraph',
+				text: "The review that found the bugs asked how each utility could be misused, not how it worked. Sending the renewal request through the client that carries `refresh` would deadlock it, waiting on the refresh it was part of, so `refresh` now hands your function the unwrapped `fetch` to call the renewal with. A lowercase `methods: ['post']` never matched anything. Both are tests now, and the misuse pass is a rule in the contributing guide, because I did not run it the first time."
+			},
+			{
+				type: 'paragraph',
+				text: 'The comparison numbers at the top no longer come from a table I measured once. `pnpm bench` runs every client in a fresh process, in random order, five rounds, with the server in its own process, and the same workflow runs from the Actions tab so anyone can reproduce the report with a button. It also retired a sentence I had been saying: on my laptop, air was indistinguishable from raw `fetch`; on a four-thread CI runner with small payloads it costs about 15 %, ofetch 18 %, ky 35 %, axios half. With large bodies every client disappears into the parsing. The version that survives both machines is that air and ofetch sit in the lowest-overhead group, so that is what the README says.'
+			},
+			{
+				type: 'paragraph',
+				text: 'The same run recorded what each client does with the same request. `ky` throws `SyntaxError` on a 204 if you call `.json()`. `ky` and `axios` hang on an endpoint that never closes. `axios` sends a multipart body labelled `application/x-www-form-urlencoded`. None of those show up in a speed table, and they are the bugs a user meets in production.'
+			},
+			{
+				type: 'paragraph',
+				text: 'What is left is 183 tests, a 3 kB client, five utilities that never touch it, and a contributing guide that records why each decision went the way it did, including the ones that removed something and the one that put something back.'
 			},
 			{
 				type: 'paragraph',
