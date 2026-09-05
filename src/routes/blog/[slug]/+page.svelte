@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Seo } from '$lib/components/seo';
+	import { JsonLd, Seo, postSchema } from '$lib/components/seo';
 	import { SiteCta } from '$lib/components/sections';
 	import * as Section from '$lib/components/layout/section';
 	import { PostContent, PostMeta, TableOfContents } from '$lib/features/blog/components';
@@ -15,11 +15,15 @@
 	const post = $derived(data.post);
 </script>
 
-<Seo title={post.title} description={post.description} type="article" />
+<Seo
+	title={post.title}
+	description={post.description}
+	type="article"
+	published={post.date}
+	tags={post.tags}
+/>
 
-<svelte:head>
-	<meta property="article:published_time" content={post.date} />
-</svelte:head>
+<JsonLd schema={postSchema(post, { readingTime: data.readingTime, words: data.words })} />
 
 <div class="reading-progress" aria-hidden="true"></div>
 

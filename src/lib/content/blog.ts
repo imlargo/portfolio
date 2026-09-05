@@ -416,10 +416,12 @@ function blockText(block: PostBlock): string {
 	}
 }
 
-export function readingTime(post: Post): number {
-	const words = post.content.map(blockText).join(' ').trim().split(/\s+/).filter(Boolean).length;
+export function wordCount(post: Post): number {
+	return post.content.map(blockText).join(' ').trim().split(/\s+/).filter(Boolean).length;
+}
 
-	return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
+export function readingTime(post: Post): number {
+	return Math.max(1, Math.round(wordCount(post) / WORDS_PER_MINUTE));
 }
 
 export function slugify(value: string): string {

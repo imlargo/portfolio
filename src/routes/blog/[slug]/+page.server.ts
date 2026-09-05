@@ -1,4 +1,4 @@
-import { getPost, getSiblings, posts, readingTime } from '$lib/content/blog';
+import { getPost, getSiblings, posts, readingTime, wordCount } from '$lib/content/blog';
 import { error } from '@sveltejs/kit';
 import { codeToHtml } from 'shiki';
 import type { PostBlock } from '$lib/content/types';
@@ -37,6 +37,9 @@ export const load: PageServerLoad = async ({ params }) => {
 	return {
 		post: { ...post, content: await highlight(post.content) },
 		readingTime: readingTime(post),
+		// Va al `wordCount` del JSON-LD. Se cuenta acá, sobre el post sin resaltar,
+		// porque el HTML de Shiki mete tokens que inflarían la cuenta.
+		words: wordCount(post),
 		...getSiblings(post.slug)
 	};
 };
