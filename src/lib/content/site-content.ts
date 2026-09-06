@@ -9,17 +9,40 @@ export type SiteContent = {
 	/** Cómo firmo: el handle es el nombre de marca, el legal solo aparece en prosa. */
 	name: string;
 	fullName: string;
+	/** Cargo canónico; encabeza el `<title>` por defecto y el `Person` del JSON-LD. */
+	jobTitle: string;
 	email: string;
 
 	seo: {
 		siteName: string;
+		/**
+		 * Origen canónico de producción. Todo lo que un buscador va a leer —la
+		 * canónica, `og:url`, el sitemap, el RSS, los `@id` del JSON-LD— se arma
+		 * contra esta constante y no contra el origen del request: así un deploy de
+		 * preview en `*.workers.dev` apunta a producción en vez de competir con
+		 * ella por el mismo contenido.
+		 */
+		siteUrl: string;
 		defaultTitle: string;
 		/** `%s` se reemplaza con el título propio de cada página. */
 		titleTemplate: string;
 		defaultDescription: string;
 		defaultImage: string;
+		defaultImageAlt: string;
+		/**
+		 * Tamaño de TODAS las tarjetas para compartir: `pnpm og` las genera así y
+		 * los `og:image:*` lo declaran así. Es un invariante del sistema, no un dato
+		 * por imagen; declarar un tamaño que el archivo no tiene hace que la
+		 * plataforma recorte de nuevo, o que descarte la vista previa.
+		 */
+		imageWidth: number;
+		imageHeight: number;
 		locale: string;
 		twitterHandle?: string;
+		/** Ciudad y país; solo alimentan el `PostalAddress` del JSON-LD. */
+		locality: string;
+		region: string;
+		country: string;
 	};
 
 	navigation: {
@@ -78,6 +101,7 @@ export type LinkGroup = {
 	links: { label: string; href: string; external?: boolean }[];
 };
 
+const SITE_URL = 'https://imlargo.dev';
 const RESUME = '/files/resume.pdf';
 const KORA = 'https://kora.imlargo.dev';
 const EMAIL = 'jclargob@gmail.com';
@@ -88,16 +112,25 @@ const contactCta: Cta = { label: 'Contact me', href: `mailto:${EMAIL}` };
 export const siteContent: SiteContent = {
 	name: 'imlargo',
 	fullName: 'Juan Carlos Largo',
+	jobTitle: 'Senior Software Engineer',
 	email: EMAIL,
 
 	seo: {
 		siteName: 'imlargo',
+		siteUrl: SITE_URL,
 		defaultTitle: 'imlargo · Senior Software Engineer',
 		titleTemplate: '%s · imlargo',
 		defaultDescription:
 			'Juan Carlos Largo (@imlargo). Senior Software Engineer and founder of Kora Studio. Go on the backend, TypeScript and Svelte on the frontend, architecture through deployment. 20+ systems shipped, all still running.',
-		defaultImage: '/assets/pfp.jpg',
-		locale: 'en_US'
+		defaultImage: '/assets/og.jpg',
+		defaultImageAlt:
+			'imlargo — Juan Carlos Largo, Senior Software Engineer and founder of Kora Studio.',
+		imageWidth: 1200,
+		imageHeight: 630,
+		locale: 'en_US',
+		locality: 'Medellín',
+		region: 'Antioquia',
+		country: 'CO'
 	},
 
 	navigation: {

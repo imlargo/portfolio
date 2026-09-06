@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { HomeLanding } from '$lib/features/home/components';
-	import { Seo } from '$lib/components/seo';
+	import { Seo, homeSchema } from '$lib/components/seo';
 </script>
 
-<!-- Sin props de título ni descripción: la home es justamente lo que describen
-     los valores por defecto del SEO. -->
-<Seo />
+<!-- Sin título ni descripción: la home es justamente lo que describen los valores
+     por defecto del SEO. Es también la única que declara `WebSite` en el grafo. -->
+<Seo schema={homeSchema()} />
 
 <HomeLanding />

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Seo } from '$lib/components/seo';
+	import { Seo, postImage, postSchema } from '$lib/components/seo';
 	import { SiteCta } from '$lib/components/sections';
 	import * as Section from '$lib/components/layout/section';
 	import { PostContent, PostMeta, TableOfContents } from '$lib/features/blog/components';
@@ -15,11 +15,15 @@
 	const post = $derived(data.post);
 </script>
 
-<Seo title={post.title} description={post.description} type="article" />
-
-<svelte:head>
-	<meta property="article:published_time" content={post.date} />
-</svelte:head>
+<!-- Cada post comparte con su propia tarjeta, generada por `pnpm og` a partir de
+     su título y su color de acento. -->
+<Seo
+	title={post.title}
+	description={post.description}
+	image={postImage(post.slug)}
+	article={{ published: post.date, modified: post.updated, tags: post.tags }}
+	schema={postSchema(post, data.words, data.readingTime)}
+/>
 
 <div class="reading-progress" aria-hidden="true"></div>
 

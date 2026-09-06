@@ -18,7 +18,7 @@ export const projects: Project[] = [
 		]
 	},
 	{
-		url: 'https://www.npmjs.com/package/@korastd/air',
+		url: 'https://www.npmjs.com/package/@imlargo/air',
 		github: 'https://github.com/imlargo/air',
 		title: 'air',
 		description:

@@ -26,5 +26,13 @@ vite.config.ts.timestamp-*
 # Cloudflare Types
 /worker-configuration.d.ts
 
+# Artefacto local de pnpm 11: lo regenera en cada `install` para preguntar por los
+# build scripts de esbuild y workerd, y lo escribe con textos de relleno y sin el
+# campo `packages`. Cloudflare compila con pnpm 10.11.1, que al ver un archivo de
+# workspace exige ese campo y aborta el `install`. La decisión de qué se compila
+# ya vive en `pnpm.onlyBuiltDependencies` dentro de package.json, que es donde
+# pnpm 10 la lee.
+/pnpm-workspace.yaml
+
 # Reference checkout of the Kora repo, not part of this project
 /kora/
