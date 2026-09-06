@@ -124,7 +124,7 @@ Go and Gin on the backend, Svelte and TypeScript on the frontend, plus multi-mod
 
 ### Tell me what you're building.
 
-Open to remote roles, and taking on a couple of client projects at a time through Kora Studio.
+Open to remote roles.
 
 - Primary CTA: Contact me → `mailto:jclargob@gmail.com`
 - Secondary CTA: Kora Studio → https://kora.imlargo.dev
@@ -157,7 +157,7 @@ I care about small surfaces, sane defaults, and code that still reads well six m
 
 ### Tell me what you're building.
 
-Open to remote roles, and taking on a couple of client projects at a time through Kora Studio.
+Open to remote roles.
 
 ---
 

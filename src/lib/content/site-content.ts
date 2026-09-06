@@ -151,8 +151,7 @@ export const siteContent: SiteContent = {
 
 	cta: {
 		title: "Tell me what you're building.",
-		description:
-			'Open to remote roles, and taking on a couple of client projects at a time through Kora Studio.',
+		description: 'Open to remote roles.',
 		primaryCta: contactCta,
 		secondaryCta: { label: 'Kora Studio', href: KORA }
 	},
