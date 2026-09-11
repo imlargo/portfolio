@@ -8,7 +8,7 @@ export const projects: Project[] = [
 		github: 'https://github.com/imlargo/pegaso',
 		title: 'Pegaso',
 		description:
-			"Course scheduling platform for Universidad Nacional de Colombia. 6,200+ users through organic adoption, no advertising. The university's official platform later adopted its core design decisions.",
+			"Multi-constraint schedule builder for Universidad Nacional de Colombia, grown to 6,200+ active users through entirely organic adoption. The university's later official platform adopted its core design decisions, and the institution explored acquiring it.",
 		technologies: [
 			Technology.Svelte,
 			Technology.Go,
@@ -22,7 +22,7 @@ export const projects: Project[] = [
 		github: 'https://github.com/imlargo/air',
 		title: 'air',
 		description:
-			'A tiny HTTP client for TypeScript built on native fetch. 300 lines, zero dependencies, ~2 kB. I had rewritten the same wrapper in every project, so I wrote it once properly.',
+			'HTTP client for TypeScript built on native fetch: 300 lines, zero dependencies, ~2 kB. I had rewritten the same wrapper in every project, so I wrote it once properly. Runs in production across company and client systems.',
 		technologies: [Technology.Typescript]
 	},
 	{
@@ -67,11 +67,11 @@ export const workGroups: WorkGroup[] = [
 			'Systems where I own the architecture, the infrastructure and whatever happens in production.',
 		items: [
 			{
-				title: 'Solar project lifecycle platform',
+				title: 'Enterprise platform for a solar energy company',
 				context: 'Unergy',
 				period: '2025 - Present',
 				description:
-					'Runs the solar mini-farm business from origination through construction and operation. Migrating it from Vue to Svelte module by module while it keeps shipping features.',
+					'The system that runs the business: 20+ modules, 200+ internal users and 100+ investors, with forms rendered from backend schemas. Migrating it from Vue to Svelte module by module, behind Vitest and Playwright suites, while it keeps shipping features.',
 				technologies: [
 					Technology.Vue,
 					Technology.Svelte,
@@ -80,24 +80,65 @@ export const workGroups: WorkGroup[] = [
 				]
 			},
 			{
-				title: 'Internal component library and templates',
+				title: 'Gandalf, headless design system',
 				context: 'Unergy',
 				period: '2026',
 				description:
-					'Vue + TypeScript components, project templates and shared foundations used across every application. New projects go from days of setup to hours.',
+					'Tokens, theming, dark mode and live docs, shipped as an internal npm package and now standard across 4 applications. New projects go from days of setup to hours.',
 				technologies: [
 					Technology.Vue,
+					Technology.Svelte,
 					Technology.Typescript,
 					Technology.Tailwind,
 					Technology.Vitest
 				]
 			},
 			{
+				title: 'Real-time layer of an in-house customer-service platform',
+				context: 'Unergy',
+				period: '2026',
+				description:
+					'A WebSocket connector with heartbeat and backoff, plus sequence-guarded fetches reconciling a paginated REST list against a live push stream, so the two never disagree on screen.',
+				technologies: [Technology.Svelte, Technology.Typescript, Technology.Go]
+			},
+			{
+				title: 'Supplier payment wizard',
+				context: 'Unergy',
+				period: '2026',
+				description:
+					'A branching flow across 4 payment types with an index-stable step invariant and a validated 100%-allocation rule, on a platform where every form renders from a backend schema.',
+				technologies: [Technology.Vue, Technology.Typescript, Technology.Tailwind]
+			},
+			{
+				title: 'Geospatial viewer for the environmental team',
+				context: 'Unergy',
+				period: '2026',
+				description:
+					'A KMZ layer engine computing geometric intersections against open government data while keeping the map interactive, rebuilt from a viewer that could not hold either.',
+				technologies: [Technology.Svelte, Technology.Typescript, Technology.Leaflet]
+			},
+			{
+				title: 'Retail energy marketplace',
+				context: 'Unergy',
+				period: '2026',
+				description:
+					'One of 4 new products shipped alongside the enterprise platform, taking the company from selling projects to selling energy directly.',
+				technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind]
+			},
+			{
+				title: 'Offline-first field visit app',
+				context: 'Unergy',
+				period: '2026',
+				description:
+					'Built for technicians recording site visits where there is no signal: everything captured locally and reconciled when the connection comes back.',
+				technologies: [Technology.Svelte, Technology.Typescript, Technology.Tailwind]
+			},
+			{
 				title: 'Butter, content-generation SaaS',
-				context: 'Own product, international',
+				context: 'US-founded startup, remote',
 				period: '2025 - 2026',
 				description:
-					'Distributed Go system built from zero: job queues, Postgres and Redis, AWS, a multi-model AI pipeline, Stripe subscriptions and a marketplace. 1,000+ users, 2,000+ jobs a day, one engineer.',
+					'Distributed Go system built from zero: async job queues, Postgres and Redis on AWS, a multi-model AI pipeline, Stripe billing and a multi-vendor marketplace. 1,500 active users internationally, 2,000+ jobs a day at ~2.4 min median, 99.9% uptime with no DevOps function.',
 				technologies: [
 					Technology.Go,
 					Technology.Svelte,
@@ -109,10 +150,10 @@ export const workGroups: WorkGroup[] = [
 			},
 			{
 				title: 'Construction operations system',
-				context: 'ING, via Kora Studio',
-				period: '2026',
+				context: 'Construction firm, via Kora Studio',
+				period: '2025 - 2026',
 				description:
-					'Contracts, service orders, work plans and budgets across every project, with field constraints feeding straight back into the schedule.',
+					'The core information system of a firm working across Cartagena, Bogotá and Miami: contracts, service orders, budget trees and a purchase plan tying site activities to supplies.',
 				technologies: [Technology.Go, Technology.Svelte, Technology.Typescript, Technology.Postgres]
 			}
 		]
@@ -126,7 +167,7 @@ export const workGroups: WorkGroup[] = [
 				context: "ASCUN & Colombia's Ministry of Education",
 				period: '2025 - 2026',
 				description:
-					'Rebuilt end-to-end for 64+ universities: a layered Node.js backend handling sensitive citizen data, three product surfaces, and a conversational assistant with an interactive map of Colombia.',
+					'Rebuilt end-to-end for 64+ universities as the sole engineer: a layered Node.js backend with ~70 documented API routes handling sensitive citizen data, three product surfaces in React, and a conversational assistant over a data-heavy Leaflet map of Colombia.',
 				technologies: [
 					Technology.NodeJs,
 					Technology.React,
@@ -148,7 +189,7 @@ export const workGroups: WorkGroup[] = [
 				context: 'Universidad Nacional de Colombia',
 				period: '2024 - 2025',
 				description:
-					'Replaced a manual administrative and financial process with automated workflows, cutting each trip from 1-2 weeks to under 20 minutes across 200+ requests a semester.',
+					'Replaced a manual administrative and financial process with automated workflows and budget tracking, cutting each approval cycle from 1-2 weeks to under 30 minutes across 200+ trips a semester.',
 				technologies: [Technology.Go, Technology.Svelte, Technology.Postgres, Technology.Typescript]
 			},
 			{
@@ -156,7 +197,7 @@ export const workGroups: WorkGroup[] = [
 				context: 'Research lab, Universidad Nacional de Colombia',
 				period: '2024',
 				description:
-					'Continuous sensor ingestion, dashboards and automated reports, accurate enough for the lab to publish from.',
+					'Ingestion from a distributed sensor network across Medellín, with live dashboards and automated report export meeting the accuracy requirements of published research.',
 				technologies: [
 					Technology.NodeJs,
 					Technology.Javascript,
@@ -251,7 +292,7 @@ export const workGroups: WorkGroup[] = [
 				context: 'Client engagement, via Kora Studio',
 				period: '2026',
 				description:
-					'LLM agent with token-cost optimization and human-in-the-loop verification, taking a due-diligence run from millions of Colombian pesos to a few hundred.',
+					'LLM agent combining token-cost optimization with human-in-the-loop verification, cutting the cost of a due-diligence run by two orders of magnitude.',
 				technologies: [Technology.Go, Technology.Typescript, Technology.Postgres]
 			},
 			{
@@ -276,6 +317,14 @@ export const workGroups: WorkGroup[] = [
 
 /** Librerías, plantillas y experimentos: el fondo del catálogo. */
 export const sideProjects: Project[] = [
+	{
+		github: 'https://github.com/shadcn-svelte/shadcn-svelte',
+		url: 'https://github.com/shadcn-svelte/shadcn-svelte/pulls?q=is%3Apr+author%3Aimlargo',
+		title: 'Contributions to shadcn-svelte & shadcn-vue',
+		description:
+			'3 merged pull requests across both libraries, including a component fix in one used by thousands of Svelte projects. Also migrated the Gin framework documentation site to Astro.',
+		technologies: [Technology.Svelte, Technology.Vue, Technology.Typescript, Technology.Astro]
+	},
 	{
 		github: 'https://github.com/imlargo/svelte-template',
 		url: 'https://github.com/imlargo/svelte-template',

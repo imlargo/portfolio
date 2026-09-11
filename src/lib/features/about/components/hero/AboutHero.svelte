@@ -25,35 +25,48 @@
 				<p class="max-w-prose text-pretty text-muted-foreground">
 					Hi, I'm <span class="text-foreground">Juan Carlos Largo</span> (<span
 						class="ty-inlinecode">@imlargo</span
-					>). Senior software engineer and founder of
-					<span class="text-foreground">Kora Studio</span>, based in Medellín, Colombia.
+					>). Senior software engineer, 4 years, based in Medellín, Colombia.
 				</p>
 
 				<p class="max-w-prose text-pretty text-muted-foreground">
 					I build systems that go to production and stay there. 20+ shipped since 2023, all still
 					running. Mostly
-					<SkillBadge class={inlineBadge} tech={Technology.Go} />,
-					<SkillBadge class={inlineBadge} tech={Technology.Typescript} /> and
-					<SkillBadge class={inlineBadge} tech={Technology.Svelte} />, full-stack with architectural
-					depth on both sides.
+					<SkillBadge class={inlineBadge} tech={Technology.Typescript} />,
+					<SkillBadge class={inlineBadge} tech={Technology.Svelte} /> and
+					<SkillBadge class={inlineBadge} tech={Technology.Go} />, full-stack with architectural
+					depth on both sides. I design the APIs I consume, so integration is a strength rather than
+					a handoff.
 				</p>
 
 				<p class="max-w-prose text-pretty text-muted-foreground">
-					Kora is a product and technology studio, not an agency. Software rarely fails because of
-					how it was built, it fails because of what someone decided to build, so every engagement
-					starts with understanding the business. 12+ systems delivered, every client by referral.
+					Right now I lead frontend at <span class="text-foreground">Unergy</span>, a solar energy
+					company, inside an 11-engineer product organization. The platform runs the business: 20+
+					modules, 200+ internal users, forms rendered from backend schemas. I started Gandalf, the
+					headless design system that is now standard across 4 applications, and I'm migrating the
+					platform from
+					<SkillBadge class={inlineBadge} tech={Technology.Vue} /> to
+					<SkillBadge class={inlineBadge} tech={Technology.Svelte} /> module by module, with zero regressions
+					so far.
 				</p>
 
 				<p class="max-w-prose text-pretty text-muted-foreground">
-					Alongside that I lead frontend engineering at Unergy, a solar energy company. Before that
-					I was the sole technical owner at Butter, a content-generation SaaS I co-founded and took
-					to 1,000+ users, and the engineer behind a national gender-based-violence prevention
-					platform serving 64+ universities.
+					Before that I was the founding engineer at <span class="text-foreground">Butter</span>, a
+					US-founded content-generation SaaS I took from idea to 1,500 users alone, and the sole
+					engineer behind a national gender-based-violence prevention platform for 64+ universities,
+					built with Colombia's Ministry of Education.
+				</p>
+
+				<p class="max-w-prose text-pretty text-muted-foreground">
+					For two years, alongside those roles, I ran an independent practice under the name
+					<span class="text-foreground">Kora Studio</span>: 15+ production systems across education,
+					public sector, construction and retail, as sole architect and engineer, every client by
+					referral.
 				</p>
 
 				<p class="max-w-prose text-pretty text-muted-foreground">
 					What I publish comes out of that work. If a library of mine exists, it's because I needed
-					it three times first: air, coral, medusa, Web Push for Gleam. Pegaso, a course scheduling
+					it three times first: air, coral, medusa, Web Push for
+					<SkillBadge class={inlineBadge} tech={Technology.Gleam} />. Pegaso, a course scheduling
 					platform for Universidad Nacional de Colombia, grew to 6,200+ users with no advertising.
 				</p>
 
@@ -65,8 +78,13 @@
 
 			<div class="flex flex-wrap items-center gap-2">
 				<Button href="mailto:{email}">Contact me</Button>
-				<Button variant="outline" href={socials.kora} target="_blank" rel="noopener noreferrer">
-					<span>Kora Studio</span>
+				<Button
+					variant="outline"
+					href="/files/resume.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span>Resume</span>
 					<ArrowUpRight class="size-4" />
 				</Button>
 			</div>

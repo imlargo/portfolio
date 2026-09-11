@@ -108,6 +108,8 @@ const EMAIL = 'jclargob@gmail.com';
 
 /** El llamado principal, tanto en el hero como en el cierre. */
 const contactCta: Cta = { label: 'Contact me', href: `mailto:${EMAIL}` };
+const resumeCta: Cta = { label: 'Resume', href: RESUME };
+const githubCta: Cta = { label: 'GitHub', href: 'https://github.com/imlargo' };
 
 export const siteContent: SiteContent = {
 	name: 'imlargo',
@@ -121,10 +123,10 @@ export const siteContent: SiteContent = {
 		defaultTitle: 'imlargo · Senior Software Engineer',
 		titleTemplate: '%s · imlargo',
 		defaultDescription:
-			'Juan Carlos Largo (@imlargo). Senior Software Engineer and founder of Kora Studio. Go on the backend, TypeScript and Svelte on the frontend, architecture through deployment. 20+ systems shipped, all still running.',
+			'Juan Carlos Largo (@imlargo). Senior Software Engineer in Medellín, Colombia. Frontend tech lead at Unergy, previously founding engineer at Butter. TypeScript, Svelte and React on the frontend, Go and Node.js on the backend. 20+ systems shipped, all still running.',
 		defaultImage: '/assets/og.jpg',
 		defaultImageAlt:
-			'imlargo — Juan Carlos Largo, Senior Software Engineer and founder of Kora Studio.',
+			'imlargo — Juan Carlos Largo, Senior Software Engineer based in Medellín, Colombia.',
 		imageWidth: 1200,
 		imageHeight: 630,
 		locale: 'en_US',
@@ -144,17 +146,16 @@ export const siteContent: SiteContent = {
 		socials: [
 			{ label: 'GitHub', href: 'https://github.com/imlargo' },
 			{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/imlargo/' },
-			{ label: 'Instagram', href: 'https://instagram.com/imlargo' },
-			{ label: 'Kora Studio', href: KORA }
+			{ label: 'Instagram', href: 'https://instagram.com/imlargo' }
 		]
 	},
 
 	cta: {
 		title: "Tell me what you're building.",
 		description:
-			'Open to remote roles, and taking on a couple of client projects at a time through Kora Studio.',
+			'Open to remote roles, with overlap across the Americas and Europe. Based in Medellín, Colombia (UTC-5).',
 		primaryCta: contactCta,
-		secondaryCta: { label: 'Kora Studio', href: KORA }
+		secondaryCta: githubCta
 	},
 
 	home: {
@@ -162,15 +163,15 @@ export const siteContent: SiteContent = {
 			badge: 'Open to remote',
 			title: "Hi, I'm largo",
 			description:
-				'Senior Software Engineer and founder of Kora Studio. Go on the backend, TypeScript and Svelte on the frontend, architecture through deployment. 20+ systems shipped, all still running.',
+				'Senior Software Engineer, 4 years. Frontend tech lead in an 11-engineer product organization, and before that the founding engineer who took an international SaaS from idea to production alone. TypeScript and Svelte on the frontend, Go and Node.js on the backend. 20+ systems shipped, all still running.',
 			primaryCta: contactCta,
-			secondaryCta: { label: 'Kora Studio', href: KORA }
+			secondaryCta: resumeCta
 		},
 
 		experience: {
 			title: 'My experience',
 			description: 'Full technical ownership across several industries and team sizes.',
-			cta: { label: 'Resume', href: RESUME }
+			cta: resumeCta
 		},
 
 		work: {
@@ -202,7 +203,7 @@ export const siteContent: SiteContent = {
 	about: {
 		title: 'About me',
 		description:
-			'Juan Carlos Largo (@imlargo), senior software engineer and founder of Kora Studio, based in Medellín, Colombia.'
+			'Juan Carlos Largo (@imlargo), senior software engineer based in Medellín, Colombia. Frontend tech lead at Unergy, previously founding engineer at Butter.'
 	},
 
 	blog: {
@@ -216,35 +217,31 @@ export const siteContent: SiteContent = {
 	skills: {
 		title: 'Skills & Technologies',
 		description:
-			'Go and Gin on the backend, Svelte and TypeScript on the frontend, plus multi-model LLM integration taken all the way to production monitoring.',
+			'Svelte, React and TypeScript on the frontend, with design systems and real-time interfaces on top; Go and Gin on the backend, all the way through to production monitoring.',
 		groups: {
 			Frontend: [
 				Technology.Svelte,
+				Technology.React,
 				Technology.Vue,
 				Technology.Typescript,
-				Technology.React,
+				Technology.Astro,
 				Technology.Tailwind,
 				Technology.Html,
-				Technology.Css
+				Technology.Css,
+				Technology.Scss
 			],
-			Backend: [
-				Technology.Go,
-				Technology.Gin,
-				Technology.NodeJs,
-				Technology.Python,
-				Technology.Gleam
-			],
-			Data: [Technology.Postgres, Technology.Redis, Technology.MongoDB, Technology.RabbitMQ],
+			Backend: [Technology.Go, Technology.Gin, Technology.NodeJs, Technology.Python],
+			Data: [Technology.Postgres, Technology.Redis, Technology.MongoDB],
 			'Infrastructure & Observability': [
 				Technology.Docker,
 				Technology.Aws,
-				Technology.Nginx,
 				Technology.Githubactions,
 				Technology.CiCd,
 				Technology.Grafana,
 				Technology.Prometheus
 			],
-			Testing: [Technology.Vitest, Technology.Playwright]
+			Testing: [Technology.Vitest, Technology.Playwright],
+			'Design & Tooling': [Technology.Figma, Technology.Git, Technology.Github]
 		}
 	},
 
@@ -256,7 +253,7 @@ export const siteContent: SiteContent = {
 	},
 
 	footer: {
-		subtitle: 'Senior Software Engineer · Founder at Kora Studio',
+		subtitle: 'Senior Software Engineer · Medellín, Colombia',
 		credits: 'Designed & built by imlargo',
 		linkGroups: [
 			{

@@ -55,7 +55,7 @@ const person = (): Node => ({
 	description: seo.defaultDescription,
 	email: `mailto:${siteContent.email}`,
 	knowsAbout: [...new Set(Object.values(skills.groups).flat().map(getLabel))],
-	worksFor: { '@type': 'Organization', name: 'Kora Studio', url: socials.kora },
+	worksFor: { '@type': 'Organization', name: 'Unergy' },
 	address: {
 		'@type': 'PostalAddress',
 		addressLocality: seo.locality,

@@ -1,9 +1,10 @@
 # imlargo.dev
 
-Portfolio of Juan Carlos Largo (`@imlargo`), senior software engineer, founder of
-[Kora Studio](https://kora.imlargo.dev).
+Portfolio of Juan Carlos Largo (`@imlargo`), senior software engineer in Medellín,
+Colombia.
 
-It shares Kora's design system on purpose: same neutral scale, same brand accent,
+It shares the design system of [Kora Studio](https://kora.imlargo.dev) on purpose:
+same neutral scale, same brand accent,
 same spacing rhythm and the same motion vocabulary, because the studio and the person
 behind it are the same. What separates the two sites is the voice and the content. The
 voice is Manrope instead of Kora's Space Grotesk, with the mono face carrying the identity
