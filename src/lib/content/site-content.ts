@@ -152,8 +152,7 @@ export const siteContent: SiteContent = {
 
 	cta: {
 		title: "Tell me what you're building.",
-		description:
-			'Open to remote roles, with overlap across the Americas and Europe. Based in Medellín, Colombia (UTC-5).',
+		description: 'Open to remote roles.',
 		primaryCta: contactCta,
 		secondaryCta: githubCta
 	},
