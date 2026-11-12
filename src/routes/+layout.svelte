@@ -4,6 +4,7 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import { SiteHeader, Footer } from '$lib/components/layout';
 	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 
 	let { children } = $props();
 
@@ -40,13 +41,18 @@
 	Skip to main content
 </a>
 
-<SiteHeader />
-
-<!-- Sin `px-layout` ni `gap` acá: el margen lateral y el ritmo vertical los pone
-     cada sección sobre sí misma, así una banda puede sangrar a pantalla completa
-     sin pelear con este contenedor. -->
-<main id="main-content" class="relative flex w-full flex-col items-center">
+<!-- Las presentaciones (`bare`) traen su propio marco y su propio `<main>`. -->
+{#if page.data.bare}
 	{@render children()}
-</main>
+{:else}
+	<SiteHeader />
 
-<Footer />
+	<!-- Sin `px-layout` ni `gap` acá: el margen lateral y el ritmo vertical los pone
+	     cada sección sobre sí misma, así una banda puede sangrar a pantalla completa
+	     sin pelear con este contenedor. -->
+	<main id="main-content" class="relative flex w-full flex-col items-center">
+		{@render children()}
+	</main>
+
+	<Footer />
+{/if}

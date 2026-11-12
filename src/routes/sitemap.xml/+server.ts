@@ -1,4 +1,5 @@
 import { getPosts } from '$lib/content/blog';
+import { TALK_STATUS, talkPath, talks } from '$lib/content/talks';
 import { absolute } from '$lib/components/seo/structured-data';
 import type { RequestHandler } from './$types';
 
@@ -11,7 +12,7 @@ export const prerender = true;
  * la fecha del build para todas las URLs, es la forma más rápida de que un
  * rastreador deje de creerle al archivo completo.
  */
-const STATIC_PATHS = ['/', '/work', '/blog', '/about'];
+const STATIC_PATHS = ['/', '/work', '/blog', '/talks', '/about'];
 
 function entry(path: string, lastmod?: string): string {
 	const loc = `<loc>${absolute(path)}</loc>`;
@@ -28,7 +29,11 @@ export const GET: RequestHandler = () => {
 
 	const urls = [
 		...STATIC_PATHS.map((path) => entry(path, path === '/blog' ? latest : undefined)),
-		...posts.map((post) => entry(`/blog/${post.slug}`, post.updated ?? post.date))
+		...posts.map((post) => entry(`/blog/${post.slug}`, post.updated ?? post.date)),
+		// Los borradores se abren por enlace, pero no se anuncian.
+		...talks
+			.filter((talk) => talk.status === TALK_STATUS.published)
+			.map((talk) => entry(talkPath(talk.slug)))
 	];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>

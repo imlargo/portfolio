@@ -140,6 +140,7 @@ export const siteContent: SiteContent = {
 			{ href: '/', label: 'Home' },
 			{ href: '/work', label: 'Work' },
 			{ href: '/blog', label: 'Writing' },
+			{ href: '/talks', label: 'Talks' },
 			{ href: '/about', label: 'About' }
 		],
 		contactCta: 'Contact me',
@@ -261,6 +262,7 @@ export const siteContent: SiteContent = {
 					{ label: 'Home', href: '/' },
 					{ label: 'Work', href: '/work' },
 					{ label: 'Writing', href: '/blog' },
+					{ label: 'Talks', href: '/talks' },
 					{ label: 'About', href: '/about' }
 				]
 			},

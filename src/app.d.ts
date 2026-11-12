@@ -4,7 +4,10 @@ declare global {
 	namespace App {
 		// interface Error {}
 		// interface Locals {}
-		// interface PageData {}
+		interface PageData {
+			/** La página trae su propio marco (las presentaciones): sin header ni footer del sitio. */
+			bare?: boolean;
+		}
 		// interface PageState {}
 
 		interface Platform {
