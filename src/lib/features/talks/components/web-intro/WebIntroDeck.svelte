@@ -6,6 +6,10 @@
 	import CoverSlide from './CoverSlide.svelte';
 	import SpeakerSlide from './SpeakerSlide.svelte';
 	import GoalsSlide from './GoalsSlide.svelte';
+	import WhatIsSlide from './WhatIsSlide.svelte';
+	import ProcessSlide from './ProcessSlide.svelte';
+	import DecideSlide from './DecideSlide.svelte';
+	import PlatformsSlide from './PlatformsSlide.svelte';
 	import MapSlide from './MapSlide.svelte';
 	import JourneySlide from './JourneySlide.svelte';
 	import HttpSlide from './HttpSlide.svelte';
@@ -38,12 +42,17 @@
 	setDeckCode({ snippets: webIntroSnippets, highlighted });
 </script>
 
-<!-- Cinco partes que van de cómo funciona la web a cómo se arma y se ordena
-     un frontend; cada parte abre con la diapositiva que lleva su ancla. -->
+<!-- Seis partes que van de qué es una aplicación y cómo se decide, a cómo
+     funciona la web y cómo se arma y se ordena un frontend; cada parte abre con la diapositiva que lleva su ancla. -->
 <Deck label={webIntroMeta.label} {backHref}>
 	<CoverSlide />
 	<SpeakerSlide />
 	<GoalsSlide />
+
+	<WhatIsSlide />
+	<ProcessSlide />
+	<DecideSlide />
+	<PlatformsSlide />
 
 	<MapSlide />
 	<JourneySlide />

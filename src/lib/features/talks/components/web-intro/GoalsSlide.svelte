@@ -16,11 +16,11 @@
 		<SlideHeader eyebrow={goals.eyebrow} title={goals.title} description={goals.description} />
 
 		<ol
-			class="grid grid-cols-2 overflow-hidden rounded-3xl border md:grid-cols-5"
+			class="grid grid-cols-2 overflow-hidden rounded-3xl border md:grid-cols-3 lg:grid-cols-6"
 			{@attach useReveal({ targets: '.agenda-item', stagger: 0.06, y: 16 })}
 		>
 			{#each WEB_INTRO_PARTS as part (part.id)}
-				<li class="agenda-item border-r border-b last:border-r-0 md:border-b-0">
+				<li class="agenda-item border-r border-b last:border-r-0 lg:border-b-0">
 					<a
 						href="#{part.id}"
 						class="group flex h-full flex-col gap-y-8 p-5 transition-colors duration-300 hover:bg-muted/40"

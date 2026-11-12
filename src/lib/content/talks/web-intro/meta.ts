@@ -1,6 +1,7 @@
 import {
 	PIXEL_ICON_BROWSER,
 	PIXEL_ICON_BUILD,
+	PIXEL_ICON_DEFINE,
 	PIXEL_ICON_FLAG,
 	PIXEL_ICON_GLOBE,
 	PIXEL_ICON_PALETTE
@@ -12,8 +13,9 @@ import {
  * su propio archivo de esta carpeta.
  */
 
-/** Anclas de las cinco partes. La agenda de la portada salta a cada una. */
+/** Anclas de las seis partes. La agenda de la portada salta a cada una. */
 export const WEB_INTRO_SECTIONS = {
+	product: 'producto',
 	web: 'la-web',
 	browser: 'navegador',
 	components: 'componentes',
@@ -23,42 +25,49 @@ export const WEB_INTRO_SECTIONS = {
 
 export type WebIntroSection = (typeof WEB_INTRO_SECTIONS)[keyof typeof WEB_INTRO_SECTIONS];
 
-/** Las cinco partes en orden, con el tiempo que se les reserva. */
+/** Las seis partes en orden, con el tiempo que se les reserva. */
 export const WEB_INTRO_PARTS = [
 	{
-		id: WEB_INTRO_SECTIONS.web,
+		id: WEB_INTRO_SECTIONS.product,
 		index: '01',
-		label: 'La web',
-		icon: PIXEL_ICON_GLOBE,
+		label: 'El producto',
+		icon: PIXEL_ICON_DEFINE,
 		minutes: 20
 	},
 	{
-		id: WEB_INTRO_SECTIONS.browser,
+		id: WEB_INTRO_SECTIONS.web,
 		index: '02',
+		label: 'La web',
+		icon: PIXEL_ICON_GLOBE,
+		minutes: 15
+	},
+	{
+		id: WEB_INTRO_SECTIONS.browser,
+		index: '03',
 		label: 'El navegador',
 		icon: PIXEL_ICON_BROWSER,
-		minutes: 25
+		minutes: 20
 	},
 	{
 		id: WEB_INTRO_SECTIONS.components,
-		index: '03',
+		index: '04',
 		label: 'Componentes',
 		icon: PIXEL_ICON_BUILD,
 		minutes: 30
 	},
 	{
 		id: WEB_INTRO_SECTIONS.styles,
-		index: '04',
+		index: '05',
 		label: 'Estilos',
 		icon: PIXEL_ICON_PALETTE,
-		minutes: 20
+		minutes: 15
 	},
 	{
 		id: WEB_INTRO_SECTIONS.project,
-		index: '05',
+		index: '06',
 		label: 'Tu proyecto',
 		icon: PIXEL_ICON_FLAG,
-		minutes: 25
+		minutes: 20
 	}
 ] as const;
 
@@ -88,11 +97,11 @@ export const webIntroMeta = {
 	speaker: {
 		eyebrow: 'Quién soy',
 		portrait: '/assets/pfp.jpg',
-		bio: 'Soy Senior Frontend Engineer en DataArt. Antes lideré el frontend de una plataforma empresarial en Unergy, construí desde cero un SaaS que llegó a 1.500 usuarios activos y reconstruí una plataforma nacional que usan más de 64 universidades del país.',
+		bio: 'Soy Senior Frontend Engineer. He liderado el frontend de una plataforma empresarial, construí desde cero un SaaS que llegó a 1.500 usuarios activos y reconstruí una plataforma nacional que usan más de 64 universidades del país.',
 		facts: [
 			{ value: '20+', label: 'Sistemas en producción desde 2023' },
 			{ value: '1.500', label: 'Usuarios activos en el SaaS que construí' },
-			{ value: '64+', label: 'Universidades en la plataforma de ASCUN' }
+			{ value: '64+', label: 'Universidades en una plataforma nacional' }
 		],
 		linkedinLabel: 'LinkedIn',
 		githubLabel: 'GitHub',
@@ -103,11 +112,11 @@ export const webIntroMeta = {
 		eyebrow: 'La sesión',
 		title: 'Lo que vamos a ver',
 		description:
-			'Dos horas en cinco partes. Solo necesitas saber programar en algún lenguaje; no hace falta experiencia en web.',
+			'Dos horas en seis partes. Solo necesitas saber programar en algún lenguaje; no hace falta experiencia en web.',
 		outcomesLabel: 'Al final vas a entender',
 		outcomes: [
+			'Qué es una aplicación web y cuándo conviene una web, una PWA o una nativa.',
 			'Qué pasa desde que escribes una URL hasta que ves la página.',
-			'Cómo se piden y se envían datos el navegador y el servidor.',
 			'Qué es el DOM y cómo lo cambia JavaScript.',
 			'Para qué sirve un framework y qué es la reactividad.',
 			'Cómo dividir una interfaz en componentes.',

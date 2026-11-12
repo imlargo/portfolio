@@ -161,3 +161,15 @@ export const PIXEL_ICON_PALETTE: PixelIconMatrix = [
 	'111.....',
 	'11......'
 ];
+
+/** Diana: entender y definir el problema. */
+export const PIXEL_ICON_DEFINE: PixelIconMatrix = [
+	'..1111..',
+	'.1....1.',
+	'1..11..1',
+	'1.1..1.1',
+	'1.1..1.1',
+	'1..11..1',
+	'.1....1.',
+	'..1111..'
+];

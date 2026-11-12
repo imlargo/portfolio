@@ -53,11 +53,20 @@ export const talks: Talk[] = [
 		status: TALK_STATUS.draft,
 		title: 'Introducción al desarrollo de aplicaciones web',
 		description:
-			'How the web works and how a frontend is built: HTTP, the DOM, reactivity, components, Tailwind, shadcn/ui and how to organize a project. Interactive, with live examples.',
+			'What a web app is and how to decide what to build, then how the web works and how a frontend is built: HTTP, the DOM, reactivity, components, Tailwind, shadcn/ui and project structure. Interactive, with live examples.',
 		language: TALK_LANGUAGE.es,
 		audience: 'Developers new to the web',
 		minutes: 120,
-		topics: ['HTTP', 'DOM', 'Reactivity', 'Components', 'Tailwind', 'shadcn/ui']
+		topics: [
+			'Product',
+			'Web vs native',
+			'HTTP',
+			'DOM',
+			'Reactivity',
+			'Components',
+			'Tailwind',
+			'shadcn/ui'
+		]
 	}
 ];
 
