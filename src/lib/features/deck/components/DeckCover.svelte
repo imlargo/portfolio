@@ -2,12 +2,20 @@
 	import PixelBlast from '$lib/components/effects/pixel/PixelBlast.svelte';
 	import PixelIcon from '$lib/components/effects/pixel/PixelIcon.svelte';
 	import HeroBadge from '$lib/features/home/components/hero/HeroBadge.svelte';
-	import DeckSlide from '$lib/features/deck/components/DeckSlide.svelte';
-	import { WEB_INTRO_PARTS, webIntroMeta } from '$lib/content/talks/web-intro/meta';
+	import DeckSlide from './DeckSlide.svelte';
+	import type { PixelIconMatrix } from '$lib/components/effects/pixel/pixelIcons';
 	import { useReveal } from '$lib/attachments/reveal';
 	import { useSplitTitle } from '$lib/attachments/split-title';
 
-	const { cover } = webIntroMeta;
+	type Props = {
+		badge: string;
+		title: string;
+		description: string;
+		/** Las partes de la presentación: la agenda de la portada salta a cada una. */
+		parts: readonly { id: string; index: string; label: string; icon: PixelIconMatrix }[];
+	};
+
+	const { badge, title, description, parts }: Props = $props();
 </script>
 
 <!-- El mismo montaje que la portada de Kora: el canvas ocupa solo la zona que
@@ -26,18 +34,18 @@
 		class="relative z-10 flex flex-col gap-y-8"
 		{@attach useReveal({ targets: '.cover-item', stagger: 0.12 })}
 	>
-		<HeroBadge class="cover-item">{cover.badge}</HeroBadge>
+		<HeroBadge class="cover-item">{badge}</HeroBadge>
 
 		<h1 class="max-w-4xl text-4xl md:text-6xl" {@attach useSplitTitle(0.15)}>
-			{cover.title}
+			{title}
 		</h1>
 
 		<p class="cover-item max-w-prose text-lg text-pretty text-muted-foreground">
-			{cover.description}
+			{description}
 		</p>
 
 		<ol class="cover-item mt-6 flex flex-wrap gap-x-10 gap-y-3 border-t pt-6 md:max-w-2xl">
-			{#each WEB_INTRO_PARTS as part (part.id)}
+			{#each parts as part (part.id)}
 				<li>
 					<a
 						href="#{part.id}"

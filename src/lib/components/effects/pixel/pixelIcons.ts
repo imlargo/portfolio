@@ -173,3 +173,39 @@ export const PIXEL_ICON_DEFINE: PixelIconMatrix = [
 	'.1....1.',
 	'..1111..'
 ];
+
+/** Chip con sus patas: el procesador, la computadora por dentro. */
+export const PIXEL_ICON_CHIP: PixelIconMatrix = [
+	'.1.11.1.',
+	'11111111',
+	'.1....1.',
+	'11.11.11',
+	'11.11.11',
+	'.1....1.',
+	'11111111',
+	'.1.11.1.'
+];
+
+/** Ventana con un prompt: la terminal. */
+export const PIXEL_ICON_TERMINAL: PixelIconMatrix = [
+	'11111111',
+	'1......1',
+	'1.1....1',
+	'1..1...1',
+	'1.1....1',
+	'1...11.1',
+	'1......1',
+	'11111111'
+];
+
+/** Llaves: el código. */
+export const PIXEL_ICON_CODE: PixelIconMatrix = [
+	'.11..11.',
+	'.1....1.',
+	'.1....1.',
+	'1......1',
+	'.1....1.',
+	'.1....1.',
+	'.11..11.',
+	'........'
+];

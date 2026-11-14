@@ -26,7 +26,8 @@ export type TalkLanguage = (typeof TALK_LANGUAGE)[keyof typeof TALK_LANGUAGE];
 
 /** Las rutas de cada presentación. Cada una es un componente propio, no una plantilla. */
 export const TALK_SLUGS = {
-	webIntro: 'intro-to-web-development'
+	webIntro: 'intro-to-web-development',
+	fromScratch1: 'programming-from-scratch-1'
 } as const;
 
 export type TalkSlug = (typeof TALK_SLUGS)[keyof typeof TALK_SLUGS];
@@ -67,6 +68,18 @@ export const talks: Talk[] = [
 			'Tailwind',
 			'shadcn/ui'
 		]
+	},
+	{
+		slug: TALK_SLUGS.fromScratch1,
+		kind: TALK_KIND.mentoring,
+		status: TALK_STATUS.draft,
+		title: 'Programar desde cero · Clase 1',
+		description:
+			'First class of a mentoring series that takes someone from zero to building complete web apps: how a computer works, the terminal, what programming is and the road ahead. With a working terminal, a robot to program and a live JavaScript console.',
+		language: TALK_LANGUAGE.es,
+		audience: 'Complete beginners',
+		minutes: 120,
+		topics: ['Computers', 'Binary', 'Terminal', 'Programming languages', 'JavaScript']
 	}
 ];
 

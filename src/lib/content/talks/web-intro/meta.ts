@@ -142,13 +142,6 @@ export const webIntroMeta = {
 		eyebrow: 'Gracias',
 		title: 'Gracias por venir',
 		description:
-			'Esta presentación se queda publicada en esta misma dirección, con todo el código. Si te queda alguna duda, escríbeme.',
-		links: [
-			{ label: 'LinkedIn', key: 'linkedin' },
-			{ label: 'GitHub', key: 'github' },
-			{ label: 'imlargo.dev', key: 'site' },
-			{ label: 'Escríbeme', key: 'email' }
-		],
-		backLabel: 'Más charlas'
+			'Esta presentación se queda publicada en esta misma dirección, con todo el código. Si te queda alguna duda, escríbeme.'
 	}
 } as const;

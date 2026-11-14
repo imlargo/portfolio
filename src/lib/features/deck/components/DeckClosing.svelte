@@ -3,27 +3,21 @@
 	import { Button } from '$lib/components/ui/button';
 	import PixelBlast from '$lib/components/effects/pixel/PixelBlast.svelte';
 	import SectionIndicator from '$lib/components/layout/SectionIndicator.svelte';
-	import DeckSlide from '$lib/features/deck/components/DeckSlide.svelte';
-	import { webIntroMeta } from '$lib/content/talks/web-intro/meta';
-	import { siteContent } from '$lib/content/site-content';
+	import DeckSlide from './DeckSlide.svelte';
 	import { useReveal } from '$lib/attachments/reveal';
 	import { useSplitTitle } from '$lib/attachments/split-title';
 
 	type Props = {
-		/** La lista de charlas, a donde vuelve el botón del cierre. */
+		eyebrow: string;
+		title: string;
+		description: string;
+		links: readonly { label: string; href: string }[];
+		/** La lista de charlas, a donde vuelve el enlace del cierre. */
 		backHref: string;
+		backLabel: string;
 	};
 
-	const { backHref }: Props = $props();
-
-	const { closing } = webIntroMeta;
-
-	const HREF: Record<(typeof closing.links)[number]['key'], string> = {
-		linkedin: siteContent.socials.linkedin,
-		github: siteContent.socials.github,
-		site: siteContent.seo.siteUrl,
-		email: `mailto:${siteContent.email}`
-	};
+	const { eyebrow, title, description, links, backHref, backLabel }: Props = $props();
 </script>
 
 <!-- El cierre repite el montaje de la portada, con el canvas a la derecha:
@@ -42,17 +36,17 @@
 		class="relative z-10 flex flex-col gap-y-8"
 		{@attach useReveal({ targets: '.closing-item', stagger: 0.12 })}
 	>
-		<SectionIndicator class="closing-item">{closing.eyebrow}</SectionIndicator>
+		<SectionIndicator class="closing-item">{eyebrow}</SectionIndicator>
 		<h2 class="max-w-3xl text-4xl md:text-6xl lg:text-7xl" {@attach useSplitTitle(0.1)}>
-			{closing.title}
+			{title}
 		</h2>
 		<p class="closing-item max-w-prose text-lg text-pretty text-muted-foreground">
-			{closing.description}
+			{description}
 		</p>
 		<ul class="closing-item flex flex-wrap gap-2">
-			{#each closing.links as link (link.key)}
+			{#each links as link (link.href)}
 				<li>
-					<Button variant="outline" href={HREF[link.key]} target="_blank" rel="noopener noreferrer">
+					<Button variant="outline" href={link.href} target="_blank" rel="noopener noreferrer">
 						{link.label}
 						<ArrowUpRight />
 					</Button>
@@ -64,7 +58,7 @@
 			class="closing-item flex w-fit items-center gap-x-2 text-sm text-white/70 transition-colors hover:text-white"
 		>
 			<ArrowLeft class="size-4" />
-			{closing.backLabel}
+			{backLabel}
 		</a>
 	</div>
 </DeckSlide>

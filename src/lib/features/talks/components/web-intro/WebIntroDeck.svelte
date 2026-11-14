@@ -1,9 +1,12 @@
 <script lang="ts">
 	import Deck from '$lib/features/deck/components/Deck.svelte';
+	import DeckClosing from '$lib/features/deck/components/DeckClosing.svelte';
+	import DeckCover from '$lib/features/deck/components/DeckCover.svelte';
+	import DeckNotes from '$lib/features/deck/components/DeckNotes.svelte';
 	import { setDeckCode } from '$lib/features/deck/code-snippets';
 	import { webIntroSnippets } from '$lib/content/talks/web-intro/snippets';
-	import { webIntroMeta } from '$lib/content/talks/web-intro/meta';
-	import CoverSlide from './CoverSlide.svelte';
+	import { WEB_INTRO_PARTS, webIntroMeta } from '$lib/content/talks/web-intro/meta';
+	import { talkBackLabel, talkContactLinks } from '$lib/content/talks/shared';
 	import SpeakerSlide from './SpeakerSlide.svelte';
 	import GoalsSlide from './GoalsSlide.svelte';
 	import WhatIsSlide from './WhatIsSlide.svelte';
@@ -25,8 +28,6 @@
 	import RoadmapSlide from './RoadmapSlide.svelte';
 	import ProjectSlide from './ProjectSlide.svelte';
 	import ResourcesSlide from './ResourcesSlide.svelte';
-	import QuestionsSlide from './QuestionsSlide.svelte';
-	import ClosingSlide from './ClosingSlide.svelte';
 
 	type Props = {
 		/** El HTML resaltado de cada fragmento, armado en el servidor durante el build. */
@@ -45,7 +46,7 @@
 <!-- Seis partes que van de qué es una aplicación y cómo se decide, a cómo
      funciona la web y cómo se arma y se ordena un frontend; cada parte abre con la diapositiva que lleva su ancla. -->
 <Deck label={webIntroMeta.label} {backHref}>
-	<CoverSlide />
+	<DeckCover {...webIntroMeta.cover} parts={WEB_INTRO_PARTS} />
 	<SpeakerSlide />
 	<GoalsSlide />
 
@@ -73,6 +74,11 @@
 	<RoadmapSlide />
 	<ProjectSlide />
 	<ResourcesSlide />
-	<QuestionsSlide />
-	<ClosingSlide {backHref} />
+	<DeckNotes copy={webIntroMeta.questions} storageKey="{webIntroMeta.storageKey}:questions" />
+	<DeckClosing
+		{...webIntroMeta.closing}
+		links={talkContactLinks}
+		{backHref}
+		backLabel={talkBackLabel}
+	/>
 </Deck>
