@@ -73,6 +73,25 @@ if (vaALlover) {
 
 saludar('Ada');
 saludar('Alan');`
+	},
+	splitPseudocode: {
+		language: 'text',
+		label: 'Pseudocódigo',
+		code: `total ← 120000
+propina ← total × 0.10
+totalConPropina ← total + propina
+porPersona ← totalConPropina ÷ 4
+mostrar porPersona`
+	},
+	splitCode: {
+		language: 'js',
+		label: 'cuenta.js',
+		code: `const total = 120000;
+const propina = total * 0.1;
+const totalConPropina = total + propina;
+const porPersona = totalConPropina / 4;
+
+console.log(porPersona); // 33000`
 	}
 } as const satisfies Record<string, CodeSnippet>;
 

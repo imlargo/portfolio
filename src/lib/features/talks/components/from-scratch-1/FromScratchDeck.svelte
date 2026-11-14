@@ -21,6 +21,8 @@
 	import TerminalSlide from './TerminalSlide.svelte';
 	import PathsSlide from './PathsSlide.svelte';
 	import RobotSlide from './RobotSlide.svelte';
+	import DecomposeSlide from './DecomposeSlide.svelte';
+	import TraceSlide from './TraceSlide.svelte';
 	import LanguageSlide from './LanguageSlide.svelte';
 	import LanguagesMapSlide from './LanguagesMapSlide.svelte';
 	import BasicsSlide from './BasicsSlide.svelte';
@@ -64,9 +66,11 @@
 	<PathsSlide />
 
 	<RobotSlide />
+	<DecomposeSlide />
 	<LanguageSlide />
 	<LanguagesMapSlide />
 	<BasicsSlide />
+	<TraceSlide />
 	<FirstProgramSlide />
 
 	<AppSlide />
